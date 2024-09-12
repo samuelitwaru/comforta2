@@ -1276,18 +1276,8 @@ namespace GeneXus.Programs {
          AV24LoginOK = new GeneXus.Programs.genexussecurity.SdtGAMRepository(context).login(AV31UserName, AV32UserPassword, AV5AdditionalParameter, out  AV61Errors);
          if ( AV24LoginOK )
          {
-            AV30URL = new GeneXus.Programs.genexussecurity.SdtGAMRepository(context).getlasterrorsurl();
-            AssignAttri("", false, "AV30URL", AV30URL);
-            if ( String.IsNullOrEmpty(StringUtil.RTrim( AV30URL)) )
-            {
-               CallWebObject(formatLink("gamhome.aspx") );
-               context.wjLocDisableFrm = 1;
-            }
-            else
-            {
-               CallWebObject(formatLink(AV30URL) );
-               context.wjLocDisableFrm = 0;
-            }
+            CallWebObject(formatLink("home.aspx") );
+            context.wjLocDisableFrm = 1;
          }
          else
          {
@@ -1732,7 +1722,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202491278122", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20249129341665", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1748,7 +1738,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("gamexamplelogin.js", "?202491278124", false, true);
+         context.AddJavascriptSource("gamexamplelogin.js", "?20249129341669", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Mask/jquery.mask.js", "", false, true);
          context.AddJavascriptSource("DVelop/WorkWithPlusUtilities/BootstrapSelect.js", "", false, true);
@@ -2214,7 +2204,7 @@ namespace GeneXus.Programs {
          setEventMetadata("GRIDAUTHTYPES.LOAD","""{"handler":"E150L2","iparms":[{"av":"divTablebuttons_Visible","ctrl":"TABLEBUTTONS","prop":"Visible"}]""");
          setEventMetadata("GRIDAUTHTYPES.LOAD",""","oparms":[{"av":"AV58ImageAuthType","fld":"vIMAGEAUTHTYPE"},{"av":"cmbavTypeauthtype"},{"av":"AV59TypeAuthType","fld":"vTYPEAUTHTYPE"},{"av":"AV26NameAuthType","fld":"vNAMEAUTHTYPE"},{"av":"edtavImageauthtype_Tooltiptext","ctrl":"vIMAGEAUTHTYPE","prop":"Tooltiptext"},{"av":"divTablebuttons_Visible","ctrl":"TABLEBUTTONS","prop":"Visible"}]}""");
          setEventMetadata("ENTER","""{"handler":"E120L2","iparms":[{"av":"AV22KeepMeLoggedIn","fld":"vKEEPMELOGGEDIN"},{"av":"AV27RememberMe","fld":"vREMEMBERME"},{"av":"cmbavLogonto"},{"av":"AV25LogOnTo","fld":"vLOGONTO"},{"av":"AV31UserName","fld":"vUSERNAME"},{"av":"AV32UserPassword","fld":"vUSERPASSWORD"},{"av":"AV16IDP_State","fld":"vIDP_STATE"}]""");
-         setEventMetadata("ENTER",""","oparms":[{"av":"AV30URL","fld":"vURL"},{"av":"AV16IDP_State","fld":"vIDP_STATE"},{"av":"AV32UserPassword","fld":"vUSERPASSWORD"}]}""");
+         setEventMetadata("ENTER",""","oparms":[{"av":"AV16IDP_State","fld":"vIDP_STATE"},{"av":"AV32UserPassword","fld":"vUSERPASSWORD"}]}""");
          setEventMetadata("VIMAGEAUTHTYPE.CLICK","""{"handler":"E170L2","iparms":[{"av":"AV26NameAuthType","fld":"vNAMEAUTHTYPE"},{"av":"AV31UserName","fld":"vUSERNAME"},{"av":"AV32UserPassword","fld":"vUSERPASSWORD"}]}""");
          setEventMetadata("VLOGONTO.CLICK","""{"handler":"E130L2","iparms":[{"av":"AV23Language","fld":"vLANGUAGE","hsh":true},{"av":"cmbavLogonto"},{"av":"AV25LogOnTo","fld":"vLOGONTO"}]""");
          setEventMetadata("VLOGONTO.CLICK",""","oparms":[{"av":"edtavUserpassword_Visible","ctrl":"vUSERPASSWORD","prop":"Visible"},{"av":"edtavUserpassword_Invitemessage","ctrl":"vUSERPASSWORD","prop":"Invitemessage"},{"ctrl":"BTNENTER","prop":"Caption"},{"av":"lblForgotpassword_Visible","ctrl":"FORGOTPASSWORD","prop":"Visible"},{"av":"chkavRememberme.Visible","ctrl":"vREMEMBERME","prop":"Visible"},{"av":"chkavKeepmeloggedin.Visible","ctrl":"vKEEPMELOGGEDIN","prop":"Visible"}]}""");
