@@ -42,9 +42,6 @@ namespace GeneXus.Programs {
          obj = new SdtPageTemplate(context);
          trn = obj.getTransaction();
          result = trn.Reindex();
-         obj = new SdtPage(context);
-         trn = obj.getTransaction();
-         result = trn.Reindex();
          obj = new SdtLocationEvent(context);
          trn = obj.getTransaction();
          result = trn.Reindex();
@@ -52,6 +49,9 @@ namespace GeneXus.Programs {
          trn = obj.getTransaction();
          result = trn.Reindex();
          obj = new SdtCustomerCustomization(context);
+         trn = obj.getTransaction();
+         result = trn.Reindex();
+         obj = new SdtPage(context);
          trn = obj.getTransaction();
          result = trn.Reindex();
          return 1 ;

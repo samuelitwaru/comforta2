@@ -33,4 +33,24 @@
 "ServiceMethod":"gxep_getresidentinformation",
 "Implementation":"GetResidentInfo",
 "Verb":"GET"
+},
+{
+"PathRegexp":"api/mobile/register-device",
+"Path":"api/mobile/register-device",
+"Verb":"POST",
+"Name":"registerdevice",
+"Bodystyle":"Wrapped",
+"VariableAlias": [],
+"ServiceMethod":"gxep_registerdevice",
+"Implementation":"RegisterResidentDevice"
+},
+{
+"PathRegexp":"api/mobile/send-notification",
+"Path":"api/mobile/send-notification",
+"Verb":"POST",
+"Name":"sendnotification",
+"Bodystyle":"Wrapped",
+"VariableAlias": [],
+"ServiceMethod":"gxep_sendnotification",
+"Implementation":"SendTestNotification"
 }]}

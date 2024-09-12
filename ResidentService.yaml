@@ -2,9 +2,9 @@ openapi: 3.0.0
 info:
   title: "ResidentService"
   description: "Resident Service"
-  version: "20240912033243"
+  version: "20240912041340"
 servers:
-  - url: http://localhost:8082/Comforta2NETPostgreSQL/ResidentService
+  - url: https://comforta.yukon.software//ResidentService
 paths:
   /api/auth/login:
     post:
@@ -86,6 +86,60 @@ paths:
         404:
           description: "Not found"
 
+  /api/mobile/register-device:
+    post:
+      tags:
+        - ResidentService  
+      operationId: "ResidentService.RegisterDevice"
+      summary: "Register Resident Device Information"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterDeviceInput"
+      
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                type: "string"
+
+
+        404:
+          description: "Not found"
+
+  /api/mobile/send-notification:
+    post:
+      tags:
+        - ResidentService  
+      operationId: "ResidentService.SendNotification"
+      summary: "Send Push Notification"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SendNotificationInput"
+      
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                type: "string"
+
+
+        404:
+          description: "Not found"
+
 components:
   securitySchemes:
     oAuthGXGAM:
@@ -93,7 +147,7 @@ components:
       description: GAM OAuth 2
       flows:
         password:          
-          tokenUrl: http://localhost:8082/Comforta2NETPostgreSQL/oauth/gam/v2.0/access_token
+          tokenUrl: https://comforta.yukon.software//oauth/gam/v2.0/access_token
           scopes: 
             fullcontrol: Full access
 
@@ -110,6 +164,29 @@ components:
         secretKey:
           type: "string"
 
+
+    RegisterDeviceInput:  
+      properties:
+        DeviceToken:
+          type: "string"
+        DeviceId:
+          type: "string"
+        DeviceType:
+          type: "integer"
+          format: "int32"
+        NotificationPlatform:
+          type: "string"
+        NotificationPlatformId:
+          type: "string"
+        UserId:
+          type: "string"
+
+    SendNotificationInput:  
+      properties:
+        Title:
+          type: "string"
+        Text:
+          type: "string"
   
     LoginResidentResponseSDT:
       properties:

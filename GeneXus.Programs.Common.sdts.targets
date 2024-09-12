@@ -39,6 +39,7 @@
  	<Compile Include="$(WebDirectory)\type_SdtLocationGenSuppliersSDT.cs" />
  	<Compile Include="$(WebDirectory)\type_SdtLocationReceptionistSDT.cs" />
  	<Compile Include="$(WebDirectory)\type_SdtLoginResidentResponseSDT.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtOneSignalToken.cs" />
  	<Compile Include="$(WebDirectory)\type_SdtResidentDetails.cs" />
  	<Compile Include="$(WebDirectory)\type_SdtResidentDetails_Customer.cs" />
  	<Compile Include="$(WebDirectory)\type_SdtResidentDetails_Customer_Location.cs" />

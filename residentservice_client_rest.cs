@@ -62,7 +62,7 @@ namespace GeneXus.Programs {
          restLocation = new GxLocation();
          restLocation.Host = "localhost";
          restLocation.Port = 8082;
-         restLocation.BaseUrl = "Comforta2NETPostgreSQL/ResidentService";
+         restLocation.BaseUrl = "comforta.yukon.software/ResidentService";
          gxProperties = new GxObjectProperties();
       }
 
@@ -167,6 +167,72 @@ namespace GeneXus.Programs {
          /* GetResidentInformation Constructor */
       }
 
+      public void gxep_registerdevice( string aP0_DeviceToken ,
+                                       string aP1_DeviceId ,
+                                       short aP2_DeviceType ,
+                                       string aP3_NotificationPlatform ,
+                                       string aP4_NotificationPlatformId ,
+                                       string aP5_UserId ,
+                                       out string aP6_Message )
+      {
+         restCliRegisterDevice = new GXRestAPIClient();
+         if ( restLocation == null )
+         {
+            InitLocation();
+         }
+         restLocation.ResourceName = "/api/mobile/register-device";
+         restCliRegisterDevice.Location = restLocation;
+         restCliRegisterDevice.HttpMethod = "POST";
+         restCliRegisterDevice.AddBodyVar("DeviceToken", (string)(aP0_DeviceToken));
+         restCliRegisterDevice.AddBodyVar("DeviceId", (string)(aP1_DeviceId));
+         restCliRegisterDevice.AddBodyVar("DeviceType", (short)(aP2_DeviceType));
+         restCliRegisterDevice.AddBodyVar("NotificationPlatform", (string)(aP3_NotificationPlatform));
+         restCliRegisterDevice.AddBodyVar("NotificationPlatformId", (string)(aP4_NotificationPlatformId));
+         restCliRegisterDevice.AddBodyVar("UserId", (string)(aP5_UserId));
+         restCliRegisterDevice.RestExecute();
+         if ( restCliRegisterDevice.ErrorCode != 0 )
+         {
+            gxProperties.ErrorCode = restCliRegisterDevice.ErrorCode;
+            gxProperties.ErrorMessage = restCliRegisterDevice.ErrorMessage;
+            gxProperties.StatusCode = restCliRegisterDevice.StatusCode;
+            aP6_Message = "";
+         }
+         else
+         {
+            aP6_Message = restCliRegisterDevice.GetBodyString("Message");
+         }
+         /* RegisterDevice Constructor */
+      }
+
+      public void gxep_sendnotification( string aP0_Title ,
+                                         string aP1_Text ,
+                                         out string aP2_Message )
+      {
+         restCliSendNotification = new GXRestAPIClient();
+         if ( restLocation == null )
+         {
+            InitLocation();
+         }
+         restLocation.ResourceName = "/api/mobile/send-notification";
+         restCliSendNotification.Location = restLocation;
+         restCliSendNotification.HttpMethod = "POST";
+         restCliSendNotification.AddBodyVar("Title", (string)(aP0_Title));
+         restCliSendNotification.AddBodyVar("Text", (string)(aP1_Text));
+         restCliSendNotification.RestExecute();
+         if ( restCliSendNotification.ErrorCode != 0 )
+         {
+            gxProperties.ErrorCode = restCliSendNotification.ErrorCode;
+            gxProperties.ErrorMessage = restCliSendNotification.ErrorMessage;
+            gxProperties.StatusCode = restCliSendNotification.StatusCode;
+            aP2_Message = "";
+         }
+         else
+         {
+            aP2_Message = restCliSendNotification.GetBodyString("Message");
+         }
+         /* SendNotification Constructor */
+      }
+
       public override void cleanup( )
       {
          CloseCursors();
@@ -181,6 +247,10 @@ namespace GeneXus.Programs {
          aP1_response = new SdtLoginResidentResponseSDT();
          restCliGetResidentInformation = new GXRestAPIClient();
          aP1_ResidentDetails = new SdtResidentDetails();
+         restCliRegisterDevice = new GXRestAPIClient();
+         aP6_Message = "";
+         restCliSendNotification = new GXRestAPIClient();
+         aP2_Message = "";
          /* GeneXus formulas. */
       }
 
@@ -188,6 +258,8 @@ namespace GeneXus.Programs {
       protected GXRestAPIClient restCliLogin ;
       protected GXRestAPIClient restCliLoginWithQrCode ;
       protected GXRestAPIClient restCliGetResidentInformation ;
+      protected GXRestAPIClient restCliRegisterDevice ;
+      protected GXRestAPIClient restCliSendNotification ;
       protected GxLocation restLocation ;
       protected GxObjectProperties gxProperties ;
       protected IGxDataStore dsGAM ;
@@ -195,6 +267,8 @@ namespace GeneXus.Programs {
       protected string aP2_result ;
       protected SdtLoginResidentResponseSDT aP1_response ;
       protected SdtResidentDetails aP1_ResidentDetails ;
+      protected string aP6_Message ;
+      protected string aP2_Message ;
    }
 
 }
