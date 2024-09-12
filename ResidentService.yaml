@@ -4,7 +4,7 @@ info:
   description: "Resident Service"
   version: "20240912041340"
 servers:
-  - url: https://comforta.yukon.software//ResidentService
+  - url: https://comforta.yukon.software/ResidentService
 paths:
   /api/auth/login:
     post:
@@ -147,7 +147,7 @@ components:
       description: GAM OAuth 2
       flows:
         password:          
-          tokenUrl: https://comforta.yukon.software//oauth/gam/v2.0/access_token
+          tokenUrl: https://comforta.yukon.software/oauth/gam/v2.0/access_token
           scopes: 
             fullcontrol: Full access
 

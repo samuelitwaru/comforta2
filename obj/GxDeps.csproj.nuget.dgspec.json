@@ -60,14 +60,6 @@
               "target": "Package",
               "version": "[1.30.0, 1.30.0]"
             },
-            "GeneXus.Excel.Core": {
-              "target": "Package",
-              "version": "[1.30.0, 1.30.0]"
-            },
-            "GeneXus.Mail.Core": {
-              "target": "Package",
-              "version": "[1.30.0, 1.30.0]"
-            },
             "GeneXus.Maps.Core": {
               "target": "Package",
               "version": "[1.30.0, 1.30.0]"
@@ -76,21 +68,9 @@
               "target": "Package",
               "version": "[1.30.0, 1.30.0]"
             },
-            "GeneXus.PdfReportsCS.Core": {
-              "target": "Package",
-              "version": "[1.30.0, 1.30.0]"
-            },
             "GeneXus.Reorganization.Core": {
               "target": "Package",
               "version": "[1.30.0, 1.30.0]"
-            },
-            "GeneXus.Search.Core": {
-              "target": "Package",
-              "version": "[1.30.0, 1.30.0]"
-            },
-            "iTextSharp-LGPL": {
-              "target": "Package",
-              "version": "[4.1.6, )"
             }
           },
           "imports": [
