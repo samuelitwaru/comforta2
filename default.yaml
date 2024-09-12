@@ -1,0 +1,1521 @@
+openapi: 3.0.0
+info:
+  title: "Comforta2"
+  version: "20240912033243"
+servers:
+  - url: http://localhost:8082/Comforta2NETPostgreSQL/rest
+paths:
+  /Device/{DeviceId}:
+    get:
+      tags:
+        - Device
+      operationId: "GetDevice"
+      summary: "Find an existing Device"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "DeviceId"
+          in: "path"
+          description: "Device Id"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+    post:
+      tags:
+        - Device
+      operationId: "InsertDevice"
+      summary: "Add a new Device"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "DeviceId"
+          in: "path"
+          description: "Device Id"
+          required: true
+          schema:
+            type: "string"
+      requestBody:
+        description: "Device properties"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Device"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+    put:
+      tags:
+        - Device
+      operationId: "UpdateDevice"
+      summary: "Update an existing Device"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "DeviceId"
+          in: "path"
+          description: "Device Id"
+          required: true
+          schema:
+            type: "string"
+      requestBody:
+        description: "Device properties"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Device"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        409:
+          description: "Device was changed"
+    delete:
+      tags:
+        - Device
+      operationId: "DeleteDevice"
+      summary: "Delete an existing Device"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "DeviceId"
+          in: "path"
+          description: "Device Id"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        204:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+  /AddAgbSuppliersLoadDVCombo:
+    post:
+      tags:
+        - AddAgbSuppliersLoadDVCombo
+      operationId: "AddAgbSuppliersLoadDVCombo"
+      summary: "Add Agb Suppliers Load DVCombo"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AddAgbSuppliersLoadDVComboInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AddAgbSuppliersLoadDVComboOutput"
+        404:
+          description: "Not found"
+  /AddGenSuppliersLoadDVCombo:
+    post:
+      tags:
+        - AddGenSuppliersLoadDVCombo
+      operationId: "AddGenSuppliersLoadDVCombo"
+      summary: "Add Gen Suppliers Load DVCombo"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AddGenSuppliersLoadDVComboInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AddGenSuppliersLoadDVComboOutput"
+        404:
+          description: "Not found"
+  /AddSuppliersLoadDVCombo:
+    post:
+      tags:
+        - AddSuppliersLoadDVCombo
+      operationId: "AddSuppliersLoadDVCombo"
+      summary: "Add Suppliers Load DVCombo"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AddSuppliersLoadDVComboInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AddSuppliersLoadDVComboOutput"
+        404:
+          description: "Not found"
+  /AmenitiesLoadDVCombo:
+    post:
+      tags:
+        - AmenitiesLoadDVCombo
+      operationId: "AmenitiesLoadDVCombo"
+      summary: "Amenities Load DVCombo"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AmenitiesLoadDVComboInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AmenitiesLoadDVComboOutput"
+        404:
+          description: "Not found"
+  /AmenitiesTypeWWGetFilterData:
+    post:
+      tags:
+        - AmenitiesTypeWWGetFilterData
+      operationId: "AmenitiesTypeWWGetFilterData"
+      summary: "Amenities Type WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AmenitiesTypeWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AmenitiesTypeWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /AmenitiesWWGetFilterData:
+    post:
+      tags:
+        - AmenitiesWWGetFilterData
+      operationId: "AmenitiesWWGetFilterData"
+      summary: "Amenities WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AmenitiesWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AmenitiesWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /CustomerCustomizationWWGetFilterData:
+    post:
+      tags:
+        - CustomerCustomizationWWGetFilterData
+      operationId: "CustomerCustomizationWWGetFilterData"
+      summary: "Customer Customization WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CustomerCustomizationWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CustomerCustomizationWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /CustomerLoadDVCombo:
+    post:
+      tags:
+        - CustomerLoadDVCombo
+      operationId: "CustomerLoadDVCombo"
+      summary: "Customer Load DVCombo"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CustomerLoadDVComboInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CustomerLoadDVComboOutput"
+        404:
+          description: "Not found"
+  /CustomerTypeWWGetFilterData:
+    post:
+      tags:
+        - CustomerTypeWWGetFilterData
+      operationId: "CustomerTypeWWGetFilterData"
+      summary: "Customer Type WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CustomerTypeWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CustomerTypeWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /CustomerWWGetFilterData:
+    post:
+      tags:
+        - CustomerWWGetFilterData
+      operationId: "CustomerWWGetFilterData"
+      summary: "Customer WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CustomerWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CustomerWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /PageLoadDVCombo:
+    post:
+      tags:
+        - PageLoadDVCombo
+      operationId: "PageLoadDVCombo"
+      summary: "Page Load DVCombo"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PageLoadDVComboInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PageLoadDVComboOutput"
+        404:
+          description: "Not found"
+  /PageWWGetFilterData:
+    post:
+      tags:
+        - PageWWGetFilterData
+      operationId: "PageWWGetFilterData"
+      summary: "Page WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PageWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PageWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /ProductServiceLoadDVCombo:
+    post:
+      tags:
+        - ProductServiceLoadDVCombo
+      operationId: "ProductServiceLoadDVCombo"
+      summary: "Product Service Load DVCombo"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductServiceLoadDVComboInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductServiceLoadDVComboOutput"
+        404:
+          description: "Not found"
+  /ProductServiceTypeWWGetFilterData:
+    post:
+      tags:
+        - ProductServiceTypeWWGetFilterData
+      operationId: "ProductServiceTypeWWGetFilterData"
+      summary: "Product Service Type WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductServiceTypeWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductServiceTypeWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /ProductServiceWWGetFilterData:
+    post:
+      tags:
+        - ProductServiceWWGetFilterData
+      operationId: "ProductServiceWWGetFilterData"
+      summary: "Product Service WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductServiceWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductServiceWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /ResidentLoadDVCombo:
+    post:
+      tags:
+        - ResidentLoadDVCombo
+      operationId: "ResidentLoadDVCombo"
+      summary: "Resident Load DVCombo"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ResidentLoadDVComboInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResidentLoadDVComboOutput"
+        404:
+          description: "Not found"
+  /ResidentTypeWWGetFilterData:
+    post:
+      tags:
+        - ResidentTypeWWGetFilterData
+      operationId: "ResidentTypeWWGetFilterData"
+      summary: "Resident Type WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ResidentTypeWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResidentTypeWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /ResidentWWGetFilterData:
+    post:
+      tags:
+        - ResidentWWGetFilterData
+      operationId: "ResidentWWGetFilterData"
+      summary: "Resident WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ResidentWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResidentWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /Supplier_AgbLoadDVCombo:
+    post:
+      tags:
+        - Supplier_AgbLoadDVCombo
+      operationId: "Supplier_AgbLoadDVCombo"
+      summary: "Supplier_Agb Load DVCombo"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Supplier_AgbLoadDVComboInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Supplier_AgbLoadDVComboOutput"
+        404:
+          description: "Not found"
+  /Supplier_AgbWWGetFilterData:
+    post:
+      tags:
+        - Supplier_AgbWWGetFilterData
+      operationId: "Supplier_AgbWWGetFilterData"
+      summary: "Supplier_Agb WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Supplier_AgbWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Supplier_AgbWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /Supplier_GenLoadDVCombo:
+    post:
+      tags:
+        - Supplier_GenLoadDVCombo
+      operationId: "Supplier_GenLoadDVCombo"
+      summary: "Supplier_Gen Load DVCombo"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Supplier_GenLoadDVComboInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Supplier_GenLoadDVComboOutput"
+        404:
+          description: "Not found"
+  /Supplier_GenWWGetFilterData:
+    post:
+      tags:
+        - Supplier_GenWWGetFilterData
+      operationId: "Supplier_GenWWGetFilterData"
+      summary: "Supplier_Gen WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Supplier_GenWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Supplier_GenWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/WWP_ParameterWWGetFilterData:
+    post:
+      tags:
+        - WorkWithPlus
+      operationId: "WorkWithPlus.WWP_ParameterWWGetFilterData"
+      summary: "WWPParameter WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.WWP_ParameterWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.WWP_ParameterWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /oauth/access_token:
+    post:
+      tags:
+        - oauth
+      operationId: "oauth.access_token"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/logout:
+    post:
+      tags:
+        - oauth
+      operationId: "oauth.logout"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/userinfo:
+    get:
+      tags:
+        - oauth
+      operationId: "oauth.userinfo"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /gx_valid_service:
+    post:
+      tags:
+        - GXValidService
+      operationId: "gx_valid_service"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/gam/signin:
+    post:
+      tags:
+        - oauth.gam
+      operationId: "oauth.gam.signin"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/gam/callback:
+    get:
+      tags:
+        - oauth.gam
+      operationId: "oauth.gam.callback"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/gam/access_token:
+    post:
+      tags:
+        - oauth.gam
+      operationId: "oauth.gam.access_token"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/gam/userinfo:
+    post:
+      tags:
+        - oauth.gam
+      operationId: "oauth.gam.userinfo"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/gam/signout:
+    post:
+      tags:
+        - oauth.gam
+      operationId: "oauth.gam.signout"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/RequestTokenService:
+    post:
+      tags:
+        - oauth
+      operationId: "oauth.RequestTokenService"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/QueryAccessToken:
+    post:
+      tags:
+        - oauth
+      operationId: "oauth.QueryAccessToken"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /saml/gam/signout:
+    post:
+      tags:
+        - saml.gam
+      operationId: "saml.gam.signout"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /saml/gam/signin:
+    post:
+      tags:
+        - saml.gam
+      operationId: "saml.gam.signin"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+components:
+  securitySchemes:
+    oAuthGXGAM:
+      type: oauth2
+      description: GAM OAuth 2
+      flows:
+        password:          
+          tokenUrl: http://localhost:8082/Comforta2NETPostgreSQL/oauth/gam/v2.0/access_token
+          scopes: 
+            fullcontrol: Full access
+  schemas:
+    Device:
+      properties:
+        DeviceId:
+          description: "Device Id"
+          type: "string"
+        DeviceType:
+          description: "Device Type"
+          type: "integer"
+          format: "int32"
+        DeviceToken:
+          description: "Device Token"
+          type: "string"
+        DeviceName:
+          description: "Device Name"
+          type: "string"
+        DeviceUserGuid:
+          description: "Device User Guid"
+          type: "string"
+        gx_md5_hash:
+          description: "gx_md5_hash is an identifier for a specific version of a resource, it is used for optimistic concurrency check. It is required for update and delete operations and  ignored on insert."
+          type: "string"
+      required:
+        - gx_md5_hash
+    AddAgbSuppliersLoadDVComboOutput:
+      properties:
+        Combo_DataJson:
+          type: "string"
+    AddGenSuppliersLoadDVComboOutput:
+      properties:
+        Combo_DataJson:
+          type: "string"
+    AddSuppliersLoadDVComboOutput:
+      properties:
+        Combo_DataJson:
+          type: "string"
+    AmenitiesLoadDVComboOutput:
+      properties:
+        SelectedValue:
+          type: "string"
+        SelectedText:
+          type: "string"
+        Combo_DataJson:
+          type: "string"
+    AmenitiesTypeWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    AmenitiesWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    CustomerCustomizationWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    CustomerLoadDVComboOutput:
+      properties:
+        SelectedValue:
+          type: "string"
+        SelectedText:
+          type: "string"
+        Combo_DataJson:
+          type: "string"
+    CustomerTypeWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    CustomerWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    PageLoadDVComboOutput:
+      properties:
+        SelectedValue:
+          type: "string"
+        SelectedText:
+          type: "string"
+        Combo_DataJson:
+          type: "string"
+    PageWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    ProductServiceLoadDVComboOutput:
+      properties:
+        SelectedValue:
+          type: "string"
+        SelectedText:
+          type: "string"
+        Combo_DataJson:
+          type: "string"
+    ProductServiceTypeWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    ProductServiceWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    ResidentLoadDVComboOutput:
+      properties:
+        SelectedValue:
+          type: "string"
+        SelectedText:
+          type: "string"
+        Combo_DataJson:
+          type: "string"
+    ResidentTypeWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    ResidentWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    Supplier_AgbLoadDVComboOutput:
+      properties:
+        SelectedValue:
+          type: "string"
+        SelectedText:
+          type: "string"
+        Combo_DataJson:
+          type: "string"
+    Supplier_AgbWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    Supplier_GenLoadDVComboOutput:
+      properties:
+        SelectedValue:
+          type: "string"
+        SelectedText:
+          type: "string"
+        Combo_DataJson:
+          type: "string"
+    Supplier_GenWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    WorkWithPlus.WWP_ParameterWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    AddAgbSuppliersLoadDVComboInput:  
+      properties:
+        ComboName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+    AddGenSuppliersLoadDVComboInput:  
+      properties:
+        ComboName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+    AddSuppliersLoadDVComboInput:  
+      properties:
+        ComboName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+    AmenitiesLoadDVComboInput:  
+      properties:
+        ComboName:
+          type: "string"
+        TrnMode:
+          type: "string"
+        IsDynamicCall:
+          type: "boolean"
+        AmenitiesId:
+          type: "integer"
+          format: "int32"
+        SearchTxtParms:
+          type: "string"
+    AmenitiesTypeWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    AmenitiesWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    CustomerCustomizationWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    CustomerLoadDVComboInput:  
+      properties:
+        ComboName:
+          type: "string"
+        TrnMode:
+          type: "string"
+        IsDynamicCall:
+          type: "boolean"
+        CustomerId:
+          type: "integer"
+          format: "int32"
+        SearchTxtParms:
+          type: "string"
+    CustomerTypeWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    CustomerWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    PageLoadDVComboInput:  
+      properties:
+        ComboName:
+          type: "string"
+        TrnMode:
+          type: "string"
+        IsDynamicCall:
+          type: "boolean"
+        PageId:
+          type: "integer"
+          format: "int32"
+        SearchTxtParms:
+          type: "string"
+    PageWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    ProductServiceLoadDVComboInput:  
+      properties:
+        ComboName:
+          type: "string"
+        TrnMode:
+          type: "string"
+        IsDynamicCall:
+          type: "boolean"
+        ProductServiceId:
+          type: "integer"
+          format: "int32"
+        SearchTxtParms:
+          type: "string"
+    ProductServiceTypeWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    ProductServiceWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    ResidentLoadDVComboInput:  
+      properties:
+        ComboName:
+          type: "string"
+        TrnMode:
+          type: "string"
+        IsDynamicCall:
+          type: "boolean"
+        ResidentId:
+          type: "integer"
+          format: "int32"
+        SearchTxtParms:
+          type: "string"
+    ResidentTypeWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    ResidentWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    Supplier_AgbLoadDVComboInput:  
+      properties:
+        ComboName:
+          type: "string"
+        TrnMode:
+          type: "string"
+        IsDynamicCall:
+          type: "boolean"
+        Supplier_AgbId:
+          type: "integer"
+          format: "int32"
+        SearchTxtParms:
+          type: "string"
+    Supplier_AgbWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    Supplier_GenLoadDVComboInput:  
+      properties:
+        ComboName:
+          type: "string"
+        TrnMode:
+          type: "string"
+        IsDynamicCall:
+          type: "boolean"
+        Supplier_GenId:
+          type: "integer"
+          format: "int32"
+        SearchTxtParms:
+          type: "string"
+    Supplier_GenWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    WorkWithPlus.WWP_ParameterWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    LoginResidentResponseSDT:
+      properties:
+        access_token:
+          description: "access_token"
+          type: "string"
+        token_type:
+          description: "token_type"
+          type: "string"
+        expires_in:
+          description: "expires_in"
+          type: "number"
+          format: "double"
+        refresh_token:
+          description: "refresh_token"
+          type: "string"
+        scope:
+          description: "scope"
+          type: "string"
+        user_guid:
+          description: "user_guid"
+          type: "string"
+    ResidentDetails:
+      properties:
+        ResidentId:
+          description: "Resident GAMGUID"
+          type: "string"
+        ResidentBsnNumber:
+          description: "Resident Bsn Number"
+          type: "string"
+        ResidentGivenName:
+          description: "Resident Given Name"
+          type: "string"
+        ResidentLastName:
+          description: "Resident Last Name"
+          type: "string"
+        ResidentInitials:
+          description: "Resident Initials"
+          type: "string"
+        ResidentEmail:
+          description: "Resident Email"
+          type: "string"
+        ResidentAddress:
+          description: "Resident Address"
+          type: "string"
+        ResidentPhone:
+          description: "Resident Phone"
+          type: "string"
+        ResidentGAMGUID:
+          description: "Resident GAMGUID"
+          type: "string"
+        ResidentTypeId:
+          description: "Resident Type Id"
+          type: "integer"
+          format: "int32"
+        ResidentTypeName:
+          description: "Resident Type Name"
+          type: "string"
+        Customer:
+          $ref: "#/components/schemas/ResidentDetails.Customer"
+        ResidentNetworkIndividuals:
+          type: array
+          items:
+            description: ResidentNetworkIndividualsItem
+            $ref: "#/components/schemas/ResidentDetails.ResidentNetworkIndividuals_ResidentNetworkIndividualsItem"
+        ResidentNetworkCompanies:
+          type: array
+          items:
+            description: ResidentNetworkCompaniesItem
+            $ref: "#/components/schemas/ResidentDetails.ResidentNetworkCompanies_ResidentNetworkCompaniesItem"
+        ResidentServicesAndProducts:
+          type: array
+          items:
+            description: ResidentServicesAndProductsItem
+            $ref: "#/components/schemas/ResidentDetails.ResidentServicesAndProducts_ResidentServicesAndProductsItem"
+    ResidentDetails.Customer:
+      properties:
+        CustomerId:
+          description: "Customer Id"
+          type: "integer"
+          format: "int32"
+        CustomerKvkNumber:
+          description: "Customer Kvk Number"
+          type: "string"
+        CustomerName:
+          description: "Customer Name"
+          type: "string"
+        CustomerPostalAddress:
+          description: "Customer Postal Address"
+          type: "string"
+        CustomerEmail:
+          description: "Customer Email"
+          type: "string"
+        CustomerVisitingAddress:
+          description: "Customer Visiting Address"
+          type: "string"
+        CustomerPhone:
+          description: "Customer Phone"
+          type: "string"
+        CustomerVatNumber:
+          description: "Customer Vat Number"
+          type: "string"
+        CustomerTypeId:
+          description: "Customer Type Id"
+          type: "integer"
+          format: "int32"
+        CustomerTypeName:
+          description: "Customer Type Name"
+          type: "string"
+        Location:
+          $ref: "#/components/schemas/ResidentDetails.Customer.Location"
+      x-gx-level: "ResidentDetails"
+    ResidentDetails.Customer.Location:
+      properties:
+        CustomerLocationId:
+          description: "Customer Location Id"
+          type: "integer"
+          format: "int32"
+        CustomerLocationVisitingAddress:
+          description: "Customer Location Visiting Address"
+          type: "string"
+        CustomerLocationPostalAddress:
+          description: "Customer Location Postal Address"
+          type: "string"
+        CustomerLocationEmail:
+          description: "Customer Location Email"
+          type: "string"
+        CustomerLocationPhone:
+          description: "Customer Location Phone"
+          type: "string"
+        CustomerLocationName:
+          description: "Customer Location Name"
+          type: "string"
+        CustomerLocationDescription:
+          description: "Customer Location Description"
+          type: "string"
+        Amenities:
+          type: array
+          items:
+            description: AmenitiesItem
+            $ref: "#/components/schemas/ResidentDetails.Customer.Location.Amenities_AmenitiesItem"
+      x-gx-level: "ResidentDetails.Customer"
+    ResidentDetails.Customer.Location.Amenities_AmenitiesItem:
+      properties:
+        AmenityId:
+          description: "Amenity Id"
+          type: "string"
+        AmenityName:
+          description: "Amenity Name"
+          type: "string"
+        IsAvailable:
+          description: "Is Available"
+          type: "boolean"
+      x-gx-level: "ResidentDetails.Customer.Location"
+    ResidentDetails.ResidentNetworkIndividuals_ResidentNetworkIndividualsItem:
+      properties:
+        ResidentINIndividualId:
+          description: "Resident INIndividual Id"
+          type: "integer"
+          format: "int32"
+        ResidentINIndividualBsnNumber:
+          description: "Resident INIndividual Bsn Number"
+          type: "string"
+        ResidentINIndividualGivenName:
+          description: "Resident INIndividual Given Name"
+          type: "string"
+        ResidentINIndividualLastName:
+          description: "Resident INIndividual Last Name"
+          type: "string"
+        ResidentINIndividualEmail:
+          description: "Resident INIndividual Email"
+          type: "string"
+        ResidentINIndividualPhone:
+          description: "Resident INIndividual Phone"
+          type: "string"
+        ResidentINIndividualAddress:
+          description: "Resident INIndividual Address"
+          type: "string"
+        ResidentINIndividualGender:
+          description: "Resident INIndividual Gender"
+          type: "string"
+      x-gx-level: "ResidentDetails"
+    ResidentDetails.ResidentNetworkCompanies_ResidentNetworkCompaniesItem:
+      properties:
+        ResidentINCompanyId:
+          description: "Resident INCompany Id"
+          type: "integer"
+          format: "int32"
+        ResidentINCompanyKvkNumber:
+          description: "Resident INCompany Kvk Number"
+          type: "string"
+        ResidentINCompanyName:
+          description: "Resident INCompany Name"
+          type: "string"
+        ResidentINCompanyEmail:
+          description: "Resident INCompany Email"
+          type: "string"
+        ResidentINCompanyPhone:
+          description: "Resident INCompany Phone"
+          type: "string"
+      x-gx-level: "ResidentDetails"
+    ResidentDetails.ResidentServicesAndProducts_ResidentServicesAndProductsItem:
+      properties:
+        ProductServiceId:
+          description: "Product Service Id"
+          type: "integer"
+          format: "int32"
+        ProductServiceName:
+          description: "Product Service Name"
+          type: "string"
+        ProductServiceDescription:
+          description: "Product Service Description"
+          type: "string"
+        ProductServiceQuantity:
+          description: "Product Service Quantity"
+          type: "integer"
+          format: "int32"
+        ProductServicePicture:
+          description: "Product Service Picture"
+          type: "string"
+        ProductServiceTypeId:
+          description: "Product Service Type Id"
+          type: "integer"
+          format: "int32"
+        ProductServiceTypeName:
+          description: "Product Service Type Name"
+          type: "string"
+      x-gx-level: "ResidentDetails"
+    GxJsonError:
+      properties:
+        error:
+          $ref: "#/components/schemas/GxJsonError.error"
+    GxJsonError.error:
+      properties:
+        code:
+          type: "string"
+        message:
+          type: "string"
+      x-gx-level: "GxJsonError"

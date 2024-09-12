@@ -1,0 +1,128 @@
+CREATE TABLE Device (DeviceId CHAR(128) NOT NULL , DeviceType smallint NOT NULL , DeviceToken CHAR(1000) NOT NULL , DeviceName CHAR(128) NOT NULL , DeviceUserGuid VARCHAR(100) NOT NULL , PRIMARY KEY(DeviceId));
+
+CREATE SEQUENCE CustomerCustomizationId MINVALUE 1 INCREMENT 1;
+CREATE TABLE CustomerCustomization (CustomerCustomizationId smallint NOT NULL DEFAULT nextval('CustomerCustomizationId'), CustomerCustomizationLogo BYTEA NOT NULL , CustomerCustomizationLogo_GXI VARCHAR(2048) , CustomerCustomizationFavicon BYTEA NOT NULL , CustomerCustomizationFavicon_G VARCHAR(2048) , CustomerCustomizationBaseColor VARCHAR(40) NOT NULL , CustomerCustomizationFontSize VARCHAR(40) NOT NULL , CustomerId smallint NOT NULL , PRIMARY KEY(CustomerCustomizationId));
+CREATE INDEX ICUSTOMERCUSTOMIZATION1 ON CustomerCustomization (CustomerId );
+
+CREATE SEQUENCE LocationEventId MINVALUE 1 INCREMENT 1;
+CREATE TABLE LocationEvent (LocationEventId smallint NOT NULL DEFAULT nextval('LocationEventId'), LocationEventStartDate timestamp without time zone NOT NULL , LocationEventEndDate timestamp without time zone NOT NULL , LocationEventTitle VARCHAR(100) NOT NULL , LocationEventDisplay VARCHAR(40) NOT NULL , LocationEventBackgroundColor VARCHAR(40) NOT NULL , LocationEventDescription TEXT NOT NULL , LocationEventBorderColor VARCHAR(40) NOT NULL , LocationEventTextColor VARCHAR(40) NOT NULL , LocationEventUrl VARCHAR(1000) NOT NULL , LocationEventAllDay BOOLEAN NOT NULL , LocationEventRecurring BOOLEAN NOT NULL , LocationEventRecuringDays TEXT NOT NULL , CustomerId smallint NOT NULL , CustomerLocationId smallint NOT NULL , PRIMARY KEY(LocationEventId));
+CREATE INDEX ILOCATIONEVENT1 ON LocationEvent (CustomerId ,CustomerLocationId );
+
+CREATE SEQUENCE PageTemplateId MINVALUE 1 INCREMENT 1;
+CREATE TABLE PageTemplate (PageTemplateId smallint NOT NULL DEFAULT nextval('PageTemplateId'), PageTemplateName VARCHAR(40) NOT NULL , PageTemplateDescription VARCHAR(200) NOT NULL , PageTemplateImage BYTEA NOT NULL , PageTemplateImage_GXI VARCHAR(2048) , PageTemplateHtml TEXT NOT NULL , PageTemplateCSS TEXT NOT NULL , PRIMARY KEY(PageTemplateId));
+
+CREATE SEQUENCE PageId MINVALUE 1 INCREMENT 1;
+CREATE TABLE Page (PageId smallint NOT NULL DEFAULT nextval('PageId'), PageName VARCHAR(40) NOT NULL , PageHtmlContent TEXT NOT NULL , PageJsonContent TEXT NOT NULL , CustomerId smallint NOT NULL , PageCssContent TEXT NOT NULL , PRIMARY KEY(PageId));
+CREATE INDEX IPAGE1 ON Page (CustomerId );
+
+CREATE SEQUENCE AmenitiesTypeId MINVALUE 1 INCREMENT 1;
+CREATE TABLE AmenitiesType (AmenitiesTypeId smallint NOT NULL DEFAULT nextval('AmenitiesTypeId'), AmenitiesTypeName VARCHAR(40) NOT NULL , PRIMARY KEY(AmenitiesTypeId));
+
+CREATE SEQUENCE AmenitiesId MINVALUE 1 INCREMENT 1;
+CREATE TABLE Amenities (AmenitiesId smallint NOT NULL DEFAULT nextval('AmenitiesId'), AmenitiesName VARCHAR(40) NOT NULL , AmenitiesTypeId smallint NOT NULL , PRIMARY KEY(AmenitiesId));
+CREATE INDEX IAMENITIES1 ON Amenities (AmenitiesTypeId );
+
+CREATE TABLE CustomerLocationsAmenities (CustomerId smallint NOT NULL , CustomerLocationId smallint NOT NULL , AmenitiesId smallint NOT NULL , PRIMARY KEY(CustomerId, CustomerLocationId, AmenitiesId));
+CREATE INDEX ICUSTOMERLOCATIONSAMENITIES1 ON CustomerLocationsAmenities (AmenitiesId );
+
+CREATE TABLE UserCustomizations (UserCustomizationsId CHAR(40) NOT NULL , UserCustomizationsKey VARCHAR(200) NOT NULL , UserCustomizationsValue TEXT NOT NULL , PRIMARY KEY(UserCustomizationsId, UserCustomizationsKey));
+
+CREATE TABLE WWP_Parameter (WWPParameterKey VARCHAR(300) NOT NULL , WWPParameterCategory VARCHAR(200) NOT NULL , WWPParameterDescription VARCHAR(200) NOT NULL , WWPParameterValue TEXT NOT NULL , WWPParameterDisableDelete BOOLEAN NOT NULL , PRIMARY KEY(WWPParameterKey));
+
+CREATE TABLE ResidentProductService (ResidentId smallint NOT NULL , ProductServiceId smallint NOT NULL , PRIMARY KEY(ResidentId, ProductServiceId));
+CREATE INDEX IRESIDENTPRODUCTSERVICE1 ON ResidentProductService (ProductServiceId );
+
+CREATE TABLE CustomerLocationSupplier_Gen (CustomerId smallint NOT NULL , CustomerLocationId smallint NOT NULL , Supplier_GenId smallint NOT NULL , PRIMARY KEY(CustomerId, CustomerLocationId, Supplier_GenId));
+CREATE INDEX ICUSTOMERLOCATIONSUPPLIER_GEN1 ON CustomerLocationSupplier_Gen (Supplier_GenId );
+
+CREATE TABLE CustomerLocationSupplier_Agb (CustomerId smallint NOT NULL , CustomerLocationId smallint NOT NULL , Supplier_AgbId smallint NOT NULL , PRIMARY KEY(CustomerId, CustomerLocationId, Supplier_AgbId));
+CREATE INDEX ICUSTOMERLOCATIONSUPPLIER_AGB1 ON CustomerLocationSupplier_Agb (Supplier_AgbId );
+
+CREATE TABLE Supplier_AgbProductService (Supplier_AgbId smallint NOT NULL , ProductServiceId smallint NOT NULL , PRIMARY KEY(Supplier_AgbId, ProductServiceId));
+CREATE INDEX ISUPPLIER_AGBPRODUCTSERVICE1 ON Supplier_AgbProductService (ProductServiceId );
+
+CREATE TABLE Supplier_GenProductService (Supplier_GenId smallint NOT NULL , ProductServiceId smallint NOT NULL , PRIMARY KEY(Supplier_GenId, ProductServiceId));
+CREATE INDEX ISUPPLIER_GENPRODUCTSERVICE1 ON Supplier_GenProductService (ProductServiceId );
+
+CREATE SEQUENCE ResidentTypeId MINVALUE 1 INCREMENT 1;
+CREATE TABLE ResidentType (ResidentTypeId smallint NOT NULL DEFAULT nextval('ResidentTypeId'), ResidentTypeName VARCHAR(40) NOT NULL , PRIMARY KEY(ResidentTypeId));
+
+CREATE SEQUENCE CustomerTypeId MINVALUE 1 INCREMENT 1;
+CREATE TABLE CustomerType (CustomerTypeId smallint NOT NULL DEFAULT nextval('CustomerTypeId'), CustomerTypeName VARCHAR(40) NOT NULL , PRIMARY KEY(CustomerTypeId));
+
+CREATE SEQUENCE ProductServiceId MINVALUE 1 INCREMENT 1;
+CREATE TABLE ProductService (ProductServiceId smallint NOT NULL DEFAULT nextval('ProductServiceId'), ProductServiceName VARCHAR(40) NOT NULL , ProductServiceDescription VARCHAR(200) NOT NULL , ProductServiceQuantity smallint NOT NULL , ProductServicePicture BYTEA NOT NULL , ProductServicePicture_GXI VARCHAR(2048) , ProductServiceTypeId smallint NOT NULL , PRIMARY KEY(ProductServiceId));
+CREATE INDEX IPRODUCTSERVICE1 ON ProductService (ProductServiceTypeId );
+
+CREATE SEQUENCE ProductServiceTypeId MINVALUE 1 INCREMENT 1;
+CREATE TABLE ProductServiceType (ProductServiceTypeId smallint NOT NULL DEFAULT nextval('ProductServiceTypeId'), ProductServiceTypeName VARCHAR(40) NOT NULL , PRIMARY KEY(ProductServiceTypeId));
+
+CREATE SEQUENCE Supplier_GenId MINVALUE 1 INCREMENT 1;
+CREATE TABLE Supplier_Gen (Supplier_GenId smallint NOT NULL DEFAULT nextval('Supplier_GenId'), Supplier_GenKvKNumber VARCHAR(8) NOT NULL , Supplier_GenCompanyName VARCHAR(40) NOT NULL , Supplier_GenVisitingAddress VARCHAR(1024) , Supplier_GenPostalAddress VARCHAR(1024) , Supplier_GenContactName VARCHAR(40) , Supplier_GenContactPhone CHAR(20) , PRIMARY KEY(Supplier_GenId));
+
+CREATE SEQUENCE Supplier_AgbId MINVALUE 1 INCREMENT 1;
+CREATE TABLE Supplier_AGB (Supplier_AgbId smallint NOT NULL DEFAULT nextval('Supplier_AgbId'), Supplier_AgbNumber VARCHAR(10) NOT NULL , Supplier_AgbName VARCHAR(40) NOT NULL , Supplier_AgbKvkNumber VARCHAR(8) NOT NULL , Supplier_AgbVisitingAddress VARCHAR(1024) , Supplier_AgbPostalAddress VARCHAR(1024) , Supplier_AgbEmail VARCHAR(100) , Supplier_AgbPhone CHAR(20) , Supplier_AgbContactName VARCHAR(40) , PRIMARY KEY(Supplier_AgbId));
+
+CREATE TABLE ResidentINCompany (ResidentId smallint NOT NULL , ResidentINCompanyId smallint NOT NULL , ResidentINCompanyKvkNumber VARCHAR(8) NOT NULL , ResidentINCompanyName VARCHAR(40) NOT NULL , ResidentINCompanyEmail VARCHAR(100) , ResidentINCompanyPhone CHAR(20) , PRIMARY KEY(ResidentId, ResidentINCompanyId));
+
+CREATE TABLE ResidentINIndividual (ResidentId smallint NOT NULL , ResidentINIndividualId smallint NOT NULL , ResidentINIndividualBsnNumber VARCHAR(40) NOT NULL , ResidentINIndividualGivenName VARCHAR(40) NOT NULL , ResidentINIndividualLastName VARCHAR(40) NOT NULL , ResidentINIndividualEmail VARCHAR(100) , ResidentINIndividualPhone CHAR(20) , ResidentINIndividualAddress VARCHAR(1024) , ResidentINIndividualGender CHAR(20) NOT NULL , PRIMARY KEY(ResidentId, ResidentINIndividualId));
+
+CREATE SEQUENCE ResidentId MINVALUE 1 INCREMENT 1;
+CREATE TABLE Resident (ResidentId smallint NOT NULL DEFAULT nextval('ResidentId'), ResidentGivenName VARCHAR(40) NOT NULL , ResidentLastName VARCHAR(40) NOT NULL , ResidentInitials CHAR(20) , ResidentEmail VARCHAR(100) NOT NULL , ResidentAddress VARCHAR(1024) , ResidentPhone CHAR(20) , ResidentGAMGUID VARCHAR(100) NOT NULL , ResidentBsnNumber VARCHAR(40) NOT NULL , ResidentTypeId smallint NOT NULL , CustomerId smallint NOT NULL , CustomerLocationId smallint NOT NULL , ResidentLastLineIndividual smallint NOT NULL , ResidentLastLineCompany smallint NOT NULL , ResidentGender CHAR(20) NOT NULL , PRIMARY KEY(ResidentId));
+CREATE UNIQUE INDEX URESIDENT ON Resident (ResidentBsnNumber );
+CREATE INDEX IRESIDENT1 ON Resident (ResidentTypeId );
+CREATE INDEX IRESIDENT2 ON Resident (CustomerId ,CustomerLocationId );
+
+CREATE TABLE CustomerLocationReceptionist (CustomerId smallint NOT NULL , CustomerLocationId smallint NOT NULL , CustomerLocationReceptionistId smallint NOT NULL , CustomerLocationReceptionistGi VARCHAR(40) NOT NULL , CustomerLocationReceptionistLa VARCHAR(40) NOT NULL , CustomerLocationReceptionistIn CHAR(20) , CustomerLocationReceptionistEm VARCHAR(100) NOT NULL , CustomerLocationReceptionistAd VARCHAR(1024) , CustomerLocationReceptionistPh CHAR(20) NOT NULL , CustomerLocationReceptionistGA VARCHAR(100) NOT NULL , PRIMARY KEY(CustomerId, CustomerLocationId, CustomerLocationReceptionistId));
+
+CREATE TABLE CustomerLocation (CustomerId smallint NOT NULL , CustomerLocationId smallint NOT NULL , CustomerLocationVisitingAddres VARCHAR(1024) NOT NULL , CustomerLocationPostalAddress VARCHAR(100) NOT NULL , CustomerLocationEmail VARCHAR(100) NOT NULL , CustomerLocationPhone CHAR(20) NOT NULL , CustomerLocationLastLine smallint NOT NULL , CustomerLocationDescription VARCHAR(200) NOT NULL , CustomerLocationName VARCHAR(40) NOT NULL , PRIMARY KEY(CustomerId, CustomerLocationId));
+
+CREATE TABLE CustomerManager (CustomerId smallint NOT NULL , CustomerManagerId smallint NOT NULL , CustomerManagerGivenName VARCHAR(40) NOT NULL , CustomerManagerLastName VARCHAR(40) NOT NULL , CustomerManagerInitials CHAR(10) , CustomerManagerEmail VARCHAR(100) NOT NULL , CustomerManagerPhone CHAR(20) , CustomerManagerGender CHAR(20) , CustomerManagerGAMGUID VARCHAR(100) NOT NULL , PRIMARY KEY(CustomerId, CustomerManagerId));
+
+CREATE SEQUENCE CustomerId MINVALUE 1 INCREMENT 1;
+CREATE TABLE Customer (CustomerId smallint NOT NULL DEFAULT nextval('CustomerId'), CustomerName VARCHAR(40) NOT NULL , CustomerPostalAddress VARCHAR(1024) , CustomerEmail VARCHAR(100) , CustomerVisitingAddress VARCHAR(1024) , CustomerPhone CHAR(20) , CustomerVatNumber VARCHAR(14) NOT NULL , CustomerKvkNumber VARCHAR(8) NOT NULL , CustomerTypeId smallint , CustomerLastLine smallint NOT NULL , CustomerLastLineLocation smallint NOT NULL , PRIMARY KEY(CustomerId));
+CREATE INDEX ICUSTOMER1 ON Customer (CustomerTypeId );
+
+ALTER TABLE Customer ADD CONSTRAINT ICUSTOMER1 FOREIGN KEY (CustomerTypeId) REFERENCES CustomerType (CustomerTypeId);
+
+ALTER TABLE CustomerManager ADD CONSTRAINT ICUSTOMERMANAGER1 FOREIGN KEY (CustomerId) REFERENCES Customer (CustomerId);
+
+ALTER TABLE CustomerLocation ADD CONSTRAINT ICUSTOMERLOCATION1 FOREIGN KEY (CustomerId) REFERENCES Customer (CustomerId);
+
+ALTER TABLE CustomerLocationReceptionist ADD CONSTRAINT ICUSTOMERLOCATIONRECEPTIONIST1 FOREIGN KEY (CustomerId, CustomerLocationId) REFERENCES CustomerLocation (CustomerId, CustomerLocationId);
+
+ALTER TABLE Resident ADD CONSTRAINT IRESIDENT1 FOREIGN KEY (ResidentTypeId) REFERENCES ResidentType (ResidentTypeId);
+ALTER TABLE Resident ADD CONSTRAINT IRESIDENT2 FOREIGN KEY (CustomerId, CustomerLocationId) REFERENCES CustomerLocation (CustomerId, CustomerLocationId);
+
+ALTER TABLE ResidentINIndividual ADD CONSTRAINT IRESIDENTININDIVIDUAL1 FOREIGN KEY (ResidentId) REFERENCES Resident (ResidentId);
+
+ALTER TABLE ResidentINCompany ADD CONSTRAINT IRESIDENTINCOMPANY1 FOREIGN KEY (ResidentId) REFERENCES Resident (ResidentId);
+
+ALTER TABLE ProductService ADD CONSTRAINT IPRODUCTSERVICE1 FOREIGN KEY (ProductServiceTypeId) REFERENCES ProductServiceType (ProductServiceTypeId);
+
+ALTER TABLE Supplier_GenProductService ADD CONSTRAINT ISUPPLIER_GENPRODUCTSERVICE2 FOREIGN KEY (Supplier_GenId) REFERENCES Supplier_Gen (Supplier_GenId);
+ALTER TABLE Supplier_GenProductService ADD CONSTRAINT ISUPPLIER_GENPRODUCTSERVICE1 FOREIGN KEY (ProductServiceId) REFERENCES ProductService (ProductServiceId);
+
+ALTER TABLE Supplier_AgbProductService ADD CONSTRAINT ISUPPLIER_AGBPRODUCTSERVICE2 FOREIGN KEY (Supplier_AgbId) REFERENCES Supplier_AGB (Supplier_AgbId);
+ALTER TABLE Supplier_AgbProductService ADD CONSTRAINT ISUPPLIER_AGBPRODUCTSERVICE1 FOREIGN KEY (ProductServiceId) REFERENCES ProductService (ProductServiceId);
+
+ALTER TABLE CustomerLocationSupplier_Agb ADD CONSTRAINT ICUSTOMERLOCATIONSUPPLIER_AGB2 FOREIGN KEY (CustomerId, CustomerLocationId) REFERENCES CustomerLocation (CustomerId, CustomerLocationId);
+ALTER TABLE CustomerLocationSupplier_Agb ADD CONSTRAINT ICUSTOMERLOCATIONSUPPLIER_AGB1 FOREIGN KEY (Supplier_AgbId) REFERENCES Supplier_AGB (Supplier_AgbId);
+
+ALTER TABLE CustomerLocationSupplier_Gen ADD CONSTRAINT ICUSTOMERLOCATIONSUPPLIER_GEN2 FOREIGN KEY (CustomerId, CustomerLocationId) REFERENCES CustomerLocation (CustomerId, CustomerLocationId);
+ALTER TABLE CustomerLocationSupplier_Gen ADD CONSTRAINT ICUSTOMERLOCATIONSUPPLIER_GEN1 FOREIGN KEY (Supplier_GenId) REFERENCES Supplier_Gen (Supplier_GenId);
+
+ALTER TABLE ResidentProductService ADD CONSTRAINT IRESIDENTPRODUCTSERVICE2 FOREIGN KEY (ResidentId) REFERENCES Resident (ResidentId);
+ALTER TABLE ResidentProductService ADD CONSTRAINT IRESIDENTPRODUCTSERVICE1 FOREIGN KEY (ProductServiceId) REFERENCES ProductService (ProductServiceId);
+
+ALTER TABLE CustomerLocationsAmenities ADD CONSTRAINT ICUSTOMERLOCATIONSAMENITIES2 FOREIGN KEY (CustomerId, CustomerLocationId) REFERENCES CustomerLocation (CustomerId, CustomerLocationId);
+ALTER TABLE CustomerLocationsAmenities ADD CONSTRAINT ICUSTOMERLOCATIONSAMENITIES1 FOREIGN KEY (AmenitiesId) REFERENCES Amenities (AmenitiesId);
+
+ALTER TABLE Amenities ADD CONSTRAINT IAMENITIES1 FOREIGN KEY (AmenitiesTypeId) REFERENCES AmenitiesType (AmenitiesTypeId);
+
+ALTER TABLE Page ADD CONSTRAINT IPAGE1 FOREIGN KEY (CustomerId) REFERENCES Customer (CustomerId);
+
+ALTER TABLE LocationEvent ADD CONSTRAINT ILOCATIONEVENT1 FOREIGN KEY (CustomerId, CustomerLocationId) REFERENCES CustomerLocation (CustomerId, CustomerLocationId);
+
+ALTER TABLE CustomerCustomization ADD CONSTRAINT ICUSTOMERCUSTOMIZATION1 FOREIGN KEY (CustomerId) REFERENCES Customer (CustomerId);
+

@@ -1,0 +1,36 @@
+{
+"ObjectType":"ServiceGroup",
+"Name":"ResidentService",
+"BasePath":"ResidentService",
+"Mappings":
+[
+{
+"Verb":"POST",
+"PathRegexp":"api/auth/login",
+"Path":"api/auth/login",
+"Name":"login",
+"Bodystyle":"Wrapped",
+"VariableAlias": [],
+"ServiceMethod":"gxep_login",
+"Implementation":"LoginUser"
+},
+{
+"Verb":"POST",
+"PathRegexp":"api/auth/resident-login",
+"Path":"api/auth/resident-login",
+"Name":"loginwithqrcode",
+"Bodystyle":"Wrapped",
+"VariableAlias": [],
+"ServiceMethod":"gxep_loginwithqrcode",
+"Implementation":"LoginResident"
+},
+{
+"PathRegexp":"api/auth/resident",
+"Path":"api/auth/resident",
+"Name":"getresidentinformation",
+"Bodystyle":"Wrapped",
+"VariableAlias": [],
+"ServiceMethod":"gxep_getresidentinformation",
+"Implementation":"GetResidentInfo",
+"Verb":"GET"
+}]}

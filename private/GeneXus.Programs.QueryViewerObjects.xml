@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Objects xmlns="qv">
+  <Object name="General.UI.SidebarItemsDP" id="1" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="SidebarItemsDP" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WWPBaseObjects.SecGAMGetAdvancedSecurityWWPFunctionalities" id="2" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="SecGAMGetAdvancedSecurityWWPFunctionalities" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus.WWP_Parameter_DataProvider" id="3" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="WWP_Parameter_DataProvider" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WWPBaseObjects.GetHomeModulesSample" id="4" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="GetHomeModulesSample" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WWPBaseObjects.MenuOptionsData" id="5" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="MenuOptionsData" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WWPBaseObjects.WWP_LoadTreeViewSampleData" id="6" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="WWP_LoadTreeViewSampleData" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WWPBaseObjects.GetMainHomeModulesSample" id="7" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="GetMainHomeModulesSample" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WWPBaseObjects.GetSomeHomeModulesSample" id="8" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="GetSomeHomeModulesSample" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="GetDashboardItemsDP" id="9" type="DataProvider" IntegratedSecurityLevel="SecurityLow" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus.WWP_Calendar_GetEvents" id="10" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="WWP_Calendar_GetEvents1" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+</Objects>

@@ -1,0 +1,32 @@
+<style>
+.gjs-frame {
+  outline: medium none;
+  height: 100%;
+  width: 100%;
+  border: 10px solid #1E201E;
+  border-radius: 45px;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.6);
+  display: block;
+  transition: width 0.35s ease, height 0.35s ease;
+  position: absolute;
+  left: 0;
+  right: 0;
+  transform: translateY(5%);
+}
+
+*::-webkit-scrollbar {
+      width: 10px;
+    }
+
+
+.btn-custom {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    }
+</style>
+
+<div id="gjs">
+</div>
+
+<script src="/Comforta2NETPostgreSQL/Resources/UCGrapes/plugins.js"></script>

@@ -1,0 +1,9 @@
+<script src="https://cdn.jsdelivr.net/npm/apextree"></script>
+
+<div id="svg-tree"></div>
+
+<script>
+	function doClick(content){
+			alert('You clicked on ' + content )
+		}
+</script>

@@ -1,0 +1,371 @@
+openapi: 3.0.0
+info:
+  title: "ResidentService"
+  description: "Resident Service"
+  version: "20240912033243"
+servers:
+  - url: http://localhost:8082/Comforta2NETPostgreSQL/ResidentService
+paths:
+  /api/auth/login:
+    post:
+      tags:
+        - ResidentService  
+      operationId: "ResidentService.Login"
+      summary: "Login User Account"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginInput"
+      
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                type: "string"
+
+
+        404:
+          description: "Not found"
+
+  /api/auth/resident-login:
+    post:
+      tags:
+        - ResidentService  
+      operationId: "ResidentService.LoginWithQrCode"
+      summary: "Login Resident Account (QR Code)"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginWithQrCodeInput"
+      
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoginResidentResponseSDT"  
+
+        404:
+          description: "Not found"
+
+  /api/auth/resident:
+    get:
+      tags:
+        - ResidentService  
+      operationId: "ResidentService.GetResidentInformation"
+      summary: "Get Resident Information"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "Userid"
+          in: "query"
+          required: false
+          schema:
+            type: "string"
+            
+      
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResidentDetails"  
+
+        404:
+          description: "Not found"
+
+components:
+  securitySchemes:
+    oAuthGXGAM:
+      type: oauth2
+      description: GAM OAuth 2
+      flows:
+        password:          
+          tokenUrl: http://localhost:8082/Comforta2NETPostgreSQL/oauth/gam/v2.0/access_token
+          scopes: 
+            fullcontrol: Full access
+
+  schemas:
+    LoginInput:  
+      properties:
+        username:
+          type: "string"
+        password:
+          type: "string"
+
+    LoginWithQrCodeInput:  
+      properties:
+        secretKey:
+          type: "string"
+
+  
+    LoginResidentResponseSDT:
+      properties:
+        access_token:
+          description: "access_token"
+          type: "string"
+        token_type:
+          description: "token_type"
+          type: "string"
+        expires_in:
+          description: "expires_in"
+          type: "number"
+          format: "double"
+        refresh_token:
+          description: "refresh_token"
+          type: "string"
+        scope:
+          description: "scope"
+          type: "string"
+        user_guid:
+          description: "user_guid"
+          type: "string"
+
+
+
+    ResidentDetails:
+      properties:
+        ResidentId:
+          description: "Resident GAMGUID"
+          type: "string"
+        ResidentBsnNumber:
+          description: "Resident Bsn Number"
+          type: "string"
+        ResidentGivenName:
+          description: "Resident Given Name"
+          type: "string"
+        ResidentLastName:
+          description: "Resident Last Name"
+          type: "string"
+        ResidentInitials:
+          description: "Resident Initials"
+          type: "string"
+        ResidentEmail:
+          description: "Resident Email"
+          type: "string"
+        ResidentAddress:
+          description: "Resident Address"
+          type: "string"
+        ResidentPhone:
+          description: "Resident Phone"
+          type: "string"
+        ResidentGAMGUID:
+          description: "Resident GAMGUID"
+          type: "string"
+        ResidentTypeId:
+          description: "Resident Type Id"
+          type: "integer"
+          format: "int32"
+        ResidentTypeName:
+          description: "Resident Type Name"
+          type: "string"
+
+        Customer:
+          $ref: "#/components/schemas/ResidentDetails.Customer"
+
+        ResidentNetworkIndividuals:
+          type: array
+          items:
+            description: ResidentNetworkIndividualsItem
+            $ref: "#/components/schemas/ResidentDetails.ResidentNetworkIndividuals_ResidentNetworkIndividualsItem"
+
+        ResidentNetworkCompanies:
+          type: array
+          items:
+            description: ResidentNetworkCompaniesItem
+            $ref: "#/components/schemas/ResidentDetails.ResidentNetworkCompanies_ResidentNetworkCompaniesItem"
+
+        ResidentServicesAndProducts:
+          type: array
+          items:
+            description: ResidentServicesAndProductsItem
+            $ref: "#/components/schemas/ResidentDetails.ResidentServicesAndProducts_ResidentServicesAndProductsItem"
+
+
+    ResidentDetails.Customer:
+      properties:
+        CustomerId:
+          description: "Customer Id"
+          type: "integer"
+          format: "int32"
+        CustomerKvkNumber:
+          description: "Customer Kvk Number"
+          type: "string"
+        CustomerName:
+          description: "Customer Name"
+          type: "string"
+        CustomerPostalAddress:
+          description: "Customer Postal Address"
+          type: "string"
+        CustomerEmail:
+          description: "Customer Email"
+          type: "string"
+        CustomerVisitingAddress:
+          description: "Customer Visiting Address"
+          type: "string"
+        CustomerPhone:
+          description: "Customer Phone"
+          type: "string"
+        CustomerVatNumber:
+          description: "Customer Vat Number"
+          type: "string"
+        CustomerTypeId:
+          description: "Customer Type Id"
+          type: "integer"
+          format: "int32"
+        CustomerTypeName:
+          description: "Customer Type Name"
+          type: "string"
+
+        Location:
+          $ref: "#/components/schemas/ResidentDetails.Customer.Location"
+
+      x-gx-level: "ResidentDetails"
+
+    ResidentDetails.Customer.Location:
+      properties:
+        CustomerLocationId:
+          description: "Customer Location Id"
+          type: "integer"
+          format: "int32"
+        CustomerLocationVisitingAddress:
+          description: "Customer Location Visiting Address"
+          type: "string"
+        CustomerLocationPostalAddress:
+          description: "Customer Location Postal Address"
+          type: "string"
+        CustomerLocationEmail:
+          description: "Customer Location Email"
+          type: "string"
+        CustomerLocationPhone:
+          description: "Customer Location Phone"
+          type: "string"
+        CustomerLocationName:
+          description: "Customer Location Name"
+          type: "string"
+        CustomerLocationDescription:
+          description: "Customer Location Description"
+          type: "string"
+
+        Amenities:
+          type: array
+          items:
+            description: AmenitiesItem
+            $ref: "#/components/schemas/ResidentDetails.Customer.Location.Amenities_AmenitiesItem"
+
+      x-gx-level: "ResidentDetails.Customer"
+
+    ResidentDetails.Customer.Location.Amenities_AmenitiesItem:
+      properties:
+        AmenityId:
+          description: "Amenity Id"
+          type: "string"
+        AmenityName:
+          description: "Amenity Name"
+          type: "string"
+        IsAvailable:
+          description: "Is Available"
+          type: "boolean"
+
+
+      x-gx-level: "ResidentDetails.Customer.Location"
+
+
+    ResidentDetails.ResidentNetworkIndividuals_ResidentNetworkIndividualsItem:
+      properties:
+        ResidentINIndividualId:
+          description: "Resident INIndividual Id"
+          type: "integer"
+          format: "int32"
+        ResidentINIndividualBsnNumber:
+          description: "Resident INIndividual Bsn Number"
+          type: "string"
+        ResidentINIndividualGivenName:
+          description: "Resident INIndividual Given Name"
+          type: "string"
+        ResidentINIndividualLastName:
+          description: "Resident INIndividual Last Name"
+          type: "string"
+        ResidentINIndividualEmail:
+          description: "Resident INIndividual Email"
+          type: "string"
+        ResidentINIndividualPhone:
+          description: "Resident INIndividual Phone"
+          type: "string"
+        ResidentINIndividualAddress:
+          description: "Resident INIndividual Address"
+          type: "string"
+        ResidentINIndividualGender:
+          description: "Resident INIndividual Gender"
+          type: "string"
+
+
+      x-gx-level: "ResidentDetails"
+
+
+    ResidentDetails.ResidentNetworkCompanies_ResidentNetworkCompaniesItem:
+      properties:
+        ResidentINCompanyId:
+          description: "Resident INCompany Id"
+          type: "integer"
+          format: "int32"
+        ResidentINCompanyKvkNumber:
+          description: "Resident INCompany Kvk Number"
+          type: "string"
+        ResidentINCompanyName:
+          description: "Resident INCompany Name"
+          type: "string"
+        ResidentINCompanyEmail:
+          description: "Resident INCompany Email"
+          type: "string"
+        ResidentINCompanyPhone:
+          description: "Resident INCompany Phone"
+          type: "string"
+
+
+      x-gx-level: "ResidentDetails"
+
+
+    ResidentDetails.ResidentServicesAndProducts_ResidentServicesAndProductsItem:
+      properties:
+        ProductServiceId:
+          description: "Product Service Id"
+          type: "integer"
+          format: "int32"
+        ProductServiceName:
+          description: "Product Service Name"
+          type: "string"
+        ProductServiceDescription:
+          description: "Product Service Description"
+          type: "string"
+        ProductServiceQuantity:
+          description: "Product Service Quantity"
+          type: "integer"
+          format: "int32"
+        ProductServicePicture:
+          description: "Product Service Picture"
+          type: "string"
+        ProductServiceTypeId:
+          description: "Product Service Type Id"
+          type: "integer"
+          format: "int32"
+        ProductServiceTypeName:
+          description: "Product Service Type Name"
+          type: "string"
+
+
+      x-gx-level: "ResidentDetails"
+
+ 

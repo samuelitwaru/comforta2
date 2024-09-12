@@ -1,0 +1,1 @@
+<%@ServiceHost Service= "GeneXus.Programs.supplier_agbloaddvcombo,supplier_agbloaddvcombo" %>
