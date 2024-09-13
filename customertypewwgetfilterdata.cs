@@ -357,7 +357,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[1] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV42Customertypewwds_3_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV42Customertypewwds_3_tfcustomertypename_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV42Customertypewwds_3_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV42Customertypewwds_3_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(CustomerTypeName = ( :AV42Customertypewwds_3_tfcustomertypename_sel))");
          }
@@ -365,7 +365,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[2] = 1;
          }
-         if ( StringUtil.StrCmp(AV42Customertypewwds_3_tfcustomertypename_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV42Customertypewwds_3_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from CustomerTypeName))=0))");
          }

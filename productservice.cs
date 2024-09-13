@@ -137,7 +137,7 @@ namespace GeneXus.Programs {
                Form.Meta.addItem("generator", "GeneXus .NET 18_0_10-184260", 0) ;
             }
          }
-         Form.Meta.addItem("description", "Product/Service", 0) ;
+         Form.Meta.addItem("description", context.GetMessage( "Product/Service", ""), 0) ;
          context.wjLoc = "";
          context.nUserReturn = 0;
          context.wbHandled = 0;
@@ -325,7 +325,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtProductServiceName_Internalname+"\"", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, edtProductServiceName_Internalname, "Name", " AttributeLabel", 1, true, "");
+         GxWebStd.gx_label_element( context, edtProductServiceName_Internalname, context.GetMessage( "Name", ""), " AttributeLabel", 1, true, "");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Single line edit */
@@ -339,7 +339,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtProductServiceDescription_Internalname+"\"", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, edtProductServiceDescription_Internalname, "Description", " AttributeLabel", 1, true, "");
+         GxWebStd.gx_label_element( context, edtProductServiceDescription_Internalname, context.GetMessage( "Description", ""), " AttributeLabel", 1, true, "");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Multiple line edit */
@@ -364,7 +364,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 MergeLabelCell", "start", "top", "", "", "div");
          /* Text block */
-         GxWebStd.gx_label_ctrl( context, lblTextblockproductservicetypeid_Internalname, "Type", "", "", lblTextblockproductservicetypeid_Jsonclick, "'"+""+"'"+",false,"+"'"+""+"'", "", "Label", 0, "", 1, 1, 0, 0, "HLP_ProductService.htm");
+         GxWebStd.gx_label_ctrl( context, lblTextblockproductservicetypeid_Internalname, context.GetMessage( "Type", ""), "", "", lblTextblockproductservicetypeid_Jsonclick, "'"+""+"'"+",false,"+"'"+""+"'", "", "Label", 0, "", 1, 1, 0, 0, "HLP_ProductService.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
@@ -383,10 +383,10 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, edtProductServiceTypeId_Internalname, "Product Service Type Id", "col-sm-3 AttributeLabel", 0, true, "");
+         GxWebStd.gx_label_element( context, edtProductServiceTypeId_Internalname, context.GetMessage( "Product Service Type Id", ""), "col-sm-3 AttributeLabel", 0, true, "");
          /* Single line edit */
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 39,'',false,'',0)\"";
-         GxWebStd.gx_single_line_edit( context, edtProductServiceTypeId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A71ProductServiceTypeId), 4, 0, ".", "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(A71ProductServiceTypeId), "ZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,39);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtProductServiceTypeId_Jsonclick, 0, "Attribute", "", "", "", "", edtProductServiceTypeId_Visible, edtProductServiceTypeId_Enabled, 1, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_ProductService.htm");
+         GxWebStd.gx_single_line_edit( context, edtProductServiceTypeId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A71ProductServiceTypeId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(A71ProductServiceTypeId), "ZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onblur(this,39);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtProductServiceTypeId_Jsonclick, 0, "Attribute", "", "", "", "", edtProductServiceTypeId_Visible, edtProductServiceTypeId_Enabled, 1, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_ProductService.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -397,7 +397,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+imgProductServicePicture_Internalname+"\"", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, "", "Picture", " AttributeLabel", 1, true, "");
+         GxWebStd.gx_label_element( context, "", context.GetMessage( "Picture", ""), " AttributeLabel", 1, true, "");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Static Bitmap Variable */
@@ -431,21 +431,21 @@ namespace GeneXus.Programs {
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 50,'',false,'',0)\"";
          ClassString = "Button";
          StyleString = "";
-         GxWebStd.gx_button_ctrl( context, bttBtntrn_enter_Internalname, "", "Confirm", bttBtntrn_enter_Jsonclick, 5, "Confirm", "", StyleString, ClassString, bttBtntrn_enter_Visible, bttBtntrn_enter_Enabled, "standard", "'"+""+"'"+",false,"+"'"+"EENTER."+"'", TempTags, "", context.GetButtonType( ), "HLP_ProductService.htm");
+         GxWebStd.gx_button_ctrl( context, bttBtntrn_enter_Internalname, "", context.GetMessage( "GX_BtnEnter", ""), bttBtntrn_enter_Jsonclick, 5, context.GetMessage( "GX_BtnEnter", ""), "", StyleString, ClassString, bttBtntrn_enter_Visible, bttBtntrn_enter_Enabled, "standard", "'"+""+"'"+",false,"+"'"+"EENTER."+"'", TempTags, "", context.GetButtonType( ), "HLP_ProductService.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-button", "start", "top", "", "", "div");
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 52,'',false,'',0)\"";
          ClassString = "BtnDefault";
          StyleString = "";
-         GxWebStd.gx_button_ctrl( context, bttBtntrn_cancel_Internalname, "", "Cancel", bttBtntrn_cancel_Jsonclick, 1, "Cancel", "", StyleString, ClassString, bttBtntrn_cancel_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"ECANCEL."+"'", TempTags, "", context.GetButtonType( ), "HLP_ProductService.htm");
+         GxWebStd.gx_button_ctrl( context, bttBtntrn_cancel_Internalname, "", context.GetMessage( "GX_BtnCancel", ""), bttBtntrn_cancel_Jsonclick, 1, context.GetMessage( "GX_BtnCancel", ""), "", StyleString, ClassString, bttBtntrn_cancel_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"ECANCEL."+"'", TempTags, "", context.GetButtonType( ), "HLP_ProductService.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-button", "start", "top", "", "", "div");
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 54,'',false,'',0)\"";
          ClassString = "BtnDefault";
          StyleString = "";
-         GxWebStd.gx_button_ctrl( context, bttBtntrn_delete_Internalname, "", "Delete", bttBtntrn_delete_Jsonclick, 5, "Delete", "", StyleString, ClassString, bttBtntrn_delete_Visible, bttBtntrn_delete_Enabled, "standard", "'"+""+"'"+",false,"+"'"+"EDELETE."+"'", TempTags, "", context.GetButtonType( ), "HLP_ProductService.htm");
+         GxWebStd.gx_button_ctrl( context, bttBtntrn_delete_Internalname, "", context.GetMessage( "GX_BtnDelete", ""), bttBtntrn_delete_Jsonclick, 5, context.GetMessage( "GX_BtnDelete", ""), "", StyleString, ClassString, bttBtntrn_delete_Visible, bttBtntrn_delete_Enabled, "standard", "'"+""+"'"+",false,"+"'"+"EDELETE."+"'", TempTags, "", context.GetButtonType( ), "HLP_ProductService.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -472,14 +472,14 @@ namespace GeneXus.Programs {
          GxWebStd.gx_div_start( context, divSectionattribute_productservicetypeid_Internalname, 1, 0, "px", 0, "px", "Section", "start", "top", "", "", "div");
          /* Single line edit */
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 59,'',false,'',0)\"";
-         GxWebStd.gx_single_line_edit( context, edtavComboproductservicetypeid_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV20ComboProductServiceTypeId), 4, 0, ".", "")), StringUtil.LTrim( ((edtavComboproductservicetypeid_Enabled!=0) ? context.localUtil.Format( (decimal)(AV20ComboProductServiceTypeId), "ZZZ9") : context.localUtil.Format( (decimal)(AV20ComboProductServiceTypeId), "ZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,59);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavComboproductservicetypeid_Jsonclick, 0, "Attribute", "", "", "", "", edtavComboproductservicetypeid_Visible, edtavComboproductservicetypeid_Enabled, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_ProductService.htm");
+         GxWebStd.gx_single_line_edit( context, edtavComboproductservicetypeid_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV20ComboProductServiceTypeId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")), StringUtil.LTrim( ((edtavComboproductservicetypeid_Enabled!=0) ? context.localUtil.Format( (decimal)(AV20ComboProductServiceTypeId), "ZZZ9") : context.localUtil.Format( (decimal)(AV20ComboProductServiceTypeId), "ZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onblur(this,59);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavComboproductservicetypeid_Jsonclick, 0, "Attribute", "", "", "", "", edtavComboproductservicetypeid_Visible, edtavComboproductservicetypeid_Enabled, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_ProductService.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          /* Single line edit */
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 60,'',false,'',0)\"";
-         GxWebStd.gx_single_line_edit( context, edtProductServiceId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A73ProductServiceId), 4, 0, ".", "")), StringUtil.LTrim( ((edtProductServiceId_Enabled!=0) ? context.localUtil.Format( (decimal)(A73ProductServiceId), "ZZZ9") : context.localUtil.Format( (decimal)(A73ProductServiceId), "ZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,60);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtProductServiceId_Jsonclick, 0, "Attribute", "", "", "", "", edtProductServiceId_Visible, edtProductServiceId_Enabled, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_ProductService.htm");
+         GxWebStd.gx_single_line_edit( context, edtProductServiceId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A73ProductServiceId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")), StringUtil.LTrim( ((edtProductServiceId_Enabled!=0) ? context.localUtil.Format( (decimal)(A73ProductServiceId), "ZZZ9") : context.localUtil.Format( (decimal)(A73ProductServiceId), "ZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onblur(this,60);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtProductServiceId_Jsonclick, 0, "Attribute", "", "", "", "", edtProductServiceId_Visible, edtProductServiceId_Enabled, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_ProductService.htm");
          /* Single line edit */
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 61,'',false,'',0)\"";
-         GxWebStd.gx_single_line_edit( context, edtProductServiceQuantity_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A76ProductServiceQuantity), 4, 0, ".", "")), StringUtil.LTrim( ((edtProductServiceQuantity_Enabled!=0) ? context.localUtil.Format( (decimal)(A76ProductServiceQuantity), "ZZZ9") : context.localUtil.Format( (decimal)(A76ProductServiceQuantity), "ZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,61);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtProductServiceQuantity_Jsonclick, 0, "Attribute", "", "", "", "", edtProductServiceQuantity_Visible, edtProductServiceQuantity_Enabled, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_ProductService.htm");
+         GxWebStd.gx_single_line_edit( context, edtProductServiceQuantity_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A76ProductServiceQuantity), 4, 0, context.GetLanguageProperty( "decimal_point"), "")), StringUtil.LTrim( ((edtProductServiceQuantity_Enabled!=0) ? context.localUtil.Format( (decimal)(A76ProductServiceQuantity), "ZZZ9") : context.localUtil.Format( (decimal)(A76ProductServiceQuantity), "ZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onblur(this,61);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtProductServiceQuantity_Jsonclick, 0, "Attribute", "", "", "", "", edtProductServiceQuantity_Visible, edtProductServiceQuantity_Enabled, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_ProductService.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -525,17 +525,17 @@ namespace GeneXus.Programs {
                ajax_req_read_hidden_sdt(cgiGet( "vDDO_TITLESETTINGSICONS"), AV16DDO_TitleSettingsIcons);
                ajax_req_read_hidden_sdt(cgiGet( "vPRODUCTSERVICETYPEID_DATA"), AV15ProductServiceTypeId_Data);
                /* Read saved values. */
-               Z73ProductServiceId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z73ProductServiceId"), ".", ","), 18, MidpointRounding.ToEven));
+               Z73ProductServiceId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z73ProductServiceId"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Z74ProductServiceName = cgiGet( "Z74ProductServiceName");
                Z75ProductServiceDescription = cgiGet( "Z75ProductServiceDescription");
-               Z76ProductServiceQuantity = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z76ProductServiceQuantity"), ".", ","), 18, MidpointRounding.ToEven));
-               Z71ProductServiceTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z71ProductServiceTypeId"), ".", ","), 18, MidpointRounding.ToEven));
-               IsConfirmed = (short)(Math.Round(context.localUtil.CToN( cgiGet( "IsConfirmed"), ".", ","), 18, MidpointRounding.ToEven));
-               IsModified = (short)(Math.Round(context.localUtil.CToN( cgiGet( "IsModified"), ".", ","), 18, MidpointRounding.ToEven));
+               Z76ProductServiceQuantity = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z76ProductServiceQuantity"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+               Z71ProductServiceTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z71ProductServiceTypeId"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+               IsConfirmed = (short)(Math.Round(context.localUtil.CToN( cgiGet( "IsConfirmed"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+               IsModified = (short)(Math.Round(context.localUtil.CToN( cgiGet( "IsModified"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Gx_mode = cgiGet( "Mode");
-               N71ProductServiceTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "N71ProductServiceTypeId"), ".", ","), 18, MidpointRounding.ToEven));
-               AV7ProductServiceId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "vPRODUCTSERVICEID"), ".", ","), 18, MidpointRounding.ToEven));
-               AV13Insert_ProductServiceTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "vINSERT_PRODUCTSERVICETYPEID"), ".", ","), 18, MidpointRounding.ToEven));
+               N71ProductServiceTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "N71ProductServiceTypeId"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+               AV7ProductServiceId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "vPRODUCTSERVICEID"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+               AV13Insert_ProductServiceTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "vINSERT_PRODUCTSERVICETYPEID"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                A40000ProductServicePicture_GXI = cgiGet( "PRODUCTSERVICEPICTURE_GXI");
                A72ProductServiceTypeName = cgiGet( "PRODUCTSERVICETYPENAME");
                AV23Pgmname = cgiGet( "vPGMNAME");
@@ -565,7 +565,7 @@ namespace GeneXus.Programs {
                Combo_productservicetypeid_Datalistproc = cgiGet( "COMBO_PRODUCTSERVICETYPEID_Datalistproc");
                Combo_productservicetypeid_Datalistprocparametersprefix = cgiGet( "COMBO_PRODUCTSERVICETYPEID_Datalistprocparametersprefix");
                Combo_productservicetypeid_Remoteservicesparameters = cgiGet( "COMBO_PRODUCTSERVICETYPEID_Remoteservicesparameters");
-               Combo_productservicetypeid_Datalistupdateminimumcharacters = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_PRODUCTSERVICETYPEID_Datalistupdateminimumcharacters"), ".", ","), 18, MidpointRounding.ToEven));
+               Combo_productservicetypeid_Datalistupdateminimumcharacters = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_PRODUCTSERVICETYPEID_Datalistupdateminimumcharacters"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Combo_productservicetypeid_Includeonlyselectedoption = StringUtil.StrToBool( cgiGet( "COMBO_PRODUCTSERVICETYPEID_Includeonlyselectedoption"));
                Combo_productservicetypeid_Includeselectalloption = StringUtil.StrToBool( cgiGet( "COMBO_PRODUCTSERVICETYPEID_Includeselectalloption"));
                Combo_productservicetypeid_Emptyitem = StringUtil.StrToBool( cgiGet( "COMBO_PRODUCTSERVICETYPEID_Emptyitem"));
@@ -579,13 +579,13 @@ namespace GeneXus.Programs {
                Combo_productservicetypeid_Selectalltext = cgiGet( "COMBO_PRODUCTSERVICETYPEID_Selectalltext");
                Combo_productservicetypeid_Multiplevaluesseparator = cgiGet( "COMBO_PRODUCTSERVICETYPEID_Multiplevaluesseparator");
                Combo_productservicetypeid_Addnewoptiontext = cgiGet( "COMBO_PRODUCTSERVICETYPEID_Addnewoptiontext");
-               Combo_productservicetypeid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_PRODUCTSERVICETYPEID_Gxcontroltype"), ".", ","), 18, MidpointRounding.ToEven));
+               Combo_productservicetypeid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_PRODUCTSERVICETYPEID_Gxcontroltype"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                /* Read variables values. */
                A74ProductServiceName = cgiGet( edtProductServiceName_Internalname);
                AssignAttri("", false, "A74ProductServiceName", A74ProductServiceName);
                A75ProductServiceDescription = cgiGet( edtProductServiceDescription_Internalname);
                AssignAttri("", false, "A75ProductServiceDescription", A75ProductServiceDescription);
-               if ( ( ( context.localUtil.CToN( cgiGet( edtProductServiceTypeId_Internalname), ".", ",") < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtProductServiceTypeId_Internalname), ".", ",") > Convert.ToDecimal( 9999 )) ) )
+               if ( ( ( context.localUtil.CToN( cgiGet( edtProductServiceTypeId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtProductServiceTypeId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) > Convert.ToDecimal( 9999 )) ) )
                {
                   GX_msglist.addItem(context.GetMessage( "GXM_badnum", ""), 1, "PRODUCTSERVICETYPEID");
                   AnyError = 1;
@@ -597,16 +597,16 @@ namespace GeneXus.Programs {
                }
                else
                {
-                  A71ProductServiceTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtProductServiceTypeId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+                  A71ProductServiceTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtProductServiceTypeId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                   AssignAttri("", false, "A71ProductServiceTypeId", StringUtil.LTrimStr( (decimal)(A71ProductServiceTypeId), 4, 0));
                }
                A77ProductServicePicture = cgiGet( imgProductServicePicture_Internalname);
                AssignAttri("", false, "A77ProductServicePicture", A77ProductServicePicture);
-               AV20ComboProductServiceTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtavComboproductservicetypeid_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+               AV20ComboProductServiceTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtavComboproductservicetypeid_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignAttri("", false, "AV20ComboProductServiceTypeId", StringUtil.LTrimStr( (decimal)(AV20ComboProductServiceTypeId), 4, 0));
-               A73ProductServiceId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtProductServiceId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+               A73ProductServiceId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtProductServiceId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignAttri("", false, "A73ProductServiceId", StringUtil.LTrimStr( (decimal)(A73ProductServiceId), 4, 0));
-               if ( ( ( context.localUtil.CToN( cgiGet( edtProductServiceQuantity_Internalname), ".", ",") < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtProductServiceQuantity_Internalname), ".", ",") > Convert.ToDecimal( 9999 )) ) )
+               if ( ( ( context.localUtil.CToN( cgiGet( edtProductServiceQuantity_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtProductServiceQuantity_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) > Convert.ToDecimal( 9999 )) ) )
                {
                   GX_msglist.addItem(context.GetMessage( "GXM_badnum", ""), 1, "PRODUCTSERVICEQUANTITY");
                   AnyError = 1;
@@ -618,7 +618,7 @@ namespace GeneXus.Programs {
                }
                else
                {
-                  A76ProductServiceQuantity = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtProductServiceQuantity_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+                  A76ProductServiceQuantity = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtProductServiceQuantity_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                   AssignAttri("", false, "A76ProductServiceQuantity", StringUtil.LTrimStr( (decimal)(A76ProductServiceQuantity), 4, 0));
                }
                /* Read subfile selected row values. */
@@ -627,7 +627,7 @@ namespace GeneXus.Programs {
                GXKey = Decrypt64( context.GetCookie( "GX_SESSION_ID"), Crypto.GetServerKey( ));
                forbiddenHiddens = new GXProperties();
                forbiddenHiddens.Add("hshsalt", "hsh"+"ProductService");
-               A73ProductServiceId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtProductServiceId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+               A73ProductServiceId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtProductServiceId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignAttri("", false, "A73ProductServiceId", StringUtil.LTrimStr( (decimal)(A73ProductServiceId), 4, 0));
                forbiddenHiddens.Add("ProductServiceId", context.localUtil.Format( (decimal)(A73ProductServiceId), "ZZZ9"));
                forbiddenHiddens.Add("Gx_mode", StringUtil.RTrim( context.localUtil.Format( Gx_mode, "@!")));
@@ -1085,14 +1085,14 @@ namespace GeneXus.Programs {
          standaloneModal( ) ;
          if ( String.IsNullOrEmpty(StringUtil.RTrim( A74ProductServiceName)) )
          {
-            GX_msglist.addItem(StringUtil.Format( "%1 is required.", "Product Service Name", "", "", "", "", "", "", "", ""), 1, "PRODUCTSERVICENAME");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "WWP_RequiredAttribute", ""), context.GetMessage( "Product Service Name", ""), "", "", "", "", "", "", "", ""), 1, "PRODUCTSERVICENAME");
             AnyError = 1;
             GX_FocusControl = edtProductServiceName_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
          }
          if ( String.IsNullOrEmpty(StringUtil.RTrim( A75ProductServiceDescription)) )
          {
-            GX_msglist.addItem(StringUtil.Format( "%1 is required.", "Product Service Description", "", "", "", "", "", "", "", ""), 1, "PRODUCTSERVICEDESCRIPTION");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "WWP_RequiredAttribute", ""), context.GetMessage( "Product Service Description", ""), "", "", "", "", "", "", "", ""), 1, "PRODUCTSERVICEDESCRIPTION");
             AnyError = 1;
             GX_FocusControl = edtProductServiceDescription_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -1101,7 +1101,7 @@ namespace GeneXus.Programs {
          pr_default.execute(2, new Object[] {A71ProductServiceTypeId});
          if ( (pr_default.getStatus(2) == 101) )
          {
-            GX_msglist.addItem("No matching 'Product Service Type'.", "ForeignKeyNotFound", 1, "PRODUCTSERVICETYPEID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Product Service Type", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "PRODUCTSERVICETYPEID");
             AnyError = 1;
             GX_FocusControl = edtProductServiceTypeId_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -1110,7 +1110,7 @@ namespace GeneXus.Programs {
          pr_default.close(2);
          if ( (0==A71ProductServiceTypeId) )
          {
-            GX_msglist.addItem("Product/Service Type is required", 1, "PRODUCTSERVICETYPEID");
+            GX_msglist.addItem(context.GetMessage( "Product/Service Type is required", ""), 1, "PRODUCTSERVICETYPEID");
             AnyError = 1;
             GX_FocusControl = edtProductServiceTypeId_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -1132,7 +1132,7 @@ namespace GeneXus.Programs {
          pr_default.execute(4, new Object[] {A71ProductServiceTypeId});
          if ( (pr_default.getStatus(4) == 101) )
          {
-            GX_msglist.addItem("No matching 'Product Service Type'.", "ForeignKeyNotFound", 1, "PRODUCTSERVICETYPEID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Product Service Type", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "PRODUCTSERVICETYPEID");
             AnyError = 1;
             GX_FocusControl = edtProductServiceTypeId_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -1644,7 +1644,7 @@ namespace GeneXus.Programs {
             pr_default.execute(14, new Object[] {A73ProductServiceId});
             if ( (pr_default.getStatus(14) != 101) )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"Product Service"}), "CannotDeleteReferencedRecord", 1, "");
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {context.GetMessage( "Product Service", "")}), "CannotDeleteReferencedRecord", 1, "");
                AnyError = 1;
             }
             pr_default.close(14);
@@ -1652,7 +1652,7 @@ namespace GeneXus.Programs {
             pr_default.execute(15, new Object[] {A73ProductServiceId});
             if ( (pr_default.getStatus(15) != 101) )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"Product Service"}), "CannotDeleteReferencedRecord", 1, "");
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {context.GetMessage( "Product Service", "")}), "CannotDeleteReferencedRecord", 1, "");
                AnyError = 1;
             }
             pr_default.close(15);
@@ -1660,7 +1660,7 @@ namespace GeneXus.Programs {
             pr_default.execute(16, new Object[] {A73ProductServiceId});
             if ( (pr_default.getStatus(16) != 101) )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"Product Service"}), "CannotDeleteReferencedRecord", 1, "");
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {context.GetMessage( "Product Service", "")}), "CannotDeleteReferencedRecord", 1, "");
                AnyError = 1;
             }
             pr_default.close(16);
@@ -1882,16 +1882,16 @@ namespace GeneXus.Programs {
          /* Send hidden variables. */
          /* Send saved values. */
          send_integrity_footer_hashes( ) ;
-         GxWebStd.gx_hidden_field( context, "Z73ProductServiceId", StringUtil.LTrim( StringUtil.NToC( (decimal)(Z73ProductServiceId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "Z73ProductServiceId", StringUtil.LTrim( StringUtil.NToC( (decimal)(Z73ProductServiceId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "Z74ProductServiceName", Z74ProductServiceName);
          GxWebStd.gx_hidden_field( context, "Z75ProductServiceDescription", Z75ProductServiceDescription);
-         GxWebStd.gx_hidden_field( context, "Z76ProductServiceQuantity", StringUtil.LTrim( StringUtil.NToC( (decimal)(Z76ProductServiceQuantity), 4, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "Z71ProductServiceTypeId", StringUtil.LTrim( StringUtil.NToC( (decimal)(Z71ProductServiceTypeId), 4, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "IsConfirmed", StringUtil.LTrim( StringUtil.NToC( (decimal)(IsConfirmed), 4, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "IsModified", StringUtil.LTrim( StringUtil.NToC( (decimal)(IsModified), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "Z76ProductServiceQuantity", StringUtil.LTrim( StringUtil.NToC( (decimal)(Z76ProductServiceQuantity), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "Z71ProductServiceTypeId", StringUtil.LTrim( StringUtil.NToC( (decimal)(Z71ProductServiceTypeId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "IsConfirmed", StringUtil.LTrim( StringUtil.NToC( (decimal)(IsConfirmed), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "IsModified", StringUtil.LTrim( StringUtil.NToC( (decimal)(IsModified), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "Mode", StringUtil.RTrim( Gx_mode));
          GxWebStd.gx_hidden_field( context, "gxhash_Mode", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( Gx_mode, "@!")), context));
-         GxWebStd.gx_hidden_field( context, "N71ProductServiceTypeId", StringUtil.LTrim( StringUtil.NToC( (decimal)(A71ProductServiceTypeId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "N71ProductServiceTypeId", StringUtil.LTrim( StringUtil.NToC( (decimal)(A71ProductServiceTypeId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          if ( context.isAjaxRequest( ) )
          {
             context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "vDDO_TITLESETTINGSICONS", AV16DDO_TitleSettingsIcons);
@@ -1919,9 +1919,9 @@ namespace GeneXus.Programs {
             context.httpAjaxContext.ajax_rsp_assign_hidden_sdt("vTRNCONTEXT", AV11TrnContext);
          }
          GxWebStd.gx_hidden_field( context, "gxhash_vTRNCONTEXT", GetSecureSignedToken( "", AV11TrnContext, context));
-         GxWebStd.gx_hidden_field( context, "vPRODUCTSERVICEID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7ProductServiceId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "vPRODUCTSERVICEID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7ProductServiceId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "gxhash_vPRODUCTSERVICEID", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV7ProductServiceId), "ZZZ9"), context));
-         GxWebStd.gx_hidden_field( context, "vINSERT_PRODUCTSERVICETYPEID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV13Insert_ProductServiceTypeId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "vINSERT_PRODUCTSERVICETYPEID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV13Insert_ProductServiceTypeId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "PRODUCTSERVICEPICTURE_GXI", A40000ProductServicePicture_GXI);
          GxWebStd.gx_hidden_field( context, "PRODUCTSERVICETYPENAME", A72ProductServiceTypeName);
          GxWebStd.gx_hidden_field( context, "vPGMNAME", StringUtil.RTrim( AV23Pgmname));
@@ -1957,6 +1957,18 @@ namespace GeneXus.Programs {
             enableOutput();
          }
          include_jscripts( ) ;
+         context.WriteHtmlText( "<script type=\"text/javascript\">") ;
+         context.WriteHtmlText( "gx.setLanguageCode(\""+context.GetLanguageProperty( "code")+"\");") ;
+         if ( ! context.isSpaRequest( ) )
+         {
+            context.WriteHtmlText( "gx.setDateFormat(\""+context.GetLanguageProperty( "date_fmt")+"\");") ;
+            context.WriteHtmlText( "gx.setTimeFormat("+context.GetLanguageProperty( "time_fmt")+");") ;
+            context.WriteHtmlText( "gx.setCenturyFirstYear("+40+");") ;
+            context.WriteHtmlText( "gx.setDecimalPoint(\""+context.GetLanguageProperty( "decimal_point")+"\");") ;
+            context.WriteHtmlText( "gx.setThousandSeparator(\""+context.GetLanguageProperty( "thousand_sep")+"\");") ;
+            context.WriteHtmlText( "gx.StorageTimeZone = "+1+";") ;
+         }
+         context.WriteHtmlText( "</script>") ;
       }
 
       public override short ExecuteStartEvent( )
@@ -2002,7 +2014,7 @@ namespace GeneXus.Programs {
 
       public override string GetPgmdesc( )
       {
-         return "Product/Service" ;
+         return context.GetMessage( "Product/Service", "") ;
       }
 
       protected void InitializeNonKey0611( )
@@ -2052,7 +2064,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20249126295976", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202491315533084", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2067,8 +2079,8 @@ namespace GeneXus.Programs {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("productservice.js", "?20249126295977", false, true);
+         context.AddJavascriptSource("messages."+StringUtil.Lower( context.GetLanguageProperty( "code"))+".js", "?"+GetCacheInvalidationToken( ), false, true);
+         context.AddJavascriptSource("productservice.js", "?202491315533086", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -2114,7 +2126,7 @@ namespace GeneXus.Programs {
          Form.Background = "";
          Form.Textcolor = 0;
          Form.Backcolor = (int)(0xFFFFFF);
-         Form.Caption = "Product/Service";
+         Form.Caption = context.GetMessage( "Product/Service", "");
          edtProductServiceQuantity_Jsonclick = "";
          edtProductServiceQuantity_Enabled = 1;
          edtProductServiceQuantity_Visible = 1;
@@ -2187,7 +2199,7 @@ namespace GeneXus.Programs {
          pr_default.execute(13, new Object[] {A71ProductServiceTypeId});
          if ( (pr_default.getStatus(13) == 101) )
          {
-            GX_msglist.addItem("No matching 'Product Service Type'.", "ForeignKeyNotFound", 1, "PRODUCTSERVICETYPEID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Product Service Type", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "PRODUCTSERVICETYPEID");
             AnyError = 1;
             GX_FocusControl = edtProductServiceTypeId_Internalname;
          }
@@ -2195,7 +2207,7 @@ namespace GeneXus.Programs {
          pr_default.close(13);
          if ( (0==A71ProductServiceTypeId) )
          {
-            GX_msglist.addItem("Product/Service Type is required", 1, "PRODUCTSERVICETYPEID");
+            GX_msglist.addItem(context.GetMessage( "Product/Service Type is required", ""), 1, "PRODUCTSERVICETYPEID");
             AnyError = 1;
             GX_FocusControl = edtProductServiceTypeId_Internalname;
          }

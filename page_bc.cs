@@ -209,7 +209,7 @@ namespace GeneXus.Programs {
          pr_default.execute(2, new Object[] {A1CustomerId});
          if ( (pr_default.getStatus(2) == 101) )
          {
-            GX_msglist.addItem("No matching 'Customer'.", "ForeignKeyNotFound", 1, "CUSTOMERID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Customer", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "CUSTOMERID");
             AnyError = 1;
          }
          A3CustomerName = BC000E4_A3CustomerName[0];

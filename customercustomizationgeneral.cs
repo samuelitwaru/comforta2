@@ -225,7 +225,7 @@ namespace GeneXus.Programs {
                enableOutput();
             }
             context.WriteHtmlText( "<title>") ;
-            context.SendWebValue( "Customer Customization General") ;
+            context.SendWebValue( context.GetMessage( "Customer Customization General", "")) ;
             context.WriteHtmlTextNl( "</title>") ;
             if ( context.isSpaRequest( ) )
             {
@@ -328,7 +328,7 @@ namespace GeneXus.Programs {
          /* Send hidden variables. */
          /* Send saved values. */
          send_integrity_footer_hashes( ) ;
-         GxWebStd.gx_hidden_field( context, sPrefix+"wcpOA128CustomerCustomizationId", StringUtil.LTrim( StringUtil.NToC( (decimal)(wcpOA128CustomerCustomizationId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, sPrefix+"wcpOA128CustomerCustomizationId", StringUtil.LTrim( StringUtil.NToC( (decimal)(wcpOA128CustomerCustomizationId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_boolean_hidden_field( context, sPrefix+"vISAUTHORIZED_UPDATE", AV12IsAuthorized_Update);
          GxWebStd.gx_hidden_field( context, sPrefix+"gxhash_vISAUTHORIZED_UPDATE", GetSecureSignedToken( sPrefix, AV12IsAuthorized_Update, context));
          GxWebStd.gx_boolean_hidden_field( context, sPrefix+"vISAUTHORIZED_DELETE", AV13IsAuthorized_Delete);
@@ -389,7 +389,7 @@ namespace GeneXus.Programs {
 
       public override string GetPgmdesc( )
       {
-         return "Customer Customization General" ;
+         return context.GetMessage( "Customer Customization General", "") ;
       }
 
       protected void WB3O0( )
@@ -433,7 +433,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtCustomerName_Internalname+"\"", "", "div");
             /* Attribute/Variable Label */
-            GxWebStd.gx_label_element( context, edtCustomerName_Internalname, "Customer Name", " AttributeLabel", 1, true, "");
+            GxWebStd.gx_label_element( context, edtCustomerName_Internalname, context.GetMessage( "Customer Name", ""), " AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
@@ -456,7 +456,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+imgCustomerCustomizationLogo_Internalname+"\"", "", "div");
             /* Attribute/Variable Label */
-            GxWebStd.gx_label_element( context, "", "Customer Logo", " AttributeLabel", 1, true, "");
+            GxWebStd.gx_label_element( context, "", context.GetMessage( "Customer Logo", ""), " AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Static Bitmap Variable */
@@ -473,7 +473,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+imgCustomerCustomizationFavicon_Internalname+"\"", "", "div");
             /* Attribute/Variable Label */
-            GxWebStd.gx_label_element( context, "", "Customization Favicon", " AttributeLabel", 1, true, "");
+            GxWebStd.gx_label_element( context, "", context.GetMessage( "Customization Favicon", ""), " AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Static Bitmap Variable */
@@ -493,7 +493,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+cmbCustomerCustomizationFontSize_Internalname+"\"", "", "div");
             /* Attribute/Variable Label */
-            GxWebStd.gx_label_element( context, cmbCustomerCustomizationFontSize_Internalname, "Font Size", " AttributeLabel", 1, true, "");
+            GxWebStd.gx_label_element( context, cmbCustomerCustomizationFontSize_Internalname, context.GetMessage( "Font Size", ""), " AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 31,'" + sPrefix + "',false,'',0)\"";
@@ -511,7 +511,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "", "start", "top", " "+"data-gx-smarttable-cell"+" ", "display:flex;align-items:center;", "div");
             /* Text block */
-            GxWebStd.gx_label_ctrl( context, lblTransactiondetail_textblock1_Internalname, "Color Theme", "", "", lblTransactiondetail_textblock1_Jsonclick, "'"+sPrefix+"'"+",false,"+"'"+""+"'", "", "TextBlock AttributeWeightBold", 0, "", 1, 1, 0, 0, "HLP_CustomerCustomizationGeneral.htm");
+            GxWebStd.gx_label_ctrl( context, lblTransactiondetail_textblock1_Internalname, context.GetMessage( "Color Theme", ""), "", "", lblTransactiondetail_textblock1_Jsonclick, "'"+sPrefix+"'"+",false,"+"'"+""+"'", "", "TextBlock AttributeWeightBold", 0, "", 1, 1, 0, 0, "HLP_CustomerCustomizationGeneral.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -542,14 +542,14 @@ namespace GeneXus.Programs {
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 43,'" + sPrefix + "',false,'',0)\"";
             ClassString = "Button";
             StyleString = "";
-            GxWebStd.gx_button_ctrl( context, bttBtnupdate_Internalname, "", "Update", bttBtnupdate_Jsonclick, 7, "Update", "", StyleString, ClassString, bttBtnupdate_Visible, 1, "standard", "'"+sPrefix+"'"+",false,"+"'"+"e113o1_client"+"'", TempTags, "", 2, "HLP_CustomerCustomizationGeneral.htm");
+            GxWebStd.gx_button_ctrl( context, bttBtnupdate_Internalname, "", context.GetMessage( "GXM_update", ""), bttBtnupdate_Jsonclick, 7, context.GetMessage( "GXM_update", ""), "", StyleString, ClassString, bttBtnupdate_Visible, 1, "standard", "'"+sPrefix+"'"+",false,"+"'"+"e113o1_client"+"'", TempTags, "", 2, "HLP_CustomerCustomizationGeneral.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-button", "start", "top", "", "", "div");
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 45,'" + sPrefix + "',false,'',0)\"";
             ClassString = "BtnDefault";
             StyleString = "";
-            GxWebStd.gx_button_ctrl( context, bttBtndelete_Internalname, "", "Delete", bttBtndelete_Jsonclick, 7, "Delete", "", StyleString, ClassString, bttBtndelete_Visible, 1, "standard", "'"+sPrefix+"'"+",false,"+"'"+"e123o1_client"+"'", TempTags, "", 2, "HLP_CustomerCustomizationGeneral.htm");
+            GxWebStd.gx_button_ctrl( context, bttBtndelete_Internalname, "", context.GetMessage( "GX_BtnDelete", ""), bttBtndelete_Jsonclick, 7, context.GetMessage( "GX_BtnDelete", ""), "", StyleString, ClassString, bttBtndelete_Visible, 1, "standard", "'"+sPrefix+"'"+",false,"+"'"+"e123o1_client"+"'", TempTags, "", 2, "HLP_CustomerCustomizationGeneral.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -564,9 +564,9 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, divHtml_bottomauxiliarcontrols_Internalname, 1, 0, "px", 0, "px", "Section", "start", "top", "", "", "div");
             /* Single line edit */
-            GxWebStd.gx_single_line_edit( context, edtCustomerId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A1CustomerId), 4, 0, ".", "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(A1CustomerId), "ZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+"", "'"+sPrefix+"'"+",false,"+"'"+""+"'", "", "", "", "", edtCustomerId_Jsonclick, 0, "Attribute", "", "", "", "", edtCustomerId_Visible, 0, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_CustomerCustomizationGeneral.htm");
+            GxWebStd.gx_single_line_edit( context, edtCustomerId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A1CustomerId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(A1CustomerId), "ZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+"", "'"+sPrefix+"'"+",false,"+"'"+""+"'", "", "", "", "", edtCustomerId_Jsonclick, 0, "Attribute", "", "", "", "", edtCustomerId_Visible, 0, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_CustomerCustomizationGeneral.htm");
             /* Single line edit */
-            GxWebStd.gx_single_line_edit( context, edtCustomerCustomizationId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A128CustomerCustomizationId), 4, 0, ".", "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(A128CustomerCustomizationId), "ZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+"", "'"+sPrefix+"'"+",false,"+"'"+""+"'", "", "", "", "", edtCustomerCustomizationId_Jsonclick, 0, "Attribute", "", "", "", "", edtCustomerCustomizationId_Visible, 0, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_CustomerCustomizationGeneral.htm");
+            GxWebStd.gx_single_line_edit( context, edtCustomerCustomizationId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A128CustomerCustomizationId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(A128CustomerCustomizationId), "ZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+"", "'"+sPrefix+"'"+",false,"+"'"+""+"'", "", "", "", "", edtCustomerCustomizationId_Jsonclick, 0, "Attribute", "", "", "", "", edtCustomerCustomizationId_Visible, 0, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_CustomerCustomizationGeneral.htm");
             /* Single line edit */
             GxWebStd.gx_single_line_edit( context, edtCustomerCustomizationBaseColor_Internalname, A131CustomerCustomizationBaseColor, StringUtil.RTrim( context.localUtil.Format( A131CustomerCustomizationBaseColor, "")), "", "'"+sPrefix+"'"+",false,"+"'"+""+"'", "", "", "", "", edtCustomerCustomizationBaseColor_Jsonclick, 0, "Attribute", "", "", "", "", edtCustomerCustomizationBaseColor_Visible, 0, 0, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, -1, true, "", "start", true, "", "HLP_CustomerCustomizationGeneral.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -592,7 +592,7 @@ namespace GeneXus.Programs {
                   Form.Meta.addItem("generator", "GeneXus .NET 18_0_10-184260", 0) ;
                }
             }
-            Form.Meta.addItem("description", "Customer Customization General", 0) ;
+            Form.Meta.addItem("description", context.GetMessage( "Customer Customization General", ""), 0) ;
             context.wjLoc = "";
             context.nUserReturn = 0;
             context.wbHandled = 0;
@@ -940,7 +940,7 @@ namespace GeneXus.Programs {
          {
             /* Read saved SDTs. */
             /* Read saved values. */
-            wcpOA128CustomerCustomizationId = (short)(Math.Round(context.localUtil.CToN( cgiGet( sPrefix+"wcpOA128CustomerCustomizationId"), ".", ","), 18, MidpointRounding.ToEven));
+            wcpOA128CustomerCustomizationId = (short)(Math.Round(context.localUtil.CToN( cgiGet( sPrefix+"wcpOA128CustomerCustomizationId"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
             AV13IsAuthorized_Delete = StringUtil.StrToBool( cgiGet( sPrefix+"vISAUTHORIZED_DELETE"));
             AV12IsAuthorized_Update = StringUtil.StrToBool( cgiGet( sPrefix+"vISAUTHORIZED_UPDATE"));
             /* Read variables values. */
@@ -953,7 +953,7 @@ namespace GeneXus.Programs {
             cmbCustomerCustomizationFontSize.CurrentValue = cgiGet( cmbCustomerCustomizationFontSize_Internalname);
             A132CustomerCustomizationFontSize = cgiGet( cmbCustomerCustomizationFontSize_Internalname);
             AssignAttri(sPrefix, false, "A132CustomerCustomizationFontSize", A132CustomerCustomizationFontSize);
-            A1CustomerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+            A1CustomerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
             AssignAttri(sPrefix, false, "A1CustomerId", StringUtil.LTrimStr( (decimal)(A1CustomerId), 4, 0));
             A131CustomerCustomizationBaseColor = cgiGet( edtCustomerCustomizationBaseColor_Internalname);
             AssignAttri(sPrefix, false, "A131CustomerCustomizationBaseColor", A131CustomerCustomizationBaseColor);
@@ -1114,7 +1114,7 @@ namespace GeneXus.Programs {
             A128CustomerCustomizationId = Convert.ToInt16(getParm(obj,2));
             AssignAttri(sPrefix, false, "A128CustomerCustomizationId", StringUtil.LTrimStr( (decimal)(A128CustomerCustomizationId), 4, 0));
          }
-         wcpOA128CustomerCustomizationId = (short)(Math.Round(context.localUtil.CToN( cgiGet( sPrefix+"wcpOA128CustomerCustomizationId"), ".", ","), 18, MidpointRounding.ToEven));
+         wcpOA128CustomerCustomizationId = (short)(Math.Round(context.localUtil.CToN( cgiGet( sPrefix+"wcpOA128CustomerCustomizationId"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          if ( ! GetJustCreated( ) && ( ( A128CustomerCustomizationId != wcpOA128CustomerCustomizationId ) ) )
          {
             setjustcreated();
@@ -1128,12 +1128,12 @@ namespace GeneXus.Programs {
          sCtrlA128CustomerCustomizationId = cgiGet( sPrefix+"A128CustomerCustomizationId_CTRL");
          if ( StringUtil.Len( sCtrlA128CustomerCustomizationId) > 0 )
          {
-            A128CustomerCustomizationId = (short)(Math.Round(context.localUtil.CToN( cgiGet( sCtrlA128CustomerCustomizationId), ".", ","), 18, MidpointRounding.ToEven));
+            A128CustomerCustomizationId = (short)(Math.Round(context.localUtil.CToN( cgiGet( sCtrlA128CustomerCustomizationId), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
             AssignAttri(sPrefix, false, "A128CustomerCustomizationId", StringUtil.LTrimStr( (decimal)(A128CustomerCustomizationId), 4, 0));
          }
          else
          {
-            A128CustomerCustomizationId = (short)(Math.Round(context.localUtil.CToN( cgiGet( sPrefix+"A128CustomerCustomizationId_PARM"), ".", ","), 18, MidpointRounding.ToEven));
+            A128CustomerCustomizationId = (short)(Math.Round(context.localUtil.CToN( cgiGet( sPrefix+"A128CustomerCustomizationId_PARM"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          }
       }
 
@@ -1180,7 +1180,7 @@ namespace GeneXus.Programs {
 
       protected void WCParametersSet( )
       {
-         GxWebStd.gx_hidden_field( context, sPrefix+"A128CustomerCustomizationId_PARM", StringUtil.LTrim( StringUtil.NToC( (decimal)(A128CustomerCustomizationId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, sPrefix+"A128CustomerCustomizationId_PARM", StringUtil.LTrim( StringUtil.NToC( (decimal)(A128CustomerCustomizationId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          if ( StringUtil.Len( StringUtil.RTrim( sCtrlA128CustomerCustomizationId)) > 0 )
          {
             GxWebStd.gx_hidden_field( context, sPrefix+"A128CustomerCustomizationId_CTRL", StringUtil.RTrim( sCtrlA128CustomerCustomizationId));
@@ -1236,7 +1236,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20249126301238", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202491315535476", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1252,7 +1252,7 @@ namespace GeneXus.Programs {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("customercustomizationgeneral.js", "?20249126301238", false, true);
+         context.AddJavascriptSource("customercustomizationgeneral.js", "?202491315535476", false, true);
          /* End function include_jscripts */
       }
 
@@ -1260,10 +1260,10 @@ namespace GeneXus.Programs {
       {
          cmbCustomerCustomizationFontSize.Name = "CUSTOMERCUSTOMIZATIONFONTSIZE";
          cmbCustomerCustomizationFontSize.WebTags = "";
-         cmbCustomerCustomizationFontSize.addItem("", "Select Font Size", 0);
-         cmbCustomerCustomizationFontSize.addItem("Small", "Small", 0);
-         cmbCustomerCustomizationFontSize.addItem("Medium", "Medium", 0);
-         cmbCustomerCustomizationFontSize.addItem("Large", "Large", 0);
+         cmbCustomerCustomizationFontSize.addItem("", context.GetMessage( "Select Font Size", ""), 0);
+         cmbCustomerCustomizationFontSize.addItem("Small", context.GetMessage( "Small", ""), 0);
+         cmbCustomerCustomizationFontSize.addItem("Medium", context.GetMessage( "Medium", ""), 0);
+         cmbCustomerCustomizationFontSize.addItem("Large", context.GetMessage( "Large", ""), 0);
          if ( cmbCustomerCustomizationFontSize.ItemCount > 0 )
          {
          }

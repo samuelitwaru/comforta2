@@ -878,7 +878,7 @@ namespace GeneXus.Programs {
          standaloneModal( ) ;
          if ( ! ( GxRegex.IsMatch(A5CustomerEmail,"^((\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)|(\\s*))$") || String.IsNullOrEmpty(StringUtil.RTrim( A5CustomerEmail)) ) )
          {
-            GX_msglist.addItem("Field Customer Email does not match the specified pattern", "OutOfRange", 1, "");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXM_DoesNotMatchRegExp", ""), context.GetMessage( "Customer Email", ""), "", "", "", "", "", "", "", ""), "OutOfRange", 1, "");
             AnyError = 1;
          }
          /* Using cursor BC000120 */
@@ -887,7 +887,7 @@ namespace GeneXus.Programs {
          {
             if ( ! ( (0==A78CustomerTypeId) ) )
             {
-               GX_msglist.addItem("No matching 'Customer Type'.", "ForeignKeyNotFound", 1, "CUSTOMERTYPEID");
+               GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Customer Type", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "CUSTOMERTYPEID");
                AnyError = 1;
             }
          }
@@ -1219,7 +1219,7 @@ namespace GeneXus.Programs {
             pr_default.execute(26, new Object[] {A1CustomerId});
             if ( (pr_default.getStatus(26) != 101) )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"CustomerCustomization"}), "CannotDeleteReferencedRecord", 1, "");
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {context.GetMessage( "CustomerCustomization", "")}), "CannotDeleteReferencedRecord", 1, "");
                AnyError = 1;
             }
             pr_default.close(26);
@@ -1227,7 +1227,7 @@ namespace GeneXus.Programs {
             pr_default.execute(27, new Object[] {A1CustomerId});
             if ( (pr_default.getStatus(27) != 101) )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"Page"}), "CannotDeleteReferencedRecord", 1, "");
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {context.GetMessage( "Page", "")}), "CannotDeleteReferencedRecord", 1, "");
                AnyError = 1;
             }
             pr_default.close(27);
@@ -1235,7 +1235,7 @@ namespace GeneXus.Programs {
             pr_default.execute(28, new Object[] {A1CustomerId});
             if ( (pr_default.getStatus(28) != 101) )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"CustomerLocation"}), "CannotDeleteReferencedRecord", 1, "");
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {context.GetMessage( "CustomerLocation", "")}), "CannotDeleteReferencedRecord", 1, "");
                AnyError = 1;
             }
             pr_default.close(28);
@@ -1640,12 +1640,12 @@ namespace GeneXus.Programs {
          n17CustomerManagerInitials = (String.IsNullOrEmpty(StringUtil.RTrim( A17CustomerManagerInitials)) ? true : false);
          if ( ! ( GxRegex.IsMatch(A10CustomerManagerEmail,"^((\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)|(\\s*))$") ) )
          {
-            GX_msglist.addItem("Field Customer Manager Email does not match the specified pattern", "OutOfRange", 1, "");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXM_DoesNotMatchRegExp", ""), context.GetMessage( "Customer Manager Email", ""), "", "", "", "", "", "", "", ""), "OutOfRange", 1, "");
             AnyError = 1;
          }
          if ( ! ( ( StringUtil.StrCmp(A12CustomerManagerGender, "Man") == 0 ) || ( StringUtil.StrCmp(A12CustomerManagerGender, "Woman") == 0 ) || ( StringUtil.StrCmp(A12CustomerManagerGender, "Other") == 0 ) || String.IsNullOrEmpty(StringUtil.RTrim( A12CustomerManagerGender)) ) )
          {
-            GX_msglist.addItem("Field Customer Manager Gender is out of range", "OutOfRange", 1, "");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_OutOfRange", ""), context.GetMessage( "Customer Manager Gender", ""), "", "", "", "", "", "", "", ""), "OutOfRange", 1, "");
             AnyError = 1;
          }
       }
@@ -1978,7 +1978,7 @@ namespace GeneXus.Programs {
       protected void BeforeInsert012( )
       {
          /* Before Insert Rules */
-         new createuseraccount(context ).execute(  A10CustomerManagerEmail,  A16CustomerManagerGivenName,  A9CustomerManagerLastName,  "Customer Manager", out  A13CustomerManagerGAMGUID) ;
+         new createuseraccount(context ).execute(  A10CustomerManagerEmail,  A16CustomerManagerGivenName,  A9CustomerManagerLastName,  context.GetMessage( "Customer Manager", ""), out  A13CustomerManagerGAMGUID) ;
       }
 
       protected void BeforeUpdate012( )
@@ -2082,7 +2082,7 @@ namespace GeneXus.Programs {
          Gx_BScreen = 0;
          if ( ! ( GxRegex.IsMatch(A21CustomerLocationEmail,"^((\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)|(\\s*))$") ) )
          {
-            GX_msglist.addItem("Field Customer Location Email does not match the specified pattern", "OutOfRange", 1, "");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXM_DoesNotMatchRegExp", ""), context.GetMessage( "Customer Location Email", ""), "", "", "", "", "", "", "", ""), "OutOfRange", 1, "");
             AnyError = 1;
          }
       }
@@ -2381,7 +2381,7 @@ namespace GeneXus.Programs {
             pr_default.execute(42, new Object[] {A1CustomerId, A18CustomerLocationId});
             if ( (pr_default.getStatus(42) != 101) )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"LocationEvent"}), "CannotDeleteReferencedRecord", 1, "");
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {context.GetMessage( "LocationEvent", "")}), "CannotDeleteReferencedRecord", 1, "");
                AnyError = 1;
             }
             pr_default.close(42);
@@ -2389,7 +2389,7 @@ namespace GeneXus.Programs {
             pr_default.execute(43, new Object[] {A1CustomerId, A18CustomerLocationId});
             if ( (pr_default.getStatus(43) != 101) )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"Resident"}), "CannotDeleteReferencedRecord", 1, "");
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {context.GetMessage( "Resident", "")}), "CannotDeleteReferencedRecord", 1, "");
                AnyError = 1;
             }
             pr_default.close(43);
@@ -2927,7 +2927,7 @@ namespace GeneXus.Programs {
          n26CustomerLocationReceptionistIn = (String.IsNullOrEmpty(StringUtil.RTrim( A26CustomerLocationReceptionistIn)) ? true : false);
          if ( ! ( GxRegex.IsMatch(A27CustomerLocationReceptionistEm,"^((\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)|(\\s*))$") ) )
          {
-            GX_msglist.addItem("Field Customer Location Receptionist Email does not match the specified pattern", "OutOfRange", 1, "");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXM_DoesNotMatchRegExp", ""), context.GetMessage( "Customer Location Receptionist Email", ""), "", "", "", "", "", "", "", ""), "OutOfRange", 1, "");
             AnyError = 1;
          }
       }
@@ -3258,7 +3258,7 @@ namespace GeneXus.Programs {
       protected void BeforeInsert014( )
       {
          /* Before Insert Rules */
-         new createuseraccount(context ).execute(  A27CustomerLocationReceptionistEm,  A24CustomerLocationReceptionistGi,  A25CustomerLocationReceptionistLa,  "Receptionist", out  A30CustomerLocationReceptionistGA) ;
+         new createuseraccount(context ).execute(  A27CustomerLocationReceptionistEm,  A24CustomerLocationReceptionistGi,  A25CustomerLocationReceptionistLa,  context.GetMessage( "Receptionist", ""), out  A30CustomerLocationReceptionistGA) ;
       }
 
       protected void BeforeUpdate014( )
@@ -3368,7 +3368,7 @@ namespace GeneXus.Programs {
          pr_default.execute(9, new Object[] {A55Supplier_AgbId});
          if ( (pr_default.getStatus(9) == 101) )
          {
-            GX_msglist.addItem("No matching 'Supplier_AGB'.", "ForeignKeyNotFound", 1, "SUPPLIER_AGBID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Supplier_AGB", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "SUPPLIER_AGBID");
             AnyError = 1;
          }
          A56Supplier_AgbNumber = BC000111_A56Supplier_AgbNumber[0];
@@ -3821,7 +3821,7 @@ namespace GeneXus.Programs {
          pr_default.execute(6, new Object[] {A64Supplier_GenId});
          if ( (pr_default.getStatus(6) == 101) )
          {
-            GX_msglist.addItem("No matching 'Supplier_Gen'.", "ForeignKeyNotFound", 1, "SUPPLIER_GENID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Supplier_Gen", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "SUPPLIER_GENID");
             AnyError = 1;
          }
          A65Supplier_GenKvKNumber = BC00018_A65Supplier_GenKvKNumber[0];
@@ -4252,7 +4252,7 @@ namespace GeneXus.Programs {
          pr_default.execute(2, new Object[] {A98AmenitiesId});
          if ( (pr_default.getStatus(2) == 101) )
          {
-            GX_msglist.addItem("No matching 'Amenities'.", "ForeignKeyNotFound", 1, "AMENITIESID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Amenities", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "AMENITIESID");
             AnyError = 1;
          }
          A101AmenitiesName = BC00014_A101AmenitiesName[0];
@@ -4262,7 +4262,7 @@ namespace GeneXus.Programs {
          pr_default.execute(3, new Object[] {A99AmenitiesTypeId});
          if ( (pr_default.getStatus(3) == 101) )
          {
-            GX_msglist.addItem("No matching 'AmenitiesType'.", "ForeignKeyNotFound", 1, "AMENITIESTYPEID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "AmenitiesType", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "AMENITIESTYPEID");
             AnyError = 1;
          }
          A100AmenitiesTypeName = BC00015_A100AmenitiesTypeName[0];

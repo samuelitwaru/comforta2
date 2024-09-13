@@ -357,7 +357,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[1] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV42Productservicetypewwds_3_tfproductservicetypename_sel)) && ! ( StringUtil.StrCmp(AV42Productservicetypewwds_3_tfproductservicetypename_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV42Productservicetypewwds_3_tfproductservicetypename_sel)) && ! ( StringUtil.StrCmp(AV42Productservicetypewwds_3_tfproductservicetypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(ProductServiceTypeName = ( :AV42Productservicetypewwds_3_tfproductservicetypename_sel))");
          }
@@ -365,7 +365,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[2] = 1;
          }
-         if ( StringUtil.StrCmp(AV42Productservicetypewwds_3_tfproductservicetypename_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV42Productservicetypewwds_3_tfproductservicetypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from ProductServiceTypeName))=0))");
          }

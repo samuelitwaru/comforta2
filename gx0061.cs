@@ -340,7 +340,7 @@ namespace GeneXus.Programs {
       protected void SendCloseFormHiddens( )
       {
          /* Send hidden variables. */
-         GxWebStd.gx_hidden_field( context, "GXH_vCRESIDENTININDIVIDUALID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV6cResidentINIndividualId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "GXH_vCRESIDENTININDIVIDUALID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV6cResidentINIndividualId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "GXH_vCRESIDENTININDIVIDUALBSNNUMBER", AV7cResidentINIndividualBsnNumber);
          GxWebStd.gx_hidden_field( context, "GXH_vCRESIDENTININDIVIDUALGIVENNAME", AV8cResidentINIndividualGivenName);
          GxWebStd.gx_hidden_field( context, "GXH_vCRESIDENTININDIVIDUALLASTNAME", AV9cResidentINIndividualLastName);
@@ -348,11 +348,11 @@ namespace GeneXus.Programs {
          GxWebStd.gx_hidden_field( context, "GXH_vCRESIDENTININDIVIDUALGENDER", StringUtil.RTrim( AV11cResidentINIndividualGender));
          /* Send saved values. */
          send_integrity_footer_hashes( ) ;
-         GxWebStd.gx_hidden_field( context, "nRC_GXsfl_74", StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_74), 8, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "vPRESIDENTID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV12pResidentId), 4, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "vPRESIDENTININDIVIDUALID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV13pResidentINIndividualId), 4, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "GRID1_nFirstRecordOnPage", StringUtil.LTrim( StringUtil.NToC( (decimal)(GRID1_nFirstRecordOnPage), 15, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "GRID1_nEOF", StringUtil.LTrim( StringUtil.NToC( (decimal)(GRID1_nEOF), 1, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "nRC_GXsfl_74", StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_74), 8, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "vPRESIDENTID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV12pResidentId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "vPRESIDENTININDIVIDUALID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV13pResidentINIndividualId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "GRID1_nFirstRecordOnPage", StringUtil.LTrim( StringUtil.NToC( (decimal)(GRID1_nFirstRecordOnPage), 15, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "GRID1_nEOF", StringUtil.LTrim( StringUtil.NToC( (decimal)(GRID1_nEOF), 1, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "ADVANCEDCONTAINER_Class", StringUtil.RTrim( divAdvancedcontainer_Class));
          GxWebStd.gx_hidden_field( context, "BTNTOGGLE_Class", StringUtil.RTrim( bttBtntoggle_Class));
          GxWebStd.gx_hidden_field( context, "RESIDENTININDIVIDUALIDFILTERCONTAINER_Class", StringUtil.RTrim( divResidentinindividualidfiltercontainer_Class));
@@ -382,6 +382,18 @@ namespace GeneXus.Programs {
             enableOutput();
          }
          include_jscripts( ) ;
+         context.WriteHtmlText( "<script type=\"text/javascript\">") ;
+         context.WriteHtmlText( "gx.setLanguageCode(\""+context.GetLanguageProperty( "code")+"\");") ;
+         if ( ! context.isSpaRequest( ) )
+         {
+            context.WriteHtmlText( "gx.setDateFormat(\""+context.GetLanguageProperty( "date_fmt")+"\");") ;
+            context.WriteHtmlText( "gx.setTimeFormat("+context.GetLanguageProperty( "time_fmt")+");") ;
+            context.WriteHtmlText( "gx.setCenturyFirstYear("+40+");") ;
+            context.WriteHtmlText( "gx.setDecimalPoint(\""+context.GetLanguageProperty( "decimal_point")+"\");") ;
+            context.WriteHtmlText( "gx.setThousandSeparator(\""+context.GetLanguageProperty( "thousand_sep")+"\");") ;
+            context.WriteHtmlText( "gx.StorageTimeZone = "+1+";") ;
+         }
+         context.WriteHtmlText( "</script>") ;
       }
 
       public override void RenderHtmlContent( )
@@ -424,7 +436,7 @@ namespace GeneXus.Programs {
 
       public override string GetPgmdesc( )
       {
-         return "Selection List INIndividual" ;
+         return context.GetMessage( "Selection List INIndividual", "") ;
       }
 
       protected void WB050( )
@@ -462,7 +474,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
             /* Text block */
-            GxWebStd.gx_label_ctrl( context, lblLblresidentinindividualidfilter_Internalname, "Resident INIndividual Id", "", "", lblLblresidentinindividualidfilter_Jsonclick, "'"+""+"'"+",false,"+"'"+"e11051_client"+"'", "", "WWAdvancedLabel WWFilterLabel", 7, "", 1, 1, 0, 1, "HLP_Gx0061.htm");
+            GxWebStd.gx_label_ctrl( context, lblLblresidentinindividualidfilter_Internalname, context.GetMessage( "Resident INIndividual Id", ""), "", "", lblLblresidentinindividualidfilter_Jsonclick, "'"+""+"'"+",false,"+"'"+"e11051_client"+"'", "", "WWAdvancedLabel WWFilterLabel", 7, "", 1, 1, 0, 1, "HLP_Gx0061.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
@@ -472,10 +484,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Attribute/Variable Label */
-            GxWebStd.gx_label_element( context, edtavCresidentinindividualid_Internalname, "Resident INIndividual Id", "col-sm-3 AttributeLabel", 0, true, "");
+            GxWebStd.gx_label_element( context, edtavCresidentinindividualid_Internalname, context.GetMessage( "Resident INIndividual Id", ""), "col-sm-3 AttributeLabel", 0, true, "");
             /* Single line edit */
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 16,'',false,'" + sGXsfl_74_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavCresidentinindividualid_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV6cResidentINIndividualId), 4, 0, ".", "")), StringUtil.LTrim( ((edtavCresidentinindividualid_Enabled!=0) ? context.localUtil.Format( (decimal)(AV6cResidentINIndividualId), "ZZZ9") : context.localUtil.Format( (decimal)(AV6cResidentINIndividualId), "ZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,16);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavCresidentinindividualid_Jsonclick, 0, "Attribute", "", "", "", "", edtavCresidentinindividualid_Visible, edtavCresidentinindividualid_Enabled, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_Gx0061.htm");
+            GxWebStd.gx_single_line_edit( context, edtavCresidentinindividualid_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV6cResidentINIndividualId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")), StringUtil.LTrim( ((edtavCresidentinindividualid_Enabled!=0) ? context.localUtil.Format( (decimal)(AV6cResidentINIndividualId), "ZZZ9") : context.localUtil.Format( (decimal)(AV6cResidentINIndividualId), "ZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onblur(this,16);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavCresidentinindividualid_Jsonclick, 0, "Attribute", "", "", "", "", edtavCresidentinindividualid_Visible, edtavCresidentinindividualid_Enabled, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_Gx0061.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -493,7 +505,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
             /* Text block */
-            GxWebStd.gx_label_ctrl( context, lblLblresidentinindividualbsnnumberfilter_Internalname, "Resident INIndividual Bsn Number", "", "", lblLblresidentinindividualbsnnumberfilter_Jsonclick, "'"+""+"'"+",false,"+"'"+"e12051_client"+"'", "", "WWAdvancedLabel WWFilterLabel", 7, "", 1, 1, 0, 1, "HLP_Gx0061.htm");
+            GxWebStd.gx_label_ctrl( context, lblLblresidentinindividualbsnnumberfilter_Internalname, context.GetMessage( "Resident INIndividual Bsn Number", ""), "", "", lblLblresidentinindividualbsnnumberfilter_Jsonclick, "'"+""+"'"+",false,"+"'"+"e12051_client"+"'", "", "WWAdvancedLabel WWFilterLabel", 7, "", 1, 1, 0, 1, "HLP_Gx0061.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
@@ -503,7 +515,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Attribute/Variable Label */
-            GxWebStd.gx_label_element( context, edtavCresidentinindividualbsnnumber_Internalname, "Resident INIndividual Bsn Number", "col-sm-3 AttributeLabel", 0, true, "");
+            GxWebStd.gx_label_element( context, edtavCresidentinindividualbsnnumber_Internalname, context.GetMessage( "Resident INIndividual Bsn Number", ""), "col-sm-3 AttributeLabel", 0, true, "");
             /* Single line edit */
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 26,'',false,'" + sGXsfl_74_idx + "',0)\"";
             GxWebStd.gx_single_line_edit( context, edtavCresidentinindividualbsnnumber_Internalname, AV7cResidentINIndividualBsnNumber, StringUtil.RTrim( context.localUtil.Format( AV7cResidentINIndividualBsnNumber, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,26);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavCresidentinindividualbsnnumber_Jsonclick, 0, "Attribute", "", "", "", "", edtavCresidentinindividualbsnnumber_Visible, edtavCresidentinindividualbsnnumber_Enabled, 0, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, -1, true, "", "start", true, "", "HLP_Gx0061.htm");
@@ -524,7 +536,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
             /* Text block */
-            GxWebStd.gx_label_ctrl( context, lblLblresidentinindividualgivennamefilter_Internalname, "Resident INIndividual Given Name", "", "", lblLblresidentinindividualgivennamefilter_Jsonclick, "'"+""+"'"+",false,"+"'"+"e13051_client"+"'", "", "WWAdvancedLabel WWFilterLabel", 7, "", 1, 1, 0, 1, "HLP_Gx0061.htm");
+            GxWebStd.gx_label_ctrl( context, lblLblresidentinindividualgivennamefilter_Internalname, context.GetMessage( "Resident INIndividual Given Name", ""), "", "", lblLblresidentinindividualgivennamefilter_Jsonclick, "'"+""+"'"+",false,"+"'"+"e13051_client"+"'", "", "WWAdvancedLabel WWFilterLabel", 7, "", 1, 1, 0, 1, "HLP_Gx0061.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
@@ -534,7 +546,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Attribute/Variable Label */
-            GxWebStd.gx_label_element( context, edtavCresidentinindividualgivenname_Internalname, "Resident INIndividual Given Name", "col-sm-3 AttributeLabel", 0, true, "");
+            GxWebStd.gx_label_element( context, edtavCresidentinindividualgivenname_Internalname, context.GetMessage( "Resident INIndividual Given Name", ""), "col-sm-3 AttributeLabel", 0, true, "");
             /* Single line edit */
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 36,'',false,'" + sGXsfl_74_idx + "',0)\"";
             GxWebStd.gx_single_line_edit( context, edtavCresidentinindividualgivenname_Internalname, AV8cResidentINIndividualGivenName, StringUtil.RTrim( context.localUtil.Format( AV8cResidentINIndividualGivenName, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,36);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavCresidentinindividualgivenname_Jsonclick, 0, "Attribute", "", "", "", "", edtavCresidentinindividualgivenname_Visible, edtavCresidentinindividualgivenname_Enabled, 0, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, -1, true, "", "start", true, "", "HLP_Gx0061.htm");
@@ -555,7 +567,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
             /* Text block */
-            GxWebStd.gx_label_ctrl( context, lblLblresidentinindividuallastnamefilter_Internalname, "Resident INIndividual Last Name", "", "", lblLblresidentinindividuallastnamefilter_Jsonclick, "'"+""+"'"+",false,"+"'"+"e14051_client"+"'", "", "WWAdvancedLabel WWFilterLabel", 7, "", 1, 1, 0, 1, "HLP_Gx0061.htm");
+            GxWebStd.gx_label_ctrl( context, lblLblresidentinindividuallastnamefilter_Internalname, context.GetMessage( "Resident INIndividual Last Name", ""), "", "", lblLblresidentinindividuallastnamefilter_Jsonclick, "'"+""+"'"+",false,"+"'"+"e14051_client"+"'", "", "WWAdvancedLabel WWFilterLabel", 7, "", 1, 1, 0, 1, "HLP_Gx0061.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
@@ -565,7 +577,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Attribute/Variable Label */
-            GxWebStd.gx_label_element( context, edtavCresidentinindividuallastname_Internalname, "Resident INIndividual Last Name", "col-sm-3 AttributeLabel", 0, true, "");
+            GxWebStd.gx_label_element( context, edtavCresidentinindividuallastname_Internalname, context.GetMessage( "Resident INIndividual Last Name", ""), "col-sm-3 AttributeLabel", 0, true, "");
             /* Single line edit */
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 46,'',false,'" + sGXsfl_74_idx + "',0)\"";
             GxWebStd.gx_single_line_edit( context, edtavCresidentinindividuallastname_Internalname, AV9cResidentINIndividualLastName, StringUtil.RTrim( context.localUtil.Format( AV9cResidentINIndividualLastName, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,46);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavCresidentinindividuallastname_Jsonclick, 0, "Attribute", "", "", "", "", edtavCresidentinindividuallastname_Visible, edtavCresidentinindividuallastname_Enabled, 0, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, -1, true, "", "start", true, "", "HLP_Gx0061.htm");
@@ -586,7 +598,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
             /* Text block */
-            GxWebStd.gx_label_ctrl( context, lblLblresidentinindividualphonefilter_Internalname, "Resident INIndividual Phone", "", "", lblLblresidentinindividualphonefilter_Jsonclick, "'"+""+"'"+",false,"+"'"+"e15051_client"+"'", "", "WWAdvancedLabel WWFilterLabel", 7, "", 1, 1, 0, 1, "HLP_Gx0061.htm");
+            GxWebStd.gx_label_ctrl( context, lblLblresidentinindividualphonefilter_Internalname, context.GetMessage( "Resident INIndividual Phone", ""), "", "", lblLblresidentinindividualphonefilter_Jsonclick, "'"+""+"'"+",false,"+"'"+"e15051_client"+"'", "", "WWAdvancedLabel WWFilterLabel", 7, "", 1, 1, 0, 1, "HLP_Gx0061.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
@@ -596,7 +608,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Attribute/Variable Label */
-            GxWebStd.gx_label_element( context, edtavCresidentinindividualphone_Internalname, "Resident INIndividual Phone", "col-sm-3 AttributeLabel", 0, true, "");
+            GxWebStd.gx_label_element( context, edtavCresidentinindividualphone_Internalname, context.GetMessage( "Resident INIndividual Phone", ""), "col-sm-3 AttributeLabel", 0, true, "");
             /* Single line edit */
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 56,'',false,'" + sGXsfl_74_idx + "',0)\"";
             GxWebStd.gx_single_line_edit( context, edtavCresidentinindividualphone_Internalname, StringUtil.RTrim( AV10cResidentINIndividualPhone), StringUtil.RTrim( context.localUtil.Format( AV10cResidentINIndividualPhone, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,56);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavCresidentinindividualphone_Jsonclick, 0, "Attribute", "", "", "", "", edtavCresidentinindividualphone_Visible, edtavCresidentinindividualphone_Enabled, 0, "text", "", 20, "chr", 1, "row", 20, 0, 0, 0, 0, -1, 0, true, "", "start", true, "", "HLP_Gx0061.htm");
@@ -617,7 +629,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
             /* Text block */
-            GxWebStd.gx_label_ctrl( context, lblLblresidentinindividualgenderfilter_Internalname, "Resident INIndividual Gender", "", "", lblLblresidentinindividualgenderfilter_Jsonclick, "'"+""+"'"+",false,"+"'"+"e16051_client"+"'", "", "WWAdvancedLabel WWFilterLabel", 7, "", 1, 1, 0, 1, "HLP_Gx0061.htm");
+            GxWebStd.gx_label_ctrl( context, lblLblresidentinindividualgenderfilter_Internalname, context.GetMessage( "Resident INIndividual Gender", ""), "", "", lblLblresidentinindividualgenderfilter_Jsonclick, "'"+""+"'"+",false,"+"'"+"e16051_client"+"'", "", "WWAdvancedLabel WWFilterLabel", 7, "", 1, 1, 0, 1, "HLP_Gx0061.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
@@ -627,7 +639,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Attribute/Variable Label */
-            GxWebStd.gx_label_element( context, cmbavCresidentinindividualgender_Internalname, "Resident INIndividual Gender", "col-sm-3 AttributeLabel", 0, true, "");
+            GxWebStd.gx_label_element( context, cmbavCresidentinindividualgender_Internalname, context.GetMessage( "Resident INIndividual Gender", ""), "col-sm-3 AttributeLabel", 0, true, "");
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 66,'',false,'" + sGXsfl_74_idx + "',0)\"";
             /* ComboBox */
             GxWebStd.gx_combobox_ctrl1( context, cmbavCresidentinindividualgender, cmbavCresidentinindividualgender_Internalname, StringUtil.RTrim( AV11cResidentINIndividualGender), 1, cmbavCresidentinindividualgender_Jsonclick, 0, "'"+""+"'"+",false,"+"'"+""+"'", "char", "", cmbavCresidentinindividualgender.Visible, cmbavCresidentinindividualgender.Enabled, 0, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,66);\"", "", true, 0, "HLP_Gx0061.htm");
@@ -701,7 +713,7 @@ namespace GeneXus.Programs {
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 82,'',false,'',0)\"";
             ClassString = "BtnCancel";
             StyleString = "";
-            GxWebStd.gx_button_ctrl( context, bttBtn_cancel_Internalname, "gx.evt.setGridEvt("+StringUtil.Str( (decimal)(74), 2, 0)+","+"null"+");", "Cancel", bttBtn_cancel_Jsonclick, 1, "Cancel", "", StyleString, ClassString, 1, 1, "standard", "'"+""+"'"+",false,"+"'"+"ECANCEL."+"'", TempTags, "", context.GetButtonType( ), "HLP_Gx0061.htm");
+            GxWebStd.gx_button_ctrl( context, bttBtn_cancel_Internalname, "gx.evt.setGridEvt("+StringUtil.Str( (decimal)(74), 2, 0)+","+"null"+");", context.GetMessage( "GX_BtnCancel", ""), bttBtn_cancel_Jsonclick, 1, context.GetMessage( "GX_BtnCancel", ""), "", StyleString, ClassString, 1, 1, "standard", "'"+""+"'"+",false,"+"'"+"ECANCEL."+"'", TempTags, "", context.GetButtonType( ), "HLP_Gx0061.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -757,7 +769,7 @@ namespace GeneXus.Programs {
                Form.Meta.addItem("generator", "GeneXus .NET 18_0_10-184260", 0) ;
             }
          }
-         Form.Meta.addItem("description", "Selection List INIndividual", 0) ;
+         Form.Meta.addItem("description", context.GetMessage( "Selection List INIndividual", ""), 0) ;
          context.wjLoc = "";
          context.nUserReturn = 0;
          context.wbHandled = 0;
@@ -842,10 +854,10 @@ namespace GeneXus.Programs {
                               AV5LinkSelection = cgiGet( edtavLinkselection_Internalname);
                               AssignProp("", false, edtavLinkselection_Internalname, "Bitmap", (String.IsNullOrEmpty(StringUtil.RTrim( AV5LinkSelection)) ? AV15Linkselection_GXI : context.convertURL( context.PathToRelativeUrl( AV5LinkSelection))), !bGXsfl_74_Refreshing);
                               AssignProp("", false, edtavLinkselection_Internalname, "SrcSet", context.GetImageSrcSet( AV5LinkSelection), true);
-                              A42ResidentINIndividualId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtResidentINIndividualId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+                              A42ResidentINIndividualId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtResidentINIndividualId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                               A43ResidentINIndividualBsnNumber = cgiGet( edtResidentINIndividualBsnNumber_Internalname);
                               A44ResidentINIndividualGivenName = cgiGet( edtResidentINIndividualGivenName_Internalname);
-                              A31ResidentId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtResidentId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+                              A31ResidentId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtResidentId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                               sEvtType = StringUtil.Right( sEvt, 1);
                               if ( StringUtil.StrCmp(sEvtType, ".") == 0 )
                               {
@@ -871,7 +883,7 @@ namespace GeneXus.Programs {
                                     {
                                        Rfr0gs = false;
                                        /* Set Refresh If Cresidentinindividualid Changed */
-                                       if ( ( context.localUtil.CToN( cgiGet( "GXH_vCRESIDENTININDIVIDUALID"), ".", ",") != Convert.ToDecimal( AV6cResidentINIndividualId )) )
+                                       if ( ( context.localUtil.CToN( cgiGet( "GXH_vCRESIDENTININDIVIDUALID"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) != Convert.ToDecimal( AV6cResidentINIndividualId )) )
                                        {
                                           Rfr0gs = true;
                                        }
@@ -1310,11 +1322,11 @@ namespace GeneXus.Programs {
          {
             /* Read saved SDTs. */
             /* Read saved values. */
-            nRC_GXsfl_74 = (int)(Math.Round(context.localUtil.CToN( cgiGet( "nRC_GXsfl_74"), ".", ","), 18, MidpointRounding.ToEven));
-            GRID1_nFirstRecordOnPage = (long)(Math.Round(context.localUtil.CToN( cgiGet( "GRID1_nFirstRecordOnPage"), ".", ","), 18, MidpointRounding.ToEven));
-            GRID1_nEOF = (short)(Math.Round(context.localUtil.CToN( cgiGet( "GRID1_nEOF"), ".", ","), 18, MidpointRounding.ToEven));
+            nRC_GXsfl_74 = (int)(Math.Round(context.localUtil.CToN( cgiGet( "nRC_GXsfl_74"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+            GRID1_nFirstRecordOnPage = (long)(Math.Round(context.localUtil.CToN( cgiGet( "GRID1_nFirstRecordOnPage"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+            GRID1_nEOF = (short)(Math.Round(context.localUtil.CToN( cgiGet( "GRID1_nEOF"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
             /* Read variables values. */
-            if ( ( ( context.localUtil.CToN( cgiGet( edtavCresidentinindividualid_Internalname), ".", ",") < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtavCresidentinindividualid_Internalname), ".", ",") > Convert.ToDecimal( 9999 )) ) )
+            if ( ( ( context.localUtil.CToN( cgiGet( edtavCresidentinindividualid_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtavCresidentinindividualid_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) > Convert.ToDecimal( 9999 )) ) )
             {
                GX_msglist.addItem(context.GetMessage( "GXM_badnum", ""), 1, "vCRESIDENTININDIVIDUALID");
                GX_FocusControl = edtavCresidentinindividualid_Internalname;
@@ -1325,7 +1337,7 @@ namespace GeneXus.Programs {
             }
             else
             {
-               AV6cResidentINIndividualId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtavCresidentinindividualid_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+               AV6cResidentINIndividualId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtavCresidentinindividualid_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignAttri("", false, "AV6cResidentINIndividualId", StringUtil.LTrimStr( (decimal)(AV6cResidentINIndividualId), 4, 0));
             }
             AV7cResidentINIndividualBsnNumber = cgiGet( edtavCresidentinindividualbsnnumber_Internalname);
@@ -1344,7 +1356,7 @@ namespace GeneXus.Programs {
             /* Read hidden variables. */
             GXKey = Decrypt64( context.GetCookie( "GX_SESSION_ID"), Crypto.GetServerKey( ));
             /* Check if conditions changed and reset current page numbers */
-            if ( ( context.localUtil.CToN( cgiGet( "GXH_vCRESIDENTININDIVIDUALID"), ".", ",") != Convert.ToDecimal( AV6cResidentINIndividualId )) )
+            if ( ( context.localUtil.CToN( cgiGet( "GXH_vCRESIDENTININDIVIDUALID"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) != Convert.ToDecimal( AV6cResidentINIndividualId )) )
             {
                GRID1_nFirstRecordOnPage = 0;
             }
@@ -1390,9 +1402,9 @@ namespace GeneXus.Programs {
       {
          /* Start Routine */
          returnInSub = false;
-         Form.Caption = StringUtil.Format( "Selection List %1", "INIndividual", "", "", "", "", "", "", "", "");
+         Form.Caption = StringUtil.Format( context.GetMessage( "GXSPC_SelectionList", ""), context.GetMessage( "INIndividual", ""), "", "", "", "", "", "", "", "");
          AssignProp("", false, "FORM", "Caption", Form.Caption, true);
-         AV14ADVANCED_LABEL_TEMPLATE = "%1 <strong>%2</strong>";
+         AV14ADVANCED_LABEL_TEMPLATE = context.GetMessage( "%1 <strong>%2</strong>", "");
       }
 
       private void E19052( )
@@ -1480,7 +1492,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20249126321177", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202491315564982", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1495,8 +1507,8 @@ namespace GeneXus.Programs {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("gx0061.js", "?20249126321177", false, true);
+         context.AddJavascriptSource("messages."+StringUtil.Lower( context.GetLanguageProperty( "code"))+".js", "?"+GetCacheInvalidationToken( ), false, true);
+         context.AddJavascriptSource("gx0061.js", "?202491315564982", false, true);
          /* End function include_jscripts */
       }
 
@@ -1588,7 +1600,7 @@ namespace GeneXus.Programs {
                context.WriteHtmlText( "<td valign=\"middle\" align=\""+""+"\""+" style=\""+""+"\">") ;
             }
             /* Static Bitmap Variable */
-            edtavLinkselection_Link = "javascript:gx.popup.gxReturn(["+"'"+GXUtil.EncodeJSConstant( StringUtil.LTrim( StringUtil.NToC( (decimal)(A42ResidentINIndividualId), 4, 0, ".", "")))+"'"+"]);";
+            edtavLinkselection_Link = "javascript:gx.popup.gxReturn(["+"'"+GXUtil.EncodeJSConstant( StringUtil.LTrim( StringUtil.NToC( (decimal)(A42ResidentINIndividualId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")))+"'"+"]);";
             AssignProp("", false, edtavLinkselection_Internalname, "Link", edtavLinkselection_Link, !bGXsfl_74_Refreshing);
             ClassString = "SelectionAttribute" + " " + ((StringUtil.StrCmp(edtavLinkselection_gximage, "")==0) ? "" : "GX_Image_"+edtavLinkselection_gximage+"_Class");
             StyleString = "";
@@ -1602,7 +1614,7 @@ namespace GeneXus.Programs {
             }
             /* Single line edit */
             ROClassString = "Attribute";
-            Grid1Row.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtResidentINIndividualId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A42ResidentINIndividualId), 4, 0, ".", "")),StringUtil.LTrim( context.localUtil.Format( (decimal)(A42ResidentINIndividualId), "ZZZ9")),(string)" dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtResidentINIndividualId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"WWColumn",(string)"",(short)-1,(short)0,(short)0,(string)"text",(string)"1",(short)0,(string)"px",(short)17,(string)"px",(short)4,(short)0,(short)0,(short)74,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)"end",(bool)false,(string)""});
+            Grid1Row.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtResidentINIndividualId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A42ResidentINIndividualId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")),StringUtil.LTrim( context.localUtil.Format( (decimal)(A42ResidentINIndividualId), "ZZZ9")),(string)" dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtResidentINIndividualId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"WWColumn",(string)"",(short)-1,(short)0,(short)0,(string)"text",(string)"1",(short)0,(string)"px",(short)17,(string)"px",(short)4,(short)0,(short)0,(short)74,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)"end",(bool)false,(string)""});
             /* Subfile cell */
             if ( Grid1Container.GetWrapped() == 1 )
             {
@@ -1610,7 +1622,7 @@ namespace GeneXus.Programs {
             }
             /* Single line edit */
             ROClassString = "DescriptionAttribute";
-            edtResidentINIndividualBsnNumber_Link = "javascript:gx.popup.gxReturn(["+"'"+GXUtil.EncodeJSConstant( StringUtil.LTrim( StringUtil.NToC( (decimal)(A42ResidentINIndividualId), 4, 0, ".", "")))+"'"+"]);";
+            edtResidentINIndividualBsnNumber_Link = "javascript:gx.popup.gxReturn(["+"'"+GXUtil.EncodeJSConstant( StringUtil.LTrim( StringUtil.NToC( (decimal)(A42ResidentINIndividualId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")))+"'"+"]);";
             AssignProp("", false, edtResidentINIndividualBsnNumber_Internalname, "Link", edtResidentINIndividualBsnNumber_Link, !bGXsfl_74_Refreshing);
             Grid1Row.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtResidentINIndividualBsnNumber_Internalname,(string)A43ResidentINIndividualBsnNumber,(string)"",(string)"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)edtResidentINIndividualBsnNumber_Link,(string)"",(string)"",(string)"",(string)edtResidentINIndividualBsnNumber_Jsonclick,(short)0,(string)"DescriptionAttribute",(string)"",(string)ROClassString,(string)"WWColumn",(string)"",(short)-1,(short)0,(short)0,(string)"text",(string)"",(short)0,(string)"px",(short)17,(string)"px",(short)40,(short)0,(short)0,(short)74,(short)0,(short)-1,(short)-1,(bool)true,(string)"BsnNumber",(string)"start",(bool)true,(string)""});
             /* Subfile cell */
@@ -1628,7 +1640,7 @@ namespace GeneXus.Programs {
             }
             /* Single line edit */
             ROClassString = "Attribute";
-            Grid1Row.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtResidentId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A31ResidentId), 4, 0, ".", "")),StringUtil.LTrim( context.localUtil.Format( (decimal)(A31ResidentId), "ZZZ9")),(string)" dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtResidentId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"",(string)"",(short)0,(short)0,(short)0,(string)"text",(string)"1",(short)0,(string)"px",(short)17,(string)"px",(short)4,(short)0,(short)0,(short)74,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)"end",(bool)false,(string)""});
+            Grid1Row.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtResidentId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A31ResidentId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")),StringUtil.LTrim( context.localUtil.Format( (decimal)(A31ResidentId), "ZZZ9")),(string)" dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtResidentId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"",(string)"",(short)0,(short)0,(short)0,(string)"text",(string)"1",(short)0,(string)"px",(short)17,(string)"px",(short)4,(short)0,(short)0,(short)74,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)"end",(bool)false,(string)""});
             send_integrity_lvl_hashes052( ) ;
             Grid1Container.AddRow(Grid1Row);
             nGXsfl_74_idx = ((subGrid1_Islastpage==1)&&(nGXsfl_74_idx+1>subGrid1_fnc_Recordsperpage( )) ? 1 : nGXsfl_74_idx+1);
@@ -1642,9 +1654,9 @@ namespace GeneXus.Programs {
       {
          cmbavCresidentinindividualgender.Name = "vCRESIDENTININDIVIDUALGENDER";
          cmbavCresidentinindividualgender.WebTags = "";
-         cmbavCresidentinindividualgender.addItem("Man", "Man", 0);
-         cmbavCresidentinindividualgender.addItem("Woman", "Woman", 0);
-         cmbavCresidentinindividualgender.addItem("Other", "Other", 0);
+         cmbavCresidentinindividualgender.addItem("Man", context.GetMessage( "Man", ""), 0);
+         cmbavCresidentinindividualgender.addItem("Woman", context.GetMessage( "Woman", ""), 0);
+         cmbavCresidentinindividualgender.addItem("Other", context.GetMessage( "Other", ""), 0);
          if ( cmbavCresidentinindividualgender.ItemCount > 0 )
          {
             AV11cResidentINIndividualGender = cmbavCresidentinindividualgender.getValidValue(AV11cResidentINIndividualGender);
@@ -1694,16 +1706,16 @@ namespace GeneXus.Programs {
             context.SendWebValue( "") ;
             context.WriteHtmlTextNl( "</th>") ;
             context.WriteHtmlText( "<th align=\""+"end"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
-            context.SendWebValue( "INIndividual Id") ;
+            context.SendWebValue( context.GetMessage( "INIndividual Id", "")) ;
             context.WriteHtmlTextNl( "</th>") ;
             context.WriteHtmlText( "<th align=\""+"start"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"DescriptionAttribute"+"\" "+" style=\""+""+""+"\" "+">") ;
-            context.SendWebValue( "Bsn Number") ;
+            context.SendWebValue( context.GetMessage( "Bsn Number", "")) ;
             context.WriteHtmlTextNl( "</th>") ;
             context.WriteHtmlText( "<th align=\""+"start"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
-            context.SendWebValue( "Given Name") ;
+            context.SendWebValue( context.GetMessage( "Given Name", "")) ;
             context.WriteHtmlTextNl( "</th>") ;
             context.WriteHtmlText( "<th align=\""+"end"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+"display:none;"+""+"\" "+">") ;
-            context.SendWebValue( "Resident Id") ;
+            context.SendWebValue( context.GetMessage( "Resident Id", "")) ;
             context.WriteHtmlTextNl( "</th>") ;
             context.WriteHtmlTextNl( "</tr>") ;
             Grid1Container.AddObjectProperty("GridName", "Grid1");
@@ -1842,7 +1854,7 @@ namespace GeneXus.Programs {
          Form.Background = "";
          Form.Textcolor = 0;
          Form.Backcolor = (int)(0xFFFFFF);
-         Form.Caption = "Selection List INIndividual";
+         Form.Caption = context.GetMessage( "Selection List INIndividual", "");
          subGrid1_Rows = 10;
          if ( context.isSpaRequest( ) )
          {

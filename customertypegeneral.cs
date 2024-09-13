@@ -224,7 +224,7 @@ namespace GeneXus.Programs {
                enableOutput();
             }
             context.WriteHtmlText( "<title>") ;
-            context.SendWebValue( "Customer Type General") ;
+            context.SendWebValue( context.GetMessage( "Customer Type General", "")) ;
             context.WriteHtmlTextNl( "</title>") ;
             if ( context.isSpaRequest( ) )
             {
@@ -327,7 +327,7 @@ namespace GeneXus.Programs {
          /* Send hidden variables. */
          /* Send saved values. */
          send_integrity_footer_hashes( ) ;
-         GxWebStd.gx_hidden_field( context, sPrefix+"wcpOA78CustomerTypeId", StringUtil.LTrim( StringUtil.NToC( (decimal)(wcpOA78CustomerTypeId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, sPrefix+"wcpOA78CustomerTypeId", StringUtil.LTrim( StringUtil.NToC( (decimal)(wcpOA78CustomerTypeId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_boolean_hidden_field( context, sPrefix+"vISAUTHORIZED_UPDATE", AV12IsAuthorized_Update);
          GxWebStd.gx_hidden_field( context, sPrefix+"gxhash_vISAUTHORIZED_UPDATE", GetSecureSignedToken( sPrefix, AV12IsAuthorized_Update, context));
          GxWebStd.gx_boolean_hidden_field( context, sPrefix+"vISAUTHORIZED_DELETE", AV13IsAuthorized_Delete);
@@ -388,7 +388,7 @@ namespace GeneXus.Programs {
 
       public override string GetPgmdesc( )
       {
-         return "Customer Type General" ;
+         return context.GetMessage( "Customer Type General", "") ;
       }
 
       protected void WB1S0( )
@@ -438,7 +438,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtCustomerTypeName_Internalname+"\"", "", "div");
             /* Attribute/Variable Label */
-            GxWebStd.gx_label_element( context, edtCustomerTypeName_Internalname, "Customer Type", " AttributeLabel", 1, true, "");
+            GxWebStd.gx_label_element( context, edtCustomerTypeName_Internalname, context.GetMessage( "Customer Type", ""), " AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
@@ -474,14 +474,14 @@ namespace GeneXus.Programs {
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 25,'" + sPrefix + "',false,'',0)\"";
             ClassString = "Button";
             StyleString = "";
-            GxWebStd.gx_button_ctrl( context, bttBtnupdate_Internalname, "", "Update", bttBtnupdate_Jsonclick, 7, "Update", "", StyleString, ClassString, bttBtnupdate_Visible, 1, "standard", "'"+sPrefix+"'"+",false,"+"'"+"e111s1_client"+"'", TempTags, "", 2, "HLP_CustomerTypeGeneral.htm");
+            GxWebStd.gx_button_ctrl( context, bttBtnupdate_Internalname, "", context.GetMessage( "GXM_update", ""), bttBtnupdate_Jsonclick, 7, context.GetMessage( "GXM_update", ""), "", StyleString, ClassString, bttBtnupdate_Visible, 1, "standard", "'"+sPrefix+"'"+",false,"+"'"+"e111s1_client"+"'", TempTags, "", 2, "HLP_CustomerTypeGeneral.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-button", "start", "top", "", "", "div");
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 27,'" + sPrefix + "',false,'',0)\"";
             ClassString = "BtnDefault";
             StyleString = "";
-            GxWebStd.gx_button_ctrl( context, bttBtndelete_Internalname, "", "Delete", bttBtndelete_Jsonclick, 7, "Delete", "", StyleString, ClassString, bttBtndelete_Visible, 1, "standard", "'"+sPrefix+"'"+",false,"+"'"+"e121s1_client"+"'", TempTags, "", 2, "HLP_CustomerTypeGeneral.htm");
+            GxWebStd.gx_button_ctrl( context, bttBtndelete_Internalname, "", context.GetMessage( "GX_BtnDelete", ""), bttBtndelete_Jsonclick, 7, context.GetMessage( "GX_BtnDelete", ""), "", StyleString, ClassString, bttBtndelete_Visible, 1, "standard", "'"+sPrefix+"'"+",false,"+"'"+"e121s1_client"+"'", TempTags, "", 2, "HLP_CustomerTypeGeneral.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -496,7 +496,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, divHtml_bottomauxiliarcontrols_Internalname, 1, 0, "px", 0, "px", "Section", "start", "top", "", "", "div");
             /* Single line edit */
-            GxWebStd.gx_single_line_edit( context, edtCustomerTypeId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A78CustomerTypeId), 4, 0, ".", "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(A78CustomerTypeId), "ZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+"", "'"+sPrefix+"'"+",false,"+"'"+""+"'", "", "", "", "", edtCustomerTypeId_Jsonclick, 0, "Attribute", "", "", "", "", edtCustomerTypeId_Visible, 0, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_CustomerTypeGeneral.htm");
+            GxWebStd.gx_single_line_edit( context, edtCustomerTypeId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A78CustomerTypeId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(A78CustomerTypeId), "ZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+"", "'"+sPrefix+"'"+",false,"+"'"+""+"'", "", "", "", "", edtCustomerTypeId_Jsonclick, 0, "Attribute", "", "", "", "", edtCustomerTypeId_Visible, 0, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_CustomerTypeGeneral.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -520,7 +520,7 @@ namespace GeneXus.Programs {
                   Form.Meta.addItem("generator", "GeneXus .NET 18_0_10-184260", 0) ;
                }
             }
-            Form.Meta.addItem("description", "Customer Type General", 0) ;
+            Form.Meta.addItem("description", context.GetMessage( "Customer Type General", ""), 0) ;
             context.wjLoc = "";
             context.nUserReturn = 0;
             context.wbHandled = 0;
@@ -826,7 +826,7 @@ namespace GeneXus.Programs {
          {
             /* Read saved SDTs. */
             /* Read saved values. */
-            wcpOA78CustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( sPrefix+"wcpOA78CustomerTypeId"), ".", ","), 18, MidpointRounding.ToEven));
+            wcpOA78CustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( sPrefix+"wcpOA78CustomerTypeId"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
             AV13IsAuthorized_Delete = StringUtil.StrToBool( cgiGet( sPrefix+"vISAUTHORIZED_DELETE"));
             AV12IsAuthorized_Update = StringUtil.StrToBool( cgiGet( sPrefix+"vISAUTHORIZED_UPDATE"));
             /* Read variables values. */
@@ -985,7 +985,7 @@ namespace GeneXus.Programs {
             A78CustomerTypeId = Convert.ToInt16(getParm(obj,2));
             AssignAttri(sPrefix, false, "A78CustomerTypeId", StringUtil.LTrimStr( (decimal)(A78CustomerTypeId), 4, 0));
          }
-         wcpOA78CustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( sPrefix+"wcpOA78CustomerTypeId"), ".", ","), 18, MidpointRounding.ToEven));
+         wcpOA78CustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( sPrefix+"wcpOA78CustomerTypeId"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          if ( ! GetJustCreated( ) && ( ( A78CustomerTypeId != wcpOA78CustomerTypeId ) ) )
          {
             setjustcreated();
@@ -999,12 +999,12 @@ namespace GeneXus.Programs {
          sCtrlA78CustomerTypeId = cgiGet( sPrefix+"A78CustomerTypeId_CTRL");
          if ( StringUtil.Len( sCtrlA78CustomerTypeId) > 0 )
          {
-            A78CustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( sCtrlA78CustomerTypeId), ".", ","), 18, MidpointRounding.ToEven));
+            A78CustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( sCtrlA78CustomerTypeId), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
             AssignAttri(sPrefix, false, "A78CustomerTypeId", StringUtil.LTrimStr( (decimal)(A78CustomerTypeId), 4, 0));
          }
          else
          {
-            A78CustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( sPrefix+"A78CustomerTypeId_PARM"), ".", ","), 18, MidpointRounding.ToEven));
+            A78CustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( sPrefix+"A78CustomerTypeId_PARM"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          }
       }
 
@@ -1051,7 +1051,7 @@ namespace GeneXus.Programs {
 
       protected void WCParametersSet( )
       {
-         GxWebStd.gx_hidden_field( context, sPrefix+"A78CustomerTypeId_PARM", StringUtil.LTrim( StringUtil.NToC( (decimal)(A78CustomerTypeId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, sPrefix+"A78CustomerTypeId_PARM", StringUtil.LTrim( StringUtil.NToC( (decimal)(A78CustomerTypeId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          if ( StringUtil.Len( StringUtil.RTrim( sCtrlA78CustomerTypeId)) > 0 )
          {
             GxWebStd.gx_hidden_field( context, sPrefix+"A78CustomerTypeId_CTRL", StringUtil.RTrim( sCtrlA78CustomerTypeId));
@@ -1107,7 +1107,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20249126293831", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20249131553255", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1123,7 +1123,7 @@ namespace GeneXus.Programs {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("customertypegeneral.js", "?20249126293831", false, true);
+         context.AddJavascriptSource("customertypegeneral.js", "?20249131553255", false, true);
          /* End function include_jscripts */
       }
 

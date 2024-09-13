@@ -492,7 +492,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[2] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV50Productservicewwds_3_tfproductservicename_sel)) && ! ( StringUtil.StrCmp(AV50Productservicewwds_3_tfproductservicename_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV50Productservicewwds_3_tfproductservicename_sel)) && ! ( StringUtil.StrCmp(AV50Productservicewwds_3_tfproductservicename_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.ProductServiceName = ( :AV50Productservicewwds_3_tfproductservicename_sel))");
          }
@@ -500,7 +500,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[3] = 1;
          }
-         if ( StringUtil.StrCmp(AV50Productservicewwds_3_tfproductservicename_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV50Productservicewwds_3_tfproductservicename_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.ProductServiceName))=0))");
          }
@@ -512,7 +512,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[4] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV52Productservicewwds_5_tfproductservicetypename_sel)) && ! ( StringUtil.StrCmp(AV52Productservicewwds_5_tfproductservicetypename_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV52Productservicewwds_5_tfproductservicetypename_sel)) && ! ( StringUtil.StrCmp(AV52Productservicewwds_5_tfproductservicetypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T2.ProductServiceTypeName = ( :AV52Productservicewwds_5_tfproductservicetypename_sel))");
          }
@@ -520,7 +520,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[5] = 1;
          }
-         if ( StringUtil.StrCmp(AV52Productservicewwds_5_tfproductservicetypename_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV52Productservicewwds_5_tfproductservicetypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T2.ProductServiceTypeName))=0))");
          }
@@ -562,7 +562,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[2] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV50Productservicewwds_3_tfproductservicename_sel)) && ! ( StringUtil.StrCmp(AV50Productservicewwds_3_tfproductservicename_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV50Productservicewwds_3_tfproductservicename_sel)) && ! ( StringUtil.StrCmp(AV50Productservicewwds_3_tfproductservicename_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.ProductServiceName = ( :AV50Productservicewwds_3_tfproductservicename_sel))");
          }
@@ -570,7 +570,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[3] = 1;
          }
-         if ( StringUtil.StrCmp(AV50Productservicewwds_3_tfproductservicename_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV50Productservicewwds_3_tfproductservicename_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.ProductServiceName))=0))");
          }
@@ -582,7 +582,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[4] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV52Productservicewwds_5_tfproductservicetypename_sel)) && ! ( StringUtil.StrCmp(AV52Productservicewwds_5_tfproductservicetypename_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV52Productservicewwds_5_tfproductservicetypename_sel)) && ! ( StringUtil.StrCmp(AV52Productservicewwds_5_tfproductservicetypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T2.ProductServiceTypeName = ( :AV52Productservicewwds_5_tfproductservicetypename_sel))");
          }
@@ -590,7 +590,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[5] = 1;
          }
-         if ( StringUtil.StrCmp(AV52Productservicewwds_5_tfproductservicetypename_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV52Productservicewwds_5_tfproductservicetypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T2.ProductServiceTypeName))=0))");
          }

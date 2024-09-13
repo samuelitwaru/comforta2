@@ -339,7 +339,7 @@ namespace GeneXus.Programs {
          GxWebStd.gx_hidden_field( context, "gxhash_vCURRENTSTEP", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( AV11CurrentStep, "")), context));
          GxWebStd.gx_boolean_hidden_field( context, "vGOINGBACK", AV9GoingBack);
          GxWebStd.gx_hidden_field( context, "gxhash_vGOINGBACK", GetSecureSignedToken( "", AV9GoingBack, context));
-         GxWebStd.gx_hidden_field( context, "vLOCATIONID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV16LocationId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "vLOCATIONID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV16LocationId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
       }
 
       public override void RenderHtmlCloseForm( )
@@ -369,6 +369,18 @@ namespace GeneXus.Programs {
          {
             WebComp_Wizardstepwc.componentjscripts();
          }
+         context.WriteHtmlText( "<script type=\"text/javascript\">") ;
+         context.WriteHtmlText( "gx.setLanguageCode(\""+context.GetLanguageProperty( "code")+"\");") ;
+         if ( ! context.isSpaRequest( ) )
+         {
+            context.WriteHtmlText( "gx.setDateFormat(\""+context.GetLanguageProperty( "date_fmt")+"\");") ;
+            context.WriteHtmlText( "gx.setTimeFormat("+context.GetLanguageProperty( "time_fmt")+");") ;
+            context.WriteHtmlText( "gx.setCenturyFirstYear("+40+");") ;
+            context.WriteHtmlText( "gx.setDecimalPoint(\""+context.GetLanguageProperty( "decimal_point")+"\");") ;
+            context.WriteHtmlText( "gx.setThousandSeparator(\""+context.GetLanguageProperty( "thousand_sep")+"\");") ;
+            context.WriteHtmlText( "gx.StorageTimeZone = "+1+";") ;
+         }
+         context.WriteHtmlText( "</script>") ;
       }
 
       public override void RenderHtmlContent( )
@@ -411,7 +423,7 @@ namespace GeneXus.Programs {
 
       public override string GetPgmdesc( )
       {
-         return "Update Location" ;
+         return context.GetMessage( "Update Location", "") ;
       }
 
       protected void WB3T0( )
@@ -469,7 +481,7 @@ namespace GeneXus.Programs {
                Form.Meta.addItem("generator", "GeneXus .NET 18_0_10-184260", 0) ;
             }
          }
-         Form.Meta.addItem("description", "Update Location", 0) ;
+         Form.Meta.addItem("description", context.GetMessage( "Update Location", ""), 0) ;
          context.wjLoc = "";
          context.nUserReturn = 0;
          context.wbHandled = 0;
@@ -783,13 +795,13 @@ namespace GeneXus.Programs {
          AV13WizardSteps = new GXBaseCollection<GeneXus.Programs.wwpbaseobjects.SdtWizardSteps_WizardStepsItem>( context, "WizardStepsItem", "Comforta2");
          AV14WizardStep = new GeneXus.Programs.wwpbaseobjects.SdtWizardSteps_WizardStepsItem(context);
          AV14WizardStep.gxTpr_Code = "Step1";
-         AV14WizardStep.gxTpr_Title = "Location";
-         AV14WizardStep.gxTpr_Description = "Location Information";
+         AV14WizardStep.gxTpr_Title = context.GetMessage( "Location", "");
+         AV14WizardStep.gxTpr_Description = context.GetMessage( "Location Information", "");
          AV13WizardSteps.Add(AV14WizardStep, 0);
          AV14WizardStep = new GeneXus.Programs.wwpbaseobjects.SdtWizardSteps_WizardStepsItem(context);
          AV14WizardStep.gxTpr_Code = "Step2";
-         AV14WizardStep.gxTpr_Title = "Amenities";
-         AV14WizardStep.gxTpr_Description = "Amenities";
+         AV14WizardStep.gxTpr_Title = context.GetMessage( "Amenities", "");
+         AV14WizardStep.gxTpr_Description = context.GetMessage( "Amenities", "");
          AV13WizardSteps.Add(AV14WizardStep, 0);
          if ( String.IsNullOrEmpty(StringUtil.RTrim( AV11CurrentStep)) )
          {
@@ -902,7 +914,7 @@ namespace GeneXus.Programs {
             {
                if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV14WizardStep.gxTpr_Description)) )
                {
-                  lblWizardstepdescription_Caption = StringUtil.Format( "Step %1/%2 : %3", StringUtil.Trim( StringUtil.Str( (decimal)(AV15StepNumber), 2, 0)), StringUtil.Trim( StringUtil.Str( (decimal)(AV13WizardSteps.Count), 9, 0)), AV14WizardStep.gxTpr_Description, "", "", "", "", "", "");
+                  lblWizardstepdescription_Caption = StringUtil.Format( context.GetMessage( "Step %1/%2 :: %3", ""), StringUtil.Trim( StringUtil.Str( (decimal)(AV15StepNumber), 2, 0)), StringUtil.Trim( StringUtil.Str( (decimal)(AV13WizardSteps.Count), 9, 0)), AV14WizardStep.gxTpr_Description, "", "", "", "", "", "");
                   AssignProp("", false, lblWizardstepdescription_Internalname, "Caption", lblWizardstepdescription_Caption, true);
                }
             }
@@ -1064,7 +1076,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20249126315643", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202491315563652", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1079,8 +1091,8 @@ namespace GeneXus.Programs {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("updatelocation.js", "?20249126315643", false, true);
+         context.AddJavascriptSource("messages."+StringUtil.Lower( context.GetLanguageProperty( "code"))+".js", "?"+GetCacheInvalidationToken( ), false, true);
+         context.AddJavascriptSource("updatelocation.js", "?202491315563653", false, true);
          /* End function include_jscripts */
       }
 
@@ -1105,12 +1117,12 @@ namespace GeneXus.Programs {
             disableJsOutput();
          }
          init_default_properties( ) ;
-         lblWizardstepdescription_Caption = "Step Description";
+         lblWizardstepdescription_Caption = context.GetMessage( "Step Description", "");
          Form.Headerrawhtml = "";
          Form.Background = "";
          Form.Textcolor = 0;
          Form.Backcolor = (int)(0xFFFFFF);
-         Form.Caption = "Update Location";
+         Form.Caption = context.GetMessage( "Update Location", "");
          if ( context.isSpaRequest( ) )
          {
             enableJsOutput();

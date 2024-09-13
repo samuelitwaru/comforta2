@@ -367,7 +367,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[1] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV53Pagewwds_3_tfpagename_sel)) && ! ( StringUtil.StrCmp(AV53Pagewwds_3_tfpagename_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV53Pagewwds_3_tfpagename_sel)) && ! ( StringUtil.StrCmp(AV53Pagewwds_3_tfpagename_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(PageName = ( :AV53Pagewwds_3_tfpagename_sel))");
          }
@@ -375,7 +375,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[2] = 1;
          }
-         if ( StringUtil.StrCmp(AV53Pagewwds_3_tfpagename_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV53Pagewwds_3_tfpagename_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from PageName))=0))");
          }

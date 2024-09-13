@@ -25,10 +25,10 @@ type_SdtSupplier_Gen_ProductService.cs
 workwithplus\type_SdtWWP_Parameter.cs
 wwpbaseobjects\type_SdtUserCustomizations.cs
 type_SdtPageTemplate.cs
-type_SdtLocationEvent.cs
-type_SdtDevice.cs
-type_SdtCustomerCustomization.cs
 type_SdtPage.cs
+type_SdtDevice.cs
+type_SdtLocationEvent.cs
+type_SdtCustomerCustomization.cs
 type_SdtQRCodeLibrary.cs
 wwpbaseobjects\gxdomainwwpcardsmenuoptiontype.cs
 gxdomainwwpcardsmenusize.cs

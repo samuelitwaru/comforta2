@@ -203,7 +203,7 @@ namespace GeneXus.Programs {
             enableOutput();
          }
          context.WriteHtmlText( "<title>") ;
-         context.SendWebValue( "Home") ;
+         context.SendWebValue( context.GetMessage( "GAM_Home", "")) ;
          context.WriteHtmlTextNl( "</title>") ;
          if ( context.isSpaRequest( ) )
          {
@@ -263,7 +263,7 @@ namespace GeneXus.Programs {
 
       protected void send_integrity_footer_hashes( )
       {
-         GxWebStd.gx_hidden_field( context, "vID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV22Id), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "vID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV22Id), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "gxhash_vID", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV22Id), "ZZZ9"), context));
          GxWebStd.gx_hidden_field( context, "vAPPLICATIONHOMEOBJECT", StringUtil.RTrim( AV16ApplicationHomeObject));
          GxWebStd.gx_hidden_field( context, "gxhash_vAPPLICATIONHOMEOBJECT", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( AV16ApplicationHomeObject, "")), context));
@@ -277,7 +277,7 @@ namespace GeneXus.Programs {
          /* Send hidden variables. */
          /* Send saved values. */
          send_integrity_footer_hashes( ) ;
-         GxWebStd.gx_hidden_field( context, "vID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV22Id), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "vID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV22Id), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "gxhash_vID", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV22Id), "ZZZ9"), context));
          GxWebStd.gx_hidden_field( context, "vAPPLICATIONHOMEOBJECT", StringUtil.RTrim( AV16ApplicationHomeObject));
          GxWebStd.gx_hidden_field( context, "gxhash_vAPPLICATIONHOMEOBJECT", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( AV16ApplicationHomeObject, "")), context));
@@ -308,6 +308,18 @@ namespace GeneXus.Programs {
             enableOutput();
          }
          include_jscripts( ) ;
+         context.WriteHtmlText( "<script type=\"text/javascript\">") ;
+         context.WriteHtmlText( "gx.setLanguageCode(\""+context.GetLanguageProperty( "code")+"\");") ;
+         if ( ! context.isSpaRequest( ) )
+         {
+            context.WriteHtmlText( "gx.setDateFormat(\""+context.GetLanguageProperty( "date_fmt")+"\");") ;
+            context.WriteHtmlText( "gx.setTimeFormat("+context.GetLanguageProperty( "time_fmt")+");") ;
+            context.WriteHtmlText( "gx.setCenturyFirstYear("+40+");") ;
+            context.WriteHtmlText( "gx.setDecimalPoint(\""+context.GetLanguageProperty( "decimal_point")+"\");") ;
+            context.WriteHtmlText( "gx.setThousandSeparator(\""+context.GetLanguageProperty( "thousand_sep")+"\");") ;
+            context.WriteHtmlText( "gx.StorageTimeZone = "+1+";") ;
+         }
+         context.WriteHtmlText( "</script>") ;
          context.WriteHtmlTextNl( "</body>") ;
          context.WriteHtmlTextNl( "</html>") ;
          if ( context.isSpaRequest( ) )
@@ -323,7 +335,7 @@ namespace GeneXus.Programs {
 
       public override string GetPgmdesc( )
       {
-         return "Home" ;
+         return context.GetMessage( "GAM_Home", "") ;
       }
 
       protected void WB0N0( )
@@ -368,7 +380,7 @@ namespace GeneXus.Programs {
                Form.Meta.addItem("generator", "GeneXus .NET 18_0_10-184260", 0) ;
             }
          }
-         Form.Meta.addItem("description", "Home", 0) ;
+         Form.Meta.addItem("description", context.GetMessage( "GAM_Home", ""), 0) ;
          context.wjLoc = "";
          context.nUserReturn = 0;
          context.wbHandled = 0;
@@ -578,7 +590,7 @@ namespace GeneXus.Programs {
 
       protected void send_integrity_lvl_hashes0N2( )
       {
-         GxWebStd.gx_hidden_field( context, "vID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV22Id), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "vID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV22Id), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "gxhash_vID", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV22Id), "ZZZ9"), context));
          GxWebStd.gx_hidden_field( context, "vAPPLICATIONHOMEOBJECT", StringUtil.RTrim( AV16ApplicationHomeObject));
          GxWebStd.gx_hidden_field( context, "gxhash_vAPPLICATIONHOMEOBJECT", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( AV16ApplicationHomeObject, "")), context));
@@ -753,7 +765,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20249126302955", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202491315541794", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -770,8 +782,8 @@ namespace GeneXus.Programs {
       {
          if ( nGXWrapped != 1 )
          {
-            context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-            context.AddJavascriptSource("gamhome.js", "?20249126302956", false, true);
+            context.AddJavascriptSource("messages."+StringUtil.Lower( context.GetLanguageProperty( "code"))+".js", "?"+GetCacheInvalidationToken( ), false, true);
+            context.AddJavascriptSource("gamhome.js", "?202491315541795", false, true);
          }
          /* End function include_jscripts */
       }

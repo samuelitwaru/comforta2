@@ -72,8 +72,8 @@ namespace GeneXus.Programs {
       {
          /* GeneXus formulas */
          /* Output device settings */
-         AV15key = "76a2173be6393254e72ffa4d6df1030a3d2f94a3bb6d4a6e69a2cda0e056cb13";
-         AV20nonce = "10dd993308d37a15b55f64a0e763f353";
+         AV15key = context.GetMessage( "76a2173be6393254e72ffa4d6df1030a3d2f94a3bb6d4a6e69a2cda0e056cb13", "");
+         AV20nonce = context.GetMessage( "10dd993308d37a15b55f64a0e763f353", "");
          AV11Decrypted = AV24SymmetricBlockCipher.doaeaddecrypt("AES", "AEAD_EAX", AV15key, 128, AV20nonce, AV23ScannedCode);
          AV22Properties.FromJSonString(AV11Decrypted, null);
          AV26User = AV22Properties.Get("user");

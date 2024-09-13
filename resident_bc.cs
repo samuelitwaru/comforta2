@@ -579,7 +579,7 @@ namespace GeneXus.Programs {
          pr_default.execute(14, new Object[] {A40ResidentBsnNumber, A31ResidentId});
          if ( (pr_default.getStatus(14) != 101) )
          {
-            GX_msglist.addItem(context.GetMessage( "GXM_1004", new   object[]  {"Resident Bsn Number"}), 1, "");
+            GX_msglist.addItem(context.GetMessage( "GXM_1004", new   object[]  {context.GetMessage( "Resident Bsn Number", "")}), 1, "");
             AnyError = 1;
          }
          pr_default.close(14);
@@ -587,19 +587,19 @@ namespace GeneXus.Programs {
          n35ResidentInitials = (String.IsNullOrEmpty(StringUtil.RTrim( A35ResidentInitials)) ? true : false);
          if ( ! ( GxRegex.IsMatch(A36ResidentEmail,"^((\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)|(\\s*))$") ) )
          {
-            GX_msglist.addItem("Field Resident Email does not match the specified pattern", "OutOfRange", 1, "");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXM_DoesNotMatchRegExp", ""), context.GetMessage( "Resident Email", ""), "", "", "", "", "", "", "", ""), "OutOfRange", 1, "");
             AnyError = 1;
          }
          if ( ! ( ( StringUtil.StrCmp(A102ResidentGender, "Man") == 0 ) || ( StringUtil.StrCmp(A102ResidentGender, "Woman") == 0 ) || ( StringUtil.StrCmp(A102ResidentGender, "Other") == 0 ) ) )
          {
-            GX_msglist.addItem("Field Resident Gender is out of range", "OutOfRange", 1, "");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_OutOfRange", ""), context.GetMessage( "Resident Gender", ""), "", "", "", "", "", "", "", ""), "OutOfRange", 1, "");
             AnyError = 1;
          }
          /* Using cursor BC000212 */
          pr_default.execute(10, new Object[] {A82ResidentTypeId});
          if ( (pr_default.getStatus(10) == 101) )
          {
-            GX_msglist.addItem("No matching 'Resident Type'.", "ForeignKeyNotFound", 1, "RESIDENTTYPEID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Resident Type", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "RESIDENTTYPEID");
             AnyError = 1;
          }
          A83ResidentTypeName = BC000212_A83ResidentTypeName[0];
@@ -608,7 +608,7 @@ namespace GeneXus.Programs {
          pr_default.execute(11, new Object[] {A1CustomerId});
          if ( (pr_default.getStatus(11) == 101) )
          {
-            GX_msglist.addItem("No matching 'Customer'.", "ForeignKeyNotFound", 1, "CUSTOMERID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Customer", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "CUSTOMERID");
             AnyError = 1;
          }
          A3CustomerName = BC000213_A3CustomerName[0];
@@ -617,7 +617,7 @@ namespace GeneXus.Programs {
          pr_default.execute(12, new Object[] {A1CustomerId, A18CustomerLocationId});
          if ( (pr_default.getStatus(12) == 101) )
          {
-            GX_msglist.addItem("No matching 'CustomerLocation'.", "ForeignKeyNotFound", 1, "CUSTOMERLOCATIONID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "CustomerLocation", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "CUSTOMERLOCATIONID");
             AnyError = 1;
          }
          pr_default.close(12);
@@ -1460,12 +1460,12 @@ namespace GeneXus.Programs {
          Gx_BScreen = 0;
          if ( ! ( GxRegex.IsMatch(A46ResidentINIndividualEmail,"^((\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)|(\\s*))$") || String.IsNullOrEmpty(StringUtil.RTrim( A46ResidentINIndividualEmail)) ) )
          {
-            GX_msglist.addItem("Field Resident INIndividual Email does not match the specified pattern", "OutOfRange", 1, "");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXM_DoesNotMatchRegExp", ""), context.GetMessage( "Resident INIndividual Email", ""), "", "", "", "", "", "", "", ""), "OutOfRange", 1, "");
             AnyError = 1;
          }
          if ( ! ( ( StringUtil.StrCmp(A49ResidentINIndividualGender, "Man") == 0 ) || ( StringUtil.StrCmp(A49ResidentINIndividualGender, "Woman") == 0 ) || ( StringUtil.StrCmp(A49ResidentINIndividualGender, "Other") == 0 ) ) )
          {
-            GX_msglist.addItem("Field Resident INIndividual Gender is out of range", "OutOfRange", 1, "");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_OutOfRange", ""), context.GetMessage( "Resident INIndividual Gender", ""), "", "", "", "", "", "", "", ""), "OutOfRange", 1, "");
             AnyError = 1;
          }
       }
@@ -1894,7 +1894,7 @@ namespace GeneXus.Programs {
          Gx_BScreen = 0;
          if ( ! ( GxRegex.IsMatch(A53ResidentINCompanyEmail,"^((\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)|(\\s*))$") || String.IsNullOrEmpty(StringUtil.RTrim( A53ResidentINCompanyEmail)) ) )
          {
-            GX_msglist.addItem("Field Resident INCompany Email does not match the specified pattern", "OutOfRange", 1, "");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXM_DoesNotMatchRegExp", ""), context.GetMessage( "Resident INCompany Email", ""), "", "", "", "", "", "", "", ""), "OutOfRange", 1, "");
             AnyError = 1;
          }
       }
@@ -2311,7 +2311,7 @@ namespace GeneXus.Programs {
          pr_default.execute(2, new Object[] {A73ProductServiceId});
          if ( (pr_default.getStatus(2) == 101) )
          {
-            GX_msglist.addItem("No matching 'Product Service'.", "ForeignKeyNotFound", 1, "PRODUCTSERVICEID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Product Service", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "PRODUCTSERVICEID");
             AnyError = 1;
          }
          A74ProductServiceName = BC00024_A74ProductServiceName[0];
@@ -2325,7 +2325,7 @@ namespace GeneXus.Programs {
          pr_default.execute(3, new Object[] {A71ProductServiceTypeId});
          if ( (pr_default.getStatus(3) == 101) )
          {
-            GX_msglist.addItem("No matching 'Product Service Type'.", "ForeignKeyNotFound", 1, "PRODUCTSERVICETYPEID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Product Service Type", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "PRODUCTSERVICETYPEID");
             AnyError = 1;
          }
          A72ProductServiceTypeName = BC00025_A72ProductServiceTypeName[0];

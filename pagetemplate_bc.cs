@@ -190,17 +190,17 @@ namespace GeneXus.Programs {
          standaloneModal( ) ;
          if ( String.IsNullOrEmpty(StringUtil.RTrim( A108PageTemplateName)) )
          {
-            GX_msglist.addItem(StringUtil.Format( "%1 is required.", "Page Template Name", "", "", "", "", "", "", "", ""), 1, "");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "WWP_RequiredAttribute", ""), context.GetMessage( "Page Template Name", ""), "", "", "", "", "", "", "", ""), 1, "");
             AnyError = 1;
          }
          if ( String.IsNullOrEmpty(StringUtil.RTrim( A111PageTemplateDescription)) )
          {
-            GX_msglist.addItem(StringUtil.Format( "%1 is required.", "Page Template Description", "", "", "", "", "", "", "", ""), 1, "");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "WWP_RequiredAttribute", ""), context.GetMessage( "Page Template Description", ""), "", "", "", "", "", "", "", ""), 1, "");
             AnyError = 1;
          }
          if ( String.IsNullOrEmpty(StringUtil.RTrim( A110PageTemplateImage)) && String.IsNullOrEmpty(StringUtil.RTrim( A40000PageTemplateImage_GXI)) )
          {
-            GX_msglist.addItem(StringUtil.Format( "%1 is required.", "Page Template Image", "", "", "", "", "", "", "", ""), 1, "");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "WWP_RequiredAttribute", ""), context.GetMessage( "Page Template Image", ""), "", "", "", "", "", "", "", ""), 1, "");
             AnyError = 1;
          }
       }

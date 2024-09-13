@@ -1803,7 +1803,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[8] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Customerwwds_3_tfcustomerkvknumber_sel)) && ! ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Customerwwds_3_tfcustomerkvknumber_sel)) && ! ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerKvkNumber = ( :AV58Customerwwds_3_tfcustomerkvknumber_sel))");
          }
@@ -1811,7 +1811,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[9] = 1;
          }
-         if ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerKvkNumber))=0))");
          }
@@ -1823,7 +1823,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[10] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Customerwwds_5_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Customerwwds_5_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerName = ( :AV60Customerwwds_5_tfcustomername_sel))");
          }
@@ -1831,7 +1831,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[11] = 1;
          }
-         if ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerName))=0))");
          }
@@ -1843,7 +1843,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[12] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV62Customerwwds_7_tfcustomeremail_sel)) && ! ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV62Customerwwds_7_tfcustomeremail_sel)) && ! ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerEmail = ( :AV62Customerwwds_7_tfcustomeremail_sel))");
          }
@@ -1851,7 +1851,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[13] = 1;
          }
-         if ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerEmail IS NULL or (char_length(trim(trailing ' ' from T1.CustomerEmail))=0))");
          }
@@ -1863,7 +1863,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[14] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV64Customerwwds_9_tfcustomerphone_sel)) && ! ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV64Customerwwds_9_tfcustomerphone_sel)) && ! ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerPhone = ( :AV64Customerwwds_9_tfcustomerphone_sel))");
          }
@@ -1871,7 +1871,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[15] = 1;
          }
-         if ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerPhone IS NULL or (char_length(trim(trailing ' ' from T1.CustomerPhone))=0))");
          }
@@ -1883,7 +1883,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[16] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Customerwwds_11_tfcustomervatnumber_sel)) && ! ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Customerwwds_11_tfcustomervatnumber_sel)) && ! ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerVatNumber = ( :AV66Customerwwds_11_tfcustomervatnumber_sel))");
          }
@@ -1891,7 +1891,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[17] = 1;
          }
-         if ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerVatNumber))=0))");
          }
@@ -1903,7 +1903,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[18] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Customerwwds_13_tfcustomervisitingaddress_sel)) && ! ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Customerwwds_13_tfcustomervisitingaddress_sel)) && ! ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerVisitingAddress = ( :AV68Customerwwds_13_tfcustomervisitingaddress_sel))");
          }
@@ -1911,7 +1911,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[19] = 1;
          }
-         if ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerVisitingAddress IS NULL or (char_length(trim(trailing ' ' from T1.CustomerVisitingAddress))=0))");
          }
@@ -1923,7 +1923,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[20] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Customerwwds_15_tfcustomerpostaladdress_sel)) && ! ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Customerwwds_15_tfcustomerpostaladdress_sel)) && ! ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerPostalAddress = ( :AV70Customerwwds_15_tfcustomerpostaladdress_sel))");
          }
@@ -1931,7 +1931,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[21] = 1;
          }
-         if ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerPostalAddress IS NULL or (char_length(trim(trailing ' ' from T1.CustomerPostalAddress))=0))");
          }
@@ -1943,7 +1943,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[22] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV72Customerwwds_17_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV72Customerwwds_17_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T2.CustomerTypeName = ( :AV72Customerwwds_17_tfcustomertypename_sel))");
          }
@@ -1951,7 +1951,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[23] = 1;
          }
-         if ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T2.CustomerTypeName IS NULL or (char_length(trim(trailing ' ' from T2.CustomerTypeName))=0))");
          }
@@ -2017,7 +2017,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[8] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Customerwwds_3_tfcustomerkvknumber_sel)) && ! ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Customerwwds_3_tfcustomerkvknumber_sel)) && ! ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerKvkNumber = ( :AV58Customerwwds_3_tfcustomerkvknumber_sel))");
          }
@@ -2025,7 +2025,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[9] = 1;
          }
-         if ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerKvkNumber))=0))");
          }
@@ -2037,7 +2037,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[10] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Customerwwds_5_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Customerwwds_5_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerName = ( :AV60Customerwwds_5_tfcustomername_sel))");
          }
@@ -2045,7 +2045,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[11] = 1;
          }
-         if ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerName))=0))");
          }
@@ -2057,7 +2057,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[12] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV62Customerwwds_7_tfcustomeremail_sel)) && ! ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV62Customerwwds_7_tfcustomeremail_sel)) && ! ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerEmail = ( :AV62Customerwwds_7_tfcustomeremail_sel))");
          }
@@ -2065,7 +2065,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[13] = 1;
          }
-         if ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerEmail IS NULL or (char_length(trim(trailing ' ' from T1.CustomerEmail))=0))");
          }
@@ -2077,7 +2077,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[14] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV64Customerwwds_9_tfcustomerphone_sel)) && ! ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV64Customerwwds_9_tfcustomerphone_sel)) && ! ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerPhone = ( :AV64Customerwwds_9_tfcustomerphone_sel))");
          }
@@ -2085,7 +2085,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[15] = 1;
          }
-         if ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerPhone IS NULL or (char_length(trim(trailing ' ' from T1.CustomerPhone))=0))");
          }
@@ -2097,7 +2097,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[16] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Customerwwds_11_tfcustomervatnumber_sel)) && ! ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Customerwwds_11_tfcustomervatnumber_sel)) && ! ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerVatNumber = ( :AV66Customerwwds_11_tfcustomervatnumber_sel))");
          }
@@ -2105,7 +2105,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[17] = 1;
          }
-         if ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerVatNumber))=0))");
          }
@@ -2117,7 +2117,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[18] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Customerwwds_13_tfcustomervisitingaddress_sel)) && ! ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Customerwwds_13_tfcustomervisitingaddress_sel)) && ! ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerVisitingAddress = ( :AV68Customerwwds_13_tfcustomervisitingaddress_sel))");
          }
@@ -2125,7 +2125,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[19] = 1;
          }
-         if ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerVisitingAddress IS NULL or (char_length(trim(trailing ' ' from T1.CustomerVisitingAddress))=0))");
          }
@@ -2137,7 +2137,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[20] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Customerwwds_15_tfcustomerpostaladdress_sel)) && ! ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Customerwwds_15_tfcustomerpostaladdress_sel)) && ! ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerPostalAddress = ( :AV70Customerwwds_15_tfcustomerpostaladdress_sel))");
          }
@@ -2145,7 +2145,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[21] = 1;
          }
-         if ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerPostalAddress IS NULL or (char_length(trim(trailing ' ' from T1.CustomerPostalAddress))=0))");
          }
@@ -2157,7 +2157,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[22] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV72Customerwwds_17_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV72Customerwwds_17_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T2.CustomerTypeName = ( :AV72Customerwwds_17_tfcustomertypename_sel))");
          }
@@ -2165,7 +2165,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[23] = 1;
          }
-         if ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T2.CustomerTypeName IS NULL or (char_length(trim(trailing ' ' from T2.CustomerTypeName))=0))");
          }
@@ -2231,7 +2231,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[8] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Customerwwds_3_tfcustomerkvknumber_sel)) && ! ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Customerwwds_3_tfcustomerkvknumber_sel)) && ! ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerKvkNumber = ( :AV58Customerwwds_3_tfcustomerkvknumber_sel))");
          }
@@ -2239,7 +2239,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[9] = 1;
          }
-         if ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerKvkNumber))=0))");
          }
@@ -2251,7 +2251,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[10] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Customerwwds_5_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Customerwwds_5_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerName = ( :AV60Customerwwds_5_tfcustomername_sel))");
          }
@@ -2259,7 +2259,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[11] = 1;
          }
-         if ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerName))=0))");
          }
@@ -2271,7 +2271,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[12] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV62Customerwwds_7_tfcustomeremail_sel)) && ! ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV62Customerwwds_7_tfcustomeremail_sel)) && ! ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerEmail = ( :AV62Customerwwds_7_tfcustomeremail_sel))");
          }
@@ -2279,7 +2279,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[13] = 1;
          }
-         if ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerEmail IS NULL or (char_length(trim(trailing ' ' from T1.CustomerEmail))=0))");
          }
@@ -2291,7 +2291,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[14] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV64Customerwwds_9_tfcustomerphone_sel)) && ! ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV64Customerwwds_9_tfcustomerphone_sel)) && ! ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerPhone = ( :AV64Customerwwds_9_tfcustomerphone_sel))");
          }
@@ -2299,7 +2299,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[15] = 1;
          }
-         if ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerPhone IS NULL or (char_length(trim(trailing ' ' from T1.CustomerPhone))=0))");
          }
@@ -2311,7 +2311,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[16] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Customerwwds_11_tfcustomervatnumber_sel)) && ! ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Customerwwds_11_tfcustomervatnumber_sel)) && ! ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerVatNumber = ( :AV66Customerwwds_11_tfcustomervatnumber_sel))");
          }
@@ -2319,7 +2319,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[17] = 1;
          }
-         if ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerVatNumber))=0))");
          }
@@ -2331,7 +2331,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[18] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Customerwwds_13_tfcustomervisitingaddress_sel)) && ! ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Customerwwds_13_tfcustomervisitingaddress_sel)) && ! ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerVisitingAddress = ( :AV68Customerwwds_13_tfcustomervisitingaddress_sel))");
          }
@@ -2339,7 +2339,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[19] = 1;
          }
-         if ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerVisitingAddress IS NULL or (char_length(trim(trailing ' ' from T1.CustomerVisitingAddress))=0))");
          }
@@ -2351,7 +2351,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[20] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Customerwwds_15_tfcustomerpostaladdress_sel)) && ! ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Customerwwds_15_tfcustomerpostaladdress_sel)) && ! ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerPostalAddress = ( :AV70Customerwwds_15_tfcustomerpostaladdress_sel))");
          }
@@ -2359,7 +2359,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[21] = 1;
          }
-         if ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerPostalAddress IS NULL or (char_length(trim(trailing ' ' from T1.CustomerPostalAddress))=0))");
          }
@@ -2371,7 +2371,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[22] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV72Customerwwds_17_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV72Customerwwds_17_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T2.CustomerTypeName = ( :AV72Customerwwds_17_tfcustomertypename_sel))");
          }
@@ -2379,7 +2379,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[23] = 1;
          }
-         if ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T2.CustomerTypeName IS NULL or (char_length(trim(trailing ' ' from T2.CustomerTypeName))=0))");
          }
@@ -2445,7 +2445,7 @@ namespace GeneXus.Programs {
          {
             GXv_int7[8] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Customerwwds_3_tfcustomerkvknumber_sel)) && ! ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Customerwwds_3_tfcustomerkvknumber_sel)) && ! ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerKvkNumber = ( :AV58Customerwwds_3_tfcustomerkvknumber_sel))");
          }
@@ -2453,7 +2453,7 @@ namespace GeneXus.Programs {
          {
             GXv_int7[9] = 1;
          }
-         if ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerKvkNumber))=0))");
          }
@@ -2465,7 +2465,7 @@ namespace GeneXus.Programs {
          {
             GXv_int7[10] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Customerwwds_5_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Customerwwds_5_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerName = ( :AV60Customerwwds_5_tfcustomername_sel))");
          }
@@ -2473,7 +2473,7 @@ namespace GeneXus.Programs {
          {
             GXv_int7[11] = 1;
          }
-         if ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerName))=0))");
          }
@@ -2485,7 +2485,7 @@ namespace GeneXus.Programs {
          {
             GXv_int7[12] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV62Customerwwds_7_tfcustomeremail_sel)) && ! ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV62Customerwwds_7_tfcustomeremail_sel)) && ! ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerEmail = ( :AV62Customerwwds_7_tfcustomeremail_sel))");
          }
@@ -2493,7 +2493,7 @@ namespace GeneXus.Programs {
          {
             GXv_int7[13] = 1;
          }
-         if ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerEmail IS NULL or (char_length(trim(trailing ' ' from T1.CustomerEmail))=0))");
          }
@@ -2505,7 +2505,7 @@ namespace GeneXus.Programs {
          {
             GXv_int7[14] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV64Customerwwds_9_tfcustomerphone_sel)) && ! ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV64Customerwwds_9_tfcustomerphone_sel)) && ! ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerPhone = ( :AV64Customerwwds_9_tfcustomerphone_sel))");
          }
@@ -2513,7 +2513,7 @@ namespace GeneXus.Programs {
          {
             GXv_int7[15] = 1;
          }
-         if ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerPhone IS NULL or (char_length(trim(trailing ' ' from T1.CustomerPhone))=0))");
          }
@@ -2525,7 +2525,7 @@ namespace GeneXus.Programs {
          {
             GXv_int7[16] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Customerwwds_11_tfcustomervatnumber_sel)) && ! ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Customerwwds_11_tfcustomervatnumber_sel)) && ! ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerVatNumber = ( :AV66Customerwwds_11_tfcustomervatnumber_sel))");
          }
@@ -2533,7 +2533,7 @@ namespace GeneXus.Programs {
          {
             GXv_int7[17] = 1;
          }
-         if ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerVatNumber))=0))");
          }
@@ -2545,7 +2545,7 @@ namespace GeneXus.Programs {
          {
             GXv_int7[18] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Customerwwds_13_tfcustomervisitingaddress_sel)) && ! ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Customerwwds_13_tfcustomervisitingaddress_sel)) && ! ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerVisitingAddress = ( :AV68Customerwwds_13_tfcustomervisitingaddress_sel))");
          }
@@ -2553,7 +2553,7 @@ namespace GeneXus.Programs {
          {
             GXv_int7[19] = 1;
          }
-         if ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerVisitingAddress IS NULL or (char_length(trim(trailing ' ' from T1.CustomerVisitingAddress))=0))");
          }
@@ -2565,7 +2565,7 @@ namespace GeneXus.Programs {
          {
             GXv_int7[20] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Customerwwds_15_tfcustomerpostaladdress_sel)) && ! ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Customerwwds_15_tfcustomerpostaladdress_sel)) && ! ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerPostalAddress = ( :AV70Customerwwds_15_tfcustomerpostaladdress_sel))");
          }
@@ -2573,7 +2573,7 @@ namespace GeneXus.Programs {
          {
             GXv_int7[21] = 1;
          }
-         if ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerPostalAddress IS NULL or (char_length(trim(trailing ' ' from T1.CustomerPostalAddress))=0))");
          }
@@ -2585,7 +2585,7 @@ namespace GeneXus.Programs {
          {
             GXv_int7[22] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV72Customerwwds_17_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV72Customerwwds_17_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T2.CustomerTypeName = ( :AV72Customerwwds_17_tfcustomertypename_sel))");
          }
@@ -2593,7 +2593,7 @@ namespace GeneXus.Programs {
          {
             GXv_int7[23] = 1;
          }
-         if ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T2.CustomerTypeName IS NULL or (char_length(trim(trailing ' ' from T2.CustomerTypeName))=0))");
          }
@@ -2659,7 +2659,7 @@ namespace GeneXus.Programs {
          {
             GXv_int9[8] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Customerwwds_3_tfcustomerkvknumber_sel)) && ! ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Customerwwds_3_tfcustomerkvknumber_sel)) && ! ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerKvkNumber = ( :AV58Customerwwds_3_tfcustomerkvknumber_sel))");
          }
@@ -2667,7 +2667,7 @@ namespace GeneXus.Programs {
          {
             GXv_int9[9] = 1;
          }
-         if ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerKvkNumber))=0))");
          }
@@ -2679,7 +2679,7 @@ namespace GeneXus.Programs {
          {
             GXv_int9[10] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Customerwwds_5_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Customerwwds_5_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerName = ( :AV60Customerwwds_5_tfcustomername_sel))");
          }
@@ -2687,7 +2687,7 @@ namespace GeneXus.Programs {
          {
             GXv_int9[11] = 1;
          }
-         if ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerName))=0))");
          }
@@ -2699,7 +2699,7 @@ namespace GeneXus.Programs {
          {
             GXv_int9[12] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV62Customerwwds_7_tfcustomeremail_sel)) && ! ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV62Customerwwds_7_tfcustomeremail_sel)) && ! ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerEmail = ( :AV62Customerwwds_7_tfcustomeremail_sel))");
          }
@@ -2707,7 +2707,7 @@ namespace GeneXus.Programs {
          {
             GXv_int9[13] = 1;
          }
-         if ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerEmail IS NULL or (char_length(trim(trailing ' ' from T1.CustomerEmail))=0))");
          }
@@ -2719,7 +2719,7 @@ namespace GeneXus.Programs {
          {
             GXv_int9[14] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV64Customerwwds_9_tfcustomerphone_sel)) && ! ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV64Customerwwds_9_tfcustomerphone_sel)) && ! ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerPhone = ( :AV64Customerwwds_9_tfcustomerphone_sel))");
          }
@@ -2727,7 +2727,7 @@ namespace GeneXus.Programs {
          {
             GXv_int9[15] = 1;
          }
-         if ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerPhone IS NULL or (char_length(trim(trailing ' ' from T1.CustomerPhone))=0))");
          }
@@ -2739,7 +2739,7 @@ namespace GeneXus.Programs {
          {
             GXv_int9[16] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Customerwwds_11_tfcustomervatnumber_sel)) && ! ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Customerwwds_11_tfcustomervatnumber_sel)) && ! ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerVatNumber = ( :AV66Customerwwds_11_tfcustomervatnumber_sel))");
          }
@@ -2747,7 +2747,7 @@ namespace GeneXus.Programs {
          {
             GXv_int9[17] = 1;
          }
-         if ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerVatNumber))=0))");
          }
@@ -2759,7 +2759,7 @@ namespace GeneXus.Programs {
          {
             GXv_int9[18] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Customerwwds_13_tfcustomervisitingaddress_sel)) && ! ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Customerwwds_13_tfcustomervisitingaddress_sel)) && ! ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerVisitingAddress = ( :AV68Customerwwds_13_tfcustomervisitingaddress_sel))");
          }
@@ -2767,7 +2767,7 @@ namespace GeneXus.Programs {
          {
             GXv_int9[19] = 1;
          }
-         if ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerVisitingAddress IS NULL or (char_length(trim(trailing ' ' from T1.CustomerVisitingAddress))=0))");
          }
@@ -2779,7 +2779,7 @@ namespace GeneXus.Programs {
          {
             GXv_int9[20] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Customerwwds_15_tfcustomerpostaladdress_sel)) && ! ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Customerwwds_15_tfcustomerpostaladdress_sel)) && ! ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerPostalAddress = ( :AV70Customerwwds_15_tfcustomerpostaladdress_sel))");
          }
@@ -2787,7 +2787,7 @@ namespace GeneXus.Programs {
          {
             GXv_int9[21] = 1;
          }
-         if ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerPostalAddress IS NULL or (char_length(trim(trailing ' ' from T1.CustomerPostalAddress))=0))");
          }
@@ -2799,7 +2799,7 @@ namespace GeneXus.Programs {
          {
             GXv_int9[22] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV72Customerwwds_17_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV72Customerwwds_17_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T2.CustomerTypeName = ( :AV72Customerwwds_17_tfcustomertypename_sel))");
          }
@@ -2807,7 +2807,7 @@ namespace GeneXus.Programs {
          {
             GXv_int9[23] = 1;
          }
-         if ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T2.CustomerTypeName IS NULL or (char_length(trim(trailing ' ' from T2.CustomerTypeName))=0))");
          }
@@ -2873,7 +2873,7 @@ namespace GeneXus.Programs {
          {
             GXv_int11[8] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Customerwwds_3_tfcustomerkvknumber_sel)) && ! ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Customerwwds_3_tfcustomerkvknumber_sel)) && ! ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerKvkNumber = ( :AV58Customerwwds_3_tfcustomerkvknumber_sel))");
          }
@@ -2881,7 +2881,7 @@ namespace GeneXus.Programs {
          {
             GXv_int11[9] = 1;
          }
-         if ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerKvkNumber))=0))");
          }
@@ -2893,7 +2893,7 @@ namespace GeneXus.Programs {
          {
             GXv_int11[10] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Customerwwds_5_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Customerwwds_5_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerName = ( :AV60Customerwwds_5_tfcustomername_sel))");
          }
@@ -2901,7 +2901,7 @@ namespace GeneXus.Programs {
          {
             GXv_int11[11] = 1;
          }
-         if ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerName))=0))");
          }
@@ -2913,7 +2913,7 @@ namespace GeneXus.Programs {
          {
             GXv_int11[12] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV62Customerwwds_7_tfcustomeremail_sel)) && ! ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV62Customerwwds_7_tfcustomeremail_sel)) && ! ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerEmail = ( :AV62Customerwwds_7_tfcustomeremail_sel))");
          }
@@ -2921,7 +2921,7 @@ namespace GeneXus.Programs {
          {
             GXv_int11[13] = 1;
          }
-         if ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerEmail IS NULL or (char_length(trim(trailing ' ' from T1.CustomerEmail))=0))");
          }
@@ -2933,7 +2933,7 @@ namespace GeneXus.Programs {
          {
             GXv_int11[14] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV64Customerwwds_9_tfcustomerphone_sel)) && ! ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV64Customerwwds_9_tfcustomerphone_sel)) && ! ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerPhone = ( :AV64Customerwwds_9_tfcustomerphone_sel))");
          }
@@ -2941,7 +2941,7 @@ namespace GeneXus.Programs {
          {
             GXv_int11[15] = 1;
          }
-         if ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerPhone IS NULL or (char_length(trim(trailing ' ' from T1.CustomerPhone))=0))");
          }
@@ -2953,7 +2953,7 @@ namespace GeneXus.Programs {
          {
             GXv_int11[16] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Customerwwds_11_tfcustomervatnumber_sel)) && ! ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Customerwwds_11_tfcustomervatnumber_sel)) && ! ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerVatNumber = ( :AV66Customerwwds_11_tfcustomervatnumber_sel))");
          }
@@ -2961,7 +2961,7 @@ namespace GeneXus.Programs {
          {
             GXv_int11[17] = 1;
          }
-         if ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerVatNumber))=0))");
          }
@@ -2973,7 +2973,7 @@ namespace GeneXus.Programs {
          {
             GXv_int11[18] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Customerwwds_13_tfcustomervisitingaddress_sel)) && ! ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Customerwwds_13_tfcustomervisitingaddress_sel)) && ! ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerVisitingAddress = ( :AV68Customerwwds_13_tfcustomervisitingaddress_sel))");
          }
@@ -2981,7 +2981,7 @@ namespace GeneXus.Programs {
          {
             GXv_int11[19] = 1;
          }
-         if ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerVisitingAddress IS NULL or (char_length(trim(trailing ' ' from T1.CustomerVisitingAddress))=0))");
          }
@@ -2993,7 +2993,7 @@ namespace GeneXus.Programs {
          {
             GXv_int11[20] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Customerwwds_15_tfcustomerpostaladdress_sel)) && ! ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Customerwwds_15_tfcustomerpostaladdress_sel)) && ! ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerPostalAddress = ( :AV70Customerwwds_15_tfcustomerpostaladdress_sel))");
          }
@@ -3001,7 +3001,7 @@ namespace GeneXus.Programs {
          {
             GXv_int11[21] = 1;
          }
-         if ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerPostalAddress IS NULL or (char_length(trim(trailing ' ' from T1.CustomerPostalAddress))=0))");
          }
@@ -3013,7 +3013,7 @@ namespace GeneXus.Programs {
          {
             GXv_int11[22] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV72Customerwwds_17_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV72Customerwwds_17_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T2.CustomerTypeName = ( :AV72Customerwwds_17_tfcustomertypename_sel))");
          }
@@ -3021,7 +3021,7 @@ namespace GeneXus.Programs {
          {
             GXv_int11[23] = 1;
          }
-         if ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T2.CustomerTypeName IS NULL or (char_length(trim(trailing ' ' from T2.CustomerTypeName))=0))");
          }
@@ -3087,7 +3087,7 @@ namespace GeneXus.Programs {
          {
             GXv_int13[8] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Customerwwds_3_tfcustomerkvknumber_sel)) && ! ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Customerwwds_3_tfcustomerkvknumber_sel)) && ! ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerKvkNumber = ( :AV58Customerwwds_3_tfcustomerkvknumber_sel))");
          }
@@ -3095,7 +3095,7 @@ namespace GeneXus.Programs {
          {
             GXv_int13[9] = 1;
          }
-         if ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerKvkNumber))=0))");
          }
@@ -3107,7 +3107,7 @@ namespace GeneXus.Programs {
          {
             GXv_int13[10] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Customerwwds_5_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Customerwwds_5_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerName = ( :AV60Customerwwds_5_tfcustomername_sel))");
          }
@@ -3115,7 +3115,7 @@ namespace GeneXus.Programs {
          {
             GXv_int13[11] = 1;
          }
-         if ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerName))=0))");
          }
@@ -3127,7 +3127,7 @@ namespace GeneXus.Programs {
          {
             GXv_int13[12] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV62Customerwwds_7_tfcustomeremail_sel)) && ! ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV62Customerwwds_7_tfcustomeremail_sel)) && ! ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerEmail = ( :AV62Customerwwds_7_tfcustomeremail_sel))");
          }
@@ -3135,7 +3135,7 @@ namespace GeneXus.Programs {
          {
             GXv_int13[13] = 1;
          }
-         if ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerEmail IS NULL or (char_length(trim(trailing ' ' from T1.CustomerEmail))=0))");
          }
@@ -3147,7 +3147,7 @@ namespace GeneXus.Programs {
          {
             GXv_int13[14] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV64Customerwwds_9_tfcustomerphone_sel)) && ! ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV64Customerwwds_9_tfcustomerphone_sel)) && ! ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerPhone = ( :AV64Customerwwds_9_tfcustomerphone_sel))");
          }
@@ -3155,7 +3155,7 @@ namespace GeneXus.Programs {
          {
             GXv_int13[15] = 1;
          }
-         if ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerPhone IS NULL or (char_length(trim(trailing ' ' from T1.CustomerPhone))=0))");
          }
@@ -3167,7 +3167,7 @@ namespace GeneXus.Programs {
          {
             GXv_int13[16] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Customerwwds_11_tfcustomervatnumber_sel)) && ! ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Customerwwds_11_tfcustomervatnumber_sel)) && ! ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerVatNumber = ( :AV66Customerwwds_11_tfcustomervatnumber_sel))");
          }
@@ -3175,7 +3175,7 @@ namespace GeneXus.Programs {
          {
             GXv_int13[17] = 1;
          }
-         if ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerVatNumber))=0))");
          }
@@ -3187,7 +3187,7 @@ namespace GeneXus.Programs {
          {
             GXv_int13[18] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Customerwwds_13_tfcustomervisitingaddress_sel)) && ! ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Customerwwds_13_tfcustomervisitingaddress_sel)) && ! ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerVisitingAddress = ( :AV68Customerwwds_13_tfcustomervisitingaddress_sel))");
          }
@@ -3195,7 +3195,7 @@ namespace GeneXus.Programs {
          {
             GXv_int13[19] = 1;
          }
-         if ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerVisitingAddress IS NULL or (char_length(trim(trailing ' ' from T1.CustomerVisitingAddress))=0))");
          }
@@ -3207,7 +3207,7 @@ namespace GeneXus.Programs {
          {
             GXv_int13[20] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Customerwwds_15_tfcustomerpostaladdress_sel)) && ! ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Customerwwds_15_tfcustomerpostaladdress_sel)) && ! ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerPostalAddress = ( :AV70Customerwwds_15_tfcustomerpostaladdress_sel))");
          }
@@ -3215,7 +3215,7 @@ namespace GeneXus.Programs {
          {
             GXv_int13[21] = 1;
          }
-         if ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerPostalAddress IS NULL or (char_length(trim(trailing ' ' from T1.CustomerPostalAddress))=0))");
          }
@@ -3227,7 +3227,7 @@ namespace GeneXus.Programs {
          {
             GXv_int13[22] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV72Customerwwds_17_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV72Customerwwds_17_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T2.CustomerTypeName = ( :AV72Customerwwds_17_tfcustomertypename_sel))");
          }
@@ -3235,7 +3235,7 @@ namespace GeneXus.Programs {
          {
             GXv_int13[23] = 1;
          }
-         if ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T2.CustomerTypeName IS NULL or (char_length(trim(trailing ' ' from T2.CustomerTypeName))=0))");
          }
@@ -3301,7 +3301,7 @@ namespace GeneXus.Programs {
          {
             GXv_int15[8] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Customerwwds_3_tfcustomerkvknumber_sel)) && ! ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Customerwwds_3_tfcustomerkvknumber_sel)) && ! ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerKvkNumber = ( :AV58Customerwwds_3_tfcustomerkvknumber_sel))");
          }
@@ -3309,7 +3309,7 @@ namespace GeneXus.Programs {
          {
             GXv_int15[9] = 1;
          }
-         if ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV58Customerwwds_3_tfcustomerkvknumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerKvkNumber))=0))");
          }
@@ -3321,7 +3321,7 @@ namespace GeneXus.Programs {
          {
             GXv_int15[10] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Customerwwds_5_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Customerwwds_5_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerName = ( :AV60Customerwwds_5_tfcustomername_sel))");
          }
@@ -3329,7 +3329,7 @@ namespace GeneXus.Programs {
          {
             GXv_int15[11] = 1;
          }
-         if ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV60Customerwwds_5_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerName))=0))");
          }
@@ -3341,7 +3341,7 @@ namespace GeneXus.Programs {
          {
             GXv_int15[12] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV62Customerwwds_7_tfcustomeremail_sel)) && ! ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV62Customerwwds_7_tfcustomeremail_sel)) && ! ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerEmail = ( :AV62Customerwwds_7_tfcustomeremail_sel))");
          }
@@ -3349,7 +3349,7 @@ namespace GeneXus.Programs {
          {
             GXv_int15[13] = 1;
          }
-         if ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV62Customerwwds_7_tfcustomeremail_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerEmail IS NULL or (char_length(trim(trailing ' ' from T1.CustomerEmail))=0))");
          }
@@ -3361,7 +3361,7 @@ namespace GeneXus.Programs {
          {
             GXv_int15[14] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV64Customerwwds_9_tfcustomerphone_sel)) && ! ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV64Customerwwds_9_tfcustomerphone_sel)) && ! ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerPhone = ( :AV64Customerwwds_9_tfcustomerphone_sel))");
          }
@@ -3369,7 +3369,7 @@ namespace GeneXus.Programs {
          {
             GXv_int15[15] = 1;
          }
-         if ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV64Customerwwds_9_tfcustomerphone_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerPhone IS NULL or (char_length(trim(trailing ' ' from T1.CustomerPhone))=0))");
          }
@@ -3381,7 +3381,7 @@ namespace GeneXus.Programs {
          {
             GXv_int15[16] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Customerwwds_11_tfcustomervatnumber_sel)) && ! ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Customerwwds_11_tfcustomervatnumber_sel)) && ! ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerVatNumber = ( :AV66Customerwwds_11_tfcustomervatnumber_sel))");
          }
@@ -3389,7 +3389,7 @@ namespace GeneXus.Programs {
          {
             GXv_int15[17] = 1;
          }
-         if ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV66Customerwwds_11_tfcustomervatnumber_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerVatNumber))=0))");
          }
@@ -3401,7 +3401,7 @@ namespace GeneXus.Programs {
          {
             GXv_int15[18] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Customerwwds_13_tfcustomervisitingaddress_sel)) && ! ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Customerwwds_13_tfcustomervisitingaddress_sel)) && ! ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerVisitingAddress = ( :AV68Customerwwds_13_tfcustomervisitingaddress_sel))");
          }
@@ -3409,7 +3409,7 @@ namespace GeneXus.Programs {
          {
             GXv_int15[19] = 1;
          }
-         if ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV68Customerwwds_13_tfcustomervisitingaddress_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerVisitingAddress IS NULL or (char_length(trim(trailing ' ' from T1.CustomerVisitingAddress))=0))");
          }
@@ -3421,7 +3421,7 @@ namespace GeneXus.Programs {
          {
             GXv_int15[20] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Customerwwds_15_tfcustomerpostaladdress_sel)) && ! ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Customerwwds_15_tfcustomerpostaladdress_sel)) && ! ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerPostalAddress = ( :AV70Customerwwds_15_tfcustomerpostaladdress_sel))");
          }
@@ -3429,7 +3429,7 @@ namespace GeneXus.Programs {
          {
             GXv_int15[21] = 1;
          }
-         if ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV70Customerwwds_15_tfcustomerpostaladdress_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T1.CustomerPostalAddress IS NULL or (char_length(trim(trailing ' ' from T1.CustomerPostalAddress))=0))");
          }
@@ -3441,7 +3441,7 @@ namespace GeneXus.Programs {
          {
             GXv_int15[22] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV72Customerwwds_17_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV72Customerwwds_17_tfcustomertypename_sel)) && ! ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T2.CustomerTypeName = ( :AV72Customerwwds_17_tfcustomertypename_sel))");
          }
@@ -3449,7 +3449,7 @@ namespace GeneXus.Programs {
          {
             GXv_int15[23] = 1;
          }
-         if ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV72Customerwwds_17_tfcustomertypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "(T2.CustomerTypeName IS NULL or (char_length(trim(trailing ' ' from T2.CustomerTypeName))=0))");
          }

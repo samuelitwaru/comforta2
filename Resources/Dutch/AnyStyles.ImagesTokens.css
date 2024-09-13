@@ -98,6 +98,7 @@
 	--GX-Image_HomeBannerImageSample : url(../HomeBannerImageSample.png);
 	--GX-Image_comforta1 : url(../comforta1.png);
 	--GX-Image_faviconImg : url(../faviconImg.png);
+	--GX-Image_Logo : url(../Logo.png);
 }
 
 .GX_Image_SelectRow_Class{content: var(--GX-Image_SelectRow);}
@@ -197,4 +198,5 @@
 .GX_Image_HomeBannerImageSample_Class{content: var(--GX-Image_HomeBannerImageSample);}
 .GX_Image_comforta1_Class{content: var(--GX-Image_comforta1);}
 .GX_Image_faviconImg_Class{content: var(--GX-Image_faviconImg);}
+.GX_Image_Logo_Class{content: var(--GX-Image_Logo);}
 }

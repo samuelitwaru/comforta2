@@ -67,23 +67,23 @@ namespace GeneXus.Programs {
          /* GeneXus formulas */
          /* Output device settings */
          AV9clientId = new GeneXus.Programs.genexussecurity.SdtGAMApplication(context).getclientid();
-         if ( StringUtil.StrCmp(AV16HttpRequest.ServerHost, "localhost") == 0 )
+         if ( StringUtil.StrCmp(AV16HttpRequest.ServerHost, context.GetMessage( "localhost", "")) == 0 )
          {
-            AV8baseUrl = "http://localhost:8082/ComfortaNETPostgreSQL";
+            AV8baseUrl = context.GetMessage( "http://localhost:8082/ComfortaNETPostgreSQL", "");
          }
          else
          {
-            AV8baseUrl = "https://comforta.yukon.software";
+            AV8baseUrl = context.GetMessage( "https://comforta.yukon.software", "");
          }
-         AV13url = AV8baseUrl + "/oauth/access_token";
+         AV13url = AV8baseUrl + context.GetMessage( "/oauth/access_token", "");
          new decodeqrcode(context ).execute(  AV15secretKey, out  AV14username, out  AV11password) ;
-         AV10httpclient.AddHeader("Content-Type", "application/x-www-form-urlencoded");
-         AV10httpclient.AddVariable("client_id", AV9clientId);
-         AV10httpclient.AddVariable("grant_type", "password");
-         AV10httpclient.AddVariable("scope", "gam_user_data");
-         AV10httpclient.AddVariable("username", AV14username);
-         AV10httpclient.AddVariable("password", AV11password);
-         AV10httpclient.Execute("POST", AV13url);
+         AV10httpclient.AddHeader(context.GetMessage( "Content-Type", ""), context.GetMessage( "application/x-www-form-urlencoded", ""));
+         AV10httpclient.AddVariable(context.GetMessage( "client_id", ""), AV9clientId);
+         AV10httpclient.AddVariable(context.GetMessage( "grant_type", ""), context.GetMessage( "password", ""));
+         AV10httpclient.AddVariable(context.GetMessage( "scope", ""), context.GetMessage( "gam_user_data", ""));
+         AV10httpclient.AddVariable(context.GetMessage( "username", ""), AV14username);
+         AV10httpclient.AddVariable(context.GetMessage( "password", ""), AV11password);
+         AV10httpclient.Execute(context.GetMessage( "POST", ""), AV13url);
          AV12result = AV10httpclient.ToString();
          if ( StringUtil.Contains( AV12result, "error") )
          {

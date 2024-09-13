@@ -291,9 +291,9 @@ namespace GeneXus.Programs {
 
       protected void send_integrity_footer_hashes( )
       {
-         GxWebStd.gx_hidden_field( context, "vPAGEID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV13PageId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "vPAGEID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV13PageId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "gxhash_vPAGEID", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV13PageId), "ZZZ9"), context));
-         GxWebStd.gx_hidden_field( context, "vPAGETEMPLATEID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV11PageTemplateId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "vPAGETEMPLATEID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV11PageTemplateId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "gxhash_vPAGETEMPLATEID", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV11PageTemplateId), "ZZZ9"), context));
          GXKey = Decrypt64( context.GetCookie( "GX_SESSION_ID"), Crypto.GetServerKey( ));
       }
@@ -303,7 +303,7 @@ namespace GeneXus.Programs {
          /* Send hidden variables. */
          /* Send saved values. */
          send_integrity_footer_hashes( ) ;
-         GxWebStd.gx_hidden_field( context, "vPAGEID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV13PageId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "vPAGEID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV13PageId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "gxhash_vPAGEID", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV13PageId), "ZZZ9"), context));
          if ( context.isAjaxRequest( ) )
          {
@@ -313,7 +313,7 @@ namespace GeneXus.Programs {
          {
             context.httpAjaxContext.ajax_rsp_assign_hidden_sdt("vBCPAGE", AV5BCPage);
          }
-         GxWebStd.gx_hidden_field( context, "vPAGETEMPLATEID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV11PageTemplateId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "vPAGETEMPLATEID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV11PageTemplateId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "gxhash_vPAGETEMPLATEID", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV11PageTemplateId), "ZZZ9"), context));
          GxWebStd.gx_hidden_field( context, "UCPAGEEDITOR_Pagetemplatehtml", StringUtil.RTrim( Ucpageeditor_Pagetemplatehtml));
          GxWebStd.gx_hidden_field( context, "UCPAGEEDITOR_Pagetemplatecss", StringUtil.RTrim( Ucpageeditor_Pagetemplatecss));
@@ -350,6 +350,18 @@ namespace GeneXus.Programs {
          {
             WebComp_Wwpaux_wc.componentjscripts();
          }
+         context.WriteHtmlText( "<script type=\"text/javascript\">") ;
+         context.WriteHtmlText( "gx.setLanguageCode(\""+context.GetLanguageProperty( "code")+"\");") ;
+         if ( ! context.isSpaRequest( ) )
+         {
+            context.WriteHtmlText( "gx.setDateFormat(\""+context.GetLanguageProperty( "date_fmt")+"\");") ;
+            context.WriteHtmlText( "gx.setTimeFormat("+context.GetLanguageProperty( "time_fmt")+");") ;
+            context.WriteHtmlText( "gx.setCenturyFirstYear("+40+");") ;
+            context.WriteHtmlText( "gx.setDecimalPoint(\""+context.GetLanguageProperty( "decimal_point")+"\");") ;
+            context.WriteHtmlText( "gx.setThousandSeparator(\""+context.GetLanguageProperty( "thousand_sep")+"\");") ;
+            context.WriteHtmlText( "gx.StorageTimeZone = "+1+";") ;
+         }
+         context.WriteHtmlText( "</script>") ;
       }
 
       public override void RenderHtmlContent( )
@@ -392,7 +404,7 @@ namespace GeneXus.Programs {
 
       public override string GetPgmdesc( )
       {
-         return "Page Editor" ;
+         return context.GetMessage( "Page Editor", "") ;
       }
 
       protected void WB3E0( )
@@ -448,7 +460,7 @@ namespace GeneXus.Programs {
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 18,'',false,'',0)\"";
             ClassString = "Button";
             StyleString = "";
-            GxWebStd.gx_button_ctrl( context, bttBtnsavebtn_Internalname, "", "Save", bttBtnsavebtn_Jsonclick, 7, "Save", "", StyleString, ClassString, 1, 1, "standard", "'"+""+"'"+",false,"+"'"+"e113e1_client"+"'", TempTags, "", 2, "HLP_PageEditor.htm");
+            GxWebStd.gx_button_ctrl( context, bttBtnsavebtn_Internalname, "", context.GetMessage( "Save", ""), bttBtnsavebtn_Jsonclick, 7, context.GetMessage( "Save", ""), "", StyleString, ClassString, 1, 1, "standard", "'"+""+"'"+",false,"+"'"+"e113e1_client"+"'", TempTags, "", 2, "HLP_PageEditor.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -522,7 +534,7 @@ namespace GeneXus.Programs {
                Form.Meta.addItem("generator", "GeneXus .NET 18_0_10-184260", 0) ;
             }
          }
-         Form.Meta.addItem("description", "Page Editor", 0) ;
+         Form.Meta.addItem("description", context.GetMessage( "Page Editor", ""), 0) ;
          context.wjLoc = "";
          context.nUserReturn = 0;
          context.wbHandled = 0;
@@ -876,7 +888,7 @@ namespace GeneXus.Programs {
          if ( AV5BCPage.Update() )
          {
             context.CommitDataStores("pageeditor",pr_default);
-            GX_msglist.addItem("Page saved successfully.");
+            GX_msglist.addItem(context.GetMessage( "Page saved successfully.", ""));
          }
          else
          {
@@ -985,7 +997,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20249126315088", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202491315562624", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1000,8 +1012,8 @@ namespace GeneXus.Programs {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("pageeditor.js", "?20249126315088", false, true);
+         context.AddJavascriptSource("messages."+StringUtil.Lower( context.GetLanguageProperty( "code"))+".js", "?"+GetCacheInvalidationToken( ), false, true);
+         context.AddJavascriptSource("pageeditor.js", "?202491315562624", false, true);
          context.AddJavascriptSource("UserControls/UCAppToolBoxRender.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
@@ -1038,7 +1050,7 @@ namespace GeneXus.Programs {
          init_default_properties( ) ;
          Savebtn_modal_Bodytype = "WebComponent";
          Savebtn_modal_Confirmtype = "";
-         Savebtn_modal_Title = "Create Page";
+         Savebtn_modal_Title = context.GetMessage( "Create Page", "");
          Savebtn_modal_Width = "400";
          Ucpageeditor_Pagetemplatecss = "";
          Ucpageeditor_Pagetemplatehtml = "";
@@ -1046,7 +1058,7 @@ namespace GeneXus.Programs {
          Form.Background = "";
          Form.Textcolor = 0;
          Form.Backcolor = (int)(0xFFFFFF);
-         Form.Caption = "Page Editor";
+         Form.Caption = context.GetMessage( "Page Editor", "");
          context.GX_msglist.DisplayMode = 1;
          if ( context.isSpaRequest( ) )
          {

@@ -56,16 +56,13 @@ namespace GeneXus.Programs {
          }
          else if ( StringUtil.StrCmp(gxfirstwebparm, "gxJX_Action15") == 0 )
          {
-            A10CustomerManagerEmail = GetPar( "CustomerManagerEmail");
-            A16CustomerManagerGivenName = GetPar( "CustomerManagerGivenName");
-            A9CustomerManagerLastName = GetPar( "CustomerManagerLastName");
             setAjaxCallMode();
             if ( ! IsValidAjaxCall( true) )
             {
                GxWebError = 1;
                return  ;
             }
-            XC_15_012( A10CustomerManagerEmail, A16CustomerManagerGivenName, A9CustomerManagerLastName) ;
+            XC_15_012( ) ;
             return  ;
          }
          else if ( StringUtil.StrCmp(gxfirstwebparm, "gxJX_Action16") == 0 )
@@ -83,16 +80,13 @@ namespace GeneXus.Programs {
          }
          else if ( StringUtil.StrCmp(gxfirstwebparm, "gxJX_Action25") == 0 )
          {
-            A27CustomerLocationReceptionistEm = GetPar( "CustomerLocationReceptionistEm");
-            A24CustomerLocationReceptionistGi = GetPar( "CustomerLocationReceptionistGi");
-            A25CustomerLocationReceptionistLa = GetPar( "CustomerLocationReceptionistLa");
             setAjaxCallMode();
             if ( ! IsValidAjaxCall( true) )
             {
                GxWebError = 1;
                return  ;
             }
-            XC_25_014( A27CustomerLocationReceptionistEm, A24CustomerLocationReceptionistGi, A25CustomerLocationReceptionistLa) ;
+            XC_25_014( ) ;
             return  ;
          }
          else if ( StringUtil.StrCmp(gxfirstwebparm, "gxJX_Action26") == 0 )
@@ -271,7 +265,7 @@ namespace GeneXus.Programs {
                Form.Meta.addItem("generator", "GeneXus .NET 18_0_10-184260", 0) ;
             }
          }
-         Form.Meta.addItem("description", "Customer", 0) ;
+         Form.Meta.addItem("description", context.GetMessage( "Customer", ""), 0) ;
          context.wjLoc = "";
          context.nUserReturn = 0;
          context.wbHandled = 0;
@@ -557,7 +551,7 @@ namespace GeneXus.Programs {
          ucGxuitabspanel_steps.Render(context, "tab", Gxuitabspanel_steps_Internalname, "GXUITABSPANEL_STEPSContainer");
          context.WriteHtmlText( "<div class=\"gx_usercontrol_child\" id=\""+"GXUITABSPANEL_STEPSContainer"+"title1"+"\" style=\"display:none;\">") ;
          /* Text block */
-         GxWebStd.gx_label_ctrl( context, lblTabgeneral_title_Internalname, "General Information", "", "", lblTabgeneral_title_Jsonclick, "'"+""+"'"+",false,"+"'"+""+"'", "", "TextBlock", 0, "", 1, 1, 0, 0, "HLP_Customer.htm");
+         GxWebStd.gx_label_ctrl( context, lblTabgeneral_title_Internalname, context.GetMessage( "WWP_TemplateDataPanelTitle", ""), "", "", lblTabgeneral_title_Jsonclick, "'"+""+"'"+",false,"+"'"+""+"'", "", "TextBlock", 0, "", 1, 1, 0, 0, "HLP_Customer.htm");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "Section", "start", "top", "", "display:none;", "div");
          context.WriteHtmlText( "tabGeneral") ;
@@ -573,12 +567,12 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtCustomerId_Internalname+"\"", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, edtCustomerId_Internalname, "Id", " AttributeLabel", 1, true, "");
+         GxWebStd.gx_label_element( context, edtCustomerId_Internalname, context.GetMessage( "Id", ""), " AttributeLabel", 1, true, "");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Single line edit */
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 25,'',false,'',0)\"";
-         GxWebStd.gx_single_line_edit( context, edtCustomerId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A1CustomerId), 4, 0, ".", "")), StringUtil.LTrim( ((edtCustomerId_Enabled!=0) ? context.localUtil.Format( (decimal)(A1CustomerId), "ZZZ9") : context.localUtil.Format( (decimal)(A1CustomerId), "ZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,25);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtCustomerId_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtCustomerId_Enabled, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_Customer.htm");
+         GxWebStd.gx_single_line_edit( context, edtCustomerId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A1CustomerId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")), StringUtil.LTrim( ((edtCustomerId_Enabled!=0) ? context.localUtil.Format( (decimal)(A1CustomerId), "ZZZ9") : context.localUtil.Format( (decimal)(A1CustomerId), "ZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onblur(this,25);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtCustomerId_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtCustomerId_Enabled, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_Customer.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -587,7 +581,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtCustomerKvkNumber_Internalname+"\"", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, edtCustomerKvkNumber_Internalname, "Kvk Number", " AttributeLabel", 1, true, "");
+         GxWebStd.gx_label_element( context, edtCustomerKvkNumber_Internalname, context.GetMessage( "Kvk Number", ""), " AttributeLabel", 1, true, "");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Single line edit */
@@ -604,7 +598,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtCustomerName_Internalname+"\"", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, edtCustomerName_Internalname, "Name", " AttributeLabel", 1, true, "");
+         GxWebStd.gx_label_element( context, edtCustomerName_Internalname, context.GetMessage( "Name", ""), " AttributeLabel", 1, true, "");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Single line edit */
@@ -618,7 +612,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtCustomerPostalAddress_Internalname+"\"", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, edtCustomerPostalAddress_Internalname, "Postal Address", " AttributeLabel", 1, true, "");
+         GxWebStd.gx_label_element( context, edtCustomerPostalAddress_Internalname, context.GetMessage( "Postal Address", ""), " AttributeLabel", 1, true, "");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Multiple line edit */
@@ -639,7 +633,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtCustomerEmail_Internalname+"\"", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, edtCustomerEmail_Internalname, "Email", " AttributeLabel", 1, true, "");
+         GxWebStd.gx_label_element( context, edtCustomerEmail_Internalname, context.GetMessage( "Email", ""), " AttributeLabel", 1, true, "");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Single line edit */
@@ -653,7 +647,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtCustomerVisitingAddress_Internalname+"\"", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, edtCustomerVisitingAddress_Internalname, "Visiting Address", " AttributeLabel", 1, true, "");
+         GxWebStd.gx_label_element( context, edtCustomerVisitingAddress_Internalname, context.GetMessage( "Visiting Address", ""), " AttributeLabel", 1, true, "");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Multiple line edit */
@@ -674,7 +668,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtCustomerPhone_Internalname+"\"", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, edtCustomerPhone_Internalname, "Phone", " AttributeLabel", 1, true, "");
+         GxWebStd.gx_label_element( context, edtCustomerPhone_Internalname, context.GetMessage( "Phone", ""), " AttributeLabel", 1, true, "");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Single line edit */
@@ -692,7 +686,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtCustomerVatNumber_Internalname+"\"", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, edtCustomerVatNumber_Internalname, "Vat Number", " AttributeLabel", 1, true, "");
+         GxWebStd.gx_label_element( context, edtCustomerVatNumber_Internalname, context.GetMessage( "Vat Number", ""), " AttributeLabel", 1, true, "");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Single line edit */
@@ -713,7 +707,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 MergeLabelCell", "start", "top", "", "", "div");
          /* Text block */
-         GxWebStd.gx_label_ctrl( context, lblTextblockcustomertypeid_Internalname, "Customer Type", "", "", lblTextblockcustomertypeid_Jsonclick, "'"+""+"'"+",false,"+"'"+""+"'", "", "Label", 0, "", 1, 1, 0, 0, "HLP_Customer.htm");
+         GxWebStd.gx_label_ctrl( context, lblTextblockcustomertypeid_Internalname, context.GetMessage( "Customer Type", ""), "", "", lblTextblockcustomertypeid_Jsonclick, "'"+""+"'"+",false,"+"'"+""+"'", "", "Label", 0, "", 1, 1, 0, 0, "HLP_Customer.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
@@ -731,10 +725,10 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, edtCustomerTypeId_Internalname, "Customer Type Id", "col-sm-3 AttributeLabel", 0, true, "");
+         GxWebStd.gx_label_element( context, edtCustomerTypeId_Internalname, context.GetMessage( "Customer Type Id", ""), "col-sm-3 AttributeLabel", 0, true, "");
          /* Single line edit */
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 67,'',false,'',0)\"";
-         GxWebStd.gx_single_line_edit( context, edtCustomerTypeId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A78CustomerTypeId), 4, 0, ".", "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(A78CustomerTypeId), "ZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,67);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtCustomerTypeId_Jsonclick, 0, "Attribute", "", "", "", "", edtCustomerTypeId_Visible, edtCustomerTypeId_Enabled, 1, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_Customer.htm");
+         GxWebStd.gx_single_line_edit( context, edtCustomerTypeId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A78CustomerTypeId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(A78CustomerTypeId), "ZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onblur(this,67);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtCustomerTypeId_Jsonclick, 0, "Attribute", "", "", "", "", edtCustomerTypeId_Visible, edtCustomerTypeId_Enabled, 1, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_Customer.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -745,7 +739,7 @@ namespace GeneXus.Programs {
          context.WriteHtmlText( "</div>") ;
          context.WriteHtmlText( "<div class=\"gx_usercontrol_child\" id=\""+"GXUITABSPANEL_STEPSContainer"+"title2"+"\" style=\"display:none;\">") ;
          /* Text block */
-         GxWebStd.gx_label_ctrl( context, lblTablevel_manager_title_Internalname, "Manager", "", "", lblTablevel_manager_title_Jsonclick, "'"+""+"'"+",false,"+"'"+""+"'", "", "TextBlock", 0, "", 1, 1, 0, 0, "HLP_Customer.htm");
+         GxWebStd.gx_label_ctrl( context, lblTablevel_manager_title_Internalname, context.GetMessage( "Manager", ""), "", "", lblTablevel_manager_title_Jsonclick, "'"+""+"'"+",false,"+"'"+""+"'", "", "TextBlock", 0, "", 1, 1, 0, 0, "HLP_Customer.htm");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "Section", "start", "top", "", "display:none;", "div");
          context.WriteHtmlText( "TabLevel_Manager") ;
@@ -774,7 +768,7 @@ namespace GeneXus.Programs {
          context.WriteHtmlText( "</div>") ;
          context.WriteHtmlText( "<div class=\"gx_usercontrol_child\" id=\""+"GXUITABSPANEL_STEPSContainer"+"title3"+"\" style=\"display:none;\">") ;
          /* Text block */
-         GxWebStd.gx_label_ctrl( context, lblTablevel_locations_title_Internalname, "Locations", "", "", lblTablevel_locations_title_Jsonclick, "'"+""+"'"+",false,"+"'"+""+"'", "", "TextBlock", 0, "", 1, 1, 0, 0, "HLP_Customer.htm");
+         GxWebStd.gx_label_ctrl( context, lblTablevel_locations_title_Internalname, context.GetMessage( "Locations", ""), "", "", lblTablevel_locations_title_Jsonclick, "'"+""+"'"+",false,"+"'"+""+"'", "", "TextBlock", 0, "", 1, 1, 0, 0, "HLP_Customer.htm");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "Section", "start", "top", "", "display:none;", "div");
          context.WriteHtmlText( "TabLevel_Locations") ;
@@ -814,35 +808,35 @@ namespace GeneXus.Programs {
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 176,'',false,'',0)\"";
          ClassString = "BtnDefault ButtonWizard";
          StyleString = "";
-         GxWebStd.gx_button_ctrl( context, bttBtnwizardprevious_Internalname, "", "Previous", bttBtnwizardprevious_Jsonclick, 7, "Previous", "", StyleString, ClassString, bttBtnwizardprevious_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"e11012_client"+"'", TempTags, "", 2, "HLP_Customer.htm");
+         GxWebStd.gx_button_ctrl( context, bttBtnwizardprevious_Internalname, "", context.GetMessage( "GXM_previous", ""), bttBtnwizardprevious_Jsonclick, 7, context.GetMessage( "GXM_previous", ""), "", StyleString, ClassString, bttBtnwizardprevious_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"e11012_client"+"'", TempTags, "", 2, "HLP_Customer.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-button", "start", "top", "", "", "div");
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 178,'',false,'',0)\"";
          ClassString = "BtnDefault";
          StyleString = "";
-         GxWebStd.gx_button_ctrl( context, bttBtntrn_cancel_Internalname, "", "Cancel", bttBtntrn_cancel_Jsonclick, 1, "Cancel", "", StyleString, ClassString, bttBtntrn_cancel_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"ECANCEL."+"'", TempTags, "", context.GetButtonType( ), "HLP_Customer.htm");
+         GxWebStd.gx_button_ctrl( context, bttBtntrn_cancel_Internalname, "", context.GetMessage( "GX_BtnCancel", ""), bttBtntrn_cancel_Jsonclick, 1, context.GetMessage( "GX_BtnCancel", ""), "", StyleString, ClassString, bttBtntrn_cancel_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"ECANCEL."+"'", TempTags, "", context.GetButtonType( ), "HLP_Customer.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-button", "start", "top", "", "", "div");
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 180,'',false,'',0)\"";
          ClassString = "Button ButtonWizard";
          StyleString = "";
-         GxWebStd.gx_button_ctrl( context, bttBtnwizardnext_Internalname, "", "Next", bttBtnwizardnext_Jsonclick, 7, "Next", "", StyleString, ClassString, bttBtnwizardnext_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"e12012_client"+"'", TempTags, "", 2, "HLP_Customer.htm");
+         GxWebStd.gx_button_ctrl( context, bttBtnwizardnext_Internalname, "", context.GetMessage( "GXM_next", ""), bttBtnwizardnext_Jsonclick, 7, context.GetMessage( "GXM_next", ""), "", StyleString, ClassString, bttBtnwizardnext_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"e12012_client"+"'", TempTags, "", 2, "HLP_Customer.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-button", "start", "top", "", "", "div");
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 182,'',false,'',0)\"";
          ClassString = "Button";
          StyleString = "";
-         GxWebStd.gx_button_ctrl( context, bttBtntrn_enter_Internalname, "", "Confirm", bttBtntrn_enter_Jsonclick, 5, "Confirm", "", StyleString, ClassString, bttBtntrn_enter_Visible, bttBtntrn_enter_Enabled, "standard", "'"+""+"'"+",false,"+"'"+"EENTER."+"'", TempTags, "", context.GetButtonType( ), "HLP_Customer.htm");
+         GxWebStd.gx_button_ctrl( context, bttBtntrn_enter_Internalname, "", context.GetMessage( "GX_BtnEnter", ""), bttBtntrn_enter_Jsonclick, 5, context.GetMessage( "GX_BtnEnter", ""), "", StyleString, ClassString, bttBtntrn_enter_Visible, bttBtntrn_enter_Enabled, "standard", "'"+""+"'"+",false,"+"'"+"EENTER."+"'", TempTags, "", context.GetButtonType( ), "HLP_Customer.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-button", "start", "top", "", "", "div");
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 184,'',false,'',0)\"";
          ClassString = "BtnDefault";
          StyleString = "";
-         GxWebStd.gx_button_ctrl( context, bttBtntrn_delete_Internalname, "", "Delete", bttBtntrn_delete_Jsonclick, 5, "Delete", "", StyleString, ClassString, bttBtntrn_delete_Visible, bttBtntrn_delete_Enabled, "standard", "'"+""+"'"+",false,"+"'"+"EDELETE."+"'", TempTags, "", context.GetButtonType( ), "HLP_Customer.htm");
+         GxWebStd.gx_button_ctrl( context, bttBtntrn_delete_Internalname, "", context.GetMessage( "GX_BtnDelete", ""), bttBtntrn_delete_Jsonclick, 5, context.GetMessage( "GX_BtnDelete", ""), "", StyleString, ClassString, bttBtntrn_delete_Visible, bttBtntrn_delete_Enabled, "standard", "'"+""+"'"+",false,"+"'"+"EDELETE."+"'", TempTags, "", context.GetButtonType( ), "HLP_Customer.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -863,7 +857,7 @@ namespace GeneXus.Programs {
          GxWebStd.gx_div_start( context, divSectionattribute_customertypeid_Internalname, 1, 0, "px", 0, "px", "Section", "start", "top", "", "", "div");
          /* Single line edit */
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 189,'',false,'',0)\"";
-         GxWebStd.gx_single_line_edit( context, edtavCombocustomertypeid_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV27ComboCustomerTypeId), 4, 0, ".", "")), StringUtil.LTrim( ((edtavCombocustomertypeid_Enabled!=0) ? context.localUtil.Format( (decimal)(AV27ComboCustomerTypeId), "ZZZ9") : context.localUtil.Format( (decimal)(AV27ComboCustomerTypeId), "ZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,189);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavCombocustomertypeid_Jsonclick, 0, "Attribute", "", "", "", "", edtavCombocustomertypeid_Visible, edtavCombocustomertypeid_Enabled, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_Customer.htm");
+         GxWebStd.gx_single_line_edit( context, edtavCombocustomertypeid_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV27ComboCustomerTypeId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")), StringUtil.LTrim( ((edtavCombocustomertypeid_Enabled!=0) ? context.localUtil.Format( (decimal)(AV27ComboCustomerTypeId), "ZZZ9") : context.localUtil.Format( (decimal)(AV27ComboCustomerTypeId), "ZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onblur(this,189);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavCombocustomertypeid_Jsonclick, 0, "Attribute", "", "", "", "", edtavCombocustomertypeid_Visible, edtavCombocustomertypeid_Enabled, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_Customer.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          /* User Defined Control */
          ucCombo_supplier_agbid.SetProperty("Caption", Combo_supplier_agbid_Caption);
@@ -900,7 +894,7 @@ namespace GeneXus.Programs {
          ucCombo_amenitiesid.Render(context, "dvelop.gxbootstrap.ddoextendedcombo", Combo_amenitiesid_Internalname, "COMBO_AMENITIESIDContainer");
          /* Single line edit */
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 193,'',false,'',0)\"";
-         GxWebStd.gx_single_line_edit( context, edtCustomerLastLine_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A93CustomerLastLine), 4, 0, ".", "")), StringUtil.LTrim( ((edtCustomerLastLine_Enabled!=0) ? context.localUtil.Format( (decimal)(A93CustomerLastLine), "ZZZ9") : context.localUtil.Format( (decimal)(A93CustomerLastLine), "ZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,193);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtCustomerLastLine_Jsonclick, 0, "Attribute", "", "", "", "", edtCustomerLastLine_Visible, edtCustomerLastLine_Enabled, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_Customer.htm");
+         GxWebStd.gx_single_line_edit( context, edtCustomerLastLine_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A93CustomerLastLine), 4, 0, context.GetLanguageProperty( "decimal_point"), "")), StringUtil.LTrim( ((edtCustomerLastLine_Enabled!=0) ? context.localUtil.Format( (decimal)(A93CustomerLastLine), "ZZZ9") : context.localUtil.Format( (decimal)(A93CustomerLastLine), "ZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onblur(this,193);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtCustomerLastLine_Jsonclick, 0, "Attribute", "", "", "", "", edtCustomerLastLine_Visible, edtCustomerLastLine_Enabled, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_Customer.htm");
          /* User Defined Control */
          ucWizard_steps.Render(context, "dvelop.dvtabstransform", Wizard_steps_Internalname, "WIZARD_STEPSContainer");
          GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -949,21 +943,21 @@ namespace GeneXus.Programs {
             {
                bGXsfl_78_Refreshing = true;
                ReadRow012( ) ;
-               edtCustomerManagerId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERID_"+sGXsfl_78_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerManagerId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERID_"+sGXsfl_78_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerManagerId_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerManagerId_Enabled), 5, 0), !bGXsfl_78_Refreshing);
-               edtCustomerManagerGivenName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERGIVENNAME_"+sGXsfl_78_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerManagerGivenName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERGIVENNAME_"+sGXsfl_78_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerManagerGivenName_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerManagerGivenName_Enabled), 5, 0), !bGXsfl_78_Refreshing);
-               edtCustomerManagerLastName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERLASTNAME_"+sGXsfl_78_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerManagerLastName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERLASTNAME_"+sGXsfl_78_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerManagerLastName_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerManagerLastName_Enabled), 5, 0), !bGXsfl_78_Refreshing);
-               edtCustomerManagerInitials_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERINITIALS_"+sGXsfl_78_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerManagerInitials_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERINITIALS_"+sGXsfl_78_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerManagerInitials_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerManagerInitials_Enabled), 5, 0), !bGXsfl_78_Refreshing);
-               edtCustomerManagerEmail_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGEREMAIL_"+sGXsfl_78_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerManagerEmail_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGEREMAIL_"+sGXsfl_78_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerManagerEmail_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerManagerEmail_Enabled), 5, 0), !bGXsfl_78_Refreshing);
-               edtCustomerManagerPhone_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERPHONE_"+sGXsfl_78_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerManagerPhone_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERPHONE_"+sGXsfl_78_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerManagerPhone_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerManagerPhone_Enabled), 5, 0), !bGXsfl_78_Refreshing);
-               cmbCustomerManagerGender.Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERGENDER_"+sGXsfl_78_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               cmbCustomerManagerGender.Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERGENDER_"+sGXsfl_78_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, cmbCustomerManagerGender_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(cmbCustomerManagerGender.Enabled), 5, 0), !bGXsfl_78_Refreshing);
-               edtCustomerManagerGAMGUID_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERGAMGUID_"+sGXsfl_78_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerManagerGAMGUID_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERGAMGUID_"+sGXsfl_78_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerManagerGAMGUID_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerManagerGAMGUID_Enabled), 5, 0), !bGXsfl_78_Refreshing);
                if ( ( nRcdExists_2 == 0 ) && ! IsIns( ) )
                {
@@ -1100,15 +1094,15 @@ namespace GeneXus.Programs {
             {
                bGXsfl_97_Refreshing = true;
                ReadRow013( ) ;
-               edtCustomerLocationId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONID_"+sGXsfl_97_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerLocationId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONID_"+sGXsfl_97_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerLocationId_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerLocationId_Enabled), 5, 0), !bGXsfl_97_Refreshing);
-               edtCustomerLocationVisitingAddres_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONVISITINGADDRES_"+sGXsfl_97_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerLocationVisitingAddres_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONVISITINGADDRES_"+sGXsfl_97_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerLocationVisitingAddres_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerLocationVisitingAddres_Enabled), 5, 0), !bGXsfl_97_Refreshing);
-               edtCustomerLocationPostalAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONPOSTALADDRESS_"+sGXsfl_97_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerLocationPostalAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONPOSTALADDRESS_"+sGXsfl_97_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerLocationPostalAddress_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerLocationPostalAddress_Enabled), 5, 0), !bGXsfl_97_Refreshing);
-               edtCustomerLocationEmail_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONEMAIL_"+sGXsfl_97_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerLocationEmail_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONEMAIL_"+sGXsfl_97_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerLocationEmail_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerLocationEmail_Enabled), 5, 0), !bGXsfl_97_Refreshing);
-               edtCustomerLocationPhone_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONPHONE_"+sGXsfl_97_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerLocationPhone_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONPHONE_"+sGXsfl_97_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerLocationPhone_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerLocationPhone_Enabled), 5, 0), !bGXsfl_97_Refreshing);
                if ( ( nRcdExists_3 == 0 ) && ! IsIns( ) )
                {
@@ -1248,7 +1242,7 @@ namespace GeneXus.Programs {
                ajax_req_read_hidden_sdt(cgiGet( "vSUPPLIER_GENID_DATA"), AV18Supplier_GenId_Data);
                ajax_req_read_hidden_sdt(cgiGet( "vAMENITIESID_DATA"), AV28AmenitiesId_Data);
                /* Read saved values. */
-               Z1CustomerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z1CustomerId"), ".", ","), 18, MidpointRounding.ToEven));
+               Z1CustomerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z1CustomerId"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Z41CustomerKvkNumber = cgiGet( "Z41CustomerKvkNumber");
                Z3CustomerName = cgiGet( "Z3CustomerName");
                Z4CustomerPostalAddress = cgiGet( "Z4CustomerPostalAddress");
@@ -1260,27 +1254,27 @@ namespace GeneXus.Programs {
                Z7CustomerPhone = cgiGet( "Z7CustomerPhone");
                n7CustomerPhone = (String.IsNullOrEmpty(StringUtil.RTrim( A7CustomerPhone)) ? true : false);
                Z14CustomerVatNumber = cgiGet( "Z14CustomerVatNumber");
-               Z93CustomerLastLine = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z93CustomerLastLine"), ".", ","), 18, MidpointRounding.ToEven));
-               Z95CustomerLastLineLocation = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z95CustomerLastLineLocation"), ".", ","), 18, MidpointRounding.ToEven));
-               Z78CustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z78CustomerTypeId"), ".", ","), 18, MidpointRounding.ToEven));
+               Z93CustomerLastLine = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z93CustomerLastLine"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+               Z95CustomerLastLineLocation = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z95CustomerLastLineLocation"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+               Z78CustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z78CustomerTypeId"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                n78CustomerTypeId = ((0==A78CustomerTypeId) ? true : false);
-               A95CustomerLastLineLocation = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z95CustomerLastLineLocation"), ".", ","), 18, MidpointRounding.ToEven));
-               O95CustomerLastLineLocation = (short)(Math.Round(context.localUtil.CToN( cgiGet( "O95CustomerLastLineLocation"), ".", ","), 18, MidpointRounding.ToEven));
-               O93CustomerLastLine = (short)(Math.Round(context.localUtil.CToN( cgiGet( "O93CustomerLastLine"), ".", ","), 18, MidpointRounding.ToEven));
-               IsConfirmed = (short)(Math.Round(context.localUtil.CToN( cgiGet( "IsConfirmed"), ".", ","), 18, MidpointRounding.ToEven));
-               IsModified = (short)(Math.Round(context.localUtil.CToN( cgiGet( "IsModified"), ".", ","), 18, MidpointRounding.ToEven));
+               A95CustomerLastLineLocation = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z95CustomerLastLineLocation"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+               O95CustomerLastLineLocation = (short)(Math.Round(context.localUtil.CToN( cgiGet( "O95CustomerLastLineLocation"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+               O93CustomerLastLine = (short)(Math.Round(context.localUtil.CToN( cgiGet( "O93CustomerLastLine"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+               IsConfirmed = (short)(Math.Round(context.localUtil.CToN( cgiGet( "IsConfirmed"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+               IsModified = (short)(Math.Round(context.localUtil.CToN( cgiGet( "IsModified"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Gx_mode = cgiGet( "Mode");
-               nRC_GXsfl_78 = (int)(Math.Round(context.localUtil.CToN( cgiGet( "nRC_GXsfl_78"), ".", ","), 18, MidpointRounding.ToEven));
-               nRC_GXsfl_97 = (int)(Math.Round(context.localUtil.CToN( cgiGet( "nRC_GXsfl_97"), ".", ","), 18, MidpointRounding.ToEven));
-               N78CustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "N78CustomerTypeId"), ".", ","), 18, MidpointRounding.ToEven));
+               nRC_GXsfl_78 = (int)(Math.Round(context.localUtil.CToN( cgiGet( "nRC_GXsfl_78"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+               nRC_GXsfl_97 = (int)(Math.Round(context.localUtil.CToN( cgiGet( "nRC_GXsfl_97"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+               N78CustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "N78CustomerTypeId"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                n78CustomerTypeId = ((0==A78CustomerTypeId) ? true : false);
-               AV7CustomerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "vCUSTOMERID"), ".", ","), 18, MidpointRounding.ToEven));
-               AV13Insert_CustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "vINSERT_CUSTOMERTYPEID"), ".", ","), 18, MidpointRounding.ToEven));
-               A95CustomerLastLineLocation = (short)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLASTLINELOCATION"), ".", ","), 18, MidpointRounding.ToEven));
+               AV7CustomerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "vCUSTOMERID"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+               AV13Insert_CustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "vINSERT_CUSTOMERTYPEID"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+               A95CustomerLastLineLocation = (short)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLASTLINELOCATION"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                A79CustomerTypeName = cgiGet( "CUSTOMERTYPENAME");
                AV30Pgmname = cgiGet( "vPGMNAME");
-               Gx_BScreen = (short)(Math.Round(context.localUtil.CToN( cgiGet( "vGXBSCREEN"), ".", ","), 18, MidpointRounding.ToEven));
-               A94CustomerLocationLastLine = (short)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONLASTLINE"), ".", ","), 18, MidpointRounding.ToEven));
+               Gx_BScreen = (short)(Math.Round(context.localUtil.CToN( cgiGet( "vGXBSCREEN"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+               A94CustomerLocationLastLine = (short)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONLASTLINE"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                A133CustomerLocationDescription = cgiGet( "CUSTOMERLOCATIONDESCRIPTION");
                A134CustomerLocationName = cgiGet( "CUSTOMERLOCATIONNAME");
                Combo_customertypeid_Objectcall = cgiGet( "COMBO_CUSTOMERTYPEID_Objectcall");
@@ -1309,7 +1303,7 @@ namespace GeneXus.Programs {
                Combo_customertypeid_Datalistproc = cgiGet( "COMBO_CUSTOMERTYPEID_Datalistproc");
                Combo_customertypeid_Datalistprocparametersprefix = cgiGet( "COMBO_CUSTOMERTYPEID_Datalistprocparametersprefix");
                Combo_customertypeid_Remoteservicesparameters = cgiGet( "COMBO_CUSTOMERTYPEID_Remoteservicesparameters");
-               Combo_customertypeid_Datalistupdateminimumcharacters = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_CUSTOMERTYPEID_Datalistupdateminimumcharacters"), ".", ","), 18, MidpointRounding.ToEven));
+               Combo_customertypeid_Datalistupdateminimumcharacters = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_CUSTOMERTYPEID_Datalistupdateminimumcharacters"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Combo_customertypeid_Includeonlyselectedoption = StringUtil.StrToBool( cgiGet( "COMBO_CUSTOMERTYPEID_Includeonlyselectedoption"));
                Combo_customertypeid_Includeselectalloption = StringUtil.StrToBool( cgiGet( "COMBO_CUSTOMERTYPEID_Includeselectalloption"));
                Combo_customertypeid_Emptyitem = StringUtil.StrToBool( cgiGet( "COMBO_CUSTOMERTYPEID_Emptyitem"));
@@ -1323,12 +1317,12 @@ namespace GeneXus.Programs {
                Combo_customertypeid_Selectalltext = cgiGet( "COMBO_CUSTOMERTYPEID_Selectalltext");
                Combo_customertypeid_Multiplevaluesseparator = cgiGet( "COMBO_CUSTOMERTYPEID_Multiplevaluesseparator");
                Combo_customertypeid_Addnewoptiontext = cgiGet( "COMBO_CUSTOMERTYPEID_Addnewoptiontext");
-               Combo_customertypeid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_CUSTOMERTYPEID_Gxcontroltype"), ".", ","), 18, MidpointRounding.ToEven));
+               Combo_customertypeid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_CUSTOMERTYPEID_Gxcontroltype"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Gxuitabspanel_steps_Objectcall = cgiGet( "GXUITABSPANEL_STEPS_Objectcall");
                Gxuitabspanel_steps_Enabled = StringUtil.StrToBool( cgiGet( "GXUITABSPANEL_STEPS_Enabled"));
-               Gxuitabspanel_steps_Activepage = (int)(Math.Round(context.localUtil.CToN( cgiGet( "GXUITABSPANEL_STEPS_Activepage"), ".", ","), 18, MidpointRounding.ToEven));
+               Gxuitabspanel_steps_Activepage = (int)(Math.Round(context.localUtil.CToN( cgiGet( "GXUITABSPANEL_STEPS_Activepage"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Gxuitabspanel_steps_Activepagecontrolname = cgiGet( "GXUITABSPANEL_STEPS_Activepagecontrolname");
-               Gxuitabspanel_steps_Pagecount = (int)(Math.Round(context.localUtil.CToN( cgiGet( "GXUITABSPANEL_STEPS_Pagecount"), ".", ","), 18, MidpointRounding.ToEven));
+               Gxuitabspanel_steps_Pagecount = (int)(Math.Round(context.localUtil.CToN( cgiGet( "GXUITABSPANEL_STEPS_Pagecount"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Gxuitabspanel_steps_Class = cgiGet( "GXUITABSPANEL_STEPS_Class");
                Gxuitabspanel_steps_Historymanagement = StringUtil.StrToBool( cgiGet( "GXUITABSPANEL_STEPS_Historymanagement"));
                Gxuitabspanel_steps_Visible = StringUtil.StrToBool( cgiGet( "GXUITABSPANEL_STEPS_Visible"));
@@ -1358,7 +1352,7 @@ namespace GeneXus.Programs {
                Combo_supplier_agbid_Datalistproc = cgiGet( "COMBO_SUPPLIER_AGBID_Datalistproc");
                Combo_supplier_agbid_Datalistprocparametersprefix = cgiGet( "COMBO_SUPPLIER_AGBID_Datalistprocparametersprefix");
                Combo_supplier_agbid_Remoteservicesparameters = cgiGet( "COMBO_SUPPLIER_AGBID_Remoteservicesparameters");
-               Combo_supplier_agbid_Datalistupdateminimumcharacters = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_SUPPLIER_AGBID_Datalistupdateminimumcharacters"), ".", ","), 18, MidpointRounding.ToEven));
+               Combo_supplier_agbid_Datalistupdateminimumcharacters = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_SUPPLIER_AGBID_Datalistupdateminimumcharacters"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Combo_supplier_agbid_Includeonlyselectedoption = StringUtil.StrToBool( cgiGet( "COMBO_SUPPLIER_AGBID_Includeonlyselectedoption"));
                Combo_supplier_agbid_Includeselectalloption = StringUtil.StrToBool( cgiGet( "COMBO_SUPPLIER_AGBID_Includeselectalloption"));
                Combo_supplier_agbid_Emptyitem = StringUtil.StrToBool( cgiGet( "COMBO_SUPPLIER_AGBID_Emptyitem"));
@@ -1372,7 +1366,7 @@ namespace GeneXus.Programs {
                Combo_supplier_agbid_Selectalltext = cgiGet( "COMBO_SUPPLIER_AGBID_Selectalltext");
                Combo_supplier_agbid_Multiplevaluesseparator = cgiGet( "COMBO_SUPPLIER_AGBID_Multiplevaluesseparator");
                Combo_supplier_agbid_Addnewoptiontext = cgiGet( "COMBO_SUPPLIER_AGBID_Addnewoptiontext");
-               Combo_supplier_agbid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_SUPPLIER_AGBID_Gxcontroltype"), ".", ","), 18, MidpointRounding.ToEven));
+               Combo_supplier_agbid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_SUPPLIER_AGBID_Gxcontroltype"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Combo_supplier_genid_Objectcall = cgiGet( "COMBO_SUPPLIER_GENID_Objectcall");
                Combo_supplier_genid_Class = cgiGet( "COMBO_SUPPLIER_GENID_Class");
                Combo_supplier_genid_Icontype = cgiGet( "COMBO_SUPPLIER_GENID_Icontype");
@@ -1399,7 +1393,7 @@ namespace GeneXus.Programs {
                Combo_supplier_genid_Datalistproc = cgiGet( "COMBO_SUPPLIER_GENID_Datalistproc");
                Combo_supplier_genid_Datalistprocparametersprefix = cgiGet( "COMBO_SUPPLIER_GENID_Datalistprocparametersprefix");
                Combo_supplier_genid_Remoteservicesparameters = cgiGet( "COMBO_SUPPLIER_GENID_Remoteservicesparameters");
-               Combo_supplier_genid_Datalistupdateminimumcharacters = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_SUPPLIER_GENID_Datalistupdateminimumcharacters"), ".", ","), 18, MidpointRounding.ToEven));
+               Combo_supplier_genid_Datalistupdateminimumcharacters = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_SUPPLIER_GENID_Datalistupdateminimumcharacters"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Combo_supplier_genid_Includeonlyselectedoption = StringUtil.StrToBool( cgiGet( "COMBO_SUPPLIER_GENID_Includeonlyselectedoption"));
                Combo_supplier_genid_Includeselectalloption = StringUtil.StrToBool( cgiGet( "COMBO_SUPPLIER_GENID_Includeselectalloption"));
                Combo_supplier_genid_Emptyitem = StringUtil.StrToBool( cgiGet( "COMBO_SUPPLIER_GENID_Emptyitem"));
@@ -1413,7 +1407,7 @@ namespace GeneXus.Programs {
                Combo_supplier_genid_Selectalltext = cgiGet( "COMBO_SUPPLIER_GENID_Selectalltext");
                Combo_supplier_genid_Multiplevaluesseparator = cgiGet( "COMBO_SUPPLIER_GENID_Multiplevaluesseparator");
                Combo_supplier_genid_Addnewoptiontext = cgiGet( "COMBO_SUPPLIER_GENID_Addnewoptiontext");
-               Combo_supplier_genid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_SUPPLIER_GENID_Gxcontroltype"), ".", ","), 18, MidpointRounding.ToEven));
+               Combo_supplier_genid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_SUPPLIER_GENID_Gxcontroltype"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Combo_amenitiesid_Objectcall = cgiGet( "COMBO_AMENITIESID_Objectcall");
                Combo_amenitiesid_Class = cgiGet( "COMBO_AMENITIESID_Class");
                Combo_amenitiesid_Icontype = cgiGet( "COMBO_AMENITIESID_Icontype");
@@ -1440,7 +1434,7 @@ namespace GeneXus.Programs {
                Combo_amenitiesid_Datalistproc = cgiGet( "COMBO_AMENITIESID_Datalistproc");
                Combo_amenitiesid_Datalistprocparametersprefix = cgiGet( "COMBO_AMENITIESID_Datalistprocparametersprefix");
                Combo_amenitiesid_Remoteservicesparameters = cgiGet( "COMBO_AMENITIESID_Remoteservicesparameters");
-               Combo_amenitiesid_Datalistupdateminimumcharacters = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_AMENITIESID_Datalistupdateminimumcharacters"), ".", ","), 18, MidpointRounding.ToEven));
+               Combo_amenitiesid_Datalistupdateminimumcharacters = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_AMENITIESID_Datalistupdateminimumcharacters"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Combo_amenitiesid_Includeonlyselectedoption = StringUtil.StrToBool( cgiGet( "COMBO_AMENITIESID_Includeonlyselectedoption"));
                Combo_amenitiesid_Includeselectalloption = StringUtil.StrToBool( cgiGet( "COMBO_AMENITIESID_Includeselectalloption"));
                Combo_amenitiesid_Emptyitem = StringUtil.StrToBool( cgiGet( "COMBO_AMENITIESID_Emptyitem"));
@@ -1454,7 +1448,7 @@ namespace GeneXus.Programs {
                Combo_amenitiesid_Selectalltext = cgiGet( "COMBO_AMENITIESID_Selectalltext");
                Combo_amenitiesid_Multiplevaluesseparator = cgiGet( "COMBO_AMENITIESID_Multiplevaluesseparator");
                Combo_amenitiesid_Addnewoptiontext = cgiGet( "COMBO_AMENITIESID_Addnewoptiontext");
-               Combo_amenitiesid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_AMENITIESID_Gxcontroltype"), ".", ","), 18, MidpointRounding.ToEven));
+               Combo_amenitiesid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_AMENITIESID_Gxcontroltype"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Wizard_steps_Objectcall = cgiGet( "WIZARD_STEPS_Objectcall");
                Wizard_steps_Class = cgiGet( "WIZARD_STEPS_Class");
                Wizard_steps_Enabled = StringUtil.StrToBool( cgiGet( "WIZARD_STEPS_Enabled"));
@@ -1465,7 +1459,7 @@ namespace GeneXus.Programs {
                Wizard_steps_Wizardarrowunselectedselectedimage = cgiGet( "WIZARD_STEPS_Wizardarrowunselectedselectedimage");
                Wizard_steps_Visible = StringUtil.StrToBool( cgiGet( "WIZARD_STEPS_Visible"));
                /* Read variables values. */
-               A1CustomerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+               A1CustomerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignAttri("", false, "A1CustomerId", StringUtil.LTrimStr( (decimal)(A1CustomerId), 4, 0));
                A41CustomerKvkNumber = cgiGet( edtCustomerKvkNumber_Internalname);
                AssignAttri("", false, "A41CustomerKvkNumber", A41CustomerKvkNumber);
@@ -1489,7 +1483,7 @@ namespace GeneXus.Programs {
                n7CustomerPhone = (String.IsNullOrEmpty(StringUtil.RTrim( A7CustomerPhone)) ? true : false);
                A14CustomerVatNumber = cgiGet( edtCustomerVatNumber_Internalname);
                AssignAttri("", false, "A14CustomerVatNumber", A14CustomerVatNumber);
-               if ( ( ( context.localUtil.CToN( cgiGet( edtCustomerTypeId_Internalname), ".", ",") < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtCustomerTypeId_Internalname), ".", ",") > Convert.ToDecimal( 9999 )) ) )
+               if ( ( ( context.localUtil.CToN( cgiGet( edtCustomerTypeId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtCustomerTypeId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) > Convert.ToDecimal( 9999 )) ) )
                {
                   GX_msglist.addItem(context.GetMessage( "GXM_badnum", ""), 1, "CUSTOMERTYPEID");
                   AnyError = 1;
@@ -1502,21 +1496,21 @@ namespace GeneXus.Programs {
                }
                else
                {
-                  A78CustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerTypeId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+                  A78CustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerTypeId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                   n78CustomerTypeId = false;
                   AssignAttri("", false, "A78CustomerTypeId", StringUtil.LTrimStr( (decimal)(A78CustomerTypeId), 4, 0));
                }
                n78CustomerTypeId = ((0==A78CustomerTypeId) ? true : false);
-               AV27ComboCustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtavCombocustomertypeid_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+               AV27ComboCustomerTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtavCombocustomertypeid_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignAttri("", false, "AV27ComboCustomerTypeId", StringUtil.LTrimStr( (decimal)(AV27ComboCustomerTypeId), 4, 0));
-               A93CustomerLastLine = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerLastLine_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+               A93CustomerLastLine = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerLastLine_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignAttri("", false, "A93CustomerLastLine", StringUtil.LTrimStr( (decimal)(A93CustomerLastLine), 4, 0));
                /* Read subfile selected row values. */
                /* Read hidden variables. */
                GXKey = Decrypt64( context.GetCookie( "GX_SESSION_ID"), Crypto.GetServerKey( ));
                forbiddenHiddens = new GXProperties();
                forbiddenHiddens.Add("hshsalt", "hsh"+"Customer");
-               A1CustomerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+               A1CustomerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignAttri("", false, "A1CustomerId", StringUtil.LTrimStr( (decimal)(A1CustomerId), 4, 0));
                forbiddenHiddens.Add("CustomerId", context.localUtil.Format( (decimal)(A1CustomerId), "ZZZ9"));
                forbiddenHiddens.Add("Gx_mode", StringUtil.RTrim( context.localUtil.Format( Gx_mode, "@!")));
@@ -1635,7 +1629,7 @@ namespace GeneXus.Programs {
                            nGXsfl_78_idx = (int)(Math.Round(NumberUtil.Val( sEvtType, "."), 18, MidpointRounding.ToEven));
                            sGXsfl_78_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_78_idx), 4, 0), 4, "0");
                            SubsflControlProps_782( ) ;
-                           if ( ( ( context.localUtil.CToN( cgiGet( edtCustomerManagerId_Internalname), ".", ",") < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtCustomerManagerId_Internalname), ".", ",") > Convert.ToDecimal( 9999 )) ) )
+                           if ( ( ( context.localUtil.CToN( cgiGet( edtCustomerManagerId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtCustomerManagerId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) > Convert.ToDecimal( 9999 )) ) )
                            {
                               GXCCtl = "CUSTOMERMANAGERID_" + sGXsfl_78_idx;
                               GX_msglist.addItem(context.GetMessage( "GXM_badnum", ""), 1, GXCCtl);
@@ -1647,7 +1641,7 @@ namespace GeneXus.Programs {
                            }
                            else
                            {
-                              A15CustomerManagerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerManagerId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+                              A15CustomerManagerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerManagerId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                            }
                            A16CustomerManagerGivenName = cgiGet( edtCustomerManagerGivenName_Internalname);
                            A9CustomerManagerLastName = cgiGet( edtCustomerManagerLastName_Internalname);
@@ -1665,7 +1659,7 @@ namespace GeneXus.Programs {
                            n12CustomerManagerGender = (String.IsNullOrEmpty(StringUtil.RTrim( A12CustomerManagerGender)) ? true : false);
                            A13CustomerManagerGAMGUID = cgiGet( edtCustomerManagerGAMGUID_Internalname);
                            GXCCtl = "Z15CustomerManagerId_" + sGXsfl_78_idx;
-                           Z15CustomerManagerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+                           Z15CustomerManagerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                            GXCCtl = "Z13CustomerManagerGAMGUID_" + sGXsfl_78_idx;
                            Z13CustomerManagerGAMGUID = cgiGet( GXCCtl);
                            GXCCtl = "Z17CustomerManagerInitials_" + sGXsfl_78_idx;
@@ -1684,13 +1678,13 @@ namespace GeneXus.Programs {
                            Z12CustomerManagerGender = cgiGet( GXCCtl);
                            n12CustomerManagerGender = (String.IsNullOrEmpty(StringUtil.RTrim( A12CustomerManagerGender)) ? true : false);
                            GXCCtl = "nRcdDeleted_2_" + sGXsfl_78_idx;
-                           nRcdDeleted_2 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+                           nRcdDeleted_2 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                            GXCCtl = "nRcdExists_2_" + sGXsfl_78_idx;
-                           nRcdExists_2 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+                           nRcdExists_2 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                            GXCCtl = "nIsMod_2_" + sGXsfl_78_idx;
-                           nIsMod_2 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+                           nIsMod_2 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                            GXCCtl = "vTABSACTIVEPAGE_" + sGXsfl_78_idx;
-                           AV17TabsActivePage = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+                           AV17TabsActivePage = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                            GXCCtl = "vCHECKREQUIREDFIELDSRESULT_" + sGXsfl_78_idx;
                            AV15CheckRequiredFieldsResult = StringUtil.StrToBool( cgiGet( GXCCtl));
                            sEvtType = StringUtil.Right( sEvt, 1);
@@ -1914,13 +1908,13 @@ namespace GeneXus.Programs {
                   }
                }
             }
-            ChangePostValue( edtAmenitiesId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A98AmenitiesId), 4, 0, ".", ""))) ;
-            ChangePostValue( edtAmenitiesTypeId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A99AmenitiesTypeId), 4, 0, ".", ""))) ;
+            ChangePostValue( edtAmenitiesId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A98AmenitiesId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( edtAmenitiesTypeId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A99AmenitiesTypeId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( edtAmenitiesTypeName_Internalname, A100AmenitiesTypeName) ;
-            ChangePostValue( "ZT_"+"Z98AmenitiesId_"+sGXsfl_168_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z98AmenitiesId), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdDeleted_21_"+sGXsfl_168_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_21), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdExists_21_"+sGXsfl_168_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_21), 4, 0, ".", ""))) ;
-            ChangePostValue( "nIsMod_21_"+sGXsfl_168_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_21), 4, 0, ".", ""))) ;
+            ChangePostValue( "ZT_"+"Z98AmenitiesId_"+sGXsfl_168_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z98AmenitiesId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdDeleted_21_"+sGXsfl_168_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_21), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdExists_21_"+sGXsfl_168_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_21), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nIsMod_21_"+sGXsfl_168_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_21), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             if ( nIsMod_21 != 0 )
             {
                ChangePostValue( "AMENITIESID_"+sGXsfl_168_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtAmenitiesId_Enabled), 5, 0, ".", ""))) ;
@@ -2018,16 +2012,16 @@ namespace GeneXus.Programs {
                   }
                }
             }
-            ChangePostValue( edtSupplier_GenId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A64Supplier_GenId), 4, 0, ".", ""))) ;
+            ChangePostValue( edtSupplier_GenId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A64Supplier_GenId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( edtSupplier_GenCompanyName_Internalname, A66Supplier_GenCompanyName) ;
             ChangePostValue( edtSupplier_GenVisitingAddress_Internalname, A67Supplier_GenVisitingAddress) ;
             ChangePostValue( edtSupplier_GenPostalAddress_Internalname, A68Supplier_GenPostalAddress) ;
             ChangePostValue( edtSupplier_GenContactName_Internalname, A69Supplier_GenContactName) ;
             ChangePostValue( edtSupplier_GenContactPhone_Internalname, StringUtil.RTrim( A70Supplier_GenContactPhone)) ;
-            ChangePostValue( "ZT_"+"Z64Supplier_GenId_"+sGXsfl_156_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z64Supplier_GenId), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdDeleted_17_"+sGXsfl_156_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_17), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdExists_17_"+sGXsfl_156_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_17), 4, 0, ".", ""))) ;
-            ChangePostValue( "nIsMod_17_"+sGXsfl_156_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_17), 4, 0, ".", ""))) ;
+            ChangePostValue( "ZT_"+"Z64Supplier_GenId_"+sGXsfl_156_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z64Supplier_GenId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdDeleted_17_"+sGXsfl_156_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_17), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdExists_17_"+sGXsfl_156_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_17), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nIsMod_17_"+sGXsfl_156_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_17), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             if ( nIsMod_17 != 0 )
             {
                ChangePostValue( "SUPPLIER_GENID_"+sGXsfl_156_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtSupplier_GenId_Enabled), 5, 0, ".", ""))) ;
@@ -2128,7 +2122,7 @@ namespace GeneXus.Programs {
                   }
                }
             }
-            ChangePostValue( edtSupplier_AgbId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A55Supplier_AgbId), 4, 0, ".", ""))) ;
+            ChangePostValue( edtSupplier_AgbId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A55Supplier_AgbId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( edtSupplier_AgbName_Internalname, A57Supplier_AgbName) ;
             ChangePostValue( edtSupplier_AgbKvkNumber_Internalname, A58Supplier_AgbKvkNumber) ;
             ChangePostValue( edtSupplier_AgbVisitingAddress_Internalname, A59Supplier_AgbVisitingAddress) ;
@@ -2136,10 +2130,10 @@ namespace GeneXus.Programs {
             ChangePostValue( edtSupplier_AgbEmail_Internalname, A61Supplier_AgbEmail) ;
             ChangePostValue( edtSupplier_AgbPhone_Internalname, StringUtil.RTrim( A62Supplier_AgbPhone)) ;
             ChangePostValue( edtSupplier_AgbContactName_Internalname, A63Supplier_AgbContactName) ;
-            ChangePostValue( "ZT_"+"Z55Supplier_AgbId_"+sGXsfl_143_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z55Supplier_AgbId), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdDeleted_16_"+sGXsfl_143_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_16), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdExists_16_"+sGXsfl_143_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_16), 4, 0, ".", ""))) ;
-            ChangePostValue( "nIsMod_16_"+sGXsfl_143_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_16), 4, 0, ".", ""))) ;
+            ChangePostValue( "ZT_"+"Z55Supplier_AgbId_"+sGXsfl_143_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z55Supplier_AgbId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdDeleted_16_"+sGXsfl_143_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_16), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdExists_16_"+sGXsfl_143_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_16), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nIsMod_16_"+sGXsfl_143_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_16), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             if ( nIsMod_16 != 0 )
             {
                ChangePostValue( "SUPPLIER_AGBID_"+sGXsfl_143_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtSupplier_AgbId_Enabled), 5, 0, ".", ""))) ;
@@ -2250,7 +2244,7 @@ namespace GeneXus.Programs {
                   }
                }
             }
-            ChangePostValue( edtCustomerLocationReceptionistId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A23CustomerLocationReceptionistId), 4, 0, ".", ""))) ;
+            ChangePostValue( edtCustomerLocationReceptionistId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A23CustomerLocationReceptionistId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( edtCustomerLocationReceptionistGi_Internalname, A24CustomerLocationReceptionistGi) ;
             ChangePostValue( edtCustomerLocationReceptionistLa_Internalname, A25CustomerLocationReceptionistLa) ;
             ChangePostValue( edtCustomerLocationReceptionistIn_Internalname, StringUtil.RTrim( A26CustomerLocationReceptionistIn)) ;
@@ -2258,7 +2252,7 @@ namespace GeneXus.Programs {
             ChangePostValue( edtCustomerLocationReceptionistAd_Internalname, A28CustomerLocationReceptionistAd) ;
             ChangePostValue( edtCustomerLocationReceptionistPh_Internalname, StringUtil.RTrim( A29CustomerLocationReceptionistPh)) ;
             ChangePostValue( edtCustomerLocationReceptionistGA_Internalname, A30CustomerLocationReceptionistGA) ;
-            ChangePostValue( "ZT_"+"Z23CustomerLocationReceptionistId_"+sGXsfl_129_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z23CustomerLocationReceptionistId), 4, 0, ".", ""))) ;
+            ChangePostValue( "ZT_"+"Z23CustomerLocationReceptionistId_"+sGXsfl_129_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z23CustomerLocationReceptionistId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( "ZT_"+"Z30CustomerLocationReceptionistGA_"+sGXsfl_129_idx, Z30CustomerLocationReceptionistGA) ;
             ChangePostValue( "ZT_"+"Z26CustomerLocationReceptionistIn_"+sGXsfl_129_idx, StringUtil.RTrim( Z26CustomerLocationReceptionistIn)) ;
             ChangePostValue( "ZT_"+"Z24CustomerLocationReceptionistGi_"+sGXsfl_129_idx, Z24CustomerLocationReceptionistGi) ;
@@ -2266,9 +2260,9 @@ namespace GeneXus.Programs {
             ChangePostValue( "ZT_"+"Z27CustomerLocationReceptionistEm_"+sGXsfl_129_idx, Z27CustomerLocationReceptionistEm) ;
             ChangePostValue( "ZT_"+"Z28CustomerLocationReceptionistAd_"+sGXsfl_129_idx, Z28CustomerLocationReceptionistAd) ;
             ChangePostValue( "ZT_"+"Z29CustomerLocationReceptionistPh_"+sGXsfl_129_idx, StringUtil.RTrim( Z29CustomerLocationReceptionistPh)) ;
-            ChangePostValue( "nRcdDeleted_4_"+sGXsfl_129_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_4), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdExists_4_"+sGXsfl_129_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_4), 4, 0, ".", ""))) ;
-            ChangePostValue( "nIsMod_4_"+sGXsfl_129_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_4), 4, 0, ".", ""))) ;
+            ChangePostValue( "nRcdDeleted_4_"+sGXsfl_129_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_4), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdExists_4_"+sGXsfl_129_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_4), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nIsMod_4_"+sGXsfl_129_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_4), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             if ( nIsMod_4 != 0 )
             {
                ChangePostValue( "CUSTOMERLOCATIONRECEPTIONISTID_"+sGXsfl_129_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtCustomerLocationReceptionistId_Enabled), 5, 0, ".", ""))) ;
@@ -2428,27 +2422,27 @@ namespace GeneXus.Programs {
                   }
                }
             }
-            ChangePostValue( edtCustomerLocationId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A18CustomerLocationId), 4, 0, ".", ""))) ;
+            ChangePostValue( edtCustomerLocationId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A18CustomerLocationId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( edtCustomerLocationVisitingAddres_Internalname, A19CustomerLocationVisitingAddres) ;
             ChangePostValue( edtCustomerLocationPostalAddress_Internalname, A20CustomerLocationPostalAddress) ;
             ChangePostValue( edtCustomerLocationEmail_Internalname, A21CustomerLocationEmail) ;
             ChangePostValue( edtCustomerLocationPhone_Internalname, StringUtil.RTrim( A22CustomerLocationPhone)) ;
-            ChangePostValue( "ZT_"+"Z18CustomerLocationId_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z18CustomerLocationId), 4, 0, ".", ""))) ;
+            ChangePostValue( "ZT_"+"Z18CustomerLocationId_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z18CustomerLocationId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( "ZT_"+"Z19CustomerLocationVisitingAddres_"+sGXsfl_97_idx, Z19CustomerLocationVisitingAddres) ;
             ChangePostValue( "ZT_"+"Z20CustomerLocationPostalAddress_"+sGXsfl_97_idx, Z20CustomerLocationPostalAddress) ;
             ChangePostValue( "ZT_"+"Z21CustomerLocationEmail_"+sGXsfl_97_idx, Z21CustomerLocationEmail) ;
             ChangePostValue( "ZT_"+"Z22CustomerLocationPhone_"+sGXsfl_97_idx, StringUtil.RTrim( Z22CustomerLocationPhone)) ;
-            ChangePostValue( "ZT_"+"Z94CustomerLocationLastLine_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z94CustomerLocationLastLine), 4, 0, ".", ""))) ;
+            ChangePostValue( "ZT_"+"Z94CustomerLocationLastLine_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z94CustomerLocationLastLine), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( "ZT_"+"Z133CustomerLocationDescription_"+sGXsfl_97_idx, Z133CustomerLocationDescription) ;
             ChangePostValue( "ZT_"+"Z134CustomerLocationName_"+sGXsfl_97_idx, Z134CustomerLocationName) ;
-            ChangePostValue( "T94CustomerLocationLastLine_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(O94CustomerLocationLastLine), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRC_GXsfl_129_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_129), 8, 0, ".", ""))) ;
-            ChangePostValue( "nRC_GXsfl_143_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_143), 8, 0, ".", ""))) ;
-            ChangePostValue( "nRC_GXsfl_156_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_156), 8, 0, ".", ""))) ;
-            ChangePostValue( "nRC_GXsfl_168_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_168), 8, 0, ".", ""))) ;
-            ChangePostValue( "nRcdDeleted_3_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_3), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdExists_3_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_3), 4, 0, ".", ""))) ;
-            ChangePostValue( "nIsMod_3_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_3), 4, 0, ".", ""))) ;
+            ChangePostValue( "T94CustomerLocationLastLine_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(O94CustomerLocationLastLine), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRC_GXsfl_129_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_129), 8, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRC_GXsfl_143_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_143), 8, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRC_GXsfl_156_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_156), 8, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRC_GXsfl_168_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_168), 8, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdDeleted_3_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_3), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdExists_3_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_3), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nIsMod_3_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_3), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             if ( nIsMod_3 != 0 )
             {
                ChangePostValue( "CUSTOMERLOCATIONID_"+sGXsfl_97_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtCustomerLocationId_Enabled), 5, 0, ".", ""))) ;
@@ -2557,7 +2551,7 @@ namespace GeneXus.Programs {
                   }
                }
             }
-            ChangePostValue( edtCustomerManagerId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A15CustomerManagerId), 4, 0, ".", ""))) ;
+            ChangePostValue( edtCustomerManagerId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A15CustomerManagerId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( edtCustomerManagerGivenName_Internalname, A16CustomerManagerGivenName) ;
             ChangePostValue( edtCustomerManagerLastName_Internalname, A9CustomerManagerLastName) ;
             ChangePostValue( edtCustomerManagerInitials_Internalname, StringUtil.RTrim( A17CustomerManagerInitials)) ;
@@ -2565,7 +2559,7 @@ namespace GeneXus.Programs {
             ChangePostValue( edtCustomerManagerPhone_Internalname, StringUtil.RTrim( A11CustomerManagerPhone)) ;
             ChangePostValue( cmbCustomerManagerGender_Internalname, StringUtil.RTrim( A12CustomerManagerGender)) ;
             ChangePostValue( edtCustomerManagerGAMGUID_Internalname, A13CustomerManagerGAMGUID) ;
-            ChangePostValue( "ZT_"+"Z15CustomerManagerId_"+sGXsfl_78_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z15CustomerManagerId), 4, 0, ".", ""))) ;
+            ChangePostValue( "ZT_"+"Z15CustomerManagerId_"+sGXsfl_78_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z15CustomerManagerId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( "ZT_"+"Z13CustomerManagerGAMGUID_"+sGXsfl_78_idx, Z13CustomerManagerGAMGUID) ;
             ChangePostValue( "ZT_"+"Z17CustomerManagerInitials_"+sGXsfl_78_idx, StringUtil.RTrim( Z17CustomerManagerInitials)) ;
             ChangePostValue( "ZT_"+"Z16CustomerManagerGivenName_"+sGXsfl_78_idx, Z16CustomerManagerGivenName) ;
@@ -2573,9 +2567,9 @@ namespace GeneXus.Programs {
             ChangePostValue( "ZT_"+"Z10CustomerManagerEmail_"+sGXsfl_78_idx, Z10CustomerManagerEmail) ;
             ChangePostValue( "ZT_"+"Z11CustomerManagerPhone_"+sGXsfl_78_idx, StringUtil.RTrim( Z11CustomerManagerPhone)) ;
             ChangePostValue( "ZT_"+"Z12CustomerManagerGender_"+sGXsfl_78_idx, StringUtil.RTrim( Z12CustomerManagerGender)) ;
-            ChangePostValue( "nRcdDeleted_2_"+sGXsfl_78_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_2), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdExists_2_"+sGXsfl_78_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_2), 4, 0, ".", ""))) ;
-            ChangePostValue( "nIsMod_2_"+sGXsfl_78_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_2), 4, 0, ".", ""))) ;
+            ChangePostValue( "nRcdDeleted_2_"+sGXsfl_78_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_2), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdExists_2_"+sGXsfl_78_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_2), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nIsMod_2_"+sGXsfl_78_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_2), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             if ( nIsMod_2 != 0 )
             {
                ChangePostValue( "CUSTOMERMANAGERID_"+sGXsfl_78_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtCustomerManagerId_Enabled), 5, 0, ".", ""))) ;
@@ -2951,7 +2945,7 @@ namespace GeneXus.Programs {
          standaloneModal( ) ;
          if ( ! ( GxRegex.IsMatch(A5CustomerEmail,"^((\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)|(\\s*))$") || String.IsNullOrEmpty(StringUtil.RTrim( A5CustomerEmail)) ) )
          {
-            GX_msglist.addItem("Field Customer Email does not match the specified pattern", "OutOfRange", 1, "CUSTOMEREMAIL");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXM_DoesNotMatchRegExp", ""), context.GetMessage( "Customer Email", ""), "", "", "", "", "", "", "", ""), "OutOfRange", 1, "CUSTOMEREMAIL");
             AnyError = 1;
             GX_FocusControl = edtCustomerEmail_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -2962,7 +2956,7 @@ namespace GeneXus.Programs {
          {
             if ( ! ( (0==A78CustomerTypeId) ) )
             {
-               GX_msglist.addItem("No matching 'Customer Type'.", "ForeignKeyNotFound", 1, "CUSTOMERTYPEID");
+               GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Customer Type", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "CUSTOMERTYPEID");
                AnyError = 1;
                GX_FocusControl = edtCustomerTypeId_Internalname;
                AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -2989,7 +2983,7 @@ namespace GeneXus.Programs {
          {
             if ( ! ( (0==A78CustomerTypeId) ) )
             {
-               GX_msglist.addItem("No matching 'Customer Type'.", "ForeignKeyNotFound", 1, "CUSTOMERTYPEID");
+               GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Customer Type", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "CUSTOMERTYPEID");
                AnyError = 1;
                GX_FocusControl = edtCustomerTypeId_Internalname;
                AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -3595,7 +3589,7 @@ namespace GeneXus.Programs {
             pr_default.execute(29, new Object[] {A1CustomerId});
             if ( (pr_default.getStatus(29) != 101) )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"CustomerCustomization"}), "CannotDeleteReferencedRecord", 1, "");
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {context.GetMessage( "CustomerCustomization", "")}), "CannotDeleteReferencedRecord", 1, "");
                AnyError = 1;
             }
             pr_default.close(29);
@@ -3603,7 +3597,7 @@ namespace GeneXus.Programs {
             pr_default.execute(30, new Object[] {A1CustomerId});
             if ( (pr_default.getStatus(30) != 101) )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"Page"}), "CannotDeleteReferencedRecord", 1, "");
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {context.GetMessage( "Page", "")}), "CannotDeleteReferencedRecord", 1, "");
                AnyError = 1;
             }
             pr_default.close(30);
@@ -3611,7 +3605,7 @@ namespace GeneXus.Programs {
             pr_default.execute(31, new Object[] {A1CustomerId});
             if ( (pr_default.getStatus(31) != 101) )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"CustomerLocation"}), "CannotDeleteReferencedRecord", 1, "");
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {context.GetMessage( "CustomerLocation", "")}), "CannotDeleteReferencedRecord", 1, "");
                AnyError = 1;
             }
             pr_default.close(31);
@@ -3671,7 +3665,7 @@ namespace GeneXus.Programs {
                O93CustomerLastLine = A93CustomerLastLine;
                AssignAttri("", false, "A93CustomerLastLine", StringUtil.LTrimStr( (decimal)(A93CustomerLastLine), 4, 0));
             }
-            ChangePostValue( edtCustomerManagerId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A15CustomerManagerId), 4, 0, ".", ""))) ;
+            ChangePostValue( edtCustomerManagerId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A15CustomerManagerId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( edtCustomerManagerGivenName_Internalname, A16CustomerManagerGivenName) ;
             ChangePostValue( edtCustomerManagerLastName_Internalname, A9CustomerManagerLastName) ;
             ChangePostValue( edtCustomerManagerInitials_Internalname, StringUtil.RTrim( A17CustomerManagerInitials)) ;
@@ -3679,7 +3673,7 @@ namespace GeneXus.Programs {
             ChangePostValue( edtCustomerManagerPhone_Internalname, StringUtil.RTrim( A11CustomerManagerPhone)) ;
             ChangePostValue( cmbCustomerManagerGender_Internalname, StringUtil.RTrim( A12CustomerManagerGender)) ;
             ChangePostValue( edtCustomerManagerGAMGUID_Internalname, A13CustomerManagerGAMGUID) ;
-            ChangePostValue( "ZT_"+"Z15CustomerManagerId_"+sGXsfl_78_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z15CustomerManagerId), 4, 0, ".", ""))) ;
+            ChangePostValue( "ZT_"+"Z15CustomerManagerId_"+sGXsfl_78_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z15CustomerManagerId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( "ZT_"+"Z13CustomerManagerGAMGUID_"+sGXsfl_78_idx, Z13CustomerManagerGAMGUID) ;
             ChangePostValue( "ZT_"+"Z17CustomerManagerInitials_"+sGXsfl_78_idx, StringUtil.RTrim( Z17CustomerManagerInitials)) ;
             ChangePostValue( "ZT_"+"Z16CustomerManagerGivenName_"+sGXsfl_78_idx, Z16CustomerManagerGivenName) ;
@@ -3687,9 +3681,9 @@ namespace GeneXus.Programs {
             ChangePostValue( "ZT_"+"Z10CustomerManagerEmail_"+sGXsfl_78_idx, Z10CustomerManagerEmail) ;
             ChangePostValue( "ZT_"+"Z11CustomerManagerPhone_"+sGXsfl_78_idx, StringUtil.RTrim( Z11CustomerManagerPhone)) ;
             ChangePostValue( "ZT_"+"Z12CustomerManagerGender_"+sGXsfl_78_idx, StringUtil.RTrim( Z12CustomerManagerGender)) ;
-            ChangePostValue( "nRcdDeleted_2_"+sGXsfl_78_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_2), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdExists_2_"+sGXsfl_78_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_2), 4, 0, ".", ""))) ;
-            ChangePostValue( "nIsMod_2_"+sGXsfl_78_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_2), 4, 0, ".", ""))) ;
+            ChangePostValue( "nRcdDeleted_2_"+sGXsfl_78_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_2), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdExists_2_"+sGXsfl_78_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_2), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nIsMod_2_"+sGXsfl_78_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_2), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             if ( nIsMod_2 != 0 )
             {
                ChangePostValue( "CUSTOMERMANAGERID_"+sGXsfl_78_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtCustomerManagerId_Enabled), 5, 0, ".", ""))) ;
@@ -3768,27 +3762,27 @@ namespace GeneXus.Programs {
                O95CustomerLastLineLocation = A95CustomerLastLineLocation;
                AssignAttri("", false, "A95CustomerLastLineLocation", StringUtil.LTrimStr( (decimal)(A95CustomerLastLineLocation), 4, 0));
             }
-            ChangePostValue( edtCustomerLocationId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A18CustomerLocationId), 4, 0, ".", ""))) ;
+            ChangePostValue( edtCustomerLocationId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A18CustomerLocationId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( edtCustomerLocationVisitingAddres_Internalname, A19CustomerLocationVisitingAddres) ;
             ChangePostValue( edtCustomerLocationPostalAddress_Internalname, A20CustomerLocationPostalAddress) ;
             ChangePostValue( edtCustomerLocationEmail_Internalname, A21CustomerLocationEmail) ;
             ChangePostValue( edtCustomerLocationPhone_Internalname, StringUtil.RTrim( A22CustomerLocationPhone)) ;
-            ChangePostValue( "ZT_"+"Z18CustomerLocationId_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z18CustomerLocationId), 4, 0, ".", ""))) ;
+            ChangePostValue( "ZT_"+"Z18CustomerLocationId_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z18CustomerLocationId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( "ZT_"+"Z19CustomerLocationVisitingAddres_"+sGXsfl_97_idx, Z19CustomerLocationVisitingAddres) ;
             ChangePostValue( "ZT_"+"Z20CustomerLocationPostalAddress_"+sGXsfl_97_idx, Z20CustomerLocationPostalAddress) ;
             ChangePostValue( "ZT_"+"Z21CustomerLocationEmail_"+sGXsfl_97_idx, Z21CustomerLocationEmail) ;
             ChangePostValue( "ZT_"+"Z22CustomerLocationPhone_"+sGXsfl_97_idx, StringUtil.RTrim( Z22CustomerLocationPhone)) ;
-            ChangePostValue( "ZT_"+"Z94CustomerLocationLastLine_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z94CustomerLocationLastLine), 4, 0, ".", ""))) ;
+            ChangePostValue( "ZT_"+"Z94CustomerLocationLastLine_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z94CustomerLocationLastLine), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( "ZT_"+"Z133CustomerLocationDescription_"+sGXsfl_97_idx, Z133CustomerLocationDescription) ;
             ChangePostValue( "ZT_"+"Z134CustomerLocationName_"+sGXsfl_97_idx, Z134CustomerLocationName) ;
-            ChangePostValue( "T94CustomerLocationLastLine_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(O94CustomerLocationLastLine), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRC_GXsfl_129_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_129), 8, 0, ".", ""))) ;
-            ChangePostValue( "nRC_GXsfl_143_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_143), 8, 0, ".", ""))) ;
-            ChangePostValue( "nRC_GXsfl_156_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_156), 8, 0, ".", ""))) ;
-            ChangePostValue( "nRC_GXsfl_168_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_168), 8, 0, ".", ""))) ;
-            ChangePostValue( "nRcdDeleted_3_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_3), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdExists_3_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_3), 4, 0, ".", ""))) ;
-            ChangePostValue( "nIsMod_3_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_3), 4, 0, ".", ""))) ;
+            ChangePostValue( "T94CustomerLocationLastLine_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(O94CustomerLocationLastLine), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRC_GXsfl_129_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_129), 8, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRC_GXsfl_143_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_143), 8, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRC_GXsfl_156_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_156), 8, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRC_GXsfl_168_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_168), 8, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdDeleted_3_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_3), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdExists_3_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_3), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nIsMod_3_"+sGXsfl_97_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_3), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             if ( nIsMod_3 != 0 )
             {
                ChangePostValue( "CUSTOMERLOCATIONID_"+sGXsfl_97_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtCustomerLocationId_Enabled), 5, 0, ".", ""))) ;
@@ -4061,7 +4055,7 @@ namespace GeneXus.Programs {
          if ( ! ( GxRegex.IsMatch(A10CustomerManagerEmail,"^((\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)|(\\s*))$") ) )
          {
             GXCCtl = "CUSTOMERMANAGEREMAIL_" + sGXsfl_78_idx;
-            GX_msglist.addItem("Field Customer Manager Email does not match the specified pattern", "OutOfRange", 1, GXCCtl);
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXM_DoesNotMatchRegExp", ""), context.GetMessage( "Customer Manager Email", ""), "", "", "", "", "", "", "", ""), "OutOfRange", 1, GXCCtl);
             AnyError = 1;
             GX_FocusControl = edtCustomerManagerEmail_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -4069,7 +4063,7 @@ namespace GeneXus.Programs {
          if ( ! ( ( StringUtil.StrCmp(A12CustomerManagerGender, "Man") == 0 ) || ( StringUtil.StrCmp(A12CustomerManagerGender, "Woman") == 0 ) || ( StringUtil.StrCmp(A12CustomerManagerGender, "Other") == 0 ) || String.IsNullOrEmpty(StringUtil.RTrim( A12CustomerManagerGender)) ) )
          {
             GXCCtl = "CUSTOMERMANAGERGENDER_" + sGXsfl_78_idx;
-            GX_msglist.addItem("Field Customer Manager Gender is out of range", "OutOfRange", 1, GXCCtl);
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_OutOfRange", ""), context.GetMessage( "Customer Manager Gender", ""), "", "", "", "", "", "", "", ""), "OutOfRange", 1, GXCCtl);
             AnyError = 1;
             GX_FocusControl = cmbCustomerManagerGender_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -4445,7 +4439,7 @@ namespace GeneXus.Programs {
       protected void BeforeInsert012( )
       {
          /* Before Insert Rules */
-         new createuseraccount(context ).execute(  A10CustomerManagerEmail,  A16CustomerManagerGivenName,  A9CustomerManagerLastName,  "Customer Manager", out  A13CustomerManagerGAMGUID) ;
+         new createuseraccount(context ).execute(  A10CustomerManagerEmail,  A16CustomerManagerGivenName,  A9CustomerManagerLastName,  context.GetMessage( "Customer Manager", ""), out  A13CustomerManagerGAMGUID) ;
       }
 
       protected void BeforeUpdate012( )
@@ -4591,7 +4585,7 @@ namespace GeneXus.Programs {
          if ( ! ( GxRegex.IsMatch(A21CustomerLocationEmail,"^((\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)|(\\s*))$") ) )
          {
             GXCCtl = "CUSTOMERLOCATIONEMAIL_" + sGXsfl_97_idx;
-            GX_msglist.addItem("Field Customer Location Email does not match the specified pattern", "OutOfRange", 1, GXCCtl);
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXM_DoesNotMatchRegExp", ""), context.GetMessage( "Customer Location Email", ""), "", "", "", "", "", "", "", ""), "OutOfRange", 1, GXCCtl);
             AnyError = 1;
             GX_FocusControl = edtCustomerLocationEmail_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -4970,7 +4964,7 @@ namespace GeneXus.Programs {
             pr_default.execute(45, new Object[] {A1CustomerId, A18CustomerLocationId});
             if ( (pr_default.getStatus(45) != 101) )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"LocationEvent"}), "CannotDeleteReferencedRecord", 1, "");
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {context.GetMessage( "LocationEvent", "")}), "CannotDeleteReferencedRecord", 1, "");
                AnyError = 1;
             }
             pr_default.close(45);
@@ -4978,7 +4972,7 @@ namespace GeneXus.Programs {
             pr_default.execute(46, new Object[] {A1CustomerId, A18CustomerLocationId});
             if ( (pr_default.getStatus(46) != 101) )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"Resident"}), "CannotDeleteReferencedRecord", 1, "");
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {context.GetMessage( "Resident", "")}), "CannotDeleteReferencedRecord", 1, "");
                AnyError = 1;
             }
             pr_default.close(46);
@@ -5038,7 +5032,7 @@ namespace GeneXus.Programs {
                O94CustomerLocationLastLine = A94CustomerLocationLastLine;
                AssignAttri("", false, "A94CustomerLocationLastLine", StringUtil.LTrimStr( (decimal)(A94CustomerLocationLastLine), 4, 0));
             }
-            ChangePostValue( edtCustomerLocationReceptionistId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A23CustomerLocationReceptionistId), 4, 0, ".", ""))) ;
+            ChangePostValue( edtCustomerLocationReceptionistId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A23CustomerLocationReceptionistId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( edtCustomerLocationReceptionistGi_Internalname, A24CustomerLocationReceptionistGi) ;
             ChangePostValue( edtCustomerLocationReceptionistLa_Internalname, A25CustomerLocationReceptionistLa) ;
             ChangePostValue( edtCustomerLocationReceptionistIn_Internalname, StringUtil.RTrim( A26CustomerLocationReceptionistIn)) ;
@@ -5046,7 +5040,7 @@ namespace GeneXus.Programs {
             ChangePostValue( edtCustomerLocationReceptionistAd_Internalname, A28CustomerLocationReceptionistAd) ;
             ChangePostValue( edtCustomerLocationReceptionistPh_Internalname, StringUtil.RTrim( A29CustomerLocationReceptionistPh)) ;
             ChangePostValue( edtCustomerLocationReceptionistGA_Internalname, A30CustomerLocationReceptionistGA) ;
-            ChangePostValue( "ZT_"+"Z23CustomerLocationReceptionistId_"+sGXsfl_129_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z23CustomerLocationReceptionistId), 4, 0, ".", ""))) ;
+            ChangePostValue( "ZT_"+"Z23CustomerLocationReceptionistId_"+sGXsfl_129_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z23CustomerLocationReceptionistId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( "ZT_"+"Z30CustomerLocationReceptionistGA_"+sGXsfl_129_idx, Z30CustomerLocationReceptionistGA) ;
             ChangePostValue( "ZT_"+"Z26CustomerLocationReceptionistIn_"+sGXsfl_129_idx, StringUtil.RTrim( Z26CustomerLocationReceptionistIn)) ;
             ChangePostValue( "ZT_"+"Z24CustomerLocationReceptionistGi_"+sGXsfl_129_idx, Z24CustomerLocationReceptionistGi) ;
@@ -5054,9 +5048,9 @@ namespace GeneXus.Programs {
             ChangePostValue( "ZT_"+"Z27CustomerLocationReceptionistEm_"+sGXsfl_129_idx, Z27CustomerLocationReceptionistEm) ;
             ChangePostValue( "ZT_"+"Z28CustomerLocationReceptionistAd_"+sGXsfl_129_idx, Z28CustomerLocationReceptionistAd) ;
             ChangePostValue( "ZT_"+"Z29CustomerLocationReceptionistPh_"+sGXsfl_129_idx, StringUtil.RTrim( Z29CustomerLocationReceptionistPh)) ;
-            ChangePostValue( "nRcdDeleted_4_"+sGXsfl_129_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_4), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdExists_4_"+sGXsfl_129_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_4), 4, 0, ".", ""))) ;
-            ChangePostValue( "nIsMod_4_"+sGXsfl_129_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_4), 4, 0, ".", ""))) ;
+            ChangePostValue( "nRcdDeleted_4_"+sGXsfl_129_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_4), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdExists_4_"+sGXsfl_129_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_4), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nIsMod_4_"+sGXsfl_129_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_4), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             if ( nIsMod_4 != 0 )
             {
                ChangePostValue( "CUSTOMERLOCATIONRECEPTIONISTID_"+sGXsfl_129_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtCustomerLocationReceptionistId_Enabled), 5, 0, ".", ""))) ;
@@ -5131,7 +5125,7 @@ namespace GeneXus.Programs {
                   }
                }
             }
-            ChangePostValue( edtSupplier_AgbId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A55Supplier_AgbId), 4, 0, ".", ""))) ;
+            ChangePostValue( edtSupplier_AgbId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A55Supplier_AgbId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( edtSupplier_AgbName_Internalname, A57Supplier_AgbName) ;
             ChangePostValue( edtSupplier_AgbKvkNumber_Internalname, A58Supplier_AgbKvkNumber) ;
             ChangePostValue( edtSupplier_AgbVisitingAddress_Internalname, A59Supplier_AgbVisitingAddress) ;
@@ -5139,10 +5133,10 @@ namespace GeneXus.Programs {
             ChangePostValue( edtSupplier_AgbEmail_Internalname, A61Supplier_AgbEmail) ;
             ChangePostValue( edtSupplier_AgbPhone_Internalname, StringUtil.RTrim( A62Supplier_AgbPhone)) ;
             ChangePostValue( edtSupplier_AgbContactName_Internalname, A63Supplier_AgbContactName) ;
-            ChangePostValue( "ZT_"+"Z55Supplier_AgbId_"+sGXsfl_143_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z55Supplier_AgbId), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdDeleted_16_"+sGXsfl_143_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_16), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdExists_16_"+sGXsfl_143_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_16), 4, 0, ".", ""))) ;
-            ChangePostValue( "nIsMod_16_"+sGXsfl_143_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_16), 4, 0, ".", ""))) ;
+            ChangePostValue( "ZT_"+"Z55Supplier_AgbId_"+sGXsfl_143_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z55Supplier_AgbId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdDeleted_16_"+sGXsfl_143_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_16), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdExists_16_"+sGXsfl_143_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_16), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nIsMod_16_"+sGXsfl_143_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_16), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             if ( nIsMod_16 != 0 )
             {
                ChangePostValue( "SUPPLIER_AGBID_"+sGXsfl_143_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtSupplier_AgbId_Enabled), 5, 0, ".", ""))) ;
@@ -5216,16 +5210,16 @@ namespace GeneXus.Programs {
                   }
                }
             }
-            ChangePostValue( edtSupplier_GenId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A64Supplier_GenId), 4, 0, ".", ""))) ;
+            ChangePostValue( edtSupplier_GenId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A64Supplier_GenId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( edtSupplier_GenCompanyName_Internalname, A66Supplier_GenCompanyName) ;
             ChangePostValue( edtSupplier_GenVisitingAddress_Internalname, A67Supplier_GenVisitingAddress) ;
             ChangePostValue( edtSupplier_GenPostalAddress_Internalname, A68Supplier_GenPostalAddress) ;
             ChangePostValue( edtSupplier_GenContactName_Internalname, A69Supplier_GenContactName) ;
             ChangePostValue( edtSupplier_GenContactPhone_Internalname, StringUtil.RTrim( A70Supplier_GenContactPhone)) ;
-            ChangePostValue( "ZT_"+"Z64Supplier_GenId_"+sGXsfl_156_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z64Supplier_GenId), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdDeleted_17_"+sGXsfl_156_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_17), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdExists_17_"+sGXsfl_156_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_17), 4, 0, ".", ""))) ;
-            ChangePostValue( "nIsMod_17_"+sGXsfl_156_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_17), 4, 0, ".", ""))) ;
+            ChangePostValue( "ZT_"+"Z64Supplier_GenId_"+sGXsfl_156_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z64Supplier_GenId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdDeleted_17_"+sGXsfl_156_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_17), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdExists_17_"+sGXsfl_156_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_17), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nIsMod_17_"+sGXsfl_156_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_17), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             if ( nIsMod_17 != 0 )
             {
                ChangePostValue( "SUPPLIER_GENID_"+sGXsfl_156_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtSupplier_GenId_Enabled), 5, 0, ".", ""))) ;
@@ -5297,13 +5291,13 @@ namespace GeneXus.Programs {
                   }
                }
             }
-            ChangePostValue( edtAmenitiesId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A98AmenitiesId), 4, 0, ".", ""))) ;
-            ChangePostValue( edtAmenitiesTypeId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A99AmenitiesTypeId), 4, 0, ".", ""))) ;
+            ChangePostValue( edtAmenitiesId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A98AmenitiesId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( edtAmenitiesTypeId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A99AmenitiesTypeId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             ChangePostValue( edtAmenitiesTypeName_Internalname, A100AmenitiesTypeName) ;
-            ChangePostValue( "ZT_"+"Z98AmenitiesId_"+sGXsfl_168_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z98AmenitiesId), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdDeleted_21_"+sGXsfl_168_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_21), 4, 0, ".", ""))) ;
-            ChangePostValue( "nRcdExists_21_"+sGXsfl_168_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_21), 4, 0, ".", ""))) ;
-            ChangePostValue( "nIsMod_21_"+sGXsfl_168_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_21), 4, 0, ".", ""))) ;
+            ChangePostValue( "ZT_"+"Z98AmenitiesId_"+sGXsfl_168_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z98AmenitiesId), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdDeleted_21_"+sGXsfl_168_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_21), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nRcdExists_21_"+sGXsfl_168_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_21), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
+            ChangePostValue( "nIsMod_21_"+sGXsfl_168_idx, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_21), 4, 0, context.GetLanguageProperty( "decimal_point"), ""))) ;
             if ( nIsMod_21 != 0 )
             {
                ChangePostValue( "AMENITIESID_"+sGXsfl_168_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtAmenitiesId_Enabled), 5, 0, ".", ""))) ;
@@ -5529,7 +5523,7 @@ namespace GeneXus.Programs {
          if ( ! ( GxRegex.IsMatch(A27CustomerLocationReceptionistEm,"^((\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)|(\\s*))$") ) )
          {
             GXCCtl = "CUSTOMERLOCATIONRECEPTIONISTEM_" + sGXsfl_129_idx;
-            GX_msglist.addItem("Field Customer Location Receptionist Email does not match the specified pattern", "OutOfRange", 1, GXCCtl);
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXM_DoesNotMatchRegExp", ""), context.GetMessage( "Customer Location Receptionist Email", ""), "", "", "", "", "", "", "", ""), "OutOfRange", 1, GXCCtl);
             AnyError = 1;
             GX_FocusControl = edtCustomerLocationReceptionistEm_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -5905,7 +5899,7 @@ namespace GeneXus.Programs {
       protected void BeforeInsert014( )
       {
          /* Before Insert Rules */
-         new createuseraccount(context ).execute(  A27CustomerLocationReceptionistEm,  A24CustomerLocationReceptionistGi,  A25CustomerLocationReceptionistLa,  "Receptionist", out  A30CustomerLocationReceptionistGA) ;
+         new createuseraccount(context ).execute(  A27CustomerLocationReceptionistEm,  A24CustomerLocationReceptionistGi,  A25CustomerLocationReceptionistLa,  context.GetMessage( "Receptionist", ""), out  A30CustomerLocationReceptionistGA) ;
       }
 
       protected void BeforeUpdate014( )
@@ -6038,7 +6032,7 @@ namespace GeneXus.Programs {
          if ( (pr_default.getStatus(9) == 101) )
          {
             GXCCtl = "SUPPLIER_AGBID_" + sGXsfl_143_idx;
-            GX_msglist.addItem("No matching 'Supplier_AGB'.", "ForeignKeyNotFound", 1, GXCCtl);
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Supplier_AGB", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, GXCCtl);
             AnyError = 1;
             GX_FocusControl = edtSupplier_AgbId_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -6075,7 +6069,7 @@ namespace GeneXus.Programs {
          if ( (pr_default.getStatus(56) == 101) )
          {
             GXCCtl = "SUPPLIER_AGBID_" + sGXsfl_143_idx;
-            GX_msglist.addItem("No matching 'Supplier_AGB'.", "ForeignKeyNotFound", 1, GXCCtl);
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Supplier_AGB", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, GXCCtl);
             AnyError = 1;
             GX_FocusControl = edtSupplier_AgbId_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -6549,7 +6543,7 @@ namespace GeneXus.Programs {
          if ( (pr_default.getStatus(6) == 101) )
          {
             GXCCtl = "SUPPLIER_GENID_" + sGXsfl_156_idx;
-            GX_msglist.addItem("No matching 'Supplier_Gen'.", "ForeignKeyNotFound", 1, GXCCtl);
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Supplier_Gen", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, GXCCtl);
             AnyError = 1;
             GX_FocusControl = edtSupplier_GenId_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -6583,7 +6577,7 @@ namespace GeneXus.Programs {
          if ( (pr_default.getStatus(63) == 101) )
          {
             GXCCtl = "SUPPLIER_GENID_" + sGXsfl_156_idx;
-            GX_msglist.addItem("No matching 'Supplier_Gen'.", "ForeignKeyNotFound", 1, GXCCtl);
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Supplier_Gen", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, GXCCtl);
             AnyError = 1;
             GX_FocusControl = edtSupplier_GenId_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -7037,7 +7031,7 @@ namespace GeneXus.Programs {
          if ( (pr_default.getStatus(2) == 101) )
          {
             GXCCtl = "AMENITIESID_" + sGXsfl_168_idx;
-            GX_msglist.addItem("No matching 'Amenities'.", "ForeignKeyNotFound", 1, GXCCtl);
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Amenities", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, GXCCtl);
             AnyError = 1;
             GX_FocusControl = edtAmenitiesId_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -7050,7 +7044,7 @@ namespace GeneXus.Programs {
          if ( (pr_default.getStatus(3) == 101) )
          {
             GXCCtl = "AMENITIESTYPEID_" + sGXsfl_168_idx;
-            GX_msglist.addItem("No matching 'AmenitiesType'.", "ForeignKeyNotFound", 1, GXCCtl);
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "AmenitiesType", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, GXCCtl);
             AnyError = 1;
          }
          A100AmenitiesTypeName = T00015_A100AmenitiesTypeName[0];
@@ -7074,7 +7068,7 @@ namespace GeneXus.Programs {
          if ( (pr_default.getStatus(70) == 101) )
          {
             GXCCtl = "AMENITIESID_" + sGXsfl_168_idx;
-            GX_msglist.addItem("No matching 'Amenities'.", "ForeignKeyNotFound", 1, GXCCtl);
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Amenities", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, GXCCtl);
             AnyError = 1;
             GX_FocusControl = edtAmenitiesId_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -7101,7 +7095,7 @@ namespace GeneXus.Programs {
          if ( (pr_default.getStatus(71) == 101) )
          {
             GXCCtl = "AMENITIESTYPEID_" + sGXsfl_168_idx;
-            GX_msglist.addItem("No matching 'AmenitiesType'.", "ForeignKeyNotFound", 1, GXCCtl);
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "AmenitiesType", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, GXCCtl);
             AnyError = 1;
          }
          A100AmenitiesTypeName = T000173_A100AmenitiesTypeName[0];
@@ -7560,7 +7554,7 @@ namespace GeneXus.Programs {
          /* Single line edit */
          TempTags = " data-gxoch1=\"gx.fn.setControlValue('nIsMod_2_" + sGXsfl_78_idx + "',1);\"  onfocus=\"gx.evt.onfocus(this, 79,'',false,'" + sGXsfl_78_idx + "',78)\"";
          ROClassString = "Attribute";
-         Gridlevel_managerRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtCustomerManagerId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A15CustomerManagerId), 4, 0, ".", "")),StringUtil.LTrim( context.localUtil.Format( (decimal)(A15CustomerManagerId), "ZZZ9"))," dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,79);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtCustomerManagerId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"TrnColumn",(string)"",(short)-1,(int)edtCustomerManagerId_Enabled,(short)1,(string)"text",(string)"1",(short)0,(string)"px",(short)17,(string)"px",(short)4,(short)0,(short)0,(short)78,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)"end",(bool)false,(string)""});
+         Gridlevel_managerRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtCustomerManagerId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A15CustomerManagerId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")),StringUtil.LTrim( context.localUtil.Format( (decimal)(A15CustomerManagerId), "ZZZ9"))," dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onblur(this,79);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtCustomerManagerId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"TrnColumn",(string)"",(short)-1,(int)edtCustomerManagerId_Enabled,(short)1,(string)"text",(string)"1",(short)0,(string)"px",(short)17,(string)"px",(short)4,(short)0,(short)0,(short)78,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)"end",(bool)false,(string)""});
          /* Subfile cell */
          /* Single line edit */
          TempTags = " data-gxoch1=\"gx.fn.setControlValue('nIsMod_2_" + sGXsfl_78_idx + "',1);\"  onfocus=\"gx.evt.onfocus(this, 80,'',false,'" + sGXsfl_78_idx + "',78)\"";
@@ -7597,9 +7591,9 @@ namespace GeneXus.Programs {
             GXCCtl = "CUSTOMERMANAGERGENDER_" + sGXsfl_78_idx;
             cmbCustomerManagerGender.Name = GXCCtl;
             cmbCustomerManagerGender.WebTags = "";
-            cmbCustomerManagerGender.addItem("Man", "Man", 0);
-            cmbCustomerManagerGender.addItem("Woman", "Woman", 0);
-            cmbCustomerManagerGender.addItem("Other", "Other", 0);
+            cmbCustomerManagerGender.addItem("Man", context.GetMessage( "Man", ""), 0);
+            cmbCustomerManagerGender.addItem("Woman", context.GetMessage( "Woman", ""), 0);
+            cmbCustomerManagerGender.addItem("Other", context.GetMessage( "Other", ""), 0);
             if ( cmbCustomerManagerGender.ItemCount > 0 )
             {
                A12CustomerManagerGender = cmbCustomerManagerGender.getValidValue(A12CustomerManagerGender);
@@ -7618,7 +7612,7 @@ namespace GeneXus.Programs {
          ajax_sending_grid_row(Gridlevel_managerRow);
          send_integrity_lvl_hashes012( ) ;
          GXCCtl = "Z15CustomerManagerId_" + sGXsfl_78_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z15CustomerManagerId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z15CustomerManagerId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "Z13CustomerManagerGAMGUID_" + sGXsfl_78_idx;
          GxWebStd.gx_hidden_field( context, GXCCtl, Z13CustomerManagerGAMGUID);
          GXCCtl = "Z17CustomerManagerInitials_" + sGXsfl_78_idx;
@@ -7634,11 +7628,11 @@ namespace GeneXus.Programs {
          GXCCtl = "Z12CustomerManagerGender_" + sGXsfl_78_idx;
          GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.RTrim( Z12CustomerManagerGender));
          GXCCtl = "nRcdDeleted_2_" + sGXsfl_78_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_2), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_2), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nRcdExists_2_" + sGXsfl_78_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_2), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_2), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nIsMod_2_" + sGXsfl_78_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_2), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_2), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "vMODE_" + sGXsfl_78_idx;
          GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.RTrim( Gx_mode));
          GXCCtl = "vTRNCONTEXT_" + sGXsfl_78_idx;
@@ -7653,9 +7647,9 @@ namespace GeneXus.Programs {
          GXCCtl = "vCHECKREQUIREDFIELDSRESULT_" + sGXsfl_78_idx;
          GxWebStd.gx_boolean_hidden_field( context, GXCCtl, AV15CheckRequiredFieldsResult);
          GXCCtl = "vCUSTOMERID_" + sGXsfl_78_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7CustomerId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7CustomerId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "vTABSACTIVEPAGE_" + sGXsfl_78_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV17TabsActivePage), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV17TabsActivePage), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "CUSTOMERMANAGERID_"+sGXsfl_78_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtCustomerManagerId_Enabled), 5, 0, ".", "")));
          GxWebStd.gx_hidden_field( context, "CUSTOMERMANAGERGIVENNAME_"+sGXsfl_78_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtCustomerManagerGivenName_Enabled), 5, 0, ".", "")));
          GxWebStd.gx_hidden_field( context, "CUSTOMERMANAGERLASTNAME_"+sGXsfl_78_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtCustomerManagerLastName_Enabled), 5, 0, ".", "")));
@@ -7673,15 +7667,15 @@ namespace GeneXus.Programs {
          nGXsfl_78_idx = (int)(nGXsfl_78_idx+1);
          sGXsfl_78_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_78_idx), 4, 0), 4, "0");
          SubsflControlProps_782( ) ;
-         edtCustomerManagerId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERID_"+sGXsfl_78_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtCustomerManagerGivenName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERGIVENNAME_"+sGXsfl_78_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtCustomerManagerLastName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERLASTNAME_"+sGXsfl_78_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtCustomerManagerInitials_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERINITIALS_"+sGXsfl_78_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtCustomerManagerEmail_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGEREMAIL_"+sGXsfl_78_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtCustomerManagerPhone_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERPHONE_"+sGXsfl_78_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         cmbCustomerManagerGender.Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERGENDER_"+sGXsfl_78_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtCustomerManagerGAMGUID_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERGAMGUID_"+sGXsfl_78_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         if ( ( ( context.localUtil.CToN( cgiGet( edtCustomerManagerId_Internalname), ".", ",") < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtCustomerManagerId_Internalname), ".", ",") > Convert.ToDecimal( 9999 )) ) )
+         edtCustomerManagerId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERID_"+sGXsfl_78_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtCustomerManagerGivenName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERGIVENNAME_"+sGXsfl_78_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtCustomerManagerLastName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERLASTNAME_"+sGXsfl_78_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtCustomerManagerInitials_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERINITIALS_"+sGXsfl_78_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtCustomerManagerEmail_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGEREMAIL_"+sGXsfl_78_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtCustomerManagerPhone_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERPHONE_"+sGXsfl_78_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         cmbCustomerManagerGender.Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERGENDER_"+sGXsfl_78_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtCustomerManagerGAMGUID_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERMANAGERGAMGUID_"+sGXsfl_78_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         if ( ( ( context.localUtil.CToN( cgiGet( edtCustomerManagerId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtCustomerManagerId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) > Convert.ToDecimal( 9999 )) ) )
          {
             GXCCtl = "CUSTOMERMANAGERID_" + sGXsfl_78_idx;
             GX_msglist.addItem(context.GetMessage( "GXM_badnum", ""), 1, GXCCtl);
@@ -7692,7 +7686,7 @@ namespace GeneXus.Programs {
          }
          else
          {
-            A15CustomerManagerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerManagerId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+            A15CustomerManagerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerManagerId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          }
          A16CustomerManagerGivenName = cgiGet( edtCustomerManagerGivenName_Internalname);
          A9CustomerManagerLastName = cgiGet( edtCustomerManagerLastName_Internalname);
@@ -7710,7 +7704,7 @@ namespace GeneXus.Programs {
          n12CustomerManagerGender = (String.IsNullOrEmpty(StringUtil.RTrim( A12CustomerManagerGender)) ? true : false);
          A13CustomerManagerGAMGUID = cgiGet( edtCustomerManagerGAMGUID_Internalname);
          GXCCtl = "Z15CustomerManagerId_" + sGXsfl_78_idx;
-         Z15CustomerManagerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         Z15CustomerManagerId = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "Z13CustomerManagerGAMGUID_" + sGXsfl_78_idx;
          Z13CustomerManagerGAMGUID = cgiGet( GXCCtl);
          GXCCtl = "Z17CustomerManagerInitials_" + sGXsfl_78_idx;
@@ -7729,13 +7723,13 @@ namespace GeneXus.Programs {
          Z12CustomerManagerGender = cgiGet( GXCCtl);
          n12CustomerManagerGender = (String.IsNullOrEmpty(StringUtil.RTrim( A12CustomerManagerGender)) ? true : false);
          GXCCtl = "nRcdDeleted_2_" + sGXsfl_78_idx;
-         nRcdDeleted_2 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRcdDeleted_2 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nRcdExists_2_" + sGXsfl_78_idx;
-         nRcdExists_2 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRcdExists_2 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nIsMod_2_" + sGXsfl_78_idx;
-         nIsMod_2 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nIsMod_2 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "vTABSACTIVEPAGE_" + sGXsfl_78_idx;
-         AV17TabsActivePage = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         AV17TabsActivePage = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "vCHECKREQUIREDFIELDSRESULT_" + sGXsfl_78_idx;
          AV15CheckRequiredFieldsResult = StringUtil.StrToBool( cgiGet( GXCCtl));
       }
@@ -7839,13 +7833,13 @@ namespace GeneXus.Programs {
          if ( FREESTYLELEVEL_LOCATIONS_IsPaging == 0 )
          {
             GXCCtl = "GRIDLEVEL_RECEPTIONIST_nFirstRecordOnPage_" + sGXsfl_97_idx;
-            GRIDLEVEL_RECEPTIONIST_nFirstRecordOnPage = (long)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+            GRIDLEVEL_RECEPTIONIST_nFirstRecordOnPage = (long)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
             GXCCtl = "GRIDLEVEL_SUPPLIER_AGB_nFirstRecordOnPage_" + sGXsfl_97_idx;
-            GRIDLEVEL_SUPPLIER_AGB_nFirstRecordOnPage = (long)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+            GRIDLEVEL_SUPPLIER_AGB_nFirstRecordOnPage = (long)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
             GXCCtl = "GRIDLEVEL_SUPPLIER_GEN_nFirstRecordOnPage_" + sGXsfl_97_idx;
-            GRIDLEVEL_SUPPLIER_GEN_nFirstRecordOnPage = (long)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+            GRIDLEVEL_SUPPLIER_GEN_nFirstRecordOnPage = (long)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
             GXCCtl = "GRIDLEVEL_AMENITIES_nFirstRecordOnPage_" + sGXsfl_97_idx;
-            GRIDLEVEL_AMENITIES_nFirstRecordOnPage = (long)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+            GRIDLEVEL_AMENITIES_nFirstRecordOnPage = (long)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          }
          else
          {
@@ -7867,13 +7861,13 @@ namespace GeneXus.Programs {
          /* Div Control */
          Freestylelevel_locationsRow.AddColumnProperties("div_start", -1, isAjaxCallMode( ), new Object[] {(string)"",(short)1,(short)0,(string)"px",(short)0,(string)"px",(string)"form-group gx-form-group",(string)"start",(string)"top",(string)""+" data-gx-for=\""+edtCustomerLocationId_Internalname+"\"",(string)"",(string)"div"});
          /* Attribute/Variable Label */
-         Freestylelevel_locationsRow.AddColumnProperties("html_label", -1, isAjaxCallMode( ), new Object[] {(string)edtCustomerLocationId_Internalname,(string)"Location Id",(string)" AttributeLabel",(short)1,(bool)true,(string)""});
+         Freestylelevel_locationsRow.AddColumnProperties("html_label", -1, isAjaxCallMode( ), new Object[] {(string)edtCustomerLocationId_Internalname,context.GetMessage( "Location Id", ""),(string)" AttributeLabel",(short)1,(bool)true,(string)""});
          /* Div Control */
          Freestylelevel_locationsRow.AddColumnProperties("div_start", -1, isAjaxCallMode( ), new Object[] {(string)"",(short)1,(short)0,(string)"px",(short)0,(string)"px",(string)" gx-attribute",(string)"start",(string)"top",(string)"",(string)"",(string)"div"});
          /* Single line edit */
          TempTags = " data-gxoch1=\"gx.fn.setControlValue('nIsMod_3_" + sGXsfl_97_idx + "',1);\"  onfocus=\"gx.evt.onfocus(this, 106,'',false,'" + sGXsfl_97_idx + "',97)\"";
          ROClassString = "Attribute";
-         Freestylelevel_locationsRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtCustomerLocationId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A18CustomerLocationId), 4, 0, ".", "")),StringUtil.LTrim( context.localUtil.Format( (decimal)(A18CustomerLocationId), "ZZZ9"))," dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,106);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtCustomerLocationId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"",(string)"",(short)1,(int)edtCustomerLocationId_Enabled,(short)1,(string)"text",(string)"1",(short)4,(string)"chr",(short)1,(string)"row",(short)4,(short)0,(short)0,(short)97,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)"end",(bool)false,(string)""});
+         Freestylelevel_locationsRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtCustomerLocationId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A18CustomerLocationId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")),StringUtil.LTrim( context.localUtil.Format( (decimal)(A18CustomerLocationId), "ZZZ9"))," dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onblur(this,106);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtCustomerLocationId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"",(string)"",(short)1,(int)edtCustomerLocationId_Enabled,(short)1,(string)"text",(string)"1",(short)4,(string)"chr",(short)1,(string)"row",(short)4,(short)0,(short)0,(short)97,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)"end",(bool)false,(string)""});
          Freestylelevel_locationsRow.AddColumnProperties("div_end", -1, isAjaxCallMode( ), new Object[] {(string)"start",(string)"top",(string)"div"});
          Freestylelevel_locationsRow.AddColumnProperties("div_end", -1, isAjaxCallMode( ), new Object[] {(string)"start",(string)"top",(string)"div"});
          Freestylelevel_locationsRow.AddColumnProperties("div_end", -1, isAjaxCallMode( ), new Object[] {(string)"start",(string)"top",(string)"div"});
@@ -7882,7 +7876,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          Freestylelevel_locationsRow.AddColumnProperties("div_start", -1, isAjaxCallMode( ), new Object[] {(string)"",(short)1,(short)0,(string)"px",(short)0,(string)"px",(string)"form-group gx-form-group",(string)"start",(string)"top",(string)""+" data-gx-for=\""+edtCustomerLocationVisitingAddres_Internalname+"\"",(string)"",(string)"div"});
          /* Attribute/Variable Label */
-         Freestylelevel_locationsRow.AddColumnProperties("html_label", -1, isAjaxCallMode( ), new Object[] {(string)edtCustomerLocationVisitingAddres_Internalname,(string)"Visiting Address",(string)" AttributeLabel",(short)1,(bool)true,(string)""});
+         Freestylelevel_locationsRow.AddColumnProperties("html_label", -1, isAjaxCallMode( ), new Object[] {(string)edtCustomerLocationVisitingAddres_Internalname,context.GetMessage( "Visiting Address", ""),(string)" AttributeLabel",(short)1,(bool)true,(string)""});
          /* Div Control */
          Freestylelevel_locationsRow.AddColumnProperties("div_start", -1, isAjaxCallMode( ), new Object[] {(string)"",(short)1,(short)0,(string)"px",(short)0,(string)"px",(string)" gx-attribute",(string)"start",(string)"top",(string)"",(string)"",(string)"div"});
          /* Multiple line edit */
@@ -7903,7 +7897,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          Freestylelevel_locationsRow.AddColumnProperties("div_start", -1, isAjaxCallMode( ), new Object[] {(string)"",(short)1,(short)0,(string)"px",(short)0,(string)"px",(string)"form-group gx-form-group",(string)"start",(string)"top",(string)""+" data-gx-for=\""+edtCustomerLocationPostalAddress_Internalname+"\"",(string)"",(string)"div"});
          /* Attribute/Variable Label */
-         Freestylelevel_locationsRow.AddColumnProperties("html_label", -1, isAjaxCallMode( ), new Object[] {(string)edtCustomerLocationPostalAddress_Internalname,(string)"Postal Address",(string)" AttributeLabel",(short)1,(bool)true,(string)""});
+         Freestylelevel_locationsRow.AddColumnProperties("html_label", -1, isAjaxCallMode( ), new Object[] {(string)edtCustomerLocationPostalAddress_Internalname,context.GetMessage( "Postal Address", ""),(string)" AttributeLabel",(short)1,(bool)true,(string)""});
          /* Div Control */
          Freestylelevel_locationsRow.AddColumnProperties("div_start", -1, isAjaxCallMode( ), new Object[] {(string)"",(short)1,(short)0,(string)"px",(short)0,(string)"px",(string)" gx-attribute",(string)"start",(string)"top",(string)"",(string)"",(string)"div"});
          /* Single line edit */
@@ -7918,7 +7912,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          Freestylelevel_locationsRow.AddColumnProperties("div_start", -1, isAjaxCallMode( ), new Object[] {(string)"",(short)1,(short)0,(string)"px",(short)0,(string)"px",(string)"form-group gx-form-group",(string)"start",(string)"top",(string)""+" data-gx-for=\""+edtCustomerLocationEmail_Internalname+"\"",(string)"",(string)"div"});
          /* Attribute/Variable Label */
-         Freestylelevel_locationsRow.AddColumnProperties("html_label", -1, isAjaxCallMode( ), new Object[] {(string)edtCustomerLocationEmail_Internalname,(string)"Location Email",(string)" AttributeLabel",(short)1,(bool)true,(string)""});
+         Freestylelevel_locationsRow.AddColumnProperties("html_label", -1, isAjaxCallMode( ), new Object[] {(string)edtCustomerLocationEmail_Internalname,context.GetMessage( "Location Email", ""),(string)" AttributeLabel",(short)1,(bool)true,(string)""});
          /* Div Control */
          Freestylelevel_locationsRow.AddColumnProperties("div_start", -1, isAjaxCallMode( ), new Object[] {(string)"",(short)1,(short)0,(string)"px",(short)0,(string)"px",(string)" gx-attribute",(string)"start",(string)"top",(string)"",(string)"",(string)"div"});
          /* Single line edit */
@@ -7936,7 +7930,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          Freestylelevel_locationsRow.AddColumnProperties("div_start", -1, isAjaxCallMode( ), new Object[] {(string)"",(short)1,(short)0,(string)"px",(short)0,(string)"px",(string)"form-group gx-form-group",(string)"start",(string)"top",(string)""+" data-gx-for=\""+edtCustomerLocationPhone_Internalname+"\"",(string)"",(string)"div"});
          /* Attribute/Variable Label */
-         Freestylelevel_locationsRow.AddColumnProperties("html_label", -1, isAjaxCallMode( ), new Object[] {(string)edtCustomerLocationPhone_Internalname,(string)"Location Phone",(string)" AttributeLabel",(short)1,(bool)true,(string)""});
+         Freestylelevel_locationsRow.AddColumnProperties("html_label", -1, isAjaxCallMode( ), new Object[] {(string)edtCustomerLocationPhone_Internalname,context.GetMessage( "Location Phone", ""),(string)" AttributeLabel",(short)1,(bool)true,(string)""});
          /* Div Control */
          Freestylelevel_locationsRow.AddColumnProperties("div_start", -1, isAjaxCallMode( ), new Object[] {(string)"",(short)1,(short)0,(string)"px",(short)0,(string)"px",(string)" gx-attribute",(string)"start",(string)"top",(string)"",(string)"",(string)"div"});
          /* Single line edit */
@@ -8004,21 +7998,21 @@ namespace GeneXus.Programs {
             {
                bGXsfl_129_Refreshing = true;
                ReadRow014( ) ;
-               edtCustomerLocationReceptionistId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTID_"+sGXsfl_129_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerLocationReceptionistId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTID_"+sGXsfl_129_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerLocationReceptionistId_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerLocationReceptionistId_Enabled), 5, 0), !bGXsfl_129_Refreshing);
-               edtCustomerLocationReceptionistGi_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTGI_"+sGXsfl_129_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerLocationReceptionistGi_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTGI_"+sGXsfl_129_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerLocationReceptionistGi_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerLocationReceptionistGi_Enabled), 5, 0), !bGXsfl_129_Refreshing);
-               edtCustomerLocationReceptionistLa_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTLA_"+sGXsfl_129_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerLocationReceptionistLa_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTLA_"+sGXsfl_129_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerLocationReceptionistLa_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerLocationReceptionistLa_Enabled), 5, 0), !bGXsfl_129_Refreshing);
-               edtCustomerLocationReceptionistIn_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTIN_"+sGXsfl_129_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerLocationReceptionistIn_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTIN_"+sGXsfl_129_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerLocationReceptionistIn_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerLocationReceptionistIn_Enabled), 5, 0), !bGXsfl_129_Refreshing);
-               edtCustomerLocationReceptionistEm_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTEM_"+sGXsfl_129_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerLocationReceptionistEm_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTEM_"+sGXsfl_129_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerLocationReceptionistEm_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerLocationReceptionistEm_Enabled), 5, 0), !bGXsfl_129_Refreshing);
-               edtCustomerLocationReceptionistAd_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTAD_"+sGXsfl_129_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerLocationReceptionistAd_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTAD_"+sGXsfl_129_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerLocationReceptionistAd_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerLocationReceptionistAd_Enabled), 5, 0), !bGXsfl_129_Refreshing);
-               edtCustomerLocationReceptionistPh_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTPH_"+sGXsfl_129_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerLocationReceptionistPh_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTPH_"+sGXsfl_129_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerLocationReceptionistPh_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerLocationReceptionistPh_Enabled), 5, 0), !bGXsfl_129_Refreshing);
-               edtCustomerLocationReceptionistGA_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTGA_"+sGXsfl_129_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtCustomerLocationReceptionistGA_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTGA_"+sGXsfl_129_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtCustomerLocationReceptionistGA_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtCustomerLocationReceptionistGA_Enabled), 5, 0), !bGXsfl_129_Refreshing);
                if ( ( nRcdExists_4 == 0 ) && ! IsIns( ) )
                {
@@ -8177,23 +8171,23 @@ namespace GeneXus.Programs {
             {
                bGXsfl_143_Refreshing = true;
                ReadRow0116( ) ;
-               edtSupplier_AgbId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBID_"+sGXsfl_143_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtSupplier_AgbId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBID_"+sGXsfl_143_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtSupplier_AgbId_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtSupplier_AgbId_Enabled), 5, 0), !bGXsfl_143_Refreshing);
                edtSupplier_AgbId_Horizontalalignment = cgiGet( "SUPPLIER_AGBID_"+sGXsfl_143_idx+"Horizontalalignment");
                AssignProp("", false, edtSupplier_AgbId_Internalname, "Horizontalalignment", edtSupplier_AgbId_Horizontalalignment, !bGXsfl_143_Refreshing);
-               edtSupplier_AgbName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBNAME_"+sGXsfl_143_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtSupplier_AgbName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBNAME_"+sGXsfl_143_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtSupplier_AgbName_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtSupplier_AgbName_Enabled), 5, 0), !bGXsfl_143_Refreshing);
-               edtSupplier_AgbKvkNumber_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBKVKNUMBER_"+sGXsfl_143_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtSupplier_AgbKvkNumber_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBKVKNUMBER_"+sGXsfl_143_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtSupplier_AgbKvkNumber_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtSupplier_AgbKvkNumber_Enabled), 5, 0), !bGXsfl_143_Refreshing);
-               edtSupplier_AgbVisitingAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBVISITINGADDRESS_"+sGXsfl_143_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtSupplier_AgbVisitingAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBVISITINGADDRESS_"+sGXsfl_143_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtSupplier_AgbVisitingAddress_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtSupplier_AgbVisitingAddress_Enabled), 5, 0), !bGXsfl_143_Refreshing);
-               edtSupplier_AgbPostalAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBPOSTALADDRESS_"+sGXsfl_143_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtSupplier_AgbPostalAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBPOSTALADDRESS_"+sGXsfl_143_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtSupplier_AgbPostalAddress_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtSupplier_AgbPostalAddress_Enabled), 5, 0), !bGXsfl_143_Refreshing);
-               edtSupplier_AgbEmail_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBEMAIL_"+sGXsfl_143_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtSupplier_AgbEmail_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBEMAIL_"+sGXsfl_143_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtSupplier_AgbEmail_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtSupplier_AgbEmail_Enabled), 5, 0), !bGXsfl_143_Refreshing);
-               edtSupplier_AgbPhone_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBPHONE_"+sGXsfl_143_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtSupplier_AgbPhone_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBPHONE_"+sGXsfl_143_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtSupplier_AgbPhone_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtSupplier_AgbPhone_Enabled), 5, 0), !bGXsfl_143_Refreshing);
-               edtSupplier_AgbContactName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBCONTACTNAME_"+sGXsfl_143_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtSupplier_AgbContactName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBCONTACTNAME_"+sGXsfl_143_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtSupplier_AgbContactName_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtSupplier_AgbContactName_Enabled), 5, 0), !bGXsfl_143_Refreshing);
                if ( ( nRcdExists_16 == 0 ) && ! IsIns( ) )
                {
@@ -8349,19 +8343,19 @@ namespace GeneXus.Programs {
             {
                bGXsfl_156_Refreshing = true;
                ReadRow0117( ) ;
-               edtSupplier_GenId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENID_"+sGXsfl_156_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtSupplier_GenId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENID_"+sGXsfl_156_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtSupplier_GenId_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtSupplier_GenId_Enabled), 5, 0), !bGXsfl_156_Refreshing);
                edtSupplier_GenId_Horizontalalignment = cgiGet( "SUPPLIER_GENID_"+sGXsfl_156_idx+"Horizontalalignment");
                AssignProp("", false, edtSupplier_GenId_Internalname, "Horizontalalignment", edtSupplier_GenId_Horizontalalignment, !bGXsfl_156_Refreshing);
-               edtSupplier_GenCompanyName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENCOMPANYNAME_"+sGXsfl_156_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtSupplier_GenCompanyName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENCOMPANYNAME_"+sGXsfl_156_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtSupplier_GenCompanyName_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtSupplier_GenCompanyName_Enabled), 5, 0), !bGXsfl_156_Refreshing);
-               edtSupplier_GenVisitingAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENVISITINGADDRESS_"+sGXsfl_156_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtSupplier_GenVisitingAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENVISITINGADDRESS_"+sGXsfl_156_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtSupplier_GenVisitingAddress_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtSupplier_GenVisitingAddress_Enabled), 5, 0), !bGXsfl_156_Refreshing);
-               edtSupplier_GenPostalAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENPOSTALADDRESS_"+sGXsfl_156_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtSupplier_GenPostalAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENPOSTALADDRESS_"+sGXsfl_156_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtSupplier_GenPostalAddress_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtSupplier_GenPostalAddress_Enabled), 5, 0), !bGXsfl_156_Refreshing);
-               edtSupplier_GenContactName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENCONTACTNAME_"+sGXsfl_156_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtSupplier_GenContactName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENCONTACTNAME_"+sGXsfl_156_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtSupplier_GenContactName_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtSupplier_GenContactName_Enabled), 5, 0), !bGXsfl_156_Refreshing);
-               edtSupplier_GenContactPhone_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENCONTACTPHONE_"+sGXsfl_156_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtSupplier_GenContactPhone_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENCONTACTPHONE_"+sGXsfl_156_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtSupplier_GenContactPhone_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtSupplier_GenContactPhone_Enabled), 5, 0), !bGXsfl_156_Refreshing);
                if ( ( nRcdExists_17 == 0 ) && ! IsIns( ) )
                {
@@ -8520,13 +8514,13 @@ namespace GeneXus.Programs {
             {
                bGXsfl_168_Refreshing = true;
                ReadRow0121( ) ;
-               edtAmenitiesId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "AMENITIESID_"+sGXsfl_168_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtAmenitiesId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "AMENITIESID_"+sGXsfl_168_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtAmenitiesId_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtAmenitiesId_Enabled), 5, 0), !bGXsfl_168_Refreshing);
                edtAmenitiesId_Horizontalalignment = cgiGet( "AMENITIESID_"+sGXsfl_168_idx+"Horizontalalignment");
                AssignProp("", false, edtAmenitiesId_Internalname, "Horizontalalignment", edtAmenitiesId_Horizontalalignment, !bGXsfl_168_Refreshing);
-               edtAmenitiesTypeId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "AMENITIESTYPEID_"+sGXsfl_168_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtAmenitiesTypeId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "AMENITIESTYPEID_"+sGXsfl_168_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtAmenitiesTypeId_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtAmenitiesTypeId_Enabled), 5, 0), !bGXsfl_168_Refreshing);
-               edtAmenitiesTypeName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "AMENITIESTYPENAME_"+sGXsfl_168_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+               edtAmenitiesTypeName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "AMENITIESTYPENAME_"+sGXsfl_168_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignProp("", false, edtAmenitiesTypeName_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtAmenitiesTypeName_Enabled), 5, 0), !bGXsfl_168_Refreshing);
                if ( ( nRcdExists_21 == 0 ) && ! IsIns( ) )
                {
@@ -8634,7 +8628,7 @@ namespace GeneXus.Programs {
          ajax_sending_grid_row(Freestylelevel_locationsRow);
          send_integrity_lvl_hashes013( ) ;
          GXCCtl = "Z18CustomerLocationId_" + sGXsfl_97_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z18CustomerLocationId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z18CustomerLocationId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "Z19CustomerLocationVisitingAddres_" + sGXsfl_97_idx;
          GxWebStd.gx_hidden_field( context, GXCCtl, Z19CustomerLocationVisitingAddres);
          GXCCtl = "Z20CustomerLocationPostalAddress_" + sGXsfl_97_idx;
@@ -8644,27 +8638,27 @@ namespace GeneXus.Programs {
          GXCCtl = "Z22CustomerLocationPhone_" + sGXsfl_97_idx;
          GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.RTrim( Z22CustomerLocationPhone));
          GXCCtl = "Z94CustomerLocationLastLine_" + sGXsfl_97_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z94CustomerLocationLastLine), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z94CustomerLocationLastLine), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "Z133CustomerLocationDescription_" + sGXsfl_97_idx;
          GxWebStd.gx_hidden_field( context, GXCCtl, Z133CustomerLocationDescription);
          GXCCtl = "Z134CustomerLocationName_" + sGXsfl_97_idx;
          GxWebStd.gx_hidden_field( context, GXCCtl, Z134CustomerLocationName);
          GXCCtl = "O94CustomerLocationLastLine_" + sGXsfl_97_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(O94CustomerLocationLastLine), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(O94CustomerLocationLastLine), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nRC_GXsfl_129_" + sGXsfl_97_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nGXsfl_129_idx), 8, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nGXsfl_129_idx), 8, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nRC_GXsfl_143_" + sGXsfl_97_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nGXsfl_143_idx), 8, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nGXsfl_143_idx), 8, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nRC_GXsfl_156_" + sGXsfl_97_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nGXsfl_156_idx), 8, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nGXsfl_156_idx), 8, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nRC_GXsfl_168_" + sGXsfl_97_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nGXsfl_168_idx), 8, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nGXsfl_168_idx), 8, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nRcdDeleted_3_" + sGXsfl_97_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_3), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_3), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nRcdExists_3_" + sGXsfl_97_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_3), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_3), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nIsMod_3_" + sGXsfl_97_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_3), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_3), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "vMODE_" + sGXsfl_97_idx;
          GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.RTrim( Gx_mode));
          GXCCtl = "vTRNCONTEXT_" + sGXsfl_97_idx;
@@ -8679,11 +8673,11 @@ namespace GeneXus.Programs {
          GXCCtl = "vCHECKREQUIREDFIELDSRESULT_" + sGXsfl_97_idx;
          GxWebStd.gx_boolean_hidden_field( context, GXCCtl, AV15CheckRequiredFieldsResult);
          GXCCtl = "vCUSTOMERID_" + sGXsfl_97_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7CustomerId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7CustomerId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "CUSTOMERLOCATIONLASTLINE_" + sGXsfl_97_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(A94CustomerLocationLastLine), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(A94CustomerLocationLastLine), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "vGXBSCREEN_" + sGXsfl_97_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(Gx_BScreen), 1, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(Gx_BScreen), 1, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "SUPPLIER_AGBNUMBER_" + sGXsfl_97_idx;
          GxWebStd.gx_hidden_field( context, GXCCtl, A56Supplier_AgbNumber);
          GXCCtl = "SUPPLIER_GENKVKNUMBER_" + sGXsfl_97_idx;
@@ -8707,12 +8701,12 @@ namespace GeneXus.Programs {
          nGXsfl_97_idx = (int)(nGXsfl_97_idx+1);
          sGXsfl_97_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_97_idx), 4, 0), 4, "0");
          SubsflControlProps_973( ) ;
-         edtCustomerLocationId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONID_"+sGXsfl_97_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtCustomerLocationVisitingAddres_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONVISITINGADDRES_"+sGXsfl_97_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtCustomerLocationPostalAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONPOSTALADDRESS_"+sGXsfl_97_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtCustomerLocationEmail_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONEMAIL_"+sGXsfl_97_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtCustomerLocationPhone_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONPHONE_"+sGXsfl_97_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         if ( ( ( context.localUtil.CToN( cgiGet( edtCustomerLocationId_Internalname), ".", ",") < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtCustomerLocationId_Internalname), ".", ",") > Convert.ToDecimal( 9999 )) ) )
+         edtCustomerLocationId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONID_"+sGXsfl_97_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtCustomerLocationVisitingAddres_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONVISITINGADDRES_"+sGXsfl_97_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtCustomerLocationPostalAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONPOSTALADDRESS_"+sGXsfl_97_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtCustomerLocationEmail_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONEMAIL_"+sGXsfl_97_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtCustomerLocationPhone_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONPHONE_"+sGXsfl_97_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         if ( ( ( context.localUtil.CToN( cgiGet( edtCustomerLocationId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtCustomerLocationId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) > Convert.ToDecimal( 9999 )) ) )
          {
             GXCCtl = "CUSTOMERLOCATIONID_" + sGXsfl_97_idx;
             GX_msglist.addItem(context.GetMessage( "GXM_badnum", ""), 1, GXCCtl);
@@ -8723,14 +8717,14 @@ namespace GeneXus.Programs {
          }
          else
          {
-            A18CustomerLocationId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerLocationId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+            A18CustomerLocationId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerLocationId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          }
          A19CustomerLocationVisitingAddres = cgiGet( edtCustomerLocationVisitingAddres_Internalname);
          A20CustomerLocationPostalAddress = cgiGet( edtCustomerLocationPostalAddress_Internalname);
          A21CustomerLocationEmail = cgiGet( edtCustomerLocationEmail_Internalname);
          A22CustomerLocationPhone = cgiGet( edtCustomerLocationPhone_Internalname);
          GXCCtl = "Z18CustomerLocationId_" + sGXsfl_97_idx;
-         Z18CustomerLocationId = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         Z18CustomerLocationId = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "Z19CustomerLocationVisitingAddres_" + sGXsfl_97_idx;
          Z19CustomerLocationVisitingAddres = cgiGet( GXCCtl);
          GXCCtl = "Z20CustomerLocationPostalAddress_" + sGXsfl_97_idx;
@@ -8740,37 +8734,37 @@ namespace GeneXus.Programs {
          GXCCtl = "Z22CustomerLocationPhone_" + sGXsfl_97_idx;
          Z22CustomerLocationPhone = cgiGet( GXCCtl);
          GXCCtl = "Z94CustomerLocationLastLine_" + sGXsfl_97_idx;
-         Z94CustomerLocationLastLine = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         Z94CustomerLocationLastLine = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "Z133CustomerLocationDescription_" + sGXsfl_97_idx;
          Z133CustomerLocationDescription = cgiGet( GXCCtl);
          GXCCtl = "Z134CustomerLocationName_" + sGXsfl_97_idx;
          Z134CustomerLocationName = cgiGet( GXCCtl);
          GXCCtl = "Z94CustomerLocationLastLine_" + sGXsfl_97_idx;
-         A94CustomerLocationLastLine = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         A94CustomerLocationLastLine = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "Z133CustomerLocationDescription_" + sGXsfl_97_idx;
          A133CustomerLocationDescription = cgiGet( GXCCtl);
          GXCCtl = "Z134CustomerLocationName_" + sGXsfl_97_idx;
          A134CustomerLocationName = cgiGet( GXCCtl);
          GXCCtl = "O94CustomerLocationLastLine_" + sGXsfl_97_idx;
-         O94CustomerLocationLastLine = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         O94CustomerLocationLastLine = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nRC_GXsfl_129_" + sGXsfl_97_idx;
-         nRC_GXsfl_129 = (int)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRC_GXsfl_129 = (int)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nRC_GXsfl_143_" + sGXsfl_97_idx;
-         nRC_GXsfl_143 = (int)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRC_GXsfl_143 = (int)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nRC_GXsfl_156_" + sGXsfl_97_idx;
-         nRC_GXsfl_156 = (int)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRC_GXsfl_156 = (int)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nRC_GXsfl_168_" + sGXsfl_97_idx;
-         nRC_GXsfl_168 = (int)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRC_GXsfl_168 = (int)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nRcdDeleted_3_" + sGXsfl_97_idx;
-         nRcdDeleted_3 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRcdDeleted_3 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nRcdExists_3_" + sGXsfl_97_idx;
-         nRcdExists_3 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRcdExists_3 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nIsMod_3_" + sGXsfl_97_idx;
-         nIsMod_3 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nIsMod_3 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "CUSTOMERLOCATIONLASTLINE_" + sGXsfl_97_idx;
-         A94CustomerLocationLastLine = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         A94CustomerLocationLastLine = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "vGXBSCREEN_" + sGXsfl_97_idx;
-         Gx_BScreen = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         Gx_BScreen = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "SUPPLIER_AGBNUMBER_" + sGXsfl_97_idx;
          A56Supplier_AgbNumber = cgiGet( GXCCtl);
          GXCCtl = "SUPPLIER_GENKVKNUMBER_" + sGXsfl_97_idx;
@@ -8778,13 +8772,13 @@ namespace GeneXus.Programs {
          GXCCtl = "AMENITIESNAME_" + sGXsfl_97_idx;
          A101AmenitiesName = cgiGet( GXCCtl);
          GXCCtl = "nRC_GXsfl_129_" + sGXsfl_97_idx;
-         nRC_GXsfl_129 = (int)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRC_GXsfl_129 = (int)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nRC_GXsfl_143_" + sGXsfl_97_idx;
-         nRC_GXsfl_143 = (int)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRC_GXsfl_143 = (int)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nRC_GXsfl_156_" + sGXsfl_97_idx;
-         nRC_GXsfl_156 = (int)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRC_GXsfl_156 = (int)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nRC_GXsfl_168_" + sGXsfl_97_idx;
-         nRC_GXsfl_168 = (int)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRC_GXsfl_168 = (int)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
       }
 
       protected void SubsflControlProps_1294( )
@@ -8875,7 +8869,7 @@ namespace GeneXus.Programs {
          /* Subfile cell */
          /* Single line edit */
          ROClassString = "Attribute";
-         Gridlevel_receptionistRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtCustomerLocationReceptionistId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A23CustomerLocationReceptionistId), 4, 0, ".", "")),StringUtil.LTrim( ((edtCustomerLocationReceptionistId_Enabled!=0) ? context.localUtil.Format( (decimal)(A23CustomerLocationReceptionistId), "ZZZ9") : context.localUtil.Format( (decimal)(A23CustomerLocationReceptionistId), "ZZZ9")))," dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+""+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" ",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtCustomerLocationReceptionistId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"TrnColumn",(string)"",(short)0,(int)edtCustomerLocationReceptionistId_Enabled,(short)0,(string)"text",(string)"1",(short)0,(string)"px",(short)17,(string)"px",(short)4,(short)0,(short)0,(short)129,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)"end",(bool)false,(string)""});
+         Gridlevel_receptionistRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtCustomerLocationReceptionistId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A23CustomerLocationReceptionistId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")),StringUtil.LTrim( ((edtCustomerLocationReceptionistId_Enabled!=0) ? context.localUtil.Format( (decimal)(A23CustomerLocationReceptionistId), "ZZZ9") : context.localUtil.Format( (decimal)(A23CustomerLocationReceptionistId), "ZZZ9")))," dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+""+" onchange=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onchange(this, event)\" ",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtCustomerLocationReceptionistId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"TrnColumn",(string)"",(short)0,(int)edtCustomerLocationReceptionistId_Enabled,(short)0,(string)"text",(string)"1",(short)0,(string)"px",(short)17,(string)"px",(short)4,(short)0,(short)0,(short)129,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)"end",(bool)false,(string)""});
          /* Subfile cell */
          /* Single line edit */
          TempTags = " data-gxoch1=\"gx.fn.setControlValue('nIsMod_4_" + sGXsfl_129_idx + "',1);gx.fn.setControlValue('nIsMod_3_" + sGXsfl_97_idx + "',1);\"  onfocus=\"gx.evt.onfocus(this, 131,'',false,'" + sGXsfl_129_idx + "',129)\"";
@@ -8917,7 +8911,7 @@ namespace GeneXus.Programs {
          ajax_sending_grid_row(Gridlevel_receptionistRow);
          send_integrity_lvl_hashes014( ) ;
          GXCCtl = "Z23CustomerLocationReceptionistId_" + sGXsfl_129_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z23CustomerLocationReceptionistId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z23CustomerLocationReceptionistId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "Z30CustomerLocationReceptionistGA_" + sGXsfl_129_idx;
          GxWebStd.gx_hidden_field( context, GXCCtl, Z30CustomerLocationReceptionistGA);
          GXCCtl = "Z26CustomerLocationReceptionistIn_" + sGXsfl_129_idx;
@@ -8933,11 +8927,11 @@ namespace GeneXus.Programs {
          GXCCtl = "Z29CustomerLocationReceptionistPh_" + sGXsfl_129_idx;
          GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.RTrim( Z29CustomerLocationReceptionistPh));
          GXCCtl = "nRcdDeleted_4_" + sGXsfl_129_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_4), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_4), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nRcdExists_4_" + sGXsfl_129_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_4), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_4), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nIsMod_4_" + sGXsfl_129_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_4), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_4), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "vMODE_" + sGXsfl_129_idx;
          GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.RTrim( Gx_mode));
          GXCCtl = "vTRNCONTEXT_" + sGXsfl_129_idx;
@@ -8952,7 +8946,7 @@ namespace GeneXus.Programs {
          GXCCtl = "vCHECKREQUIREDFIELDSRESULT_" + sGXsfl_129_idx;
          GxWebStd.gx_boolean_hidden_field( context, GXCCtl, AV15CheckRequiredFieldsResult);
          GXCCtl = "vCUSTOMERID_" + sGXsfl_129_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7CustomerId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7CustomerId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "CUSTOMERLOCATIONRECEPTIONISTID_"+sGXsfl_129_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtCustomerLocationReceptionistId_Enabled), 5, 0, ".", "")));
          GxWebStd.gx_hidden_field( context, "CUSTOMERLOCATIONRECEPTIONISTGI_"+sGXsfl_129_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtCustomerLocationReceptionistGi_Enabled), 5, 0, ".", "")));
          GxWebStd.gx_hidden_field( context, "CUSTOMERLOCATIONRECEPTIONISTLA_"+sGXsfl_129_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtCustomerLocationReceptionistLa_Enabled), 5, 0, ".", "")));
@@ -8970,15 +8964,15 @@ namespace GeneXus.Programs {
          nGXsfl_129_idx = (int)(nGXsfl_129_idx+1);
          sGXsfl_129_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_129_idx), 4, 0), 4, "0") + sGXsfl_97_idx;
          SubsflControlProps_1294( ) ;
-         edtCustomerLocationReceptionistId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTID_"+sGXsfl_129_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtCustomerLocationReceptionistGi_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTGI_"+sGXsfl_129_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtCustomerLocationReceptionistLa_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTLA_"+sGXsfl_129_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtCustomerLocationReceptionistIn_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTIN_"+sGXsfl_129_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtCustomerLocationReceptionistEm_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTEM_"+sGXsfl_129_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtCustomerLocationReceptionistAd_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTAD_"+sGXsfl_129_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtCustomerLocationReceptionistPh_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTPH_"+sGXsfl_129_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtCustomerLocationReceptionistGA_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTGA_"+sGXsfl_129_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         A23CustomerLocationReceptionistId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerLocationReceptionistId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+         edtCustomerLocationReceptionistId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTID_"+sGXsfl_129_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtCustomerLocationReceptionistGi_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTGI_"+sGXsfl_129_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtCustomerLocationReceptionistLa_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTLA_"+sGXsfl_129_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtCustomerLocationReceptionistIn_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTIN_"+sGXsfl_129_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtCustomerLocationReceptionistEm_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTEM_"+sGXsfl_129_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtCustomerLocationReceptionistAd_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTAD_"+sGXsfl_129_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtCustomerLocationReceptionistPh_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTPH_"+sGXsfl_129_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtCustomerLocationReceptionistGA_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "CUSTOMERLOCATIONRECEPTIONISTGA_"+sGXsfl_129_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         A23CustomerLocationReceptionistId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtCustomerLocationReceptionistId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          A24CustomerLocationReceptionistGi = cgiGet( edtCustomerLocationReceptionistGi_Internalname);
          A25CustomerLocationReceptionistLa = cgiGet( edtCustomerLocationReceptionistLa_Internalname);
          A26CustomerLocationReceptionistIn = cgiGet( edtCustomerLocationReceptionistIn_Internalname);
@@ -8991,7 +8985,7 @@ namespace GeneXus.Programs {
          A29CustomerLocationReceptionistPh = cgiGet( edtCustomerLocationReceptionistPh_Internalname);
          A30CustomerLocationReceptionistGA = cgiGet( edtCustomerLocationReceptionistGA_Internalname);
          GXCCtl = "Z23CustomerLocationReceptionistId_" + sGXsfl_129_idx;
-         Z23CustomerLocationReceptionistId = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         Z23CustomerLocationReceptionistId = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "Z30CustomerLocationReceptionistGA_" + sGXsfl_129_idx;
          Z30CustomerLocationReceptionistGA = cgiGet( GXCCtl);
          GXCCtl = "Z26CustomerLocationReceptionistIn_" + sGXsfl_129_idx;
@@ -9009,11 +9003,11 @@ namespace GeneXus.Programs {
          GXCCtl = "Z29CustomerLocationReceptionistPh_" + sGXsfl_129_idx;
          Z29CustomerLocationReceptionistPh = cgiGet( GXCCtl);
          GXCCtl = "nRcdDeleted_4_" + sGXsfl_129_idx;
-         nRcdDeleted_4 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRcdDeleted_4 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nRcdExists_4_" + sGXsfl_129_idx;
-         nRcdExists_4 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRcdExists_4 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nIsMod_4_" + sGXsfl_129_idx;
-         nIsMod_4 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nIsMod_4 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
       }
 
       protected void SubsflControlProps_14316( )
@@ -9105,7 +9099,7 @@ namespace GeneXus.Programs {
          /* Single line edit */
          TempTags = " data-gxoch1=\"gx.fn.setControlValue('nIsMod_16_" + sGXsfl_143_idx + "',1);gx.fn.setControlValue('nIsMod_3_" + sGXsfl_97_idx + "',1);\"  onfocus=\"gx.evt.onfocus(this, 144,'',false,'" + sGXsfl_143_idx + "',143)\"";
          ROClassString = "Attribute";
-         Gridlevel_supplier_agbRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtSupplier_AgbId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A55Supplier_AgbId), 4, 0, ".", "")),StringUtil.LTrim( context.localUtil.Format( (decimal)(A55Supplier_AgbId), "ZZZ9"))," dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,144);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtSupplier_AgbId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"TrnColumn",(string)"",(short)-1,(int)edtSupplier_AgbId_Enabled,(short)1,(string)"text",(string)"1",(short)0,(string)"px",(short)17,(string)"px",(short)4,(short)0,(short)0,(short)143,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)edtSupplier_AgbId_Horizontalalignment,(bool)false,(string)""});
+         Gridlevel_supplier_agbRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtSupplier_AgbId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A55Supplier_AgbId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")),StringUtil.LTrim( context.localUtil.Format( (decimal)(A55Supplier_AgbId), "ZZZ9"))," dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onblur(this,144);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtSupplier_AgbId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"TrnColumn",(string)"",(short)-1,(int)edtSupplier_AgbId_Enabled,(short)1,(string)"text",(string)"1",(short)0,(string)"px",(short)17,(string)"px",(short)4,(short)0,(short)0,(short)143,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)edtSupplier_AgbId_Horizontalalignment,(bool)false,(string)""});
          /* Subfile cell */
          /* Single line edit */
          TempTags = " data-gxoch1=\"gx.fn.setControlValue('nIsMod_16_" + sGXsfl_143_idx + "',1);gx.fn.setControlValue('nIsMod_3_" + sGXsfl_97_idx + "',1);\"  onfocus=\"gx.evt.onfocus(this, 145,'',false,'" + sGXsfl_143_idx + "',143)\"";
@@ -9148,13 +9142,13 @@ namespace GeneXus.Programs {
          ajax_sending_grid_row(Gridlevel_supplier_agbRow);
          send_integrity_lvl_hashes0116( ) ;
          GXCCtl = "Z55Supplier_AgbId_" + sGXsfl_143_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z55Supplier_AgbId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z55Supplier_AgbId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nRcdDeleted_16_" + sGXsfl_143_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_16), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_16), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nRcdExists_16_" + sGXsfl_143_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_16), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_16), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nIsMod_16_" + sGXsfl_143_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_16), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_16), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "vMODE_" + sGXsfl_143_idx;
          GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.RTrim( Gx_mode));
          GXCCtl = "vTRNCONTEXT_" + sGXsfl_143_idx;
@@ -9169,7 +9163,7 @@ namespace GeneXus.Programs {
          GXCCtl = "vCHECKREQUIREDFIELDSRESULT_" + sGXsfl_143_idx;
          GxWebStd.gx_boolean_hidden_field( context, GXCCtl, AV15CheckRequiredFieldsResult);
          GXCCtl = "vCUSTOMERID_" + sGXsfl_143_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7CustomerId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7CustomerId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "SUPPLIER_AGBID_"+sGXsfl_143_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtSupplier_AgbId_Enabled), 5, 0, ".", "")));
          GxWebStd.gx_hidden_field( context, "SUPPLIER_AGBID_"+sGXsfl_143_idx+"Horizontalalignment", StringUtil.RTrim( edtSupplier_AgbId_Horizontalalignment));
          GxWebStd.gx_hidden_field( context, "SUPPLIER_AGBNAME_"+sGXsfl_143_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtSupplier_AgbName_Enabled), 5, 0, ".", "")));
@@ -9188,16 +9182,16 @@ namespace GeneXus.Programs {
          nGXsfl_143_idx = (int)(nGXsfl_143_idx+1);
          sGXsfl_143_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_143_idx), 4, 0), 4, "0") + sGXsfl_97_idx;
          SubsflControlProps_14316( ) ;
-         edtSupplier_AgbId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBID_"+sGXsfl_143_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+         edtSupplier_AgbId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBID_"+sGXsfl_143_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          edtSupplier_AgbId_Horizontalalignment = cgiGet( "SUPPLIER_AGBID_"+sGXsfl_143_idx+"Horizontalalignment");
-         edtSupplier_AgbName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBNAME_"+sGXsfl_143_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtSupplier_AgbKvkNumber_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBKVKNUMBER_"+sGXsfl_143_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtSupplier_AgbVisitingAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBVISITINGADDRESS_"+sGXsfl_143_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtSupplier_AgbPostalAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBPOSTALADDRESS_"+sGXsfl_143_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtSupplier_AgbEmail_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBEMAIL_"+sGXsfl_143_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtSupplier_AgbPhone_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBPHONE_"+sGXsfl_143_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtSupplier_AgbContactName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBCONTACTNAME_"+sGXsfl_143_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         if ( ( ( context.localUtil.CToN( cgiGet( edtSupplier_AgbId_Internalname), ".", ",") < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtSupplier_AgbId_Internalname), ".", ",") > Convert.ToDecimal( 9999 )) ) )
+         edtSupplier_AgbName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBNAME_"+sGXsfl_143_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtSupplier_AgbKvkNumber_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBKVKNUMBER_"+sGXsfl_143_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtSupplier_AgbVisitingAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBVISITINGADDRESS_"+sGXsfl_143_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtSupplier_AgbPostalAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBPOSTALADDRESS_"+sGXsfl_143_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtSupplier_AgbEmail_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBEMAIL_"+sGXsfl_143_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtSupplier_AgbPhone_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBPHONE_"+sGXsfl_143_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtSupplier_AgbContactName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_AGBCONTACTNAME_"+sGXsfl_143_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         if ( ( ( context.localUtil.CToN( cgiGet( edtSupplier_AgbId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtSupplier_AgbId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) > Convert.ToDecimal( 9999 )) ) )
          {
             GXCCtl = "SUPPLIER_AGBID_" + sGXsfl_143_idx;
             GX_msglist.addItem(context.GetMessage( "GXM_badnum", ""), 1, GXCCtl);
@@ -9208,7 +9202,7 @@ namespace GeneXus.Programs {
          }
          else
          {
-            A55Supplier_AgbId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtSupplier_AgbId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+            A55Supplier_AgbId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtSupplier_AgbId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          }
          A57Supplier_AgbName = cgiGet( edtSupplier_AgbName_Internalname);
          A58Supplier_AgbKvkNumber = cgiGet( edtSupplier_AgbKvkNumber_Internalname);
@@ -9223,13 +9217,13 @@ namespace GeneXus.Programs {
          A63Supplier_AgbContactName = cgiGet( edtSupplier_AgbContactName_Internalname);
          n63Supplier_AgbContactName = false;
          GXCCtl = "Z55Supplier_AgbId_" + sGXsfl_143_idx;
-         Z55Supplier_AgbId = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         Z55Supplier_AgbId = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nRcdDeleted_16_" + sGXsfl_143_idx;
-         nRcdDeleted_16 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRcdDeleted_16 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nRcdExists_16_" + sGXsfl_143_idx;
-         nRcdExists_16 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRcdExists_16 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nIsMod_16_" + sGXsfl_143_idx;
-         nIsMod_16 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nIsMod_16 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
       }
 
       protected void SubsflControlProps_15617( )
@@ -9317,7 +9311,7 @@ namespace GeneXus.Programs {
          /* Single line edit */
          TempTags = " data-gxoch1=\"gx.fn.setControlValue('nIsMod_17_" + sGXsfl_156_idx + "',1);gx.fn.setControlValue('nIsMod_3_" + sGXsfl_97_idx + "',1);\"  onfocus=\"gx.evt.onfocus(this, 157,'',false,'" + sGXsfl_156_idx + "',156)\"";
          ROClassString = "Attribute";
-         Gridlevel_supplier_genRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtSupplier_GenId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A64Supplier_GenId), 4, 0, ".", "")),StringUtil.LTrim( context.localUtil.Format( (decimal)(A64Supplier_GenId), "ZZZ9"))," dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,157);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtSupplier_GenId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"TrnColumn",(string)"",(short)-1,(int)edtSupplier_GenId_Enabled,(short)1,(string)"text",(string)"1",(short)0,(string)"px",(short)17,(string)"px",(short)4,(short)0,(short)0,(short)156,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)edtSupplier_GenId_Horizontalalignment,(bool)false,(string)""});
+         Gridlevel_supplier_genRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtSupplier_GenId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A64Supplier_GenId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")),StringUtil.LTrim( context.localUtil.Format( (decimal)(A64Supplier_GenId), "ZZZ9"))," dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onblur(this,157);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtSupplier_GenId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"TrnColumn",(string)"",(short)-1,(int)edtSupplier_GenId_Enabled,(short)1,(string)"text",(string)"1",(short)0,(string)"px",(short)17,(string)"px",(short)4,(short)0,(short)0,(short)156,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)edtSupplier_GenId_Horizontalalignment,(bool)false,(string)""});
          /* Subfile cell */
          /* Single line edit */
          TempTags = " data-gxoch1=\"gx.fn.setControlValue('nIsMod_17_" + sGXsfl_156_idx + "',1);gx.fn.setControlValue('nIsMod_3_" + sGXsfl_97_idx + "',1);\"  onfocus=\"gx.evt.onfocus(this, 158,'',false,'" + sGXsfl_156_idx + "',156)\"";
@@ -9350,13 +9344,13 @@ namespace GeneXus.Programs {
          ajax_sending_grid_row(Gridlevel_supplier_genRow);
          send_integrity_lvl_hashes0117( ) ;
          GXCCtl = "Z64Supplier_GenId_" + sGXsfl_156_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z64Supplier_GenId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z64Supplier_GenId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nRcdDeleted_17_" + sGXsfl_156_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_17), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_17), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nRcdExists_17_" + sGXsfl_156_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_17), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_17), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nIsMod_17_" + sGXsfl_156_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_17), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_17), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "vMODE_" + sGXsfl_156_idx;
          GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.RTrim( Gx_mode));
          GXCCtl = "vTRNCONTEXT_" + sGXsfl_156_idx;
@@ -9371,7 +9365,7 @@ namespace GeneXus.Programs {
          GXCCtl = "vCHECKREQUIREDFIELDSRESULT_" + sGXsfl_156_idx;
          GxWebStd.gx_boolean_hidden_field( context, GXCCtl, AV15CheckRequiredFieldsResult);
          GXCCtl = "vCUSTOMERID_" + sGXsfl_156_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7CustomerId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7CustomerId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "SUPPLIER_GENID_"+sGXsfl_156_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtSupplier_GenId_Enabled), 5, 0, ".", "")));
          GxWebStd.gx_hidden_field( context, "SUPPLIER_GENID_"+sGXsfl_156_idx+"Horizontalalignment", StringUtil.RTrim( edtSupplier_GenId_Horizontalalignment));
          GxWebStd.gx_hidden_field( context, "SUPPLIER_GENCOMPANYNAME_"+sGXsfl_156_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtSupplier_GenCompanyName_Enabled), 5, 0, ".", "")));
@@ -9388,14 +9382,14 @@ namespace GeneXus.Programs {
          nGXsfl_156_idx = (int)(nGXsfl_156_idx+1);
          sGXsfl_156_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_156_idx), 4, 0), 4, "0") + sGXsfl_97_idx;
          SubsflControlProps_15617( ) ;
-         edtSupplier_GenId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENID_"+sGXsfl_156_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+         edtSupplier_GenId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENID_"+sGXsfl_156_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          edtSupplier_GenId_Horizontalalignment = cgiGet( "SUPPLIER_GENID_"+sGXsfl_156_idx+"Horizontalalignment");
-         edtSupplier_GenCompanyName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENCOMPANYNAME_"+sGXsfl_156_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtSupplier_GenVisitingAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENVISITINGADDRESS_"+sGXsfl_156_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtSupplier_GenPostalAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENPOSTALADDRESS_"+sGXsfl_156_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtSupplier_GenContactName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENCONTACTNAME_"+sGXsfl_156_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtSupplier_GenContactPhone_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENCONTACTPHONE_"+sGXsfl_156_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         if ( ( ( context.localUtil.CToN( cgiGet( edtSupplier_GenId_Internalname), ".", ",") < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtSupplier_GenId_Internalname), ".", ",") > Convert.ToDecimal( 9999 )) ) )
+         edtSupplier_GenCompanyName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENCOMPANYNAME_"+sGXsfl_156_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtSupplier_GenVisitingAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENVISITINGADDRESS_"+sGXsfl_156_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtSupplier_GenPostalAddress_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENPOSTALADDRESS_"+sGXsfl_156_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtSupplier_GenContactName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENCONTACTNAME_"+sGXsfl_156_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtSupplier_GenContactPhone_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "SUPPLIER_GENCONTACTPHONE_"+sGXsfl_156_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         if ( ( ( context.localUtil.CToN( cgiGet( edtSupplier_GenId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtSupplier_GenId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) > Convert.ToDecimal( 9999 )) ) )
          {
             GXCCtl = "SUPPLIER_GENID_" + sGXsfl_156_idx;
             GX_msglist.addItem(context.GetMessage( "GXM_badnum", ""), 1, GXCCtl);
@@ -9406,7 +9400,7 @@ namespace GeneXus.Programs {
          }
          else
          {
-            A64Supplier_GenId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtSupplier_GenId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+            A64Supplier_GenId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtSupplier_GenId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          }
          A66Supplier_GenCompanyName = cgiGet( edtSupplier_GenCompanyName_Internalname);
          A67Supplier_GenVisitingAddress = cgiGet( edtSupplier_GenVisitingAddress_Internalname);
@@ -9418,13 +9412,13 @@ namespace GeneXus.Programs {
          A70Supplier_GenContactPhone = cgiGet( edtSupplier_GenContactPhone_Internalname);
          n70Supplier_GenContactPhone = false;
          GXCCtl = "Z64Supplier_GenId_" + sGXsfl_156_idx;
-         Z64Supplier_GenId = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         Z64Supplier_GenId = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nRcdDeleted_17_" + sGXsfl_156_idx;
-         nRcdDeleted_17 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRcdDeleted_17 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nRcdExists_17_" + sGXsfl_156_idx;
-         nRcdExists_17 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRcdExists_17 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nIsMod_17_" + sGXsfl_156_idx;
-         nIsMod_17 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nIsMod_17 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
       }
 
       protected void SubsflControlProps_16821( )
@@ -9506,12 +9500,12 @@ namespace GeneXus.Programs {
          /* Single line edit */
          TempTags = " data-gxoch1=\"gx.fn.setControlValue('nIsMod_21_" + sGXsfl_168_idx + "',1);gx.fn.setControlValue('nIsMod_3_" + sGXsfl_97_idx + "',1);\"  onfocus=\"gx.evt.onfocus(this, 169,'',false,'" + sGXsfl_168_idx + "',168)\"";
          ROClassString = "Attribute";
-         Gridlevel_amenitiesRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtAmenitiesId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A98AmenitiesId), 4, 0, ".", "")),StringUtil.LTrim( context.localUtil.Format( (decimal)(A98AmenitiesId), "ZZZ9"))," dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,169);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtAmenitiesId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"TrnColumn",(string)"",(short)-1,(int)edtAmenitiesId_Enabled,(short)1,(string)"text",(string)"1",(short)0,(string)"px",(short)17,(string)"px",(short)4,(short)0,(short)0,(short)168,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)edtAmenitiesId_Horizontalalignment,(bool)false,(string)""});
+         Gridlevel_amenitiesRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtAmenitiesId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A98AmenitiesId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")),StringUtil.LTrim( context.localUtil.Format( (decimal)(A98AmenitiesId), "ZZZ9"))," dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onblur(this,169);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtAmenitiesId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"TrnColumn",(string)"",(short)-1,(int)edtAmenitiesId_Enabled,(short)1,(string)"text",(string)"1",(short)0,(string)"px",(short)17,(string)"px",(short)4,(short)0,(short)0,(short)168,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)edtAmenitiesId_Horizontalalignment,(bool)false,(string)""});
          /* Subfile cell */
          /* Single line edit */
          TempTags = " data-gxoch1=\"gx.fn.setControlValue('nIsMod_21_" + sGXsfl_168_idx + "',1);gx.fn.setControlValue('nIsMod_3_" + sGXsfl_97_idx + "',1);\"  onfocus=\"gx.evt.onfocus(this, 170,'',false,'" + sGXsfl_168_idx + "',168)\"";
          ROClassString = "Attribute";
-         Gridlevel_amenitiesRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtAmenitiesTypeId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A99AmenitiesTypeId), 4, 0, ".", "")),StringUtil.LTrim( ((edtAmenitiesTypeId_Enabled!=0) ? context.localUtil.Format( (decimal)(A99AmenitiesTypeId), "ZZZ9") : context.localUtil.Format( (decimal)(A99AmenitiesTypeId), "ZZZ9")))," dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,170);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtAmenitiesTypeId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"TrnColumn",(string)"",(short)-1,(int)edtAmenitiesTypeId_Enabled,(short)0,(string)"text",(string)"1",(short)0,(string)"px",(short)17,(string)"px",(short)4,(short)0,(short)0,(short)168,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)"end",(bool)false,(string)""});
+         Gridlevel_amenitiesRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtAmenitiesTypeId_Internalname,StringUtil.LTrim( StringUtil.NToC( (decimal)(A99AmenitiesTypeId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")),StringUtil.LTrim( ((edtAmenitiesTypeId_Enabled!=0) ? context.localUtil.Format( (decimal)(A99AmenitiesTypeId), "ZZZ9") : context.localUtil.Format( (decimal)(A99AmenitiesTypeId), "ZZZ9")))," dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onblur(this,170);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtAmenitiesTypeId_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"TrnColumn",(string)"",(short)-1,(int)edtAmenitiesTypeId_Enabled,(short)0,(string)"text",(string)"1",(short)0,(string)"px",(short)17,(string)"px",(short)4,(short)0,(short)0,(short)168,(short)0,(short)-1,(short)0,(bool)true,(string)"Id",(string)"end",(bool)false,(string)""});
          /* Subfile cell */
          /* Single line edit */
          TempTags = " data-gxoch1=\"gx.fn.setControlValue('nIsMod_21_" + sGXsfl_168_idx + "',1);gx.fn.setControlValue('nIsMod_3_" + sGXsfl_97_idx + "',1);\"  onfocus=\"gx.evt.onfocus(this, 171,'',false,'" + sGXsfl_168_idx + "',168)\"";
@@ -9520,13 +9514,13 @@ namespace GeneXus.Programs {
          ajax_sending_grid_row(Gridlevel_amenitiesRow);
          send_integrity_lvl_hashes0121( ) ;
          GXCCtl = "Z98AmenitiesId_" + sGXsfl_168_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z98AmenitiesId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(Z98AmenitiesId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nRcdDeleted_21_" + sGXsfl_168_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_21), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdDeleted_21), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nRcdExists_21_" + sGXsfl_168_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_21), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nRcdExists_21), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "nIsMod_21_" + sGXsfl_168_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_21), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(nIsMod_21), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GXCCtl = "vMODE_" + sGXsfl_168_idx;
          GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.RTrim( Gx_mode));
          GXCCtl = "vTRNCONTEXT_" + sGXsfl_168_idx;
@@ -9541,7 +9535,7 @@ namespace GeneXus.Programs {
          GXCCtl = "vCHECKREQUIREDFIELDSRESULT_" + sGXsfl_168_idx;
          GxWebStd.gx_boolean_hidden_field( context, GXCCtl, AV15CheckRequiredFieldsResult);
          GXCCtl = "vCUSTOMERID_" + sGXsfl_168_idx;
-         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7CustomerId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, GXCCtl, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7CustomerId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "AMENITIESID_"+sGXsfl_168_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtAmenitiesId_Enabled), 5, 0, ".", "")));
          GxWebStd.gx_hidden_field( context, "AMENITIESID_"+sGXsfl_168_idx+"Horizontalalignment", StringUtil.RTrim( edtAmenitiesId_Horizontalalignment));
          GxWebStd.gx_hidden_field( context, "AMENITIESTYPEID_"+sGXsfl_168_idx+"Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtAmenitiesTypeId_Enabled), 5, 0, ".", "")));
@@ -9555,11 +9549,11 @@ namespace GeneXus.Programs {
          nGXsfl_168_idx = (int)(nGXsfl_168_idx+1);
          sGXsfl_168_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_168_idx), 4, 0), 4, "0") + sGXsfl_97_idx;
          SubsflControlProps_16821( ) ;
-         edtAmenitiesId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "AMENITIESID_"+sGXsfl_168_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
+         edtAmenitiesId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "AMENITIESID_"+sGXsfl_168_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          edtAmenitiesId_Horizontalalignment = cgiGet( "AMENITIESID_"+sGXsfl_168_idx+"Horizontalalignment");
-         edtAmenitiesTypeId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "AMENITIESTYPEID_"+sGXsfl_168_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         edtAmenitiesTypeName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "AMENITIESTYPENAME_"+sGXsfl_168_idx+"Enabled"), ".", ","), 18, MidpointRounding.ToEven));
-         if ( ( ( context.localUtil.CToN( cgiGet( edtAmenitiesId_Internalname), ".", ",") < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtAmenitiesId_Internalname), ".", ",") > Convert.ToDecimal( 9999 )) ) )
+         edtAmenitiesTypeId_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "AMENITIESTYPEID_"+sGXsfl_168_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         edtAmenitiesTypeName_Enabled = (int)(Math.Round(context.localUtil.CToN( cgiGet( "AMENITIESTYPENAME_"+sGXsfl_168_idx+"Enabled"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+         if ( ( ( context.localUtil.CToN( cgiGet( edtAmenitiesId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) < Convert.ToDecimal( 0 )) ) || ( ( context.localUtil.CToN( cgiGet( edtAmenitiesId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")) > Convert.ToDecimal( 9999 )) ) )
          {
             GXCCtl = "AMENITIESID_" + sGXsfl_168_idx;
             GX_msglist.addItem(context.GetMessage( "GXM_badnum", ""), 1, GXCCtl);
@@ -9570,18 +9564,18 @@ namespace GeneXus.Programs {
          }
          else
          {
-            A98AmenitiesId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtAmenitiesId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+            A98AmenitiesId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtAmenitiesId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          }
-         A99AmenitiesTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtAmenitiesTypeId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+         A99AmenitiesTypeId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtAmenitiesTypeId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          A100AmenitiesTypeName = cgiGet( edtAmenitiesTypeName_Internalname);
          GXCCtl = "Z98AmenitiesId_" + sGXsfl_168_idx;
-         Z98AmenitiesId = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         Z98AmenitiesId = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nRcdDeleted_21_" + sGXsfl_168_idx;
-         nRcdDeleted_21 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRcdDeleted_21 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nRcdExists_21_" + sGXsfl_168_idx;
-         nRcdExists_21 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nRcdExists_21 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
          GXCCtl = "nIsMod_21_" + sGXsfl_168_idx;
-         nIsMod_21 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), ".", ","), 18, MidpointRounding.ToEven));
+         nIsMod_21 = (short)(Math.Round(context.localUtil.CToN( cgiGet( GXCCtl), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
       }
 
       protected void assign_properties_default( )
@@ -9812,7 +9806,7 @@ namespace GeneXus.Programs {
          /* Send hidden variables. */
          /* Send saved values. */
          send_integrity_footer_hashes( ) ;
-         GxWebStd.gx_hidden_field( context, "Z1CustomerId", StringUtil.LTrim( StringUtil.NToC( (decimal)(Z1CustomerId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "Z1CustomerId", StringUtil.LTrim( StringUtil.NToC( (decimal)(Z1CustomerId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "Z41CustomerKvkNumber", Z41CustomerKvkNumber);
          GxWebStd.gx_hidden_field( context, "Z3CustomerName", Z3CustomerName);
          GxWebStd.gx_hidden_field( context, "Z4CustomerPostalAddress", Z4CustomerPostalAddress);
@@ -9820,18 +9814,18 @@ namespace GeneXus.Programs {
          GxWebStd.gx_hidden_field( context, "Z6CustomerVisitingAddress", Z6CustomerVisitingAddress);
          GxWebStd.gx_hidden_field( context, "Z7CustomerPhone", StringUtil.RTrim( Z7CustomerPhone));
          GxWebStd.gx_hidden_field( context, "Z14CustomerVatNumber", Z14CustomerVatNumber);
-         GxWebStd.gx_hidden_field( context, "Z93CustomerLastLine", StringUtil.LTrim( StringUtil.NToC( (decimal)(Z93CustomerLastLine), 4, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "Z95CustomerLastLineLocation", StringUtil.LTrim( StringUtil.NToC( (decimal)(Z95CustomerLastLineLocation), 4, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "Z78CustomerTypeId", StringUtil.LTrim( StringUtil.NToC( (decimal)(Z78CustomerTypeId), 4, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "O95CustomerLastLineLocation", StringUtil.LTrim( StringUtil.NToC( (decimal)(O95CustomerLastLineLocation), 4, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "O93CustomerLastLine", StringUtil.LTrim( StringUtil.NToC( (decimal)(O93CustomerLastLine), 4, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "IsConfirmed", StringUtil.LTrim( StringUtil.NToC( (decimal)(IsConfirmed), 4, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "IsModified", StringUtil.LTrim( StringUtil.NToC( (decimal)(IsModified), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "Z93CustomerLastLine", StringUtil.LTrim( StringUtil.NToC( (decimal)(Z93CustomerLastLine), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "Z95CustomerLastLineLocation", StringUtil.LTrim( StringUtil.NToC( (decimal)(Z95CustomerLastLineLocation), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "Z78CustomerTypeId", StringUtil.LTrim( StringUtil.NToC( (decimal)(Z78CustomerTypeId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "O95CustomerLastLineLocation", StringUtil.LTrim( StringUtil.NToC( (decimal)(O95CustomerLastLineLocation), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "O93CustomerLastLine", StringUtil.LTrim( StringUtil.NToC( (decimal)(O93CustomerLastLine), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "IsConfirmed", StringUtil.LTrim( StringUtil.NToC( (decimal)(IsConfirmed), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "IsModified", StringUtil.LTrim( StringUtil.NToC( (decimal)(IsModified), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "Mode", StringUtil.RTrim( Gx_mode));
          GxWebStd.gx_hidden_field( context, "gxhash_Mode", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( Gx_mode, "@!")), context));
-         GxWebStd.gx_hidden_field( context, "nRC_GXsfl_78", StringUtil.LTrim( StringUtil.NToC( (decimal)(nGXsfl_78_idx), 8, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "nRC_GXsfl_97", StringUtil.LTrim( StringUtil.NToC( (decimal)(nGXsfl_97_idx), 8, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "N78CustomerTypeId", StringUtil.LTrim( StringUtil.NToC( (decimal)(A78CustomerTypeId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "nRC_GXsfl_78", StringUtil.LTrim( StringUtil.NToC( (decimal)(nGXsfl_78_idx), 8, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "nRC_GXsfl_97", StringUtil.LTrim( StringUtil.NToC( (decimal)(nGXsfl_97_idx), 8, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "N78CustomerTypeId", StringUtil.LTrim( StringUtil.NToC( (decimal)(A78CustomerTypeId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          if ( context.isAjaxRequest( ) )
          {
             context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "vDDO_TITLESETTINGSICONS", AV19DDO_TitleSettingsIcons);
@@ -9884,14 +9878,14 @@ namespace GeneXus.Programs {
          }
          GxWebStd.gx_hidden_field( context, "gxhash_vTRNCONTEXT", GetSecureSignedToken( "", AV11TrnContext, context));
          GxWebStd.gx_boolean_hidden_field( context, "vCHECKREQUIREDFIELDSRESULT", AV15CheckRequiredFieldsResult);
-         GxWebStd.gx_hidden_field( context, "vCUSTOMERID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7CustomerId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "vCUSTOMERID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7CustomerId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "gxhash_vCUSTOMERID", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV7CustomerId), "ZZZ9"), context));
-         GxWebStd.gx_hidden_field( context, "vINSERT_CUSTOMERTYPEID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV13Insert_CustomerTypeId), 4, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "CUSTOMERLASTLINELOCATION", StringUtil.LTrim( StringUtil.NToC( (decimal)(A95CustomerLastLineLocation), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "vINSERT_CUSTOMERTYPEID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV13Insert_CustomerTypeId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "CUSTOMERLASTLINELOCATION", StringUtil.LTrim( StringUtil.NToC( (decimal)(A95CustomerLastLineLocation), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "CUSTOMERTYPENAME", A79CustomerTypeName);
          GxWebStd.gx_hidden_field( context, "vPGMNAME", StringUtil.RTrim( AV30Pgmname));
-         GxWebStd.gx_hidden_field( context, "vGXBSCREEN", StringUtil.LTrim( StringUtil.NToC( (decimal)(Gx_BScreen), 1, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "CUSTOMERLOCATIONLASTLINE", StringUtil.LTrim( StringUtil.NToC( (decimal)(A94CustomerLocationLastLine), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "vGXBSCREEN", StringUtil.LTrim( StringUtil.NToC( (decimal)(Gx_BScreen), 1, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "CUSTOMERLOCATIONLASTLINE", StringUtil.LTrim( StringUtil.NToC( (decimal)(A94CustomerLocationLastLine), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "CUSTOMERLOCATIONDESCRIPTION", A133CustomerLocationDescription);
          GxWebStd.gx_hidden_field( context, "CUSTOMERLOCATIONNAME", A134CustomerLocationName);
          GxWebStd.gx_hidden_field( context, "COMBO_CUSTOMERTYPEID_Objectcall", StringUtil.RTrim( Combo_customertypeid_Objectcall));
@@ -9961,6 +9955,18 @@ namespace GeneXus.Programs {
             enableOutput();
          }
          include_jscripts( ) ;
+         context.WriteHtmlText( "<script type=\"text/javascript\">") ;
+         context.WriteHtmlText( "gx.setLanguageCode(\""+context.GetLanguageProperty( "code")+"\");") ;
+         if ( ! context.isSpaRequest( ) )
+         {
+            context.WriteHtmlText( "gx.setDateFormat(\""+context.GetLanguageProperty( "date_fmt")+"\");") ;
+            context.WriteHtmlText( "gx.setTimeFormat("+context.GetLanguageProperty( "time_fmt")+");") ;
+            context.WriteHtmlText( "gx.setCenturyFirstYear("+40+");") ;
+            context.WriteHtmlText( "gx.setDecimalPoint(\""+context.GetLanguageProperty( "decimal_point")+"\");") ;
+            context.WriteHtmlText( "gx.setThousandSeparator(\""+context.GetLanguageProperty( "thousand_sep")+"\");") ;
+            context.WriteHtmlText( "gx.StorageTimeZone = "+1+";") ;
+         }
+         context.WriteHtmlText( "</script>") ;
       }
 
       public override short ExecuteStartEvent( )
@@ -10006,7 +10012,7 @@ namespace GeneXus.Programs {
 
       public override string GetPgmdesc( )
       {
-         return "Customer" ;
+         return context.GetMessage( "Customer", "") ;
       }
 
       protected void InitializeNonKey011( )
@@ -10252,7 +10258,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20249126293226", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202491315525118", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -10267,8 +10273,8 @@ namespace GeneXus.Programs {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("customer.js", "?20249126293228", false, true);
+         context.AddJavascriptSource("messages."+StringUtil.Lower( context.GetLanguageProperty( "code"))+".js", "?"+GetCacheInvalidationToken( ), false, true);
+         context.AddJavascriptSource("customer.js", "?202491315525121", false, true);
          context.AddJavascriptSource("shared/HistoryManager/HistoryManager.js", "", false, true);
          context.AddJavascriptSource("shared/HistoryManager/rsh/json2005.js", "", false, true);
          context.AddJavascriptSource("shared/HistoryManager/rsh/rsh.js", "", false, true);
@@ -10876,7 +10882,7 @@ namespace GeneXus.Programs {
          Form.Background = "";
          Form.Textcolor = 0;
          Form.Backcolor = (int)(0xFFFFFF);
-         Form.Caption = "Customer";
+         Form.Caption = context.GetMessage( "Customer", "");
          edtAmenitiesTypeName_Jsonclick = "";
          edtAmenitiesTypeId_Jsonclick = "";
          edtAmenitiesId_Jsonclick = "";
@@ -11043,14 +11049,11 @@ namespace GeneXus.Programs {
          /* End function dynload_actions */
       }
 
-      protected void XC_15_012( string A10CustomerManagerEmail ,
-                                string A16CustomerManagerGivenName ,
-                                string A9CustomerManagerLastName )
+      protected void XC_15_012( )
       {
-         new createuseraccount(context ).execute(  A10CustomerManagerEmail,  A16CustomerManagerGivenName,  A9CustomerManagerLastName,  "Customer Manager", out  A13CustomerManagerGAMGUID) ;
+         new createuseraccount(context ).execute(  A10CustomerManagerEmail,  A16CustomerManagerGivenName,  A9CustomerManagerLastName,  context.GetMessage( "Customer Manager", ""), out  A13CustomerManagerGAMGUID) ;
          GxWebStd.set_html_headers( context, 0, "", "");
          AddString( "[[") ;
-         AddString( "\""+GXUtil.EncodeJSConstant( A13CustomerManagerGAMGUID)+"\"") ;
          AddString( "]") ;
          if ( true )
          {
@@ -11077,14 +11080,11 @@ namespace GeneXus.Programs {
          AddString( "]") ;
       }
 
-      protected void XC_25_014( string A27CustomerLocationReceptionistEm ,
-                                string A24CustomerLocationReceptionistGi ,
-                                string A25CustomerLocationReceptionistLa )
+      protected void XC_25_014( )
       {
-         new createuseraccount(context ).execute(  A27CustomerLocationReceptionistEm,  A24CustomerLocationReceptionistGi,  A25CustomerLocationReceptionistLa,  "Receptionist", out  A30CustomerLocationReceptionistGA) ;
+         new createuseraccount(context ).execute(  A27CustomerLocationReceptionistEm,  A24CustomerLocationReceptionistGi,  A25CustomerLocationReceptionistLa,  context.GetMessage( "Receptionist", ""), out  A30CustomerLocationReceptionistGA) ;
          GxWebStd.set_html_headers( context, 0, "", "");
          AddString( "[[") ;
-         AddString( "\""+GXUtil.EncodeJSConstant( A30CustomerLocationReceptionistGA)+"\"") ;
          AddString( "]") ;
          if ( true )
          {
@@ -11266,9 +11266,9 @@ namespace GeneXus.Programs {
          GXCCtl = "CUSTOMERMANAGERGENDER_" + sGXsfl_78_idx;
          cmbCustomerManagerGender.Name = GXCCtl;
          cmbCustomerManagerGender.WebTags = "";
-         cmbCustomerManagerGender.addItem("Man", "Man", 0);
-         cmbCustomerManagerGender.addItem("Woman", "Woman", 0);
-         cmbCustomerManagerGender.addItem("Other", "Other", 0);
+         cmbCustomerManagerGender.addItem("Man", context.GetMessage( "Man", ""), 0);
+         cmbCustomerManagerGender.addItem("Woman", context.GetMessage( "Woman", ""), 0);
+         cmbCustomerManagerGender.addItem("Other", context.GetMessage( "Other", ""), 0);
          if ( cmbCustomerManagerGender.ItemCount > 0 )
          {
             A12CustomerManagerGender = cmbCustomerManagerGender.getValidValue(A12CustomerManagerGender);
@@ -11306,7 +11306,7 @@ namespace GeneXus.Programs {
          {
             if ( ! ( (0==A78CustomerTypeId) ) )
             {
-               GX_msglist.addItem("No matching 'Customer Type'.", "ForeignKeyNotFound", 1, "CUSTOMERTYPEID");
+               GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Customer Type", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "CUSTOMERTYPEID");
                AnyError = 1;
                GX_FocusControl = edtCustomerTypeId_Internalname;
             }
@@ -11349,7 +11349,7 @@ namespace GeneXus.Programs {
          pr_default.execute(60, new Object[] {A55Supplier_AgbId});
          if ( (pr_default.getStatus(60) == 101) )
          {
-            GX_msglist.addItem("No matching 'Supplier_AGB'.", "ForeignKeyNotFound", 1, "SUPPLIER_AGBID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Supplier_AGB", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "SUPPLIER_AGBID");
             AnyError = 1;
             GX_FocusControl = edtSupplier_AgbId_Internalname;
          }
@@ -11389,7 +11389,7 @@ namespace GeneXus.Programs {
          pr_default.execute(67, new Object[] {A64Supplier_GenId});
          if ( (pr_default.getStatus(67) == 101) )
          {
-            GX_msglist.addItem("No matching 'Supplier_Gen'.", "ForeignKeyNotFound", 1, "SUPPLIER_GENID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Supplier_Gen", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "SUPPLIER_GENID");
             AnyError = 1;
             GX_FocusControl = edtSupplier_GenId_Internalname;
          }
@@ -11420,7 +11420,7 @@ namespace GeneXus.Programs {
          pr_default.execute(75, new Object[] {A98AmenitiesId});
          if ( (pr_default.getStatus(75) == 101) )
          {
-            GX_msglist.addItem("No matching 'Amenities'.", "ForeignKeyNotFound", 1, "AMENITIESID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Amenities", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "AMENITIESID");
             AnyError = 1;
             GX_FocusControl = edtAmenitiesId_Internalname;
          }
@@ -11431,7 +11431,7 @@ namespace GeneXus.Programs {
          pr_default.execute(76, new Object[] {A99AmenitiesTypeId});
          if ( (pr_default.getStatus(76) == 101) )
          {
-            GX_msglist.addItem("No matching 'AmenitiesType'.", "ForeignKeyNotFound", 1, "AMENITIESTYPEID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "AmenitiesType", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "AMENITIESTYPEID");
             AnyError = 1;
          }
          A100AmenitiesTypeName = T000178_A100AmenitiesTypeName[0];
@@ -11550,10 +11550,8 @@ namespace GeneXus.Programs {
          Z29CustomerLocationReceptionistPh = "";
          gxfirstwebparm = "";
          gxfirstwebparm_bkp = "";
-         A10CustomerManagerEmail = "";
          A16CustomerManagerGivenName = "";
          A9CustomerManagerLastName = "";
-         A27CustomerLocationReceptionistEm = "";
          A24CustomerLocationReceptionistGi = "";
          A25CustomerLocationReceptionistLa = "";
          GXKey = "";
@@ -11718,6 +11716,7 @@ namespace GeneXus.Programs {
          sEvtType = "";
          GXCCtl = "";
          A17CustomerManagerInitials = "";
+         A10CustomerManagerEmail = "";
          A11CustomerManagerPhone = "";
          A12CustomerManagerGender = "";
          A13CustomerManagerGAMGUID = "";
@@ -11737,6 +11736,7 @@ namespace GeneXus.Programs {
          A62Supplier_AgbPhone = "";
          A63Supplier_AgbContactName = "";
          A26CustomerLocationReceptionistIn = "";
+         A27CustomerLocationReceptionistEm = "";
          A28CustomerLocationReceptionistAd = "";
          A29CustomerLocationReceptionistPh = "";
          A30CustomerLocationReceptionistGA = "";
@@ -13082,10 +13082,8 @@ namespace GeneXus.Programs {
       private string Z25CustomerLocationReceptionistLa ;
       private string Z27CustomerLocationReceptionistEm ;
       private string Z28CustomerLocationReceptionistAd ;
-      private string A10CustomerManagerEmail ;
       private string A16CustomerManagerGivenName ;
       private string A9CustomerManagerLastName ;
-      private string A27CustomerLocationReceptionistEm ;
       private string A24CustomerLocationReceptionistGi ;
       private string A25CustomerLocationReceptionistLa ;
       private string A41CustomerKvkNumber ;
@@ -13097,6 +13095,7 @@ namespace GeneXus.Programs {
       private string A79CustomerTypeName ;
       private string A133CustomerLocationDescription ;
       private string A134CustomerLocationName ;
+      private string A10CustomerManagerEmail ;
       private string A13CustomerManagerGAMGUID ;
       private string A100AmenitiesTypeName ;
       private string A66Supplier_GenCompanyName ;
@@ -13109,6 +13108,7 @@ namespace GeneXus.Programs {
       private string A60Supplier_AgbPostalAddress ;
       private string A61Supplier_AgbEmail ;
       private string A63Supplier_AgbContactName ;
+      private string A27CustomerLocationReceptionistEm ;
       private string A28CustomerLocationReceptionistAd ;
       private string A30CustomerLocationReceptionistGA ;
       private string A19CustomerLocationVisitingAddres ;

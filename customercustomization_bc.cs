@@ -141,7 +141,7 @@ namespace GeneXus.Programs {
       {
          /* After Trn Routine */
          returnInSub = false;
-         AV11WebSession.Remove("SelectedBaseColor");
+         AV11WebSession.Remove(context.GetMessage( "SelectedBaseColor", ""));
          CallWebObject(formatLink("home.aspx") );
          context.wjLocDisableFrm = 1;
       }
@@ -188,9 +188,9 @@ namespace GeneXus.Programs {
          GXt_int1 = A1CustomerId;
          new getloggedinusercustomerid(context ).execute( out  GXt_int1) ;
          A1CustomerId = GXt_int1;
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV11WebSession.Get("SelectedBaseColor"))) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV11WebSession.Get(context.GetMessage( context.GetMessage( "SelectedBaseColor", ""), "")))) )
          {
-            A131CustomerCustomizationBaseColor = AV11WebSession.Get("SelectedBaseColor");
+            A131CustomerCustomizationBaseColor = AV11WebSession.Get(context.GetMessage( context.GetMessage( "SelectedBaseColor", ""), ""));
          }
          if ( ( StringUtil.StrCmp(Gx_mode, "INS") == 0 ) && ( Gx_BScreen == 0 ) )
          {
@@ -233,7 +233,7 @@ namespace GeneXus.Programs {
          pr_default.execute(2, new Object[] {A1CustomerId});
          if ( (pr_default.getStatus(2) == 101) )
          {
-            GX_msglist.addItem("No matching 'Customer'.", "ForeignKeyNotFound", 1, "CUSTOMERID");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "GXSPC_ForeignKeyNotFound", ""), context.GetMessage( "Customer", ""), "", "", "", "", "", "", "", ""), "ForeignKeyNotFound", 1, "CUSTOMERID");
             AnyError = 1;
          }
          A3CustomerName = BC000H4_A3CustomerName[0];

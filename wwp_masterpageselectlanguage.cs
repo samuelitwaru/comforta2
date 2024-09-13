@@ -207,7 +207,7 @@ namespace GeneXus.Programs {
          if ( StringUtil.Len( sPrefix) == 0 )
          {
             context.WriteHtmlText( "<title>") ;
-            context.SendWebValue( "WWP_Master Page Select Language") ;
+            context.SendWebValue( context.GetMessage( "WWP_Master Page Select Language", "")) ;
             context.WriteHtmlTextNl( "</title>") ;
             if ( StringUtil.Len( sDynURL) > 0 )
             {
@@ -326,7 +326,7 @@ namespace GeneXus.Programs {
 
       public override string GetPgmdesc( )
       {
-         return "WWP_Master Page Select Language" ;
+         return context.GetMessage( "WWP_Master Page Select Language", "") ;
       }
 
       protected void WB3G0( )
@@ -406,7 +406,7 @@ namespace GeneXus.Programs {
                   Form.Meta.addItem("generator", "GeneXus .NET 18_0_10-184260", 0) ;
                }
             }
-            Form.Meta.addItem("description", "WWP_Master Page Select Language", 0) ;
+            Form.Meta.addItem("description", context.GetMessage( "WWP_Master Page Select Language", ""), 0) ;
             context.wjLoc = "";
             context.nUserReturn = 0;
             context.wbHandled = 0;
@@ -998,7 +998,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20249126284778", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202491315514059", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1012,7 +1012,7 @@ namespace GeneXus.Programs {
       {
          if ( nGXWrapped != 1 )
          {
-            context.AddJavascriptSource("wwp_masterpageselectlanguage.js", "?20249126284780", false, true);
+            context.AddJavascriptSource("wwp_masterpageselectlanguage.js", "?202491315514064", false, true);
             context.AddJavascriptSource("UserControls/WWP_IconButtonRender.js", "", false, true);
             context.AddJavascriptSource("UserControls/WWP_IconButtonRender.js", "", false, true);
          }
@@ -1044,11 +1044,11 @@ namespace GeneXus.Programs {
          }
          init_default_properties( ) ;
          Selectdutch_Class = "MasterPageTopActionsOption";
-         Selectdutch_Caption = "Dutch";
+         Selectdutch_Caption = context.GetMessage( "Dutch", "");
          Selectdutch_Beforeiconclass = "FontIconTopRightActions";
          Selectdutch_Tooltiptext = "";
          Selectenglish_Class = "MasterPageTopActionsOption";
-         Selectenglish_Caption = "English";
+         Selectenglish_Caption = context.GetMessage( "English", "");
          Selectenglish_Beforeiconclass = "FontIconTopRightActions";
          Selectenglish_Tooltiptext = "";
          if ( StringUtil.Len( sPrefix) == 0 )

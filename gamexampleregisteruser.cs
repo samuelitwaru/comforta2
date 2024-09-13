@@ -180,7 +180,7 @@ namespace GeneXus.Programs {
             enableOutput();
          }
          context.WriteHtmlText( "<title>") ;
-         context.SendWebValue( "Register user ") ;
+         context.SendWebValue( context.GetMessage( "GAM_Registeruser ", "")) ;
          context.WriteHtmlTextNl( "</title>") ;
          if ( context.isSpaRequest( ) )
          {
@@ -205,7 +205,7 @@ namespace GeneXus.Programs {
          }
          context.AddJavascriptSource("calendar.js", "?"+context.GetBuildNumber( 1918140), false, true);
          context.AddJavascriptSource("calendar-setup.js", "?"+context.GetBuildNumber( 1918140), false, true);
-         context.AddJavascriptSource("calendar-en.js", "?"+context.GetBuildNumber( 1918140), false, true);
+         context.AddJavascriptSource("calendar-"+StringUtil.Substring( context.GetLanguageProperty( "culture"), 1, 2)+".js", "?"+context.GetBuildNumber( 1918140), false, true);
          context.CloseHtmlHeader();
          if ( context.isSpaRequest( ) )
          {
@@ -277,6 +277,18 @@ namespace GeneXus.Programs {
             enableOutput();
          }
          include_jscripts( ) ;
+         context.WriteHtmlText( "<script type=\"text/javascript\">") ;
+         context.WriteHtmlText( "gx.setLanguageCode(\""+context.GetLanguageProperty( "code")+"\");") ;
+         if ( ! context.isSpaRequest( ) )
+         {
+            context.WriteHtmlText( "gx.setDateFormat(\""+context.GetLanguageProperty( "date_fmt")+"\");") ;
+            context.WriteHtmlText( "gx.setTimeFormat("+context.GetLanguageProperty( "time_fmt")+");") ;
+            context.WriteHtmlText( "gx.setCenturyFirstYear("+40+");") ;
+            context.WriteHtmlText( "gx.setDecimalPoint(\""+context.GetLanguageProperty( "decimal_point")+"\");") ;
+            context.WriteHtmlText( "gx.setThousandSeparator(\""+context.GetLanguageProperty( "thousand_sep")+"\");") ;
+            context.WriteHtmlText( "gx.StorageTimeZone = "+1+";") ;
+         }
+         context.WriteHtmlText( "</script>") ;
          context.WriteHtmlTextNl( "</body>") ;
          context.WriteHtmlTextNl( "</html>") ;
          if ( context.isSpaRequest( ) )
@@ -292,7 +304,7 @@ namespace GeneXus.Programs {
 
       public override string GetPgmdesc( )
       {
-         return "Register user " ;
+         return context.GetMessage( "GAM_Registeruser ", "") ;
       }
 
       protected void WB0S0( )
@@ -314,7 +326,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 stack-bottom-xl", "Center", "top", "", "", "div");
             /* Text block */
-            GxWebStd.gx_label_ctrl( context, lblTbtitle_Internalname, "Register", "", "", lblTbtitle_Jsonclick, "'"+""+"'"+",false,"+"'"+""+"'", "", "Title", 0, "", 1, 1, 0, 0, "HLP_GAMExampleRegisterUser.htm");
+            GxWebStd.gx_label_ctrl( context, lblTbtitle_Internalname, context.GetMessage( "GAM_Register", ""), "", "", lblTbtitle_Jsonclick, "'"+""+"'"+",false,"+"'"+""+"'", "", "Title", 0, "", 1, 1, 0, 0, "HLP_GAMExampleRegisterUser.htm");
             GxWebStd.gx_div_end( context, "Center", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
@@ -322,12 +334,12 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 col-sm-9", "end", "top", "", "", "div");
             /* Text block */
-            GxWebStd.gx_label_ctrl( context, lblTbhaveaccount_Internalname, "Already have an account?", "", "", lblTbhaveaccount_Jsonclick, "'"+""+"'"+",false,"+"'"+""+"'", "", "TextBlock", 0, "", 1, 1, 0, 0, "HLP_GAMExampleRegisterUser.htm");
+            GxWebStd.gx_label_ctrl( context, lblTbhaveaccount_Internalname, context.GetMessage( "GAM_Alreadyhaveanaccount", ""), "", "", lblTbhaveaccount_Jsonclick, "'"+""+"'"+",false,"+"'"+""+"'", "", "TextBlock", 0, "", 1, 1, 0, 0, "HLP_GAMExampleRegisterUser.htm");
             GxWebStd.gx_div_end( context, "end", "top", "div");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 col-sm-3", "start", "top", "", "", "div");
             /* Text block */
-            GxWebStd.gx_label_ctrl( context, lblTblogin_Internalname, "Login", "", "", lblTblogin_Jsonclick, "'"+""+"'"+",false,"+"'"+"e110s1_client"+"'", "", "TextBlock", 7, "", 1, 1, 0, 0, "HLP_GAMExampleRegisterUser.htm");
+            GxWebStd.gx_label_ctrl( context, lblTblogin_Internalname, context.GetMessage( "GAM_Login", ""), "", "", lblTblogin_Jsonclick, "'"+""+"'"+",false,"+"'"+"e110s1_client"+"'", "", "TextBlock", 7, "", 1, 1, 0, 0, "HLP_GAMExampleRegisterUser.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
@@ -337,7 +349,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", edtavName_Visible, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtavName_Internalname+"\"", "", "div");
             /* Attribute/Variable Label */
-            GxWebStd.gx_label_element( context, edtavName_Internalname, "UserName  *", "col-xs-12 AttributeLabel", 1, true, "");
+            GxWebStd.gx_label_element( context, edtavName_Internalname, context.GetMessage( "GAM_UserName*", ""), "col-xs-12 AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
@@ -371,7 +383,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtavPassword_Internalname+"\"", "", "div");
             /* Attribute/Variable Label */
-            GxWebStd.gx_label_element( context, edtavPassword_Internalname, "Password", "col-xs-12 AttributeLabel", 1, true, "");
+            GxWebStd.gx_label_element( context, edtavPassword_Internalname, context.GetMessage( "GAM_Password", ""), "col-xs-12 AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
@@ -396,7 +408,7 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtavPasswordconf_Internalname+"\"", "", "div");
             /* Attribute/Variable Label */
-            GxWebStd.gx_label_element( context, edtavPasswordconf_Internalname, "Confirm Password", "col-xs-12 AttributeLabel", 1, true, "");
+            GxWebStd.gx_label_element( context, edtavPasswordconf_Internalname, context.GetMessage( "GAM_ConfirmPassword", ""), "col-xs-12 AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
@@ -470,7 +482,7 @@ namespace GeneXus.Programs {
             /* Single line edit */
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 54,'',false,'',0)\"";
             context.WriteHtmlText( "<div id=\""+edtavBirthday_Internalname+"_dp_container\" class=\"dp_container\" style=\"white-space:nowrap;display:inline;\">") ;
-            GxWebStd.gx_single_line_edit( context, edtavBirthday_Internalname, context.localUtil.Format(AV6Birthday, "99/99/9999"), context.localUtil.Format( AV6Birthday, "99/99/9999"), TempTags+" onchange=\""+"gx.date.valid_date(this, 10,'MDY',0,12,'eng',false,0);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.date.valid_date(this, 10,'MDY',0,12,'eng',false,0);"+";gx.evt.onblur(this,54);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavBirthday_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavBirthday_Enabled, 1, "text", "", 10, "chr", 1, "row", 10, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMDate", "end", false, "", "HLP_GAMExampleRegisterUser.htm");
+            GxWebStd.gx_single_line_edit( context, edtavBirthday_Internalname, context.localUtil.Format(AV6Birthday, "99/99/9999"), context.localUtil.Format( AV6Birthday, "99/99/9999"), TempTags+" onchange=\""+"gx.date.valid_date(this, 10,'"+context.GetLanguageProperty( "date_fmt")+"',0,"+context.GetLanguageProperty( "time_fmt")+",'"+context.GetLanguageProperty( "code")+"',false,0);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.date.valid_date(this, 10,'"+context.GetLanguageProperty( "date_fmt")+"',0,"+context.GetLanguageProperty( "time_fmt")+",'"+context.GetLanguageProperty( "code")+"',false,0);"+";gx.evt.onblur(this,54);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavBirthday_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavBirthday_Enabled, 1, "text", "", 10, "chr", 1, "row", 10, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMDate", "end", false, "", "HLP_GAMExampleRegisterUser.htm");
             GxWebStd.gx_bitmap( context, edtavBirthday_Internalname+"_dp_trigger", context.GetImagePath( "61b9b5d3-dff6-4d59-9b00-da61bc2cbe93", "", context.GetTheme( )), "", "", "", "", ((1==0)||(edtavBirthday_Enabled==0) ? 0 : 1), 0, "Date selector", "Date selector", 0, 1, 0, "", 0, "", 0, 0, 0, "", "", "cursor: pointer;", "", "", "", "", "", "", "", "", 1, false, false, "", "HLP_GAMExampleRegisterUser.htm");
             context.WriteHtmlTextNl( "</div>") ;
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -633,7 +645,7 @@ namespace GeneXus.Programs {
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 100,'',false,'',0)\"";
             ClassString = "Button Primary";
             StyleString = "";
-            GxWebStd.gx_button_ctrl( context, bttLogin_Internalname, "", "CREATE ACCOUNT", bttLogin_Jsonclick, 5, "CREATE ACCOUNT", "", StyleString, ClassString, bttLogin_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"EENTER."+"'", TempTags, "", context.GetButtonType( ), "HLP_GAMExampleRegisterUser.htm");
+            GxWebStd.gx_button_ctrl( context, bttLogin_Internalname, "", context.GetMessage( "GAM_CREATEACCOUNT", ""), bttLogin_Jsonclick, 5, context.GetMessage( "GAM_CREATEACCOUNT", ""), "", StyleString, ClassString, bttLogin_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"EENTER."+"'", TempTags, "", context.GetButtonType( ), "HLP_GAMExampleRegisterUser.htm");
             GxWebStd.gx_div_end( context, "end", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -654,7 +666,7 @@ namespace GeneXus.Programs {
                Form.Meta.addItem("generator", "GeneXus .NET 18_0_10-184260", 0) ;
             }
          }
-         Form.Meta.addItem("description", "Register user ", 0) ;
+         Form.Meta.addItem("description", context.GetMessage( "GAM_Registeruser ", ""), 0) ;
          context.wjLoc = "";
          context.nUserReturn = 0;
          context.wbHandled = 0;
@@ -896,9 +908,9 @@ namespace GeneXus.Programs {
             AssignAttri("", false, "AV13LastName", AV13LastName);
             AV40Phone = cgiGet( edtavPhone_Internalname);
             AssignAttri("", false, "AV40Phone", AV40Phone);
-            if ( context.localUtil.VCDate( cgiGet( edtavBirthday_Internalname), 1) == 0 )
+            if ( context.localUtil.VCDate( cgiGet( edtavBirthday_Internalname), (short)(DateTimeUtil.MapDateFormat( context.GetLanguageProperty( "date_fmt")))) == 0 )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_faildate", new   object[]  {"Birthday"}), 1, "vBIRTHDAY");
+               GX_msglist.addItem(context.GetMessage( "GXM_faildate", new   object[]  {context.GetMessage( "Birthday", "")}), 1, "vBIRTHDAY");
                GX_FocusControl = edtavBirthday_Internalname;
                AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
                wbErr = true;
@@ -907,7 +919,7 @@ namespace GeneXus.Programs {
             }
             else
             {
-               AV6Birthday = context.localUtil.CToD( cgiGet( edtavBirthday_Internalname), 1);
+               AV6Birthday = context.localUtil.CToD( cgiGet( edtavBirthday_Internalname), DateTimeUtil.MapDateFormat( context.GetLanguageProperty( "date_fmt")));
                AssignAttri("", false, "AV6Birthday", context.localUtil.Format(AV6Birthday, "99/99/9999"));
             }
             cmbavGender.CurrentValue = cgiGet( cmbavGender_Internalname);
@@ -1092,7 +1104,7 @@ namespace GeneXus.Programs {
          }
          else
          {
-            GX_msglist.addItem("The password and confirmation password do not match.");
+            GX_msglist.addItem(context.GetMessage( "GAM_Thepasswordandconfirmationpassworddonotmatch", ""));
          }
          /*  Sending Event outputs  */
          context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV37GAMRepository", AV37GAMRepository);
@@ -1305,7 +1317,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2024912631222", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20249131555349", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1320,8 +1332,8 @@ namespace GeneXus.Programs {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("gamexampleregisteruser.js", "?2024912631225", false, true);
+         context.AddJavascriptSource("messages."+StringUtil.Lower( context.GetLanguageProperty( "code"))+".js", "?"+GetCacheInvalidationToken( ), false, true);
+         context.AddJavascriptSource("gamexampleregisteruser.js", "?20249131555353", false, true);
          /* End function include_jscripts */
       }
 
@@ -1329,9 +1341,9 @@ namespace GeneXus.Programs {
       {
          cmbavGender.Name = "vGENDER";
          cmbavGender.WebTags = "";
-         cmbavGender.addItem("N", "(Not Specified)", 0);
-         cmbavGender.addItem("F", "Female", 0);
-         cmbavGender.addItem("M", "Male", 0);
+         cmbavGender.addItem("N", context.GetMessage( "GAM_NotSpecified", ""), 0);
+         cmbavGender.addItem("F", context.GetMessage( "GAM_Female", ""), 0);
+         cmbavGender.addItem("M", context.GetMessage( "GAM_Male", ""), 0);
          if ( cmbavGender.ItemCount > 0 )
          {
             AV12Gender = cmbavGender.getValidValue(AV12Gender);
@@ -1339,7 +1351,7 @@ namespace GeneXus.Programs {
          }
          cmbavLanguage.Name = "vLANGUAGE";
          cmbavLanguage.WebTags = "";
-         cmbavLanguage.addItem("", "(None)", 0);
+         cmbavLanguage.addItem("", context.GetMessage( "GAM_None", ""), 0);
          if ( cmbavLanguage.ItemCount > 0 )
          {
             AV45Language = cmbavLanguage.getValidValue(AV45Language);
@@ -1395,54 +1407,53 @@ namespace GeneXus.Programs {
             disableJsOutput();
          }
          init_default_properties( ) ;
-         bttLogin_Jsonclick = "";
          bttLogin_Visible = 1;
          edtavUrlimage_Jsonclick = "";
          edtavUrlimage_Enabled = 1;
-         edtavUrlimage_Caption = "URL image";
+         edtavUrlimage_Caption = context.GetMessage( "GAM_URLimage", "");
          divCell_photo_Visible = 1;
          edtavTimezone_Jsonclick = "";
          edtavTimezone_Enabled = 1;
-         edtavTimezone_Caption = "Timezone";
+         edtavTimezone_Caption = context.GetMessage( "GAM_Timezone", "");
          divCell_timezone_Visible = 1;
          cmbavLanguage_Jsonclick = "";
          cmbavLanguage.Enabled = 1;
-         cmbavLanguage.Caption = "Language";
+         cmbavLanguage.Caption = context.GetMessage( "GAM_Language", "");
          divCell_language_Visible = 1;
          edtavPostcode_Jsonclick = "";
          edtavPostcode_Enabled = 1;
-         edtavPostcode_Caption = "Post Code";
+         edtavPostcode_Caption = context.GetMessage( "GAM_PostCode", "");
          divCell_postcode_Visible = 1;
          edtavState_Jsonclick = "";
          edtavState_Enabled = 1;
-         edtavState_Caption = "State";
+         edtavState_Caption = context.GetMessage( "GAM_State", "");
          divCell_state_Visible = 1;
          edtavCity_Jsonclick = "";
          edtavCity_Enabled = 1;
-         edtavCity_Caption = "City";
+         edtavCity_Caption = context.GetMessage( "GAM_City", "");
          divCell_city_Visible = 1;
          edtavAddress_Jsonclick = "";
          edtavAddress_Enabled = 1;
-         edtavAddress_Caption = "Address";
+         edtavAddress_Caption = context.GetMessage( "GAM_Address", "");
          divCell_address_Visible = 1;
          cmbavGender_Jsonclick = "";
          cmbavGender.Enabled = 1;
-         cmbavGender.Caption = "Gender";
+         cmbavGender.Caption = context.GetMessage( "GAM_Gender", "");
          divCell_gender_Visible = 1;
          edtavBirthday_Jsonclick = "";
          edtavBirthday_Enabled = 1;
-         edtavBirthday_Caption = "Birthday";
+         edtavBirthday_Caption = context.GetMessage( "GAM_Birthday", "");
          divCell_birthday_Visible = 1;
          edtavPhone_Jsonclick = "";
          edtavPhone_Enabled = 1;
-         edtavPhone_Caption = "Phone";
+         edtavPhone_Caption = context.GetMessage( "GAM_Phone", "");
          divCell_phone_Visible = 1;
          edtavLastname_Jsonclick = "";
          edtavLastname_Enabled = 1;
-         edtavLastname_Caption = "Last Name";
+         edtavLastname_Caption = context.GetMessage( "GAM_LastName", "");
          edtavFirstname_Jsonclick = "";
          edtavFirstname_Enabled = 1;
-         edtavFirstname_Caption = "First Name";
+         edtavFirstname_Caption = context.GetMessage( "GAM_FirstName", "");
          edtavPasswordconf_Jsonclick = "";
          edtavPasswordconf_Enabled = 1;
          lblTbpwdrequirements_Caption = "";
@@ -1450,7 +1461,7 @@ namespace GeneXus.Programs {
          edtavPassword_Enabled = 1;
          edtavEmail_Jsonclick = "";
          edtavEmail_Enabled = 1;
-         edtavEmail_Caption = "Email";
+         edtavEmail_Caption = context.GetMessage( "GAM_Email", "");
          edtavName_Jsonclick = "";
          edtavName_Enabled = 1;
          edtavName_Visible = 1;
@@ -1470,7 +1481,7 @@ namespace GeneXus.Programs {
       {
          setEventMetadata("REFRESH","""{"handler":"Refresh","iparms":[]}""");
          setEventMetadata("ENTER","""{"handler":"E130S2","iparms":[{"av":"AV18Password","fld":"vPASSWORD"},{"av":"AV19PasswordConf","fld":"vPASSWORDCONF"},{"av":"AV17Name","fld":"vNAME"},{"av":"AV7EMail","fld":"vEMAIL"},{"av":"AV9FirstName","fld":"vFIRSTNAME"},{"av":"AV13LastName","fld":"vLASTNAME"},{"av":"AV40Phone","fld":"vPHONE"},{"av":"AV6Birthday","fld":"vBIRTHDAY"},{"av":"cmbavGender"},{"av":"AV12Gender","fld":"vGENDER"},{"av":"AV41Address","fld":"vADDRESS"},{"av":"AV42City","fld":"vCITY"},{"av":"AV43State","fld":"vSTATE"},{"av":"AV44PostCode","fld":"vPOSTCODE"},{"av":"cmbavLanguage"},{"av":"AV45Language","fld":"vLANGUAGE"},{"av":"AV46Timezone","fld":"vTIMEZONE"},{"av":"AV49URLImage","fld":"vURLIMAGE"},{"av":"AV16Messages","fld":"vMESSAGES"}]""");
-         setEventMetadata("ENTER",""","oparms":[{"av":"AV17Name","fld":"vNAME"},{"av":"AV16Messages","fld":"vMESSAGES"},{"av":"edtavName_Enabled","ctrl":"vNAME","prop":"Enabled"},{"av":"edtavEmail_Enabled","ctrl":"vEMAIL","prop":"Enabled"},{"av":"edtavPassword_Enabled","ctrl":"vPASSWORD","prop":"Enabled"},{"av":"edtavPasswordconf_Enabled","ctrl":"vPASSWORDCONF","prop":"Enabled"},{"av":"edtavFirstname_Enabled","ctrl":"vFIRSTNAME","prop":"Enabled"},{"av":"edtavLastname_Enabled","ctrl":"vLASTNAME","prop":"Enabled"},{"av":"edtavPhone_Enabled","ctrl":"vPHONE","prop":"Enabled"},{"av":"edtavBirthday_Enabled","ctrl":"vBIRTHDAY","prop":"Enabled"},{"av":"cmbavGender"},{"av":"edtavAddress_Enabled","ctrl":"vADDRESS","prop":"Enabled"},{"av":"edtavCity_Enabled","ctrl":"vCITY","prop":"Enabled"},{"av":"edtavState_Enabled","ctrl":"vSTATE","prop":"Enabled"},{"av":"edtavPostcode_Enabled","ctrl":"vPOSTCODE","prop":"Enabled"},{"av":"cmbavLanguage"},{"av":"edtavTimezone_Enabled","ctrl":"vTIMEZONE","prop":"Enabled"},{"av":"edtavUrlimage_Enabled","ctrl":"vURLIMAGE","prop":"Enabled"},{"ctrl":"TBLOGIN","prop":"Visible"}]}""");
+         setEventMetadata("ENTER",""","oparms":[{"av":"AV17Name","fld":"vNAME"},{"av":"AV16Messages","fld":"vMESSAGES"},{"av":"edtavName_Enabled","ctrl":"vNAME","prop":"Enabled"},{"av":"edtavEmail_Enabled","ctrl":"vEMAIL","prop":"Enabled"},{"av":"edtavPassword_Enabled","ctrl":"vPASSWORD","prop":"Enabled"},{"av":"edtavPasswordconf_Enabled","ctrl":"vPASSWORDCONF","prop":"Enabled"},{"av":"edtavFirstname_Enabled","ctrl":"vFIRSTNAME","prop":"Enabled"},{"av":"edtavLastname_Enabled","ctrl":"vLASTNAME","prop":"Enabled"},{"av":"edtavPhone_Enabled","ctrl":"vPHONE","prop":"Enabled"},{"av":"edtavBirthday_Enabled","ctrl":"vBIRTHDAY","prop":"Enabled"},{"av":"cmbavGender"},{"av":"edtavAddress_Enabled","ctrl":"vADDRESS","prop":"Enabled"},{"av":"edtavCity_Enabled","ctrl":"vCITY","prop":"Enabled"},{"av":"edtavState_Enabled","ctrl":"vSTATE","prop":"Enabled"},{"av":"edtavPostcode_Enabled","ctrl":"vPOSTCODE","prop":"Enabled"},{"av":"cmbavLanguage"},{"av":"edtavTimezone_Enabled","ctrl":"vTIMEZONE","prop":"Enabled"},{"av":"edtavUrlimage_Enabled","ctrl":"vURLIMAGE","prop":"Enabled"},{"ctrl":"LOGIN","prop":"Visible"}]}""");
          setEventMetadata("'LOGIN'","""{"handler":"E110S1","iparms":[]}""");
          setEventMetadata("VALIDV_GENDER","""{"handler":"Validv_Gender","iparms":[]}""");
          return  ;
@@ -1519,6 +1530,7 @@ namespace GeneXus.Programs {
          AV49URLImage = "";
          ClassString = "";
          StyleString = "";
+         bttLogin_Jsonclick = "";
          Form = new GXWebForm();
          sEvt = "";
          EvtGridId = "";

@@ -714,7 +714,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[7] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel)) && ! ( StringUtil.StrCmp(AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel)) && ! ( StringUtil.StrCmp(AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerCustomizationBaseColor = ( :AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolo))");
          }
@@ -722,7 +722,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[8] = 1;
          }
-         if ( StringUtil.StrCmp(AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerCustomizationBaseColor))=0))");
          }
@@ -734,7 +734,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[9] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel)) && ! ( StringUtil.StrCmp(AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel)) && ! ( StringUtil.StrCmp(AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerCustomizationFontSize = ( :AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize))");
          }
@@ -742,7 +742,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[10] = 1;
          }
-         if ( StringUtil.StrCmp(AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerCustomizationFontSize))=0))");
          }
@@ -770,7 +770,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[13] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV57Customercustomizationwwds_11_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV57Customercustomizationwwds_11_tfcustomername_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV57Customercustomizationwwds_11_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV57Customercustomizationwwds_11_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T2.CustomerName = ( :AV57Customercustomizationwwds_11_tfcustomername_sel))");
          }
@@ -778,7 +778,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[14] = 1;
          }
-         if ( StringUtil.StrCmp(AV57Customercustomizationwwds_11_tfcustomername_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV57Customercustomizationwwds_11_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T2.CustomerName))=0))");
          }
@@ -848,7 +848,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[7] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel)) && ! ( StringUtil.StrCmp(AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel)) && ! ( StringUtil.StrCmp(AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerCustomizationBaseColor = ( :AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolo))");
          }
@@ -856,7 +856,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[8] = 1;
          }
-         if ( StringUtil.StrCmp(AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerCustomizationBaseColor))=0))");
          }
@@ -868,7 +868,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[9] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel)) && ! ( StringUtil.StrCmp(AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel)) && ! ( StringUtil.StrCmp(AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerCustomizationFontSize = ( :AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize))");
          }
@@ -876,7 +876,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[10] = 1;
          }
-         if ( StringUtil.StrCmp(AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerCustomizationFontSize))=0))");
          }
@@ -904,7 +904,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[13] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV57Customercustomizationwwds_11_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV57Customercustomizationwwds_11_tfcustomername_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV57Customercustomizationwwds_11_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV57Customercustomizationwwds_11_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T2.CustomerName = ( :AV57Customercustomizationwwds_11_tfcustomername_sel))");
          }
@@ -912,7 +912,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[14] = 1;
          }
-         if ( StringUtil.StrCmp(AV57Customercustomizationwwds_11_tfcustomername_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV57Customercustomizationwwds_11_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T2.CustomerName))=0))");
          }
@@ -982,7 +982,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[7] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel)) && ! ( StringUtil.StrCmp(AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel)) && ! ( StringUtil.StrCmp(AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerCustomizationBaseColor = ( :AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolo))");
          }
@@ -990,7 +990,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[8] = 1;
          }
-         if ( StringUtil.StrCmp(AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV51Customercustomizationwwds_5_tfcustomercustomizationbasecolor_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerCustomizationBaseColor))=0))");
          }
@@ -1002,7 +1002,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[9] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel)) && ! ( StringUtil.StrCmp(AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel)) && ! ( StringUtil.StrCmp(AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.CustomerCustomizationFontSize = ( :AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize))");
          }
@@ -1010,7 +1010,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[10] = 1;
          }
-         if ( StringUtil.StrCmp(AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV53Customercustomizationwwds_7_tfcustomercustomizationfontsize_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.CustomerCustomizationFontSize))=0))");
          }
@@ -1038,7 +1038,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[13] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV57Customercustomizationwwds_11_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV57Customercustomizationwwds_11_tfcustomername_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV57Customercustomizationwwds_11_tfcustomername_sel)) && ! ( StringUtil.StrCmp(AV57Customercustomizationwwds_11_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T2.CustomerName = ( :AV57Customercustomizationwwds_11_tfcustomername_sel))");
          }
@@ -1046,7 +1046,7 @@ namespace GeneXus.Programs {
          {
             GXv_int5[14] = 1;
          }
-         if ( StringUtil.StrCmp(AV57Customercustomizationwwds_11_tfcustomername_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV57Customercustomizationwwds_11_tfcustomername_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T2.CustomerName))=0))");
          }

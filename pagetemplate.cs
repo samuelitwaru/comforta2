@@ -124,7 +124,7 @@ namespace GeneXus.Programs {
                Form.Meta.addItem("generator", "GeneXus .NET 18_0_10-184260", 0) ;
             }
          }
-         Form.Meta.addItem("description", "Page Template", 0) ;
+         Form.Meta.addItem("description", context.GetMessage( "Page Template", ""), 0) ;
          context.wjLoc = "";
          context.nUserReturn = 0;
          context.wbHandled = 0;
@@ -317,7 +317,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtPageTemplateName_Internalname+"\"", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, edtPageTemplateName_Internalname, "Template Name", " AttributeLabel", 1, true, "");
+         GxWebStd.gx_label_element( context, edtPageTemplateName_Internalname, context.GetMessage( "Template Name", ""), " AttributeLabel", 1, true, "");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Single line edit */
@@ -331,7 +331,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+imgPageTemplateImage_Internalname+"\"", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, "", "Template Image", " AttributeLabel", 1, true, "");
+         GxWebStd.gx_label_element( context, "", context.GetMessage( "Template Image", ""), " AttributeLabel", 1, true, "");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Static Bitmap Variable */
@@ -354,7 +354,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtPageTemplateDescription_Internalname+"\"", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, edtPageTemplateDescription_Internalname, "Template Description", " AttributeLabel", 1, true, "");
+         GxWebStd.gx_label_element( context, edtPageTemplateDescription_Internalname, context.GetMessage( "Template Description", ""), " AttributeLabel", 1, true, "");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Multiple line edit */
@@ -372,7 +372,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtPageTemplateHtml_Internalname+"\"", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, edtPageTemplateHtml_Internalname, "Template Html", " AttributeLabel", 1, true, "");
+         GxWebStd.gx_label_element( context, edtPageTemplateHtml_Internalname, context.GetMessage( "Template Html", ""), " AttributeLabel", 1, true, "");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Multiple line edit */
@@ -393,7 +393,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "start", "top", ""+" data-gx-for=\""+edtPageTemplateCSS_Internalname+"\"", "", "div");
          /* Attribute/Variable Label */
-         GxWebStd.gx_label_element( context, edtPageTemplateCSS_Internalname, "Template CSS", " AttributeLabel", 1, true, "");
+         GxWebStd.gx_label_element( context, edtPageTemplateCSS_Internalname, context.GetMessage( "Template CSS", ""), " AttributeLabel", 1, true, "");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
          /* Multiple line edit */
@@ -418,21 +418,21 @@ namespace GeneXus.Programs {
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 45,'',false,'',0)\"";
          ClassString = "Button";
          StyleString = "";
-         GxWebStd.gx_button_ctrl( context, bttBtntrn_enter_Internalname, "", "Confirm", bttBtntrn_enter_Jsonclick, 5, "Confirm", "", StyleString, ClassString, bttBtntrn_enter_Visible, bttBtntrn_enter_Enabled, "standard", "'"+""+"'"+",false,"+"'"+"EENTER."+"'", TempTags, "", context.GetButtonType( ), "HLP_PageTemplate.htm");
+         GxWebStd.gx_button_ctrl( context, bttBtntrn_enter_Internalname, "", context.GetMessage( "GX_BtnEnter", ""), bttBtntrn_enter_Jsonclick, 5, context.GetMessage( "GX_BtnEnter", ""), "", StyleString, ClassString, bttBtntrn_enter_Visible, bttBtntrn_enter_Enabled, "standard", "'"+""+"'"+",false,"+"'"+"EENTER."+"'", TempTags, "", context.GetButtonType( ), "HLP_PageTemplate.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-button", "start", "top", "", "", "div");
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 47,'',false,'',0)\"";
          ClassString = "BtnDefault";
          StyleString = "";
-         GxWebStd.gx_button_ctrl( context, bttBtntrn_cancel_Internalname, "", "Cancel", bttBtntrn_cancel_Jsonclick, 7, "Cancel", "", StyleString, ClassString, bttBtntrn_cancel_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"e110f25_client"+"'", TempTags, "", 2, "HLP_PageTemplate.htm");
+         GxWebStd.gx_button_ctrl( context, bttBtntrn_cancel_Internalname, "", context.GetMessage( "GX_BtnCancel", ""), bttBtntrn_cancel_Jsonclick, 7, context.GetMessage( "GX_BtnCancel", ""), "", StyleString, ClassString, bttBtntrn_cancel_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"e110f25_client"+"'", TempTags, "", 2, "HLP_PageTemplate.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-button", "start", "top", "", "", "div");
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 49,'',false,'',0)\"";
          ClassString = "BtnDefault";
          StyleString = "";
-         GxWebStd.gx_button_ctrl( context, bttBtntrn_delete_Internalname, "", "Delete", bttBtntrn_delete_Jsonclick, 5, "Delete", "", StyleString, ClassString, bttBtntrn_delete_Visible, bttBtntrn_delete_Enabled, "standard", "'"+""+"'"+",false,"+"'"+"EDELETE."+"'", TempTags, "", context.GetButtonType( ), "HLP_PageTemplate.htm");
+         GxWebStd.gx_button_ctrl( context, bttBtntrn_delete_Internalname, "", context.GetMessage( "GX_BtnDelete", ""), bttBtntrn_delete_Jsonclick, 5, context.GetMessage( "GX_BtnDelete", ""), "", StyleString, ClassString, bttBtntrn_delete_Visible, bttBtntrn_delete_Enabled, "standard", "'"+""+"'"+",false,"+"'"+"EDELETE."+"'", TempTags, "", context.GetButtonType( ), "HLP_PageTemplate.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -455,7 +455,7 @@ namespace GeneXus.Programs {
          GxWebStd.gx_div_start( context, divHtml_bottomauxiliarcontrols_Internalname, 1, 0, "px", 0, "px", "Section", "start", "top", "", "", "div");
          /* Single line edit */
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 53,'',false,'',0)\"";
-         GxWebStd.gx_single_line_edit( context, edtPageTemplateId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A107PageTemplateId), 4, 0, ".", "")), StringUtil.LTrim( ((edtPageTemplateId_Enabled!=0) ? context.localUtil.Format( (decimal)(A107PageTemplateId), "ZZZ9") : context.localUtil.Format( (decimal)(A107PageTemplateId), "ZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,53);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtPageTemplateId_Jsonclick, 0, "Attribute", "", "", "", "", edtPageTemplateId_Visible, edtPageTemplateId_Enabled, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_PageTemplate.htm");
+         GxWebStd.gx_single_line_edit( context, edtPageTemplateId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A107PageTemplateId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")), StringUtil.LTrim( ((edtPageTemplateId_Enabled!=0) ? context.localUtil.Format( (decimal)(A107PageTemplateId), "ZZZ9") : context.localUtil.Format( (decimal)(A107PageTemplateId), "ZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,gx.thousandSeparator);"+";gx.evt.onblur(this,53);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtPageTemplateId_Jsonclick, 0, "Attribute", "", "", "", "", edtPageTemplateId_Visible, edtPageTemplateId_Enabled, 0, "text", "1", 4, "chr", 1, "row", 4, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_PageTemplate.htm");
          /* User Defined Control */
          ucWwputilities.Render(context, "dvelop.workwithplusutilities", Wwputilities_Internalname, "WWPUTILITIESContainer");
          GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -502,15 +502,15 @@ namespace GeneXus.Programs {
                /* Read saved SDTs. */
                ajax_req_read_hidden_sdt(cgiGet( "vDETAILWCINFO"), AV13DetailWCInfo);
                /* Read saved values. */
-               Z107PageTemplateId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z107PageTemplateId"), ".", ","), 18, MidpointRounding.ToEven));
+               Z107PageTemplateId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "Z107PageTemplateId"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Z108PageTemplateName = cgiGet( "Z108PageTemplateName");
                Z111PageTemplateDescription = cgiGet( "Z111PageTemplateDescription");
-               IsConfirmed = (short)(Math.Round(context.localUtil.CToN( cgiGet( "IsConfirmed"), ".", ","), 18, MidpointRounding.ToEven));
-               IsModified = (short)(Math.Round(context.localUtil.CToN( cgiGet( "IsModified"), ".", ","), 18, MidpointRounding.ToEven));
+               IsConfirmed = (short)(Math.Round(context.localUtil.CToN( cgiGet( "IsConfirmed"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
+               IsModified = (short)(Math.Round(context.localUtil.CToN( cgiGet( "IsModified"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Gx_mode = cgiGet( "Mode");
                Gx_mode = cgiGet( "vMODE");
                AV14CurrentTab_ReturnUrl = cgiGet( "vCURRENTTAB_RETURNURL");
-               AV7PageTemplateId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "vPAGETEMPLATEID"), ".", ","), 18, MidpointRounding.ToEven));
+               AV7PageTemplateId = (short)(Math.Round(context.localUtil.CToN( cgiGet( "vPAGETEMPLATEID"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                A40000PageTemplateImage_GXI = cgiGet( "PAGETEMPLATEIMAGE_GXI");
                Dvpanel_tableattributes_Objectcall = cgiGet( "DVPANEL_TABLEATTRIBUTES_Objectcall");
                Dvpanel_tableattributes_Class = cgiGet( "DVPANEL_TABLEATTRIBUTES_Class");
@@ -528,7 +528,6 @@ namespace GeneXus.Programs {
                Dvpanel_tableattributes_Iconposition = cgiGet( "DVPANEL_TABLEATTRIBUTES_Iconposition");
                Dvpanel_tableattributes_Autoscroll = StringUtil.StrToBool( cgiGet( "DVPANEL_TABLEATTRIBUTES_Autoscroll"));
                Dvpanel_tableattributes_Visible = StringUtil.StrToBool( cgiGet( "DVPANEL_TABLEATTRIBUTES_Visible"));
-               Dvpanel_tableattributes_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "DVPANEL_TABLEATTRIBUTES_Gxcontroltype"), ".", ","), 18, MidpointRounding.ToEven));
                Wwputilities_Objectcall = cgiGet( "WWPUTILITIES_Objectcall");
                Wwputilities_Class = cgiGet( "WWPUTILITIES_Class");
                Wwputilities_Enabled = StringUtil.StrToBool( cgiGet( "WWPUTILITIES_Enabled"));
@@ -546,7 +545,7 @@ namespace GeneXus.Programs {
                Wwputilities_Restorecolumnsiconclass = cgiGet( "WWPUTILITIES_Restorecolumnsiconclass");
                Wwputilities_Pagbarincludegoto = StringUtil.StrToBool( cgiGet( "WWPUTILITIES_Pagbarincludegoto"));
                Wwputilities_Comboloadtype = cgiGet( "WWPUTILITIES_Comboloadtype");
-               Wwputilities_Infinitescrollingpage = (int)(Math.Round(context.localUtil.CToN( cgiGet( "WWPUTILITIES_Infinitescrollingpage"), ".", ","), 18, MidpointRounding.ToEven));
+               Wwputilities_Infinitescrollingpage = (int)(Math.Round(context.localUtil.CToN( cgiGet( "WWPUTILITIES_Infinitescrollingpage"), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                Wwputilities_Updatebuttontext = cgiGet( "WWPUTILITIES_Updatebuttontext");
                Wwputilities_Addnewoption = cgiGet( "WWPUTILITIES_Addnewoption");
                Wwputilities_Onlyselectedvalues = cgiGet( "WWPUTILITIES_Onlyselectedvalues");
@@ -577,7 +576,6 @@ namespace GeneXus.Programs {
                Wwputilities_Pagbaremptyfilteredgridcaption = cgiGet( "WWPUTILITIES_Pagbaremptyfilteredgridcaption");
                Wwputilities_Includelineseparator = StringUtil.StrToBool( cgiGet( "WWPUTILITIES_Includelineseparator"));
                Wwputilities_Visible = StringUtil.StrToBool( cgiGet( "WWPUTILITIES_Visible"));
-               Wwputilities_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "WWPUTILITIES_Gxcontroltype"), ".", ","), 18, MidpointRounding.ToEven));
                /* Read variables values. */
                A108PageTemplateName = cgiGet( edtPageTemplateName_Internalname);
                AssignAttri("", false, "A108PageTemplateName", A108PageTemplateName);
@@ -589,7 +587,7 @@ namespace GeneXus.Programs {
                AssignAttri("", false, "A114PageTemplateHtml", A114PageTemplateHtml);
                A113PageTemplateCSS = cgiGet( edtPageTemplateCSS_Internalname);
                AssignAttri("", false, "A113PageTemplateCSS", A113PageTemplateCSS);
-               A107PageTemplateId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtPageTemplateId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+               A107PageTemplateId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtPageTemplateId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignAttri("", false, "A107PageTemplateId", StringUtil.LTrimStr( (decimal)(A107PageTemplateId), 4, 0));
                /* Read subfile selected row values. */
                /* Read hidden variables. */
@@ -597,7 +595,7 @@ namespace GeneXus.Programs {
                GXKey = Decrypt64( context.GetCookie( "GX_SESSION_ID"), Crypto.GetServerKey( ));
                forbiddenHiddens = new GXProperties();
                forbiddenHiddens.Add("hshsalt", "hsh"+"PageTemplate");
-               A107PageTemplateId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtPageTemplateId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+               A107PageTemplateId = (short)(Math.Round(context.localUtil.CToN( cgiGet( edtPageTemplateId_Internalname), context.GetLanguageProperty( "decimal_point"), context.GetLanguageProperty( "thousand_sep")), 18, MidpointRounding.ToEven));
                AssignAttri("", false, "A107PageTemplateId", StringUtil.LTrimStr( (decimal)(A107PageTemplateId), 4, 0));
                forbiddenHiddens.Add("PageTemplateId", context.localUtil.Format( (decimal)(A107PageTemplateId), "ZZZ9"));
                forbiddenHiddens.Add("Gx_mode", StringUtil.RTrim( context.localUtil.Format( Gx_mode, "@!")));
@@ -955,21 +953,21 @@ namespace GeneXus.Programs {
          standaloneModal( ) ;
          if ( String.IsNullOrEmpty(StringUtil.RTrim( A108PageTemplateName)) )
          {
-            GX_msglist.addItem(StringUtil.Format( "%1 is required.", "Page Template Name", "", "", "", "", "", "", "", ""), 1, "PAGETEMPLATENAME");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "WWP_RequiredAttribute", ""), context.GetMessage( "Page Template Name", ""), "", "", "", "", "", "", "", ""), 1, "PAGETEMPLATENAME");
             AnyError = 1;
             GX_FocusControl = edtPageTemplateName_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
          }
          if ( String.IsNullOrEmpty(StringUtil.RTrim( A111PageTemplateDescription)) )
          {
-            GX_msglist.addItem(StringUtil.Format( "%1 is required.", "Page Template Description", "", "", "", "", "", "", "", ""), 1, "PAGETEMPLATEDESCRIPTION");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "WWP_RequiredAttribute", ""), context.GetMessage( "Page Template Description", ""), "", "", "", "", "", "", "", ""), 1, "PAGETEMPLATEDESCRIPTION");
             AnyError = 1;
             GX_FocusControl = edtPageTemplateDescription_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
          }
          if ( String.IsNullOrEmpty(StringUtil.RTrim( A110PageTemplateImage)) && String.IsNullOrEmpty(StringUtil.RTrim( A40000PageTemplateImage_GXI)) )
          {
-            GX_msglist.addItem(StringUtil.Format( "%1 is required.", "Page Template Image", "", "", "", "", "", "", "", ""), 1, "PAGETEMPLATEIMAGE");
+            GX_msglist.addItem(StringUtil.Format( context.GetMessage( "WWP_RequiredAttribute", ""), context.GetMessage( "Page Template Image", ""), "", "", "", "", "", "", "", ""), 1, "PAGETEMPLATEIMAGE");
             AnyError = 1;
             GX_FocusControl = imgPageTemplateImage_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
@@ -1671,11 +1669,11 @@ namespace GeneXus.Programs {
          /* Send hidden variables. */
          /* Send saved values. */
          send_integrity_footer_hashes( ) ;
-         GxWebStd.gx_hidden_field( context, "Z107PageTemplateId", StringUtil.LTrim( StringUtil.NToC( (decimal)(Z107PageTemplateId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "Z107PageTemplateId", StringUtil.LTrim( StringUtil.NToC( (decimal)(Z107PageTemplateId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "Z108PageTemplateName", Z108PageTemplateName);
          GxWebStd.gx_hidden_field( context, "Z111PageTemplateDescription", Z111PageTemplateDescription);
-         GxWebStd.gx_hidden_field( context, "IsConfirmed", StringUtil.LTrim( StringUtil.NToC( (decimal)(IsConfirmed), 4, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "IsModified", StringUtil.LTrim( StringUtil.NToC( (decimal)(IsModified), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "IsConfirmed", StringUtil.LTrim( StringUtil.NToC( (decimal)(IsConfirmed), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
+         GxWebStd.gx_hidden_field( context, "IsModified", StringUtil.LTrim( StringUtil.NToC( (decimal)(IsModified), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "Mode", StringUtil.RTrim( Gx_mode));
          GxWebStd.gx_hidden_field( context, "gxhash_Mode", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( Gx_mode, "@!")), context));
          GxWebStd.gx_hidden_field( context, "vMODE", StringUtil.RTrim( Gx_mode));
@@ -1690,7 +1688,7 @@ namespace GeneXus.Programs {
          }
          GxWebStd.gx_hidden_field( context, "gxhash_vDETAILWCINFO", GetSecureSignedToken( "", AV13DetailWCInfo, context));
          GxWebStd.gx_hidden_field( context, "vCURRENTTAB_RETURNURL", AV14CurrentTab_ReturnUrl);
-         GxWebStd.gx_hidden_field( context, "vPAGETEMPLATEID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7PageTemplateId), 4, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "vPAGETEMPLATEID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7PageTemplateId), 4, 0, context.GetLanguageProperty( "decimal_point"), "")));
          GxWebStd.gx_hidden_field( context, "gxhash_vPAGETEMPLATEID", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV7PageTemplateId), "ZZZ9"), context));
          GxWebStd.gx_hidden_field( context, "PAGETEMPLATEIMAGE_GXI", A40000PageTemplateImage_GXI);
          GXCCtlgxBlob = "PAGETEMPLATEIMAGE" + "_gxBlob";
@@ -1730,6 +1728,18 @@ namespace GeneXus.Programs {
             enableOutput();
          }
          include_jscripts( ) ;
+         context.WriteHtmlText( "<script type=\"text/javascript\">") ;
+         context.WriteHtmlText( "gx.setLanguageCode(\""+context.GetLanguageProperty( "code")+"\");") ;
+         if ( ! context.isSpaRequest( ) )
+         {
+            context.WriteHtmlText( "gx.setDateFormat(\""+context.GetLanguageProperty( "date_fmt")+"\");") ;
+            context.WriteHtmlText( "gx.setTimeFormat("+context.GetLanguageProperty( "time_fmt")+");") ;
+            context.WriteHtmlText( "gx.setCenturyFirstYear("+40+");") ;
+            context.WriteHtmlText( "gx.setDecimalPoint(\""+context.GetLanguageProperty( "decimal_point")+"\");") ;
+            context.WriteHtmlText( "gx.setThousandSeparator(\""+context.GetLanguageProperty( "thousand_sep")+"\");") ;
+            context.WriteHtmlText( "gx.StorageTimeZone = "+1+";") ;
+         }
+         context.WriteHtmlText( "</script>") ;
       }
 
       public override short ExecuteStartEvent( )
@@ -1775,7 +1785,7 @@ namespace GeneXus.Programs {
 
       public override string GetPgmdesc( )
       {
-         return "Page Template" ;
+         return context.GetMessage( "Page Template", "") ;
       }
 
       protected void InitializeNonKey0F25( )
@@ -1823,7 +1833,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2024912630892", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202491315534771", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1838,8 +1848,8 @@ namespace GeneXus.Programs {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("pagetemplate.js", "?2024912630892", false, true);
+         context.AddJavascriptSource("messages."+StringUtil.Lower( context.GetLanguageProperty( "code"))+".js", "?"+GetCacheInvalidationToken( ), false, true);
+         context.AddJavascriptSource("pagetemplate.js", "?202491315534771", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Panel/BootstrapPanelRender.js", "", false, true);
@@ -1883,7 +1893,7 @@ namespace GeneXus.Programs {
          Form.Background = "";
          Form.Textcolor = 0;
          Form.Backcolor = (int)(0xFFFFFF);
-         Form.Caption = "Page Template";
+         Form.Caption = context.GetMessage( "Page Template", "");
          edtPageTemplateId_Jsonclick = "";
          edtPageTemplateId_Enabled = 0;
          edtPageTemplateId_Visible = 1;
@@ -1903,7 +1913,7 @@ namespace GeneXus.Programs {
          Dvpanel_tableattributes_Showcollapseicon = Convert.ToBoolean( 0);
          Dvpanel_tableattributes_Collapsed = Convert.ToBoolean( 0);
          Dvpanel_tableattributes_Collapsible = Convert.ToBoolean( 0);
-         Dvpanel_tableattributes_Title = "General Information";
+         Dvpanel_tableattributes_Title = context.GetMessage( "WWP_TemplateDataPanelTitle", "");
          Dvpanel_tableattributes_Cls = "PanelCard_GrayTitle";
          Dvpanel_tableattributes_Autoheight = Convert.ToBoolean( -1);
          Dvpanel_tableattributes_Autowidth = Convert.ToBoolean( 0);
@@ -2159,9 +2169,7 @@ namespace GeneXus.Programs {
       private int bttBtntrn_delete_Enabled ;
       private int edtPageTemplateId_Enabled ;
       private int edtPageTemplateId_Visible ;
-      private int Dvpanel_tableattributes_Gxcontroltype ;
       private int Wwputilities_Infinitescrollingpage ;
-      private int Wwputilities_Gxcontroltype ;
       private int idxLst ;
       private string sPrefix ;
       private string wcpOGx_mode ;

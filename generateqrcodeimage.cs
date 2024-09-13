@@ -65,11 +65,11 @@ namespace GeneXus.Programs {
       {
          /* GeneXus formulas */
          /* Output device settings */
-         AV11key = "76a2173be6393254e72ffa4d6df1030a3d2f94a3bb6d4a6e69a2cda0e056cb13";
-         AV12nonce = "10dd993308d37a15b55f64a0e763f353";
+         AV11key = context.GetMessage( "76a2173be6393254e72ffa4d6df1030a3d2f94a3bb6d4a6e69a2cda0e056cb13", "");
+         AV12nonce = context.GetMessage( "10dd993308d37a15b55f64a0e763f353", "");
          AV13EncryptedEmail = Encrypt64( AV19email, AV11key);
-         AV14EncryptedPassword = Encrypt64( "user123", AV11key);
-         AV16EncryptedContent = "{\"user\": \"" + AV13EncryptedEmail + "\", \"code\": \"" + AV14EncryptedPassword + "\"}";
+         AV14EncryptedPassword = Encrypt64( context.GetMessage( "user123", ""), AV11key);
+         AV16EncryptedContent = "{\"user\": \"" + AV13EncryptedEmail + context.GetMessage( "\", \"code\": \"", "") + AV14EncryptedPassword + "\"}";
          AV15FinalEncryption = AV17SymmetricBlockCipher.doaeadencrypt("AES", "AEAD_EAX", AV11key, 128, AV12nonce, AV16EncryptedContent);
          AV8linkURL = AV18GenerateQRCode.generateandsaveqrcode(AV15FinalEncryption, "Resources/Qrcode.png");
          AV10QRCodeImage = AV8linkURL;

@@ -492,7 +492,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[2] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV46Amenitieswwds_3_tfamenitiesname_sel)) && ! ( StringUtil.StrCmp(AV46Amenitieswwds_3_tfamenitiesname_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV46Amenitieswwds_3_tfamenitiesname_sel)) && ! ( StringUtil.StrCmp(AV46Amenitieswwds_3_tfamenitiesname_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.AmenitiesName = ( :AV46Amenitieswwds_3_tfamenitiesname_sel))");
          }
@@ -500,7 +500,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[3] = 1;
          }
-         if ( StringUtil.StrCmp(AV46Amenitieswwds_3_tfamenitiesname_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV46Amenitieswwds_3_tfamenitiesname_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.AmenitiesName))=0))");
          }
@@ -512,7 +512,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[4] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV48Amenitieswwds_5_tfamenitiestypename_sel)) && ! ( StringUtil.StrCmp(AV48Amenitieswwds_5_tfamenitiestypename_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV48Amenitieswwds_5_tfamenitiestypename_sel)) && ! ( StringUtil.StrCmp(AV48Amenitieswwds_5_tfamenitiestypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T2.AmenitiesTypeName = ( :AV48Amenitieswwds_5_tfamenitiestypename_sel))");
          }
@@ -520,7 +520,7 @@ namespace GeneXus.Programs {
          {
             GXv_int1[5] = 1;
          }
-         if ( StringUtil.StrCmp(AV48Amenitieswwds_5_tfamenitiestypename_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV48Amenitieswwds_5_tfamenitiestypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T2.AmenitiesTypeName))=0))");
          }
@@ -562,7 +562,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[2] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV46Amenitieswwds_3_tfamenitiesname_sel)) && ! ( StringUtil.StrCmp(AV46Amenitieswwds_3_tfamenitiesname_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV46Amenitieswwds_3_tfamenitiesname_sel)) && ! ( StringUtil.StrCmp(AV46Amenitieswwds_3_tfamenitiesname_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T1.AmenitiesName = ( :AV46Amenitieswwds_3_tfamenitiesname_sel))");
          }
@@ -570,7 +570,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[3] = 1;
          }
-         if ( StringUtil.StrCmp(AV46Amenitieswwds_3_tfamenitiesname_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV46Amenitieswwds_3_tfamenitiesname_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T1.AmenitiesName))=0))");
          }
@@ -582,7 +582,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[4] = 1;
          }
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV48Amenitieswwds_5_tfamenitiestypename_sel)) && ! ( StringUtil.StrCmp(AV48Amenitieswwds_5_tfamenitiestypename_sel, "<#Empty#>") == 0 ) )
+         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV48Amenitieswwds_5_tfamenitiestypename_sel)) && ! ( StringUtil.StrCmp(AV48Amenitieswwds_5_tfamenitiestypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 ) )
          {
             AddWhere(sWhereString, "(T2.AmenitiesTypeName = ( :AV48Amenitieswwds_5_tfamenitiestypename_sel))");
          }
@@ -590,7 +590,7 @@ namespace GeneXus.Programs {
          {
             GXv_int3[5] = 1;
          }
-         if ( StringUtil.StrCmp(AV48Amenitieswwds_5_tfamenitiestypename_sel, "<#Empty#>") == 0 )
+         if ( StringUtil.StrCmp(AV48Amenitieswwds_5_tfamenitiestypename_sel, context.GetMessage( "<#Empty#>", "")) == 0 )
          {
             AddWhere(sWhereString, "((char_length(trim(trailing ' ' from T2.AmenitiesTypeName))=0))");
          }
