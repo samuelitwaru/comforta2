@@ -39,7 +39,7 @@
       <add  key="DateFormat" value="MDY"/>
       <add  key="YearLimit" value="1940"/>
       <add  key="TimeAmPmFormat" value="12"/>
-      <add  key="VER_STAMP" value="20240912.032556"/>
+      <add  key="VER_STAMP" value="20240923.143752"/>
       <add  key="CS_BLOB_PATH" value="PublicTempStorage"/>
       <add  key="TMPMEDIA_DIR" value="PrivateTempStorage"/>
       <add  key="PRINT_LAYOUT_METADATA_DIR" value="LayoutMetadata"/>
@@ -72,7 +72,7 @@
       <add  key="wcf:serviceHostingEnvironment:useClassicReadEntityBodyMode" value="true"/>
       <add  key="HTTP_PROTOCOL" value="Unsecure"/>
       <add  key="SAMESITE_COOKIE" value="Lax"/>
-      <add  key="CACHE_INVALIDATION_TOKEN" value="202491316195661"/>
+      <add  key="CACHE_INVALIDATION_TOKEN" value="202492317444180"/>
       <add  key="CORS_ALLOW_ORIGIN" value=""/>
       <add  key="LOG_OUTPUT" value="RollingFile"/>
       <add  key="MaxFileUploadSize" value="528000000"/>

@@ -6,6 +6,12 @@
 	"Events": [
 	],
 	"Properties": [
+		{
+			"Id": "Prop",
+			"Name": "Prop",
+			"Type": "sdt",
+			"Default": ""
+		} 
 	],
 	"Methods": {
 		"Public": [
